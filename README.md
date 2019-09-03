@@ -90,4 +90,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Original source
 
-[gatsby-portfolio-dev]('https://github.com/smakosh/gatsby-portfolio-dev)
+[gatsby-portfolio-dev]('https://github.com/smakosh/gatsby-portfolio-dev')
