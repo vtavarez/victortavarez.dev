@@ -1,9 +1,9 @@
 {
-  "name": "portfolio",
+  "name": "victortavarez.dev",
   "private": true,
-  "description": "A simple portfolio for developers",
+  "description": "My personal website.",
   "version": "0.1.1",
-  "author": "Smakosh <ismai23l@hotmail.com>",
+  "author": "vtavarez <victor.j.tavarez@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.0",
     "dotenv": "^6.2.0",
@@ -21,15 +21,18 @@
     "gatsby-plugin-sharp": "^2.0.14",
     "gatsby-plugin-sitemap": "^2.0.3",
     "gatsby-plugin-styled-components": "^3.0.4",
+    "gatsby-plugin-transition-link": "^1.12.4",
+    "gatsby-source-contentful": "^2.1.30",
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-source-graphql": "^2.0.19",
     "gatsby-transformer-sharp": "^2.1.8",
+    "gsap": "^2.1.3",
     "prop-types": "^15.6.2",
     "react": "^16.8.6",
-    "react-anchor-link-smooth-scroll": "^1.0.11",
     "react-dom": "^16.8.6",
     "react-google-recaptcha": "^1.0.5",
     "react-helmet": "^5.2.0",
+    "react-markdown": "^4.2.1",
     "styled-components": "^4.1.3",
     "yup": "^0.26.6"
   },
@@ -59,9 +62,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:smakosh/gatsby-portfolio-dev.git"
-  },
-  "bugs": {
-    "url": "https://github.com/smakosh/gatsby-portfolio-dev/issues"
+    "url": "git@github.com:vtavarez/victortavarez.dev.git"
   }
 }

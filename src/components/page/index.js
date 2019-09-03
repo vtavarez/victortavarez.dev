@@ -1,4 +1,5 @@
-export * from './Intro'
+export * from './Landing'
 export * from './Skills'
 export * from './Contact'
 export * from './Projects'
+export * from './Blog'

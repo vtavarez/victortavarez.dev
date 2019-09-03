@@ -3,11 +3,12 @@ import styled from 'styled-components'
 export const Input = styled.input`
 	width: 100%;
 	box-sizing: border-box;
-	border: 2px solid #6c63ff;
+	border: 2px solid transparent;
 	padding: 0.8rem 1rem;
-	border-radius: 7px;
 	margin-bottom: 0.5rem;
 	transition: 0.3s;
+	border-radius: 7px;
+	background-color: #ecf0f1;
 
 	${({ error }) =>
 		error &&
@@ -16,6 +17,6 @@ export const Input = styled.input`
 	`}
 
 	&::placeholder {
-		color: #a7a7a7;
+		color: #6d6d6d;
 	}
 `

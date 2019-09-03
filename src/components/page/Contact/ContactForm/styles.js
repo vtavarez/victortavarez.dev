@@ -15,4 +15,8 @@ export const Center = styled.div`
 export const InputField = styled.div`
 	position: relative;
 	margin-bottom: 1rem;
+
+	&:nth-child(0) {
+		margin-left: 5px;
+	}
 `

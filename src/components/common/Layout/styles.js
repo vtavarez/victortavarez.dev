@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 export const Global = createGlobalStyle`
   html {
@@ -623,4 +623,10 @@ export const Global = createGlobalStyle`
       }
     }
   }
+`
+
+export const Page = styled.div`
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 `

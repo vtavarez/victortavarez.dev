@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 
 export const Button = styled.button`
+	position: relative;
+	display: block;
+	width: 167px;
+	height: 45px;
 	cursor: pointer;
-	border-radius: 3px;
-	padding: 0.7rem 2.5rem;
 	border: none;
 	-webkit-appearance: none;
 	-webkit-touch-callout: none;
@@ -12,8 +14,24 @@ export const Button = styled.button`
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	color: #fff;
-	background: #0074d9;
+	color: #212121;
+	background: transparent;
+	z-index: 2;
+	font-size: 14pt;
+	font-weight: 600;
+
+	&::after {
+		content: ' ';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		z-index: -1;
+		background: rgba(46, 204, 113, 1);
+		transform: rotate(2deg);
+	}
 
 	&:focus {
 		outline: none;

@@ -1,24 +1,21 @@
 module.exports = {
-	defaultTitle: 'John Doe',
-	logo: 'https://portfolio.smakosh.com/favicon/favicon-512.png',
-	author: 'John Doe',
-	url: 'https://portfolio.smakosh.com',
-	legalName: 'John Doe',
-	defaultDescription: 'I’m John and I’m a Backend & Devops engineer!',
+	defaultTitle: 'Victor Tavarez Front-End Engineer.',
+	logo: 'undefined',
+	author: 'Victor Tavarez',
+	url: 'https://victortavarez.dev',
+	legalName: 'Victor Tavarez',
+	defaultDescription:
+		"Hi there! I'm Victor and I'm a Front-End Engineer! Besides cooking up super awesome 🔥 UI's for clients! I also like to work on open source projects, blog about ✨ new frameworks and technologies, and take long walks on the beach...jk..no but really. 😭",
 	socialLinks: {
-		twitter: 'http://www.twitter.com/smakosh',
-		github: 'https://github.com/smakosh',
-		linkedin: 'https://www.linkedin.com/in/ismail-ghallou-630149122/',
-		instagram: 'https://instagram.com/smakosh19',
-		youtube: 'https://www.youtube.com/user/smakoshthegamer',
-		google: 'https://plus.google.com/u/0/+IsmailSmakoshGhallou',
+		twitter: 'http://www.twitter.com/imvictortavarez',
+		github: 'https://github.com/vtavarez',
 	},
 	googleAnalyticsID: 'UA-88875900-4',
 	themeColor: '#6b63ff',
 	backgroundColor: '#6b63ff',
 	social: {
 		facebook: 'appId',
-		twitter: '@smakosh',
+		twitter: '@imvictortavarez',
 	},
 	address: {
 		city: 'City',
@@ -31,5 +28,5 @@ module.exports = {
 		phone: 'phone number',
 	},
 	foundingDate: '2018',
-	recaptcha_key: '6Lcs6lQUAAAAAEwhNH2IsobIe2csdda4TU3efpMN'
+	recaptcha_key: '6Lcs6lQUAAAAAEwhNH2IsobIe2csdda4TU3efpMN',
 }

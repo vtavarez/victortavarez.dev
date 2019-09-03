@@ -1,12 +1,18 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { Container } from 'Common'
 import NavbarLinks from '../NavbarLinks'
-import { Wrapper } from './styles'
+import { Wrapper, Emoji } from './styles'
 
-const Navbar = () => (
+const Navbar = ({ disableIntro }) => (
 	<Wrapper as={Container}>
-		<Link to="/">John Doe</Link>
+		<AniLink paintDrip hex="#FFFFFF" to="/">
+			<Emoji>
+				<span role="img" aria-label="Victor">
+					👨🏽
+				</span>
+			</Emoji>
+		</AniLink>
 		<NavbarLinks desktop />
 	</Wrapper>
 )

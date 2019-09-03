@@ -36,6 +36,13 @@ module.exports = {
 			},
 		},
 		{
+			resolve: 'gatsby-source-contentful',
+			options: {
+				spaceId: 'nriroiwwsvl5',
+				accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+			},
+		},
+		{
 			resolve: 'gatsby-plugin-nprogress',
 			options: {
 				color: config.themeColor,
@@ -71,7 +78,7 @@ module.exports = {
 			resolve: 'gatsby-plugin-manifest',
 			options: {
 				name: config.defaultTitle,
-				short_name: 'starter',
+				short_name: 'folio',
 				start_url: '/',
 				background_color: config.backgroundColor,
 				theme_color: config.themeColor,
@@ -92,5 +99,6 @@ module.exports = {
 				},
 			},
 		},
+		`gatsby-plugin-transition-link`,
 	],
 }

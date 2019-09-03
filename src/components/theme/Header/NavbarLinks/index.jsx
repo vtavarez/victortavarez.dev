@@ -1,12 +1,18 @@
 import React from 'react'
-import AnchorLink from 'react-anchor-link-smooth-scroll'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { Wrapper } from './styles'
 
-const NavbarLinks = ({ desktop }) => (
+const NavbarLinks = ({ desktop, disableIntro }) => (
 	<Wrapper desktop={desktop}>
-		<AnchorLink href="#about">About</AnchorLink>
-		<AnchorLink href="#projects">Projects</AnchorLink>
-		<AnchorLink href="#contact">Contact</AnchorLink>
+		<AniLink paintDrip color="rebeccapurple" to="/projects">
+			Projects
+		</AniLink>
+		<AniLink paintDrip color="rebeccapurple" to="/blog">
+			Blog
+		</AniLink>
+		<AniLink paintDrip color="rebeccapurple" to="/contact">
+			Contact
+		</AniLink>
 	</Wrapper>
 )
 

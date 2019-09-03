@@ -10,3 +10,7 @@ export const Wrapper = styled.div`
 		color: #212121;
 	}
 `
+
+export const Emoji = styled.div`
+	font-size: 24pt;
+`

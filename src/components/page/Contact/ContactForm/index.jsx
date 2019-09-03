@@ -14,7 +14,7 @@ const ContactForm = ({
 	touched,
 }) => (
 	<Form
-		name="portfolio-dev"
+		name="victor-portfolio"
 		method="post"
 		data-netlify="true"
 		data-netlify-recaptcha="true"
@@ -27,10 +27,22 @@ const ContactForm = ({
 				name="name"
 				component="input"
 				aria-label="name"
-				placeholder="Full name*"
+				placeholder="Your name"
 				error={touched.name && errors.name}
 			/>
 			<ErrorMessage component={Error} name="name" />
+		</InputField>
+		<InputField>
+			<Input
+				as={FastField}
+				type="text"
+				name="digits"
+				component="input"
+				aria-label="phone number"
+				placeholder="Your digits"
+				error={touched.digits && errors.digits}
+			/>
+			<ErrorMessage component={Error} name="digits" />
 		</InputField>
 		<InputField>
 			<Input
@@ -40,7 +52,7 @@ const ContactForm = ({
 				as={FastField}
 				type="email"
 				name="email"
-				placeholder="Email*"
+				placeholder="Your email address"
 				error={touched.email && errors.email}
 			/>
 			<ErrorMessage component={Error} name="email" />
@@ -54,12 +66,41 @@ const ContactForm = ({
 				rows="8"
 				type="text"
 				name="message"
-				placeholder="Message*"
+				placeholder="Name of project or brief description"
 				error={touched.message && errors.message}
 			/>
 			<ErrorMessage component={Error} name="message" />
 		</InputField>
-		{values.name && values.email && values.message && (
+		<InputField>
+			<Input
+				as={FastField}
+				type="text"
+				name="budget"
+				component="input"
+				aria-label="Project budget"
+				placeholder="Project budget"
+				error={touched.budget && errors.budget}
+			/>
+			<ErrorMessage component={Error} name="budget" />
+		</InputField>
+		<InputField>
+			<Input
+				as={FastField}
+				type="text"
+				name="turnaround"
+				component="input"
+				aria-label="Project turnaround time"
+				placeholder="Project turnaround time"
+				error={touched.turnaround && errors.turnaround}
+			/>
+			<ErrorMessage component={Error} name="turnaround" />
+		</InputField>
+		{values.name &&
+			values.digits &&
+			values.email &&
+			values.message &&
+			values.budget &&
+			values.turnaround && (
 			<InputField>
 				<FastField
 					component={Recaptcha}
@@ -81,8 +122,8 @@ const ContactForm = ({
 			</InputField>
 		)}
 		<Center>
-			<Button secondary type="submit" disabled={isSubmitting}>
-				Submit
+			<Button type="submit" disabled={isSubmitting}>
+				Lets do this!
 			</Button>
 		</Center>
 	</Form>
@@ -91,22 +132,36 @@ const ContactForm = ({
 export default withFormik({
 	mapPropsToValues: () => ({
 		name: '',
+		digits: '',
 		email: '',
 		message: '',
+		budget: '',
+		turnaround: '',
 		recaptcha: '',
 		success: false,
 	}),
 	validationSchema: () =>
 		Yup.object().shape({
-			name: Yup.string().required('Full name field is required'),
+			name: Yup.string().required(
+				"Whoops! Pretty sure I'll need your name. 😅"
+			),
+			digits: Yup.string().required(
+				"Whoops! Pretty sure I'll need your name. 😅"
+			),
 			email: Yup.string()
-				.email('Invalid email')
-				.required('Email field is required'),
-			message: Yup.string().required('Message field is required'),
+				.email()
+				.required('Pssst.. I think you forgot somthing! ☝️'),
+			message: Yup.string().required("You sure you've got nothing to say? 🙂"),
+			budget: Yup.string().required(
+				"Don't worry doesn't need to be an exact number! 😋"
+			),
+			turnaround: Yup.string().required(
+				"As much as I'd looove a project with no deadline 😂"
+			),
 			recaptcha: Yup.string().required('Robots are not welcome yet!'),
 		}),
 	handleSubmit: async (
-		{ name, email, message, recaptcha },
+		{ name, digits, email, message, budget, turnaround, recaptcha },
 		{ setSubmitting, resetForm, setFieldValue }
 	) => {
 		try {
@@ -121,10 +176,13 @@ export default withFormik({
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 				body: encode({
-					'form-name': 'portfolio-dev',
+					'form-name': 'victor-portfolio',
 					name,
+					digits,
 					email,
 					message,
+					budget,
+					turnaround,
 					'g-recaptcha-response': recaptcha,
 				}),
 			})
