@@ -6,7 +6,7 @@ import { Wrapper, Emoji } from './styles'
 
 const Navbar = ({ disableIntro }) => (
 	<Wrapper as={Container}>
-		<AniLink paintDrip hex="#FFFFFF" to="/">
+		<AniLink paintDrip hex="#2ecc71" to="/">
 			<Emoji>
 				<span role="img" aria-label="Victor">
 					👨🏽

@@ -35,3 +35,30 @@ export const Wrapper = styled.div`
 			}
 	`}
 `
+
+export const Link = styled.div`
+	display: inline-block;
+	position: relative;
+	width: fit-content;
+	height: 25px;
+	cursor: pointer;
+
+	&::after {
+		content: ' ';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 5px;
+		background-color: #2ecc71;
+		visibility: hidden;
+		transform: scaleX(0);
+		transition: all 0.3s ease-in-out 0s;
+	}
+
+	&:hover:after {
+		visibility: visible;
+		transform: scaleX(1);
+	}
+`

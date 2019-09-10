@@ -1,0 +1,53 @@
+import styled from 'styled-components'
+
+export const Wrapper = styled.div`
+	padding-bottom: 4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@media (max-width: 960px) {
+		flex-direction: column;
+	}
+`
+
+export const Details = styled.div`
+	@media (max-width: 960px) {
+		padding-right: unset;
+		width: 100%;
+		order: 1;
+	}
+
+	h1 {
+		margin-bottom: 1rem;
+		font-size: 20pt;
+		color: #212121;
+	}
+
+	p {
+		margin: 1.2rem 0;
+		font-size: 12pt;
+		font-weight: normal;
+		color: #666666;
+		word-spacing: 2px;
+	}
+`
+export const PostInfo = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin-bottom: 2rem;
+`
+
+export const PostDate = styled.span`
+	font-size: 11pt;
+	color: #707070;
+	padding-right: 5px;
+`
+
+export const ReadingTime = styled.span`
+	font-size: 11pt;
+	color: #707070;
+	padding-left: 5px;
+`

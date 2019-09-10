@@ -1,6 +1,6 @@
 module.exports = {
-	defaultTitle: 'Victor Tavarez Front-End Engineer.',
-	logo: 'undefined',
+	defaultTitle: 'Victor Tavarez | Front-End Engineer.',
+	logo: null,
 	author: 'Victor Tavarez',
 	url: 'https://victortavarez.dev',
 	legalName: 'Victor Tavarez',
@@ -11,8 +11,8 @@ module.exports = {
 		github: 'https://github.com/vtavarez',
 	},
 	googleAnalyticsID: 'UA-88875900-4',
-	themeColor: '#6b63ff',
-	backgroundColor: '#6b63ff',
+	themeColor: '#2ecc71',
+	backgroundColor: '#ffffff',
 	social: {
 		facebook: 'appId',
 		twitter: '@imvictortavarez',
@@ -27,6 +27,6 @@ module.exports = {
 		email: 'email',
 		phone: 'phone number',
 	},
-	foundingDate: '2018',
+	foundingDate: '2019',
 	recaptcha_key: '6Lcs6lQUAAAAAEwhNH2IsobIe2csdda4TU3efpMN',
 }

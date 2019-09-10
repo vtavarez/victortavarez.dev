@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-	padding: 4rem 0;
+	padding-bottom: 4rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -97,4 +97,29 @@ export const ReadingTime = styled.span`
 	font-size: 11pt;
 	color: #707070;
 	padding-left: 5px;
+`
+export const PostTitle = styled.h1`
+	position: relative;
+	width: fit-content;
+	height: 35px;
+	cursor: pointer;
+
+	&::after {
+		content: ' ';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 5px;
+		background-color: #212121;
+		visibility: hidden;
+		transform: scaleX(0);
+		transition: all 0.3s ease-in-out 0s;
+	}
+
+	&:hover:after {
+		visibility: visible;
+		transform: scaleX(1);
+	}
 `

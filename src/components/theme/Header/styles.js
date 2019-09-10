@@ -3,6 +3,11 @@ import styled from 'styled-components'
 export const Wrapper = styled.div`
 	background: transparent;
 	width: 100%;
+	background-image: url('../illustrations/heading-background.svg');
+	background-size: contain;
+	background-position: top left;
+	background-repeat: no-repeat;
+	height: 300px;
 `
 
 export const Overlay = styled.div`

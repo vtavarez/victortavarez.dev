@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-	padding: 4rem 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin-top: -300px;
+	transform: translateY(190px);
 
 	@media (max-width: 960px) {
 		flex-direction: column;

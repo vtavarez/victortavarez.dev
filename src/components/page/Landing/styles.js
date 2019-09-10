@@ -4,10 +4,22 @@ export const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	height: calc(100vh - 200px);
+	height: 470px;
 
-	@media (max-width: 960px) {
-		height: calc(100vh - 290px);
+	&::after {
+		content: ' ';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-image: url('../illustrations/landing-background.jpg');
+		background-size: contain;
+		background-position: right;
+		background-repeat: no-repeat;
+		opacity: 0.05;
+		z-index: -1;
+		transform: translateY(-50px);
 	}
 `
 

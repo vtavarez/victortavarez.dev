@@ -22,11 +22,11 @@ export const Landing = () => {
 						🔥
 					</span>{' '}
 					UI's for clients! I also like to work on{' '}
-					<AniLink paintDrip hex="#FFFFFF" to="/projects">
+					<AniLink paintDrip hex="#2ecc71" to="/projects/">
 						open source projects
 					</AniLink>
 					,{' '}
-					<AniLink paintDrip hex="#FFFFFF" to="/blog">
+					<AniLink paintDrip hex="#2ecc71" to="/blog/">
 						blog
 					</AniLink>{' '}
 					about{' '}
@@ -34,7 +34,7 @@ export const Landing = () => {
 						✨
 					</span>{' '}
 					new frameworks and technologies, expand my current{' '}
-					<AniLink paintDrip hex="#FFFFFF" to="/skills">
+					<AniLink paintDrip hex="#2ecc71" to="/skills/">
 						skill set
 					</AniLink>
 					, and take long walks on the beach...jk{'  '}
@@ -43,7 +43,7 @@ export const Landing = () => {
 					</span>
 					{'  '}
 					Feel free to{' '}
-					<AniLink paintDrip hex="#FFFFFF" to="/contact">
+					<AniLink paintDrip hex="#2ecc71" to="/contact/">
 						get in touch.
 					</AniLink>
 				</h4>

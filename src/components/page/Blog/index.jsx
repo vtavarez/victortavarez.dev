@@ -2,7 +2,16 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Container } from 'Common'
 import ReactMarkdown from 'react-markdown'
-import { Wrapper, Details, Post, Button, ReadingTime, PostDate } from './styles'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import {
+	Wrapper,
+	Details,
+	Post,
+	Button,
+	ReadingTime,
+	PostDate,
+	PostTitle,
+} from './styles'
 
 export const Blog = () => {
 	const {
@@ -12,37 +21,31 @@ export const Blog = () => {
 			allContentfulPost {
 				edges {
 					node {
-						id
-						title
 						slug
+						title
 						date
 						readingTime
 						intro
-						content {
-							content
-						}
 					}
 				}
 			}
 		}
 	`)
 
-	console.log(edges)
-
 	return (
 		<Wrapper as={Container}>
 			<Details>
-				{edges.map(({ node: post }) => (
-					<Post key={post.id}>
-						<h1>{post.title}</h1>
+				{edges.map(({ node: { slug, title, date, readingTime, intro } }) => (
+					<Post key={slug}>
+						<PostTitle>{title}</PostTitle>
 						<div>
-							<PostDate>Posted on {post.date}</PostDate>
-							<ReadingTime>Reading time: {post.readingTime}min</ReadingTime>
+							<PostDate>Posted on {date}</PostDate>
+							<ReadingTime>Reading time: {readingTime}min</ReadingTime>
 						</div>
-						<p>
-							<ReactMarkdown source={post.intro} />
-						</p>
-						<Button>Read more »</Button>
+						<ReactMarkdown source={intro} />
+						<AniLink paintDrip color="rebeccapurple" to={`/${slug}/`}>
+							<Button>Read more »</Button>
+						</AniLink>
 					</Post>
 				))}
 			</Details>

@@ -1,14 +1,25 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
+	display: flex;
+	align-items: flex-end;
 	margin-top: auto;
-	padding-bottom: 4rem;
+	background-image: url('../illustrations/footer-background.svg');
+	background-size: contain;
+	background-position: bottom right;
+	background-repeat: no-repeat;
+	height: 300px;
+
+	@media (max-width: 680px) {
+		background-position: bottom;
+	}
 `
 
 export const Flex = styled.div`
 	display: flex;
 	align-items: flex-end;
 	justify-content: space-between;
+	padding-bottom: 4rem;
 
 	@media (max-width: 680px) {
 		flex-direction: column;

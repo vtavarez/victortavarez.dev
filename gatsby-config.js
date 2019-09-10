@@ -78,7 +78,7 @@ module.exports = {
 			resolve: 'gatsby-plugin-manifest',
 			options: {
 				name: config.defaultTitle,
-				short_name: 'folio',
+				short_name: 'victortavarez.dev',
 				start_url: '/',
 				background_color: config.backgroundColor,
 				theme_color: config.themeColor,

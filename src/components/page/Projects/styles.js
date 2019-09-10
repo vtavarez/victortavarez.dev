@@ -1,6 +1,35 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div``
+export const Wrapper = styled.div`
+	position: relative;
+
+	&::after {
+		content: ' ';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 700px;
+		transform: translateY(-135px);
+		background-image: url('../illustrations/projects-background.svg');
+		background-size: contain;
+		background-position: top right;
+		background-repeat: no-repeat;
+		z-index: -1;
+		opacity: 0.05;
+		margin-right: 30px;
+
+		@media (max-width: 960px) {
+			transform: translateY(-80px);
+		}
+
+		@media (max-width: 680px) {
+			transform: translateY(-70px);
+			margin-right: 0px;
+		}
+	}
+`
 
 export const Grid = styled.div`
 	display: grid;
