@@ -1,7 +1,7 @@
 const path = require('path')
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
-	const blogPostTemplate = path.resolve(`./src/components/page/Blog/Post`)
+	const blogPostTemplate = path.resolve(`./src/components/landing/Blog/Post`)
 	const {
 		data: {
 			allContentfulPost: { edges },
@@ -36,7 +36,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 			},
 		}) => {
 			createPage({
-				path: `/${slug}/`,
+				path: `/blog/${slug}/`,
 				component: blogPostTemplate,
 				context: {
 					title,

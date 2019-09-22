@@ -14,13 +14,13 @@ module.exports = {
 	plugins: [
 		'gatsby-plugin-react-helmet',
 		'gatsby-plugin-styled-components',
-		/* {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'assets',
-        path: '${__dirname}/src/assets',
-      },
-    }, */
+		{
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				name: 'blog',
+				path: `${__dirname}/src/pages/blog`,
+			},
+		},
 		'gatsby-transformer-sharp',
 		'gatsby-plugin-sharp',
 		{
@@ -99,6 +99,6 @@ module.exports = {
 				},
 			},
 		},
-		`gatsby-plugin-transition-link`,
+		'gatsby-plugin-transition-link',
 	],
 }

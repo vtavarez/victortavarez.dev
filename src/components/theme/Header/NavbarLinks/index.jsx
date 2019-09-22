@@ -1,18 +1,18 @@
 import React from 'react'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
-import { Wrapper, Link } from './styles'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
+import { Wrapper, Underline } from './styles'
 
-const NavbarLinks = ({ desktop, disableIntro }) => (
+const NavbarLinks = ({ desktop }) => (
 	<Wrapper desktop={desktop}>
-		<AniLink paintDrip hex="#2ecc71" to="/projects/">
-			<Link>Projects</Link>
-		</AniLink>
-		<AniLink paintDrip hex="#2ecc71" to="/blog/">
-			<Link>Blog</Link>
-		</AniLink>
-		<AniLink paintDrip hex="#2ecc71" to="/contact/">
-			<Link>Contact</Link>
-		</AniLink>
+		<AnchorLink offset="50" href="#projects">
+			<Underline>Projects</Underline>
+		</AnchorLink>
+		<AnchorLink offset="50" href="#blog">
+			<Underline>Blog</Underline>
+		</AnchorLink>
+		<AnchorLink offset="50" href="#contact">
+			<Underline>Contact</Underline>
+		</AnchorLink>
 	</Wrapper>
 )
 

@@ -36,12 +36,12 @@ export const Wrapper = styled.div`
 	`}
 `
 
-export const Link = styled.div`
+export const Underline = styled.div`
 	display: inline-block;
 	position: relative;
 	width: fit-content;
-	height: 25px;
 	cursor: pointer;
+	vertical-align: center;
 
 	&::after {
 		content: ' ';
@@ -53,12 +53,12 @@ export const Link = styled.div`
 		height: 5px;
 		background-color: #2ecc71;
 		visibility: hidden;
-		transform: scaleX(0);
+		transform: scaleX(0) translateY(8px);
 		transition: all 0.3s ease-in-out 0s;
 	}
 
 	&:hover:after {
 		visibility: visible;
-		transform: scaleX(1);
+		transform: scaleX(1) translateY(8px);
 	}
 `

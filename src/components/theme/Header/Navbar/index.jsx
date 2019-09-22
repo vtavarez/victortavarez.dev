@@ -4,16 +4,12 @@ import { Container } from 'Common'
 import NavbarLinks from '../NavbarLinks'
 import { Wrapper, Emoji } from './styles'
 
-const Navbar = ({ disableIntro }) => (
+const Navbar = ({ hideLinks }) => (
 	<Wrapper as={Container}>
-		<AniLink paintDrip hex="#2ecc71" to="/">
-			<Emoji>
-				<span role="img" aria-label="Victor">
-					👨🏽
-				</span>
-			</Emoji>
+		<AniLink paintDrip color="rebeccapurple" to="/">
+			Victor
 		</AniLink>
-		<NavbarLinks desktop />
+		{!hideLinks && <NavbarLinks desktop />}
 	</Wrapper>
 )
 

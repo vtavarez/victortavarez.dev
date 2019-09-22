@@ -1,13 +1,33 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
+	position: relative;
 	background: transparent;
 	width: 100%;
-	background-image: url('../illustrations/heading-background.svg');
-	background-size: contain;
-	background-position: top left;
-	background-repeat: no-repeat;
-	height: 300px;
+	z-index: 2;
+
+	&::after {
+		content: ' ';
+		position: absolute;
+		height: 300px;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		background-image: url('/illustrations/header-background.svg');
+		background-size: contain;
+		background-position: top left;
+		background-repeat: no-repeat;
+
+		@media (max-width: 960px) {
+			height: 250px;
+		}
+
+		@media (max-width: 680px) {
+			height: 170px;
+		}
+	}
 `
 
 export const Overlay = styled.div`

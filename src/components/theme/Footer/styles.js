@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
 	display: flex;
 	align-items: flex-end;
 	margin-top: auto;
-	background-image: url('../illustrations/footer-background.svg');
+	background-image: url('/illustrations/footer-background.svg');
 	background-size: contain;
 	background-position: bottom right;
 	background-repeat: no-repeat;
