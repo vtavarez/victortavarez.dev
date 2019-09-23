@@ -10,8 +10,18 @@ export const Wrapper = styled.div`
 	background-repeat: no-repeat;
 	height: 300px;
 
+	@media (max-width: 1024px) {
+		padding-bottom: 25px;
+	}
+
+	@media (max-width: 960px) {
+		padding-bottom: 5px;
+	}
+
 	@media (max-width: 680px) {
+		padding-bottom: 10px;
 		background-position: bottom;
+		background-size: contain;
 	}
 `
 

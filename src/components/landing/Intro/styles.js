@@ -14,9 +14,13 @@ export const IntroWrapper = styled.div`
 	align-items: center;
 	justify-content: space-between;
 
+	@media (max-width: 1024px) {
+		padding: 14rem 0 3rem 0;
+	}
+
 	@media (max-width: 960px) {
 		flex-direction: column-reverse;
-		padding: 3rem 0 3rem 0;
+		padding: 4rem 0 3rem 0;
 	}
 `
 
@@ -33,8 +37,16 @@ export const Details = styled.div`
 		font-size: 36pt;
 		color: #212121;
 
-		@media (max-width: 680px) {
+		@media (max-width: 1024px) {
+			font-size: 28pt;
+		}
+
+		@media (max-width: 960px) {
 			font-size: 30pt;
+		}
+
+		@media (max-width: 680px) {
+			font-size: 24pt;
 		}
 	}
 
@@ -45,8 +57,12 @@ export const Details = styled.div`
 		color: #212121;
 		line-height: 1.3;
 
+		@media (max-width: 1024px) {
+			font-size: 18pt;
+		}
+
 		@media (max-width: 680px) {
-			font-size: 20pt;
+			font-size: 17pt;
 		}
 	}
 

@@ -20,12 +20,16 @@ export const Wrapper = styled.div`
 		background-position: top left;
 		background-repeat: no-repeat;
 
-		@media (max-width: 960px) {
+		@media (max-width: 1024px) {
 			height: 250px;
 		}
 
+		@media (max-width: 960px) {
+			height: 220px;
+		}
+
 		@media (max-width: 680px) {
-			height: 170px;
+			height: 120px;
 		}
 	}
 `

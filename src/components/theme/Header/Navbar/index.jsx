@@ -9,7 +9,7 @@ const Navbar = ({ hideLinks }) => (
 		<AniLink paintDrip color="rebeccapurple" to="/">
 			Victor
 		</AniLink>
-		{!hideLinks && <NavbarLinks desktop />}
+		{ !hideLinks && <NavbarLinks desktop /> }
 	</Wrapper>
 )
 
