@@ -27,7 +27,7 @@ export const Intro = () => {
 						</AnimatedEmoji>{' '}
 						I’m Victor and I’m a Front-End Engineer!
 					</h1>
-					<Typing startDelay="2500" speed={30}>
+					<Typing startDelay={2500} speed={30}>
 						<h4>
 							Besides cooking up awesome UI's for clients! I also like to work
 							on{' '}

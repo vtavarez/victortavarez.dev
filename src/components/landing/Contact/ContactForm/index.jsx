@@ -34,18 +34,6 @@ const ContactForm = ({
 		</InputField>
 		<InputField>
 			<Input
-				as={FastField}
-				type="text"
-				name="digits"
-				component="input"
-				aria-label="phone number"
-				placeholder="Your digits"
-				error={touched.digits && errors.digits}
-			/>
-			<ErrorMessage component={Error} name="digits" />
-		</InputField>
-		<InputField>
-			<Input
 				id="email"
 				aria-label="email"
 				component="input"
@@ -71,36 +59,7 @@ const ContactForm = ({
 			/>
 			<ErrorMessage component={Error} name="message" />
 		</InputField>
-		<InputField>
-			<Input
-				as={FastField}
-				type="text"
-				name="budget"
-				component="input"
-				aria-label="Project budget"
-				placeholder="Project budget"
-				error={touched.budget && errors.budget}
-			/>
-			<ErrorMessage component={Error} name="budget" />
-		</InputField>
-		<InputField>
-			<Input
-				as={FastField}
-				type="text"
-				name="turnaround"
-				component="input"
-				aria-label="Project turnaround time"
-				placeholder="Project turnaround time"
-				error={touched.turnaround && errors.turnaround}
-			/>
-			<ErrorMessage component={Error} name="turnaround" />
-		</InputField>
-		{values.name &&
-			values.digits &&
-			values.email &&
-			values.message &&
-			values.budget &&
-			values.turnaround && (
+		{values.name && values.email && values.message && (
 			<InputField>
 				<FastField
 					component={Recaptcha}
@@ -132,11 +91,8 @@ const ContactForm = ({
 export default withFormik({
 	mapPropsToValues: () => ({
 		name: '',
-		digits: '',
 		email: '',
 		message: '',
-		budget: '',
-		turnaround: '',
 		recaptcha: '',
 		success: false,
 	}),
@@ -145,23 +101,14 @@ export default withFormik({
 			name: Yup.string().required(
 				"Whoops! Pretty sure I'll need your name. 😅"
 			),
-			digits: Yup.string().required(
-				"Whoops! Pretty sure I'll need your name. 😅"
-			),
 			email: Yup.string()
 				.email()
 				.required('Pssst.. I think you forgot somthing! ☝️'),
 			message: Yup.string().required("You sure you've got nothing to say? 🙂"),
-			budget: Yup.string().required(
-				"Don't worry doesn't need to be an exact number! 😋"
-			),
-			turnaround: Yup.string().required(
-				"As much as I'd looove a project with no deadline 😂"
-			),
 			recaptcha: Yup.string().required('Robots are not welcome yet!'),
 		}),
 	handleSubmit: async (
-		{ name, digits, email, message, budget, turnaround, recaptcha },
+		{ name, email, message, recaptcha },
 		{ setSubmitting, resetForm, setFieldValue }
 	) => {
 		try {
@@ -178,11 +125,8 @@ export default withFormik({
 				body: encode({
 					'form-name': 'victor-portfolio',
 					name,
-					digits,
 					email,
 					message,
-					budget,
-					turnaround,
 					'g-recaptcha-response': recaptcha,
 				}),
 			})
