@@ -4,7 +4,8 @@ export const Wrapper = styled.div`
 	padding-bottom: 4rem;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
+	flex-direction: row-reverse;
 
 	@media (max-width: 960px) {
 		flex-direction: column;
@@ -12,8 +13,7 @@ export const Wrapper = styled.div`
 `
 
 export const Details = styled.div`
-	padding-right: 2rem;
-	width: 90%;
+	flex: 1;
 
 	@media (max-width: 960px) {
 		padding-right: unset;
@@ -34,10 +34,6 @@ export const Details = styled.div`
 		color: #666666;
 		word-spacing: 2px;
 	}
-`
-
-export const Post = styled.div`
-	margin-bottom: 2rem;
 `
 
 export const Button = styled.button`
@@ -69,7 +65,7 @@ export const Button = styled.button`
 		right: 0;
 		width: 100%;
 		z-index: -1;
-		background: rgba(46, 204, 113, 1);
+		background: #2ecc71;
 		transform: rotate(2deg);
 	}
 
@@ -112,7 +108,7 @@ export const PostTitle = styled.h1`
 		right: 0;
 		width: 100%;
 		height: 5px;
-		background-color: #212121;
+		background-color: #2ecc71;
 		visibility: hidden;
 		transform: scaleX(0);
 		transition: all 0.3s ease-in-out 0s;

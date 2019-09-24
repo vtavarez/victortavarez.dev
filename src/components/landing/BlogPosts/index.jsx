@@ -6,7 +6,6 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import {
 	Wrapper,
 	Details,
-	Post,
 	Button,
 	ReadingTime,
 	PostDate,
@@ -33,24 +32,22 @@ export const BlogPosts = () => {
 	`)
 
 	return (
-		<Wrapper as={Container}>
-			<Details>
-				{edges
-					.slice(0, 3)
-					.map(({ node: { slug, title, date, readingTime, intro } }) => (
-						<Post key={slug}>
-							<PostTitle>{title}</PostTitle>
-							<div>
-								<PostDate>Posted on {date}</PostDate>
-								<ReadingTime>Reading time: {readingTime}min</ReadingTime>
-							</div>
-							<ReactMarkdown source={intro} />
-							<AniLink paintDrip color="rebeccapurple" to={`/blog/${slug}/`}>
-								<Button>Read more »</Button>
-							</AniLink>
-						</Post>
-					))}
-			</Details>
+		<Wrapper id="blog" as={Container}>
+			{edges
+				.slice(0, 2)
+				.map(({ node: { slug, title, date, readingTime, intro } }) => (
+					<Details key={slug}>
+						<PostTitle>{title}</PostTitle>
+						<div>
+							<PostDate>Posted on {date}</PostDate>
+							<ReadingTime>Reading time: {readingTime}min</ReadingTime>
+						</div>
+						<ReactMarkdown source={intro} />
+						<AniLink paintDrip hex="#2ecc71" to={`/blog/${slug}/`}>
+							<Button>Read more »</Button>
+						</AniLink>
+					</Details>
+				))}
 		</Wrapper>
 	)
 }

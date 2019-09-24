@@ -7,8 +7,8 @@ export const Input = styled.input`
 	padding: 0.8rem 1rem;
 	margin-bottom: 0.5rem;
 	transition: 0.3s;
-	border-radius: 7px;
 	background-color: #ecf0f1;
+	border-radius: 7px;
 
 	${({ error }) =>
 		error &&

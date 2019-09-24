@@ -3,9 +3,7 @@ import styled from 'styled-components'
 export const Wrapper = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	margin-top: -300px;
-	transform: translateY(190px);
+	justify-content: space-between;
 
 	@media (max-width: 960px) {
 		flex-direction: column;
@@ -13,8 +11,7 @@ export const Wrapper = styled.div`
 `
 
 export const Details = styled.div`
-	padding-right: 2rem;
-	width: 90%;
+	flex: 1;
 
 	@media (max-width: 960px) {
 		padding-right: unset;
@@ -34,5 +31,18 @@ export const Details = styled.div`
 		font-weight: normal;
 		line-height: 1.3;
 		color: #707070;
+	}
+`
+
+export const Thumbnail = styled.div`
+	flex: 1;
+
+	@media (max-width: 960px) {
+		width: 100%;
+		margin-bottom: 2rem;
+	}
+
+	img {
+		width: 100%;
 	}
 `

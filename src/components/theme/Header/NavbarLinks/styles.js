@@ -51,10 +51,12 @@ export const Underline = styled.div`
 		right: 0;
 		width: 100%;
 		height: 5px;
-		background-color: #2ecc71;
 		visibility: hidden;
 		transform: scaleX(0) translateY(8px);
 		transition: all 0.3s ease-in-out 0s;
+
+		${({ desktop }) =>
+		desktop ? `background-color: #212121` : `background-color: #2ecc71`}
 	}
 
 	&:hover:after {

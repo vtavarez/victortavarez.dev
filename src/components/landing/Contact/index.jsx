@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container } from 'Common'
-import { Wrapper, Details } from './styles'
+import clients from 'Static/illustrations/clients.jpg'
+import { Wrapper, Details, Thumbnail } from './styles'
 import ContactForm from './ContactForm'
 
 export const Contact = () => (
@@ -8,5 +9,8 @@ export const Contact = () => (
 		<Details>
 			<ContactForm />
 		</Details>
+		<Thumbnail>
+			<img src={clients} alt="clients emailing" />
+		</Thumbnail>
 	</Wrapper>
 )

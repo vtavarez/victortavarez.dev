@@ -5,7 +5,7 @@ import skills from 'Static/illustrations/skills.jpg'
 import { Wrapper, SkillsWrapper, Details, Thumbnail } from './styles'
 
 export const Skills = () => (
-	<Wrapper id="about">
+	<Wrapper id="skills">
 		<SkillsWrapper as={Container}>
 			<Thumbnail>
 				<img src={skills} alt="devs using skills to solve problems" />
