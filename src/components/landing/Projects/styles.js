@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
 	position: relative;
-	min-height: 500px;
+	padding-bottom: 4rem;
 `
 
 export const Grid = styled.div`

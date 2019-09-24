@@ -19,6 +19,7 @@ export const Wrapper = styled.div`
 		background-size: contain;
 		background-position: top left;
 		background-repeat: no-repeat;
+		transform: rotateY(180deg);
 
 		@media (max-width: 1024px) {
 			height: 250px;

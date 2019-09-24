@@ -27,7 +27,7 @@ export const Intro = () => {
 						</AnimatedEmoji>{' '}
 						I’m Victor and I’m a Front-End Engineer!
 					</h1>
-					<Typing startDelay={2500} speed={30}>
+					<Typing startDelay={2500} speed={20}>
 						<h4>
 							Besides cooking up awesome UI's for clients! I also like to work
 							on{' '}
@@ -42,7 +42,7 @@ export const Intro = () => {
 					</Typing>
 				</Details>
 				<Thumbnail>
-					<img src={devs} alt="I’m Victor and I’m a Full-Stack Developer!" />
+					<img src={devs} alt="devs collaborating on project" />
 				</Thumbnail>
 			</IntroWrapper>
 		</Wrapper>

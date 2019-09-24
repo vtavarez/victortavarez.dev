@@ -19,6 +19,9 @@ export const Button = styled.button`
 	z-index: 2;
 	font-size: 14pt;
 	font-weight: 600;
+	text-align: center;
+	box-sizing: border-box;
+	padding: 10px 0;
 
 	&::after {
 		content: ' ';

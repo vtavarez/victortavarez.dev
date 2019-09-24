@@ -4,12 +4,12 @@ export const Wrapper = styled.div`
 	padding-bottom: 4rem;
 
 	@media (max-width: 960px) {
-		height: 100vh;
+		min-height: 100vh;
 	}
 `
 
 export const IntroWrapper = styled.div`
-	padding: 8rem 0 4rem 0;
+	padding: 10rem 0 4rem 0;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -38,31 +38,19 @@ export const Details = styled.div`
 		color: #212121;
 
 		@media (max-width: 1024px) {
-			font-size: 28pt;
-		}
-
-		@media (max-width: 960px) {
-			font-size: 30pt;
-		}
-
-		@media (max-width: 680px) {
-			font-size: 24pt;
+			font-size: 32pt;
 		}
 	}
 
 	h4 {
 		margin-bottom: 2.5rem;
-		font-size: 20pt;
+		font-size: 22pt;
 		font-weight: normal;
-		color: #212121;
+		color: #707070;
 		line-height: 1.3;
 
 		@media (max-width: 1024px) {
-			font-size: 18pt;
-		}
-
-		@media (max-width: 680px) {
-			font-size: 17pt;
+			font-size: 21pt;
 		}
 	}
 
