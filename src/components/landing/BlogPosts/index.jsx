@@ -37,10 +37,12 @@ export const BlogPosts = () => {
 				.slice(0, 2)
 				.map(({ node: { slug, title, date, readingTime, intro } }) => (
 					<Details key={slug}>
-						<PostTitle>{title}</PostTitle>
+						<AniLink paintDrip hex="#2ecc71" to={`/blog/${slug}/`}>
+							<PostTitle>{title}</PostTitle>
+						</AniLink>
 						<div>
 							<PostDate>Posted on {date}</PostDate>
-							<ReadingTime>Reading time: {readingTime}min</ReadingTime>
+							<ReadingTime>Reading time: {readingTime} min</ReadingTime>
 						</div>
 						<ReactMarkdown source={intro} />
 						<AniLink paintDrip hex="#2ecc71" to={`/blog/${slug}/`}>

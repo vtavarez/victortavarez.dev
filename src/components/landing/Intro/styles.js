@@ -1,8 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 
 export const Wrapper = styled.div`
-	padding-bottom: 4rem;
-
 	@media (max-width: 960px) {
 		min-height: 100vh;
 	}

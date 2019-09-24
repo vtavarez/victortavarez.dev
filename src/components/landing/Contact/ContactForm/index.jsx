@@ -82,7 +82,7 @@ const ContactForm = ({
 		)}
 		<Center>
 			<Button type="submit" disabled={isSubmitting}>
-				Lets do this!
+				Submit
 			</Button>
 		</Center>
 	</Form>

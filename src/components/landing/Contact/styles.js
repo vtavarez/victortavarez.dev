@@ -3,7 +3,13 @@ import styled from 'styled-components'
 export const Wrapper = styled.div`
 	display: flex;
 	align-items: center;
+`
+
+export const FormWrapper = styled.div`
+	display: flex;
+	align-items: center;
 	justify-content: space-between;
+	padding: 4rem 0;
 
 	@media (max-width: 960px) {
 		flex-direction: column;

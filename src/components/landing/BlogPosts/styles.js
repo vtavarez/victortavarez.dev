@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-	padding-bottom: 4rem;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	flex-direction: row-reverse;
+	padding: 4rem 0;
 
 	@media (max-width: 960px) {
 		flex-direction: column;
@@ -19,6 +18,7 @@ export const Details = styled.div`
 		padding-right: unset;
 		width: 100%;
 		order: 1;
+		padding: 2rem 0;
 	}
 
 	h1 {
@@ -29,7 +29,7 @@ export const Details = styled.div`
 
 	p {
 		margin: 1.2rem 0;
-		font-size: 12pt;
+		font-size: 14pt;
 		font-weight: normal;
 		color: #666666;
 		word-spacing: 2px;
