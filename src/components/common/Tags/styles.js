@@ -1,10 +1,17 @@
 import styled from 'styled-components'
 
-export const Button = styled.button`
+export const Wrapper = styled.div`
+	padding: 2rem 0;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+`
+
+export const Tag = styled.button`
 	position: relative;
 	display: block;
-	width: 167px;
-	height: 45px;
+	width: 100px;
+	height: 25px;
 	cursor: pointer;
 	border: none;
 	-webkit-appearance: none;
@@ -17,11 +24,15 @@ export const Button = styled.button`
 	color: #212121;
 	background: transparent;
 	z-index: 1;
-	font-size: 14pt;
+	font-size: 10pt;
 	font-weight: 600;
 	text-align: center;
 	box-sizing: border-box;
-	padding: 10px 0;
+	padding: 5px 0;
+
+	&:nth-child(n + 2) {
+		margin-left: 10px;
+	}
 
 	&::after {
 		content: ' ';
@@ -33,16 +44,5 @@ export const Button = styled.button`
 		width: 100%;
 		z-index: -1;
 		background: rgba(46, 204, 113, 1);
-		transform: rotate(2deg);
 	}
-
-	&:disabled {
-		background: gray;
-	}
-
-	${({ secondary }) =>
-		secondary &&
-		`
-		background: #001F3F;
-	`}
 `

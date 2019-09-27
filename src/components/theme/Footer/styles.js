@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
 	position: relative;
-	z-index: 2;
 	display: flex;
 	align-items: flex-end;
 	margin-top: auto;
@@ -35,6 +34,10 @@ export const Flex = styled.div`
 	align-items: flex-end;
 	justify-content: space-between;
 	padding-bottom: 4rem;
+
+	@media (max-width: 960px) {
+		padding-bottom: 2rem;
+	}
 
 	@media (max-width: 680px) {
 		flex-direction: column;

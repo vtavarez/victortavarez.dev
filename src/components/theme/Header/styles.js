@@ -10,11 +10,11 @@ export const Wrapper = styled.div`
 		content: ' ';
 		position: absolute;
 		height: 300px;
+		z-index: -1;
 		top: 0;
 		right: 0;
 		bottom: 0;
 		left: 0;
-		z-index: -1;
 		background-image: url('/illustrations/header-background.svg');
 		background-size: contain;
 		background-position: top left;
@@ -26,7 +26,7 @@ export const Wrapper = styled.div`
 		}
 
 		@media (max-width: 960px) {
-			height: 220px;
+			height: 150px;
 		}
 
 		@media (max-width: 680px) {

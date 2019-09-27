@@ -1,12 +1,12 @@
 import React from 'react'
 import { Footer } from 'Theme'
-import { Global } from './styles'
+import { Global, Page } from './styles'
 import './fonts.css'
 
 export const Layout = ({ children }) => (
-	<>
+	<Page>
 		<Global />
 		{children}
 		<Footer />
-	</>
+	</Page>
 )

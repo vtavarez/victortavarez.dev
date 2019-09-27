@@ -21,6 +21,13 @@ module.exports = {
 				path: `${__dirname}/src/pages/blog`,
 			},
 		},
+		{
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				name: 'tag',
+				path: `${__dirname}/src/pages/blog/tag`,
+			},
+		},
 		'gatsby-transformer-sharp',
 		'gatsby-plugin-sharp',
 		{
@@ -92,6 +99,7 @@ module.exports = {
 			options: {
 				alias: {
 					Components: path.resolve(__dirname, 'src/components'),
+					Templates: path.resolve(__dirname, 'src/templates'),
 					Common: path.resolve(__dirname, 'src/components/common'),
 					Static: path.resolve(__dirname, 'static/'),
 					Theme: path.resolve(__dirname, 'src/components/theme'),

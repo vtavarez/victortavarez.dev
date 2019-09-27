@@ -6,10 +6,10 @@ import { Wrapper, Emoji } from './styles'
 
 const Navbar = ({ hideLinks }) => (
 	<Wrapper as={Container}>
-		<AniLink paintDrip color="rebeccapurple" to="/">
+		<AniLink paintDrip hex="#2ecc71" to="/">
 			Victor
 		</AniLink>
-		{ !hideLinks && <NavbarLinks desktop /> }
+		{!hideLinks && <NavbarLinks desktop />}
 	</Wrapper>
 )
 

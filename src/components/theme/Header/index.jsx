@@ -10,7 +10,7 @@ export const Header = ({ hideLinks }) => {
 		<Wrapper>
 			<Overlay sidebar={sidebar} onClick={() => toggle(!sidebar)} />
 			<Navbar hideLinks={hideLinks} />
-			<Hamburger sidebar={sidebar} toggle={toggle} />
+			{!hideLinks && <Hamburger sidebar={sidebar} toggle={toggle} />}
 			<Sidebar sidebar={sidebar} toggle={toggle} />
 		</Wrapper>
 	)
