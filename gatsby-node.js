@@ -16,6 +16,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 				posts: allContentfulPost(sort: { fields: date, order: DESC }) {
 					edges {
 						node {
+							id
 							title
 							slug
 							date
@@ -70,13 +71,41 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 		}
 	)
 
-	group.forEach(tag => {
+	group.forEach(async tag => {
 		const { fieldValue } = tag
+		const {
+			data: {
+				allContentfulPost: { edges: tagEdges },
+			},
+		} = await graphql(
+			`
+				query($tag: String) {
+					allContentfulPost(
+						filter: { tags: { in: [$tag] } }
+						sort: { fields: date, order: DESC }
+					) {
+						edges {
+							node {
+								id
+								date
+								intro
+								readingTime
+								slug
+								tags
+								title
+							}
+						}
+					}
+				}
+			`,
+			{ tag: fieldValue }
+		)
 		createPage({
-			path: `/blog/tag/${fieldValue}`,
+			path: `/blog/tags/${fieldValue}`,
 			component: tagPage,
 			context: {
 				tag: fieldValue,
+				edges: tagEdges,
 			},
 		})
 	})

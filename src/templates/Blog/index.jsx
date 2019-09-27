@@ -20,8 +20,8 @@ export default ({ pageContext: { edges } }) => {
 			<Wrapper as={Container}>
 				<Details>
 					{edges.map(
-						({ node: { slug, title, date, readingTime, intro, tags } }) => (
-							<Article key={slug}>
+						({ node: { id, slug, title, date, readingTime, intro, tags } }) => (
+							<Article key={id}>
 								<Title>
 									<AniLink paintDrip hex="#2ecc71" to={`/blog/${slug}/`}>
 										{title}

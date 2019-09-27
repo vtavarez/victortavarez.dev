@@ -10,7 +10,7 @@ export const Tags = ({ tags }) => (
 				as={AniLink}
 				paintDrip
 				hex="#2ecc71"
-				to={`/blog/tag/${tag}/`}
+				to={`/blog/tags/${tag}/`}
 			>
 				{tag.toUpperCase()}
 			</Tag>
