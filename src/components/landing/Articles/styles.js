@@ -15,7 +15,7 @@ export const ArticlesWrapper = styled.div`
 	padding: 4rem 0;
 
 	@media (max-width: 960px) {
-		flex-direction: column-reverse;
+		flex-direction: column;
 		padding: 2rem 0;
 	}
 `

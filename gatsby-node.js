@@ -2,6 +2,7 @@ const path = require('path')
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
 	const articlePage = path.resolve(`./src/templates/Article`)
+	const tagsPage = path.resolve(`./src/templates/Tags`)
 	const tagPage = path.resolve(`./src/templates/Tag`)
 	const blogPage = path.resolve(`./src/templates/Blog`)
 
@@ -19,7 +20,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 							id
 							title
 							slug
-							date(formatString: "MMMM Do YYYY")
+							date(formatString: "MMMM Do, YYYY")
 							readingTime
 							tags
 							intro
@@ -38,6 +39,8 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 		`
 	)
 
+	// Creates Blog Page
+
 	createPage({
 		path: `/blog/`,
 		component: blogPage,
@@ -45,6 +48,8 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 			edges,
 		},
 	})
+
+	// Creates Article Pages
 
 	edges.forEach(
 		({
@@ -71,7 +76,19 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 		}
 	)
 
-	group.forEach(async tag => {
+	// Creates Tags Page
+
+	createPage({
+		path: `/blog/tags/`,
+		component: tagsPage,
+		context: {
+			group,
+		},
+	})
+
+	// Creates Tag Pages
+
+	group.map(async tag => {
 		const { fieldValue } = tag
 		const {
 			data: {
@@ -87,7 +104,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 						edges {
 							node {
 								id
-								date(formatString: "MMMM Do YYYY")
+								date(formatString: "MMMM Do, YYYY")
 								intro
 								readingTime
 								slug

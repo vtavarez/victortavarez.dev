@@ -22,7 +22,7 @@ export const Articles = () => {
 					node {
 						slug
 						title
-						date(formatString: "MMMM Do YYYY")
+						date(formatString: "MMMM Do, YYYY")
 						readingTime
 						intro
 						tags

@@ -21,6 +21,12 @@ export const Wrapper = styled.div`
 		background-repeat: no-repeat;
 		transform: rotateY(180deg);
 
+		@media (max-resolution: 150dpi) {
+			@media (min-width: 2000px) {
+				height: 400px;
+			}
+		}
+
 		@media (max-width: 1024px) {
 			height: 250px;
 		}

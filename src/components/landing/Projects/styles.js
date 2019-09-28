@@ -3,6 +3,9 @@ import styled from 'styled-components'
 export const Wrapper = styled.div`
 	position: relative;
 	padding: 4rem 0;
+	@media (max-width: 960px) {
+		padding: 2rem 0;
+	}
 `
 
 export const Grid = styled.div`

@@ -7,15 +7,10 @@ export const Wrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
-	@media (max-width: 960px) {
-		flex-direction: column;
-	}
+	flex-direction: column;
 `
 
-export const Article = styled.div`
-	min-height: 870px;
-`
+export const TagsWrapper = styled.div``
 
 export const Details = styled.div`
 	@media (max-width: 960px) {
@@ -38,22 +33,7 @@ export const Details = styled.div`
 		word-spacing: 2px;
 	}
 `
-export const PostInfo = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	margin-bottom: 2rem;
-`
 
-export const PostDate = styled.span`
-	font-size: 11pt;
-	color: #707070;
-	padding-right: 5px;
-`
-
-export const ReadingTime = styled.span`
-	font-size: 11pt;
-	color: #707070;
-	padding-left: 5px;
+export const Page = styled.h1`
+	padding: 4rem 0;
 `
