@@ -4,11 +4,11 @@ import Typing from 'react-typing-animation'
 import AnimationContext from './context'
 
 export default () => {
-	const { animate, disableAnimate } = useContext(AnimationContext)
+	const { animate, disableAnimation } = useContext(AnimationContext)
 
 	if (animate) {
 		return (
-			<Typing startDelay={2000} speed={10} onFinishedTyping={disableAnimate}>
+			<Typing startDelay={3000} speed={10} onBeforeType={disableAnimation}>
 				<h4>
 					Besides cooking up awesome UI's for clients! I also like to work on{' '}
 					<AnchorLink offset="50" href="#projects">

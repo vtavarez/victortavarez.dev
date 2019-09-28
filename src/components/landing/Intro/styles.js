@@ -100,6 +100,6 @@ export const AnimatedEmoji = styled.div`
 	animation-name: ${wave};
 	animation-duration: 0.5s;
 	animation-iteration-count: 3;
-	animation-delay: 0.5s;
+	animation-delay: 1s;
 	display: inline-block;
 `

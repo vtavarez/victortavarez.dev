@@ -2,7 +2,7 @@ import React from 'react'
 
 const context = {
 	animate: true,
-	disableAnimate() {
+	disableAnimation() {
 		context.animate = false
 	},
 }

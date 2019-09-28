@@ -7,15 +7,15 @@ export const Wrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-direction: column;
+`
 
-	@media (max-width: 960px) {
-		flex-direction: column;
-	}
+export const Articles = styled.div`
+	min-height: 870px;
 `
 
 export const Details = styled.div`
 	padding-right: 2rem;
-	width: 90%;
 
 	@media (max-width: 960px) {
 		padding-right: unset;
@@ -80,5 +80,16 @@ export const Title = styled.h1`
 	&:hover:after {
 		visibility: visible;
 		transform: scaleX(1);
+	}
+`
+
+export const Thumbnail = styled.div`
+	width: 100%;
+	max-width: 170px;
+	@media (max-width: 960px) {
+		width: 100%;
+	}
+	img {
+		width: 100%;
 	}
 `

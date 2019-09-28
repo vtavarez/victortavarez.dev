@@ -19,7 +19,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 							id
 							title
 							slug
-							date
+							date(formatString: "MMMM Do YYYY")
 							readingTime
 							tags
 							intro
@@ -87,7 +87,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 						edges {
 							node {
 								id
-								date
+								date(formatString: "MMMM Do YYYY")
 								intro
 								readingTime
 								slug

@@ -2007,6 +2007,11 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
+animated-styled-components@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/animated-styled-components/-/animated-styled-components-0.6.0.tgz#e0a8b0244bebada6a7608b8c539fe161d994f4ad"
+  integrity sha512-7Zw9doJrakIVbL0XQ6VRO66IoAzxDT4JuFXrGpKEXGvDkV8PNX5DYaJ3A4GQ+kh0xdfh/MZOTft76lS5I7jnCg==
+
 ansi-align@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ansi-align/-/ansi-align-2.0.0.tgz#c36aeccba563b89ceb556f3690f0b1d9e3547f7f"

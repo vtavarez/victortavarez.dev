@@ -22,7 +22,7 @@ export const Articles = () => {
 					node {
 						slug
 						title
-						date
+						date(formatString: "MMMM Do YYYY")
 						readingTime
 						intro
 						tags
@@ -45,8 +45,8 @@ export const Articles = () => {
 								</AniLink>
 							</PostTitle>
 							<div>
-								<PostDate>Posted on {date}</PostDate>
-								<ReadingTime>Reading time: {readingTime} min</ReadingTime>
+								<PostDate>{date}</PostDate>
+								<ReadingTime>Read time: {readingTime} min</ReadingTime>
 							</div>
 							<ReactMarkdown source={intro} />
 							<Button
