@@ -41,10 +41,10 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 
 	// Creates Blog Pages
 
-	const postsPerPage = 6
-	const numPages = Math.ceil(edges.length / postsPerPage)
+	const blogPostsPerPage = 6
+	const numberBlogPages = Math.ceil(edges.length / blogPostsPerPage)
 
-	Array.from({ length: numPages }).forEach(async (_, i) => {
+	Array.from({ length: numberBlogPages }).forEach(async (_, i) => {
 		const {
 			data: {
 				allContentfulPost: { edges: posts },
@@ -71,7 +71,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 					}
 				}
 			`,
-			{ skip: i * postsPerPage, limit: postsPerPage }
+			{ skip: i * blogPostsPerPage, limit: blogPostsPerPage }
 		)
 
 		createPage({
@@ -79,8 +79,9 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 			component: blogPage,
 			context: {
 				posts,
-				numPages,
+				numberBlogPages,
 				currentPage: i + 1,
+				location: '/blog',
 			},
 		})
 	})
@@ -128,38 +129,67 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 		const { fieldValue } = tag
 		const {
 			data: {
-				allContentfulPost: { edges: tagEdges },
+				allContentfulPost: { totalCount },
 			},
 		} = await graphql(
 			`
 				query($tag: String) {
-					allContentfulPost(
-						filter: { tags: { in: [$tag] } }
-						sort: { fields: date, order: DESC }
-					) {
-						edges {
-							node {
-								id
-								date(formatString: "MMMM Do, YYYY")
-								intro
-								readingTime
-								slug
-								tags
-								title
-							}
-						}
+					allContentfulPost(filter: { tags: { in: [$tag] } }) {
+						totalCount
 					}
 				}
 			`,
 			{ tag: fieldValue }
 		)
-		createPage({
-			path: `/blog/tags/${fieldValue}`,
-			component: tagPage,
-			context: {
-				tag: fieldValue,
-				edges: tagEdges,
-			},
+
+		const tagPostsPerPage = 6
+		const numberTagPages = Math.ceil(totalCount / tagPostsPerPage)
+
+		Array.from({ length: numberTagPages }).forEach(async (_, i) => {
+			const {
+				data: {
+					allContentfulPost: { edges: posts },
+				},
+			} = await graphql(
+				`
+					query($tag: String, $skip: Int!, $limit: Int!) {
+						allContentfulPost(
+							filter: { tags: { in: [$tag] } }
+							sort: { fields: date, order: DESC }
+							limit: $limit
+							skip: $skip
+						) {
+							edges {
+								node {
+									id
+									date(formatString: "MMMM Do, YYYY")
+									intro
+									readingTime
+									slug
+									tags
+									title
+								}
+							}
+						}
+					}
+				`,
+				{ tag: fieldValue, skip: i * blogPostsPerPage, limit: blogPostsPerPage }
+			)
+
+			createPage({
+				path:
+					i === 0
+						? `/blog/tags/${fieldValue}`
+						: `/blog/tags/${fieldValue}/${i + 1}`,
+				component: tagPage,
+				context: {
+					posts,
+					numberTagPages,
+					currentPage: i + 1,
+					location: `/blog/tags/${fieldValue}`,
+					data: fieldValue,
+				},
+			})
 		})
 	})
 }

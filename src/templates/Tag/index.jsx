@@ -1,5 +1,13 @@
 import React from 'react'
-import { Layout, SEO, Container, Button, Tags } from 'Common'
+import {
+	Layout,
+	SEO,
+	Container,
+	Button,
+	Tags,
+	PreviousNext,
+	PageNumbering,
+} from 'Common'
 import { Animated, FadeAnimations } from 'animated-styled-components'
 import ReactMarkdown from 'react-markdown'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
@@ -15,7 +23,9 @@ import {
 	Title,
 } from './styles'
 
-export default ({ pageContext: { edges, tag } }) => {
+export default ({
+	pageContext: { posts, numberTagPages, currentPage, location, data: tag },
+}) => {
 	return (
 		<Layout>
 			<SEO />
@@ -38,8 +48,13 @@ export default ({ pageContext: { edges, tag } }) => {
 							duration_in: 1,
 						}}
 					>
+						<PreviousNext
+							numPages={numberTagPages}
+							currentPage={currentPage}
+							location={location}
+						/>
 						<Details>
-							{edges.map(
+							{posts.map(
 								({
 									node: { id, slug, title, date, readingTime, intro, tags },
 								}) => (
@@ -67,6 +82,7 @@ export default ({ pageContext: { edges, tag } }) => {
 								)
 							)}
 						</Details>
+						<PageNumbering numPages={numberTagPages} location={location} />
 					</Animated>
 				</Articles>
 			</Wrapper>

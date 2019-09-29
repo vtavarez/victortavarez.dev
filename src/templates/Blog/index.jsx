@@ -1,11 +1,18 @@
 import React from 'react'
-import { Layout, SEO, Container, Button, Tags } from 'Common'
+import {
+	Layout,
+	SEO,
+	Container,
+	Button,
+	Tags,
+	PreviousNext,
+	PageNumbering,
+} from 'Common'
 import { Animated, FadeAnimations } from 'animated-styled-components'
 import ReactMarkdown from 'react-markdown'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { Header } from 'Theme'
 import blog from 'Static/illustrations/blog.svg'
-import { PreviousNext, PageNumbering } from './Navigation'
 import {
 	Wrapper,
 	Articles,
@@ -17,7 +24,9 @@ import {
 	Thumbnail,
 } from './styles'
 
-export default ({ pageContext: { posts, numPages, currentPage } }) => {
+export default ({
+	pageContext: { posts, numberBlogPages, currentPage, location },
+}) => {
 	return (
 		<Layout>
 			<SEO />
@@ -42,7 +51,11 @@ export default ({ pageContext: { posts, numPages, currentPage } }) => {
 							duration_in: 1,
 						}}
 					>
-						<PreviousNext numPages={numPages} currentPage={currentPage} />
+						<PreviousNext
+							numPages={numberBlogPages}
+							currentPage={currentPage}
+							location={location}
+						/>
 						<Details>
 							{posts.map(
 								({
@@ -72,7 +85,7 @@ export default ({ pageContext: { posts, numPages, currentPage } }) => {
 								)
 							)}
 						</Details>
-						<PageNumbering numPages={numPages} />
+						<PageNumbering numPages={numberBlogPages} location={location} />
 					</Animated>
 				</Articles>
 			</Wrapper>
