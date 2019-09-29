@@ -1,10 +1,10 @@
 const path = require('path')
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
-	const articlePage = path.resolve(`./src/templates/Article`)
-	const tagsPage = path.resolve(`./src/templates/Tags`)
-	const tagPage = path.resolve(`./src/templates/Tag`)
-	const blogPage = path.resolve(`./src/templates/Blog`)
+	const articlePage = path.resolve(`./src/templates/article`)
+	const tagsPage = path.resolve(`./src/templates/tags`)
+	const tagPage = path.resolve(`./src/templates/tag`)
+	const blogPage = path.resolve(`./src/templates/blog`)
 
 	const {
 		data: {
@@ -103,6 +103,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 				path: `/blog/${slug}/`,
 				component: articlePage,
 				context: {
+					slug,
 					title,
 					date,
 					readingTime,

@@ -1,3 +1,7 @@
+## Original Source
+
+[gatsby-portfolio-dev](https://github.com/smakosh/gatsby-portfolio-dev)
+
 ## Features
 
 - Eslint/Prettier configured
@@ -12,7 +16,8 @@
 - Can be deployed with one click
 - Functional components with ~~Recompose~~ React Hooks! ~~ready to migrate to React hooks!~~
 - Fetches your Github pinned projects with most stars (You could customize this if you wish)
-- Blog functionality with Contentful CMS
+- Blog functionality via Contentful CMS
+- Comments via Disqus
 
 ## Structure
 
@@ -23,9 +28,15 @@
 ├── src
 │   ├── components          # Components
 │   │   │── common          # Common components
-│   │   │── page            # Components used for different pages.
+│   │   │── landing         # Components used for landing page
 │   │   └── theme           # Header & Footer
-│   └── pages               # Pages
+│   │─── pages              # Pages
+│   └──── templates         # Tempalates
+│         │── article       # Tempalate used for blog posts
+│         │── blog          # Template used for blog page
+│         │── tag           # Tempalte used for Tag page
+│         └── tags          # Template used for Tags page
+│
 └── static                  # Icons, favicon & SVG illustrations
 ```
 
@@ -33,13 +44,19 @@
 
 [Yarn](https://yarnpkg.com/en/)
 
-Please create a new file `.env.development` and put this env variable with your GitHub token
+Please create a new file `.env.development` and put these env variables with your GitHub and Contentful tokens.
 
-> If you're building locally, you will have to create a new file `.env.production` and put the same env variable
+> If you're building locally, you will have to create a new file `.env.production` and put the same env variables
 
 ```bash
 GITHUB_TOKEN=xxxxxxxxxx
 CONTENTFUL_ACCESS_TOKEN=xxxxxxxxxx
+```
+
+To enable comments via Disqus please add this env variable with your Disqus short name.
+
+```bash
+GATSBY_DISQUS_NAME=yourSiteShortname
 ```
 
 Don't forget to edit your site's data on `data/config.js` file with your Google Recaptcha public key
@@ -87,7 +104,3 @@ yarn reset
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Original source
-
-[gatsby-portfolio-dev](https://github.com/smakosh/gatsby-portfolio-dev)
