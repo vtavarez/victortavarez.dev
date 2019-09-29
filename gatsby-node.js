@@ -39,14 +39,50 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 		`
 	)
 
-	// Creates Blog Page
+	// Creates Blog Pages
 
-	createPage({
-		path: `/blog/`,
-		component: blogPage,
-		context: {
-			edges,
-		},
+	const postsPerPage = 6
+	const numPages = Math.ceil(edges.length / postsPerPage)
+
+	Array.from({ length: numPages }).forEach(async (_, i) => {
+		const {
+			data: {
+				allContentfulPost: { edges: posts },
+			},
+		} = await graphql(
+			`
+				query($skip: Int!, $limit: Int!) {
+					allContentfulPost(
+						sort: { fields: date, order: DESC }
+						limit: $limit
+						skip: $skip
+					) {
+						edges {
+							node {
+								id
+								date(formatString: "MMMM Do, YYYY")
+								intro
+								readingTime
+								slug
+								tags
+								title
+							}
+						}
+					}
+				}
+			`,
+			{ skip: i * postsPerPage, limit: postsPerPage }
+		)
+
+		createPage({
+			path: i === 0 ? `/blog/` : `/blog/${i + 1}`,
+			component: blogPage,
+			context: {
+				posts,
+				numPages,
+				currentPage: i + 1,
+			},
+		})
 	})
 
 	// Creates Article Pages

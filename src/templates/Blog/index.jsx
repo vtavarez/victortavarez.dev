@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { Header } from 'Theme'
 import blog from 'Static/illustrations/blog.svg'
+import { PreviousNext, PageNumbering } from './Navigation'
 import {
 	Wrapper,
 	Articles,
@@ -16,7 +17,7 @@ import {
 	Thumbnail,
 } from './styles'
 
-export default ({ pageContext: { edges } }) => {
+export default ({ pageContext: { posts, numPages, currentPage } }) => {
 	return (
 		<Layout>
 			<SEO />
@@ -41,8 +42,9 @@ export default ({ pageContext: { edges } }) => {
 							duration_in: 1,
 						}}
 					>
+						<PreviousNext numPages={numPages} currentPage={currentPage} />
 						<Details>
-							{edges.map(
+							{posts.map(
 								({
 									node: { id, slug, title, date, readingTime, intro, tags },
 								}) => (
@@ -70,6 +72,7 @@ export default ({ pageContext: { edges } }) => {
 								)
 							)}
 						</Details>
+						<PageNumbering numPages={numPages} />
 					</Animated>
 				</Articles>
 			</Wrapper>
