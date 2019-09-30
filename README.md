@@ -1,4 +1,8 @@
-## Original Source
+## Portfolio for developers
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fa98ff01-394f-401a-8bcc-fd51c2d3d4e6/deploy-status)](https://app.netlify.com/sites/heuristic-kirch-2acb5b/deploys)
+
+## Original Theme
 
 [gatsby-portfolio-dev](https://github.com/smakosh/gatsby-portfolio-dev)
 
