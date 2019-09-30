@@ -42,17 +42,17 @@ export const Intro = () => {
 							</h1>
 							<Typing
 								startDelay={3000}
-								speed={100}
+								speed={50}
 								onFinishedTyping={() => dispatch({ type: 'DISABLE_ANIMATION' })}
 							>
 								<h4>
-									Besides cooking up awesome UI's for clients! I also like to
-									work on{' '}
+									Besides cooking up awesome UI's for clients! I also enjoy
+									working on and contributing to{' '}
 									<AnchorLink offset="50" href="#projects">
 										open source projects
 									</AnchorLink>
-									, and <AnchorLink href="#blog">blog</AnchorLink> about current
-									and upcoming web technologies. Feel free to{' '}
+									, and <AnchorLink href="#blog">blogging</AnchorLink> about
+									current and upcoming web technologies. Feel free to{' '}
 									<AnchorLink href="#contact">get in touch.</AnchorLink>
 								</h4>
 							</Typing>
@@ -69,13 +69,13 @@ export const Intro = () => {
 								I’m Victor and I’m a Front-End Engineer!
 							</h1>
 							<h4>
-								Besides cooking up awesome UI's for clients! I also like to work
-								on{' '}
+								Besides cooking up awesome UI's for clients! I also enjoy
+								working on and contributing to{' '}
 								<AnchorLink offset="50" href="#projects">
 									open source projects
 								</AnchorLink>
-								, and <AnchorLink href="#blog">blog</AnchorLink> about current
-								and upcoming web technologies. Feel free to{' '}
+								, and <AnchorLink href="#blog">blogging</AnchorLink> about
+								current and upcoming web technologies. Feel free to{' '}
 								<AnchorLink href="#contact">get in touch.</AnchorLink>
 							</h4>
 						</React.Fragment>

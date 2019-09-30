@@ -42,7 +42,7 @@ export const Details = styled.div`
 
 	h4 {
 		margin-bottom: 2.5rem;
-		font-size: 24pt;
+		font-size: 26pt;
 		font-weight: normal;
 		color: #707070;
 		line-height: 1.3;
