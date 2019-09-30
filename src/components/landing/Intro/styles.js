@@ -38,6 +38,10 @@ export const Details = styled.div`
 		@media (max-width: 1024px) {
 			font-size: 34pt;
 		}
+
+		@media (max-width: 620px) {
+			font-size: 24pt;
+		}
 	}
 
 	h4 {
@@ -49,6 +53,10 @@ export const Details = styled.div`
 
 		@media (max-width: 1024px) {
 			font-size: 24pt;
+		}
+
+		@media (max-width: 620px) {
+			font-size: 19pt;
 		}
 	}
 

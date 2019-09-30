@@ -29,6 +29,10 @@ export const Details = styled.div`
 		margin-bottom: 1rem;
 		font-size: 22pt;
 		color: #212121;
+
+		@media (max-width: 620px) {
+			font-size: 17pt;
+		}
 	}
 
 	p {
@@ -37,6 +41,10 @@ export const Details = styled.div`
 		font-weight: normal;
 		color: #666666;
 		word-spacing: 2px;
+
+		@media (max-width: 620px) {
+			font-size: 14pt;
+		}
 	}
 `
 export const PostInfo = styled.div`
@@ -51,10 +59,16 @@ export const PostDate = styled.span`
 	font-size: 14pt;
 	color: #707070;
 	padding-right: 5px;
+	@media (max-width: 620px) {
+		font-size: 12pt;
+	}
 `
 
 export const ReadingTime = styled.span`
 	font-size: 14pt;
 	color: #707070;
 	padding-left: 5px;
+	@media (max-width: 620px) {
+		font-size: 12pt;
+	}
 `

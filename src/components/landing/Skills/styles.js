@@ -25,6 +25,10 @@ export const TechnologiesWrapper = styled.div`
 	justify-content: space-between;
 	width: 400px;
 	padding-bottom: 1rem;
+
+	@media (max-width: 1024px) {
+		width: 320px;
+	}
 `
 
 export const Details = styled.div`
