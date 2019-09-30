@@ -20,6 +20,11 @@ export const IntroWrapper = styled.div`
 		flex-direction: column-reverse;
 		padding: 4rem 0 3rem 0;
 	}
+
+	@media (max-width: 620px) {
+		flex-direction: column-reverse;
+		padding: 1rem 0 0 0;
+	}
 `
 
 export const Details = styled.div`

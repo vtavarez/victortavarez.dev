@@ -44,6 +44,10 @@ export const Details = styled.div`
 		margin-bottom: 2rem;
 		font-size: 26pt;
 		color: #212121;
+
+		@media (max-width: 620px) {
+			font-size: 24pt;
+		}
 	}
 
 	p {
@@ -52,6 +56,10 @@ export const Details = styled.div`
 		font-weight: normal;
 		line-height: 1.3;
 		color: #707070;
+
+		@media (max-width: 620px) {
+			font-size: 19pt;
+		}
 	}
 `
 

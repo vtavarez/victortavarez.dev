@@ -39,24 +39,24 @@ export const Flex = styled.div`
 	display: flex;
 	align-items: flex-end;
 	justify-content: space-between;
-	padding-bottom: 4rem;
+	transform: translateY(-3rem);
 
 	@media (max-resolution: 150dpi) {
 		@media (min-width: 2000px) {
 			padding-bottom: 0;
-			transform: translateY(2rem);
+			transform: translateY(3rem);
 		}
 	}
 
 	@media (max-width: 960px) {
-		padding-bottom: 2rem;
+		transform: translateY(-2rem);
 	}
 
 	@media (max-width: 680px) {
 		flex-direction: column;
 		text-align: center;
 		align-items: center;
-		padding-bottom: 6rem;
+		transform: translateY(-6rem);
 	}
 `
 

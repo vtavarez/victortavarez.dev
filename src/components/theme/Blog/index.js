@@ -45,7 +45,7 @@ export const Details = styled.div`
 		word-spacing: 2px;
 
 		@media (max-width: 620px) {
-			font-size: 14pt;
+			font-size: 12pt;
 		}
 	}
 `
