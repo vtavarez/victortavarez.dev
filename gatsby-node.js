@@ -1,10 +1,10 @@
 const path = require('path')
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
-	const articlePage = path.resolve(`./src/templates/article/index.js`)
-	const tagsPage = path.resolve(`./src/templates/tags/index.js`)
-	const tagPage = path.resolve(`./src/templates/tag/index.js`)
-	const blogPage = path.resolve(`./src/templates/blog/index.js`)
+	const articlePage = path.resolve(`./src/templates/article.js`)
+	const tagsPage = path.resolve(`./src/templates/tags.js`)
+	const tagPage = path.resolve(`./src/templates/tag.js`)
+	const blogPage = path.resolve(`./src/templates/blog.js`)
 
 	const {
 		data: {

@@ -12,29 +12,29 @@ import { Animated, FadeAnimations } from 'animated-styled-components'
 import ReactMarkdown from 'react-markdown'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { Header } from 'Theme'
+import blog from 'Static/illustrations/blog.svg'
 import {
 	Wrapper,
 	Articles,
 	Details,
-	Page,
 	Article,
 	ReadingTime,
 	PostDate,
 	Title,
-} from './styles'
+	Thumbnail,
+} from './blog/styles'
 
 export default ({
-	pageContext: { posts, numberTagPages, currentPage, location, data: tag },
+	pageContext: { posts, numberBlogPages, currentPage, location },
 }) => {
 	return (
 		<Layout>
 			<SEO
-				title={`${tag[0].toUpperCase() +
-					tag.slice(1)} Archives | Victor Tavarez`}
-				description={`${tag[0].toUpperCase() + tag.slice(1)} article archives.`}
+				title="Blog | Victor Tavarez"
+				description="Articles about current and upcoming web technologies."
 				location={location}
 			/>
-			<Header tag />
+			<Header blog />
 			<Wrapper as={Container}>
 				<Animated
 					animation={{
@@ -43,7 +43,9 @@ export default ({
 						duration_in: 1,
 					}}
 				>
-					<Page>{`{ tag: ${tag} }`}</Page>
+					<Thumbnail>
+						<img src={blog} alt="Blog" />
+					</Thumbnail>
 				</Animated>
 				<Articles>
 					<Animated
@@ -54,7 +56,7 @@ export default ({
 						}}
 					>
 						<PreviousNext
-							numPages={numberTagPages}
+							numPages={numberBlogPages}
 							currentPage={currentPage}
 							location={location}
 						/>
@@ -87,7 +89,7 @@ export default ({
 								)
 							)}
 						</Details>
-						<PageNumbering numPages={numberTagPages} location={location} />
+						<PageNumbering numPages={numberBlogPages} location={location} />
 					</Animated>
 				</Articles>
 			</Wrapper>

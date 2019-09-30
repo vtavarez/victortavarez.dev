@@ -2,7 +2,7 @@ import React from 'react'
 import { Layout, SEO, Container, Tags } from 'Common'
 import { Animated, FadeAnimations } from 'animated-styled-components'
 import { Header } from 'Theme'
-import { Wrapper, TagsWrapper, Details, Page } from './styles'
+import { Wrapper, TagsWrapper, Details, Page } from './tags/styles'
 
 export default ({ pageContext: { group: tags } }) => {
 	return (

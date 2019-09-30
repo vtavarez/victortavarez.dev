@@ -11,7 +11,7 @@ import {
 	PostInfo,
 	ReadingTime,
 	PostDate,
-} from './styles'
+} from './article/styles'
 
 export default ({
 	pageContext: { slug, title, date, readingTime, content, tags, intro },
