@@ -42,7 +42,7 @@ export const Intro = () => {
 							</h1>
 							<Typing
 								startDelay={3000}
-								speed={10}
+								speed={50}
 								onFinishedTyping={() => dispatch({ type: 'DISABLE_ANIMATION' })}
 							>
 								<h4>
