@@ -22,7 +22,7 @@ import {
 	PostDate,
 	Title,
 	Thumbnail,
-} from './blog/styles'
+} from 'Theme/Blog'
 
 export default ({
 	pageContext: { posts, numberBlogPages, currentPage, location },

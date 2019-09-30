@@ -21,7 +21,7 @@ import {
 	ReadingTime,
 	PostDate,
 	Title,
-} from './tag/styles'
+} from 'Theme/Tag'
 
 export default ({
 	pageContext: { posts, numberTagPages, currentPage, location, data: tag },
