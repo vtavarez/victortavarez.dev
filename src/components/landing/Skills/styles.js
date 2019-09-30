@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div`
-	background-image: url('../illustrations/details.jpg');
-	background-size: contain;
-	background-position: left top;
-	background-repeat: no-repeat;
-`
+// export const Wrapper = styled.div`
+// 	background-image: url('../illustrations/details.jpg');
+// 	background-size: contain;
+// 	background-position: left top;
+// 	background-repeat: no-repeat;
+// `
 
 export const SkillsWrapper = styled.div`
 	padding: 4rem 0;
