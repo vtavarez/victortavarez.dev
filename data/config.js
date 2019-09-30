@@ -1,16 +1,16 @@
 module.exports = {
-	defaultTitle: 'Victor Tavarez | Front-End Engineer.',
-	logo: null,
+	defaultTitle: 'Victor Tavarez | Front-End Engineer',
+	logo: 'https://victortavarez.dev/favicon/favicon-512.png',
 	author: 'Victor Tavarez',
 	url: 'https://victortavarez.dev',
 	legalName: 'Victor Tavarez',
 	defaultDescription:
-		"Hi there! I'm Victor and I'm a Front-End Engineer! Besides cooking up super awesome 🔥 UI's for clients! I also like to work on open source projects, blog about ✨ new frameworks and technologies, and take long walks on the beach...jk 😂 ",
+		"Hi there! I'm Victor and I'm a Front-End Engineer! Besides cooking up awesome UI's for clients! I also like to work on open source projects, and blog about current and upcoming web technologies.",
 	socialLinks: {
 		twitter: 'http://www.twitter.com/imvictortavarez',
 		github: 'https://github.com/vtavarez',
 	},
-	googleAnalyticsID: 'UA-88875900-4',
+	googleAnalyticsID: 'UA-92879759-2',
 	themeColor: '#2ecc71',
 	backgroundColor: '#ffffff',
 	social: {
@@ -28,5 +28,5 @@ module.exports = {
 		phone: 'phone number',
 	},
 	foundingDate: '2019',
-	recaptcha_key: '6Lcs6lQUAAAAAEwhNH2IsobIe2csdda4TU3efpMN',
+	recaptcha_key: '6Lct_roUAAAAALQqBHA5R2nDxYLPnHsedO7Nxnrf',
 }

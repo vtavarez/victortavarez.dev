@@ -8,6 +8,9 @@ export const Wrapper = styled.div`
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+	@media (max-width: 960px) {
+		z-index: 1;
+	}
 `
 
 export const TagsWrapper = styled.div``

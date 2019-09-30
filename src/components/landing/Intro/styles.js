@@ -32,23 +32,23 @@ export const Details = styled.div`
 
 	h1 {
 		margin-bottom: 1rem;
-		font-size: 36pt;
+		font-size: 38pt;
 		color: #212121;
 
 		@media (max-width: 1024px) {
-			font-size: 32pt;
+			font-size: 34pt;
 		}
 	}
 
 	h4 {
 		margin-bottom: 2.5rem;
-		font-size: 22pt;
+		font-size: 24pt;
 		font-weight: normal;
 		color: #707070;
 		line-height: 1.3;
 
 		@media (max-width: 1024px) {
-			font-size: 21pt;
+			font-size: 24pt;
 		}
 	}
 

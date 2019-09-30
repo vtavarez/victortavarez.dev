@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Animated, FadeAnimations } from 'animated-styled-components'
 import { Container } from 'Common'
 import { Header } from 'Theme'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
+import Typing from 'react-typing-animation'
 import devs from 'Static/illustrations/devs.jpg'
-import AnimationContext from './context'
-import Copy from './copy'
 import {
 	Wrapper,
 	IntroWrapper,
@@ -14,7 +14,7 @@ import {
 } from './styles'
 
 export const Intro = () => {
-	const { animate } = useContext(AnimationContext)
+	const animate = JSON.parse(window.sessionStorage.getItem('animate'))
 	return (
 		<Wrapper>
 			<Header />
@@ -36,19 +36,48 @@ export const Intro = () => {
 								</AnimatedEmoji>{' '}
 								I’m Victor and I’m a Front-End Engineer!
 							</h1>
+							<Typing
+								startDelay={3000}
+								speed={10}
+								onStartedTyping={() =>
+									window.sessionStorage.setItem('animate', 'false')
+								}
+							>
+								<h4>
+									Besides cooking up awesome UI's for clients! I also like to
+									work on{' '}
+									<AnchorLink offset="50" href="#projects">
+										open source projects
+									</AnchorLink>
+									, and <AnchorLink href="#blog">blog</AnchorLink> about current
+									and upcoming web technologies. Feel free to{' '}
+									<AnchorLink href="#contact">get in touch.</AnchorLink>
+								</h4>
+							</Typing>
 						</Animated>
 					) : (
-						<h1>
-							Hey there!{' '}
-							<AnimatedEmoji>
-								<span role="img" aria-label="waving emoji">
-									👋🏽
-								</span>
-							</AnimatedEmoji>{' '}
-							I’m Victor and I’m a Front-End Engineer!
-						</h1>
+						<React.Fragment>
+							<h1>
+								Hey there!{' '}
+								<AnimatedEmoji>
+									<span role="img" aria-label="waving emoji">
+										👋🏽
+									</span>
+								</AnimatedEmoji>{' '}
+								I’m Victor and I’m a Front-End Engineer!
+							</h1>
+							<h4>
+								Besides cooking up awesome UI's for clients! I also like to work
+								on{' '}
+								<AnchorLink offset="50" href="#projects">
+									open source projects
+								</AnchorLink>
+								, and <AnchorLink href="#blog">blog</AnchorLink> about current
+								and upcoming web technologies. Feel free to{' '}
+								<AnchorLink href="#contact">get in touch.</AnchorLink>
+							</h4>
+						</React.Fragment>
 					)}
-					<Copy />
 				</Details>
 				<Thumbnail>
 					<img src={devs} alt="devs collaborating on project" />

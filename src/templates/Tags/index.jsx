@@ -7,8 +7,8 @@ import { Wrapper, TagsWrapper, Details, Page } from './styles'
 export default ({ pageContext: { group: tags } }) => {
 	return (
 		<Layout>
-			<SEO title="Tags | Victor Tavarez" description="Top article tags" />
-			<Header hideLinks />
+			<SEO title="Tags | Victor Tavarez" description="Article Tags" />
+			<Header tags />
 			<Wrapper as={Container}>
 				<Animated
 					animation={{

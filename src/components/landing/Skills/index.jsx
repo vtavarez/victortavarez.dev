@@ -2,7 +2,14 @@ import React from 'react'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { Container, Button } from 'Common'
 import skills from 'Static/illustrations/skills.jpg'
-import { Wrapper, SkillsWrapper, Details, Thumbnail } from './styles'
+import technologies from './technologies.json'
+import {
+	Wrapper,
+	SkillsWrapper,
+	Details,
+	Thumbnail,
+	TechnologiesWrapper,
+} from './styles'
 
 export const Skills = () => (
 	<Wrapper id="skills">
@@ -13,9 +20,16 @@ export const Skills = () => (
 			<Details>
 				<h1>Hi There!</h1>
 				<p>
-					Lorem Ipsum is simply dummy text of the printing and typesetting
-					industry. Lorem Ipsum has been the industry’s standard dummy.
+					While I specialize in UI development, I'm a multifaceted professional
+					with experience assisting businesses solve complex problems through
+					both front-end, and back-end web technologies. Below are a few
+					technologies I'm fluent in.
 				</p>
+				<TechnologiesWrapper>
+					{technologies.map(({ id, name, icon }) => (
+						<img height="30" key={id} src={icon} alt={name} />
+					))}
+				</TechnologiesWrapper>
 				<Button as={AnchorLink} href="#contact">
 					Get in touch
 				</Button>

@@ -6,7 +6,7 @@ export const Tags = ({ tags }) => (
 	<Wrapper>
 		{tags.map(tag => (
 			<Tag
-				key={tag}
+				key={tag.fieldValue ? tag.fieldValue : tag}
 				as={AniLink}
 				paintDrip
 				hex="#2ecc71"

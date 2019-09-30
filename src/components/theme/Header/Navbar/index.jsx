@@ -1,15 +1,16 @@
 import React from 'react'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { Container } from 'Common'
+import favicon from 'Static/favicon/favicon-512.png'
 import NavbarLinks from '../NavbarLinks'
-import { Wrapper, Emoji } from './styles'
+import { Wrapper, Avatar } from './styles'
 
-const Navbar = ({ hideLinks }) => (
+const Navbar = props => (
 	<Wrapper as={Container}>
 		<AniLink paintDrip hex="#2ecc71" to="/">
-			Victor
+			<Avatar src={favicon} alt="Victor" />
 		</AniLink>
-		{!hideLinks && <NavbarLinks desktop />}
+		<NavbarLinks desktop {...props} />
 	</Wrapper>
 )
 

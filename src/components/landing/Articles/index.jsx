@@ -17,7 +17,7 @@ export const Articles = () => {
 		allContentfulPost: { edges },
 	} = useStaticQuery(graphql`
 		{
-			allContentfulPost(sort: { fields: date, order: DESC }) {
+			allContentfulPost(sort: { fields: date, order: DESC }, limit: 2) {
 				edges {
 					node {
 						slug
@@ -35,9 +35,8 @@ export const Articles = () => {
 	return (
 		<Wrapper as={Container}>
 			<ArticlesWrapper id="blog">
-				{edges
-					.slice(0, 2)
-					.map(({ node: { slug, title, date, readingTime, intro, tags } }) => (
+				{edges.map(
+					({ node: { slug, title, date, readingTime, intro, tags } }) => (
 						<Details key={slug}>
 							<PostTitle>
 								<AniLink paintDrip hex="#2ecc71" to={`/blog/${slug}/`}>
@@ -59,7 +58,8 @@ export const Articles = () => {
 							</Button>
 							<Tags tags={tags} />
 						</Details>
-					))}
+					)
+				)}
 			</ArticlesWrapper>
 			<Button as={AniLink} paintDrip hex="#2ecc71" to="/blog/">
 				More Posts »

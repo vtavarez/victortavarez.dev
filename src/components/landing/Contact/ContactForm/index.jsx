@@ -14,7 +14,7 @@ const ContactForm = ({
 	touched,
 }) => (
 	<Form
-		name="victor-portfolio"
+		name="victortavarez.dev"
 		method="post"
 		data-netlify="true"
 		data-netlify-recaptcha="true"
@@ -104,7 +104,7 @@ export default withFormik({
 			email: Yup.string()
 				.email()
 				.required('Pssst.. I think you forgot somthing! ☝️'),
-			message: Yup.string().required("You sure you've got nothing to say? 🙂"),
+			message: Yup.string().required('Pssst.. I think you forgot somthing! ☝️'),
 			recaptcha: Yup.string().required('Robots are not welcome yet!'),
 		}),
 	handleSubmit: async (
@@ -123,7 +123,7 @@ export default withFormik({
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 				body: encode({
-					'form-name': 'victor-portfolio',
+					'form-name': 'victortavarez.dev',
 					name,
 					email,
 					message,

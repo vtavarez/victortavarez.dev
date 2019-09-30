@@ -14,7 +14,7 @@ import {
 } from './styles'
 
 export default ({
-	pageContext: { slug, title, date, readingTime, content, tags },
+	pageContext: { slug, title, date, readingTime, content, tags, intro },
 }) => {
 	const disqusConfig = {
 		shortname: process.env.GATSBY_DISQUS_NAME,
@@ -22,8 +22,12 @@ export default ({
 	}
 	return (
 		<Layout>
-			<SEO />
-			<Header hideLinks />
+			<SEO
+				title={`${title} | Victor Tavarez`}
+				description={intro}
+				location={`/blog/${slug}`}
+			/>
+			<Header article />
 			<Wrapper as={Container}>
 				<Article>
 					<Animated

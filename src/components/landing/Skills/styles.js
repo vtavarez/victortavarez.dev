@@ -19,6 +19,14 @@ export const SkillsWrapper = styled.div`
 	}
 `
 
+export const TechnologiesWrapper = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 400px;
+	padding-bottom: 1rem;
+`
+
 export const Details = styled.div`
 	flex: 1;
 	padding-left: 2rem;

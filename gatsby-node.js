@@ -96,6 +96,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 				date,
 				readingTime,
 				tags,
+				intro,
 				content: { content },
 			},
 		}) => {
@@ -108,6 +109,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 					date,
 					readingTime,
 					tags,
+					intro,
 					content,
 				},
 			})

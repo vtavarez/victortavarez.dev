@@ -29,8 +29,12 @@ export default ({
 }) => {
 	return (
 		<Layout>
-			<SEO />
-			<Header hideLinks />
+			<SEO
+				title="Blog | Victor Tavarez"
+				description="Articles about current and upcoming web technologies."
+				location={location}
+			/>
+			<Header blog />
 			<Wrapper as={Container}>
 				<Animated
 					animation={{

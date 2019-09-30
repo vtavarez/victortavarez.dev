@@ -32,26 +32,26 @@ export const Details = styled.div`
 
 	h1 {
 		margin-bottom: 1rem;
-		font-size: 20pt;
+		font-size: 22pt;
 		color: #212121;
 	}
 
 	p {
 		margin: 1.2rem 0;
-		font-size: 14pt;
+		font-size: 16pt;
 		font-weight: normal;
 		color: #666666;
 		word-spacing: 2px;
 	}
 `
 export const PostDate = styled.span`
-	font-size: 11pt;
+	font-size: 14pt;
 	color: #707070;
 	padding-right: 5px;
 `
 
 export const ReadingTime = styled.span`
-	font-size: 11pt;
+	font-size: 14pt;
 	color: #707070;
 	padding-left: 5px;
 `

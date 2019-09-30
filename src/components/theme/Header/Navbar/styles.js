@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
 	}
 `
 
-export const Emoji = styled.div`
-	font-size: 24pt;
+export const Avatar = styled.img`
+	max-width: 34px;
+	margin: 0;
 `
