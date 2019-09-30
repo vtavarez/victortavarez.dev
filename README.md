@@ -1,4 +1,4 @@
-## Portfolio for developers
+# Portfolio for developers
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/fa98ff01-394f-401a-8bcc-fd51c2d3d4e6/deploy-status)](https://app.netlify.com/sites/heuristic-kirch-2acb5b/deploys)
 
@@ -33,7 +33,8 @@
 │   ├── components          # Components
 │   │   │── common          # Common components
 │   │   │── landing         # Components used for landing page
-│   │   └── theme           # Header & Footer
+│   │   └── theme           # Header, Footer & Template styles
+│   │─── state              # Application state provider
 │   │─── pages              # Pages
 │   └──── templates         # Tempalates
 │         │── article       # Tempalate used for blog posts
