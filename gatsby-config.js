@@ -18,14 +18,14 @@ module.exports = {
 			resolve: 'gatsby-source-filesystem',
 			options: {
 				name: 'blog',
-				path: `${__dirname}/src/pages/blog`,
+				path: `${__dirname}/src/blog`,
 			},
 		},
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
 				name: 'tags',
-				path: `${__dirname}/src/pages/blog/tags`,
+				path: `${__dirname}/src/blog/tags`,
 			},
 		},
 		'gatsby-transformer-sharp',
