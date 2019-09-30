@@ -75,7 +75,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 		)
 
 		createPage({
-			path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+			path: i === 0 ? `/blog/` : `/blog/${i + 1}`,
 			component: blogPage,
 			context: {
 				posts,
@@ -119,7 +119,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 	// Creates Tags Page
 
 	createPage({
-		path: `/blog/tags`,
+		path: `/blog/tags/`,
 		component: tagsPage,
 		context: {
 			group,
