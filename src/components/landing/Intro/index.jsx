@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Animated, FadeAnimations } from 'animated-styled-components'
 import { Container } from 'Common'
 import { Header } from 'Theme'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Typing from 'react-typing-animation'
 import devs from 'Static/illustrations/devs.jpg'
+import { Context } from 'State'
 import {
 	Wrapper,
 	IntroWrapper,
@@ -14,7 +15,10 @@ import {
 } from './styles'
 
 export const Intro = () => {
-	const animate = JSON.parse(window.sessionStorage.getItem('animate'))
+	const {
+		state: { animate },
+		dispatch,
+	} = useContext(Context)
 	return (
 		<Wrapper>
 			<Header />
@@ -39,9 +43,7 @@ export const Intro = () => {
 							<Typing
 								startDelay={3000}
 								speed={10}
-								onStartedTyping={() =>
-									window.sessionStorage.setItem('animate', 'false')
-								}
+								onFinishedTyping={() => dispatch({ type: 'DISABLE_ANIMATION' })}
 							>
 								<h4>
 									Besides cooking up awesome UI's for clients! I also like to

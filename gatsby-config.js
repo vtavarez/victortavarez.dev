@@ -14,20 +14,6 @@ module.exports = {
 	plugins: [
 		'gatsby-plugin-react-helmet',
 		'gatsby-plugin-styled-components',
-		{
-			resolve: 'gatsby-source-filesystem',
-			options: {
-				name: 'blog',
-				path: `${__dirname}/src/pages/blog`,
-			},
-		},
-		{
-			resolve: 'gatsby-source-filesystem',
-			options: {
-				name: 'tags',
-				path: `${__dirname}/src/pages/blog/tags`,
-			},
-		},
 		'gatsby-transformer-sharp',
 		'gatsby-plugin-sharp',
 		{
@@ -104,6 +90,7 @@ module.exports = {
 					Static: path.resolve(__dirname, 'static/'),
 					Theme: path.resolve(__dirname, 'src/components/theme'),
 					Data: path.resolve(__dirname, 'data/config'),
+					State: path.resolve(__dirname, 'src/state/contextProvider'),
 				},
 			},
 		},
