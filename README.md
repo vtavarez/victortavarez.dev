@@ -17,7 +17,7 @@
 - Tablet & mobile friendly
 - Continuous deployment with [Netlify](https://netlify.com)
 - A contact form protected by Google Recaptcha
-- Can be deployed with one click
+- Can be deployed with one click or automated via web hook!
 - Functional components with ~~Recompose~~ React Hooks! ~~ready to migrate to React hooks!~~
 - Fetches your Github pinned projects with most stars (You could customize this if you wish)
 - Blog functionality via Contentful CMS

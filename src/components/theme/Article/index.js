@@ -72,3 +72,65 @@ export const ReadingTime = styled.span`
 		font-size: 12pt;
 	}
 `
+
+export const MarkdownWrapper = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 2rem;
+	padding-bottom: 4rem;
+`
+
+export const Markdown = styled.div`
+	max-width: 1200px;
+	h1 {
+		margin-bottom: 3rem;
+	}
+
+	h2 {
+		margin: 3rem 0;
+	}
+
+	p {
+		line-height: 1.5;
+	}
+
+	a {
+		color: rgba(46, 204, 113, 1);
+	}
+
+	code {
+		padding: 0.2em;
+		font-size: 16pt;
+		&::after {
+			display: none;
+		}
+		@media (max-width: 620px) {
+			font-size: 14pt;
+		}
+	}
+
+	blockquote {
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	p {
+		img {
+			display: block;
+			margin: 0 auto !important;
+		}
+	}
+
+	@media (max-width: 1024px) {
+		pre {
+			white-space: pre-wrap;
+			word-wrap: break-word;
+			text-align: inherit;
+
+			code {
+				font-size: 12pt;
+			}
+		}
+	}
+`
