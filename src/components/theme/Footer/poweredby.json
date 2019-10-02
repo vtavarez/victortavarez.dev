@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0,
+    "name": "Gatsbyjs",
+    "link": "https://gatsbyjs.org",
+    "icon": "/icons/gatsby.svg"
+  },
+  {
+    "id": 1,
+    "name": "Contentful",
+    "link": "https://contentful.com",
+    "icon": "/icons/contentful.svg"
+  },
+  {
+    "id": 2,
+    "name": "Netlify",
+    "link": "https://netlify.com",
+    "icon": "/icons/netlify.svg"
+  }
+]

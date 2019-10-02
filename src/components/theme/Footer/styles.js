@@ -39,7 +39,7 @@ export const Flex = styled.div`
 	display: flex;
 	align-items: flex-end;
 	justify-content: space-between;
-	transform: translateY(-3rem);
+	transform: translateY(-2rem);
 
 	@media (max-resolution: 150dpi) {
 		@media (min-width: 2000px) {
@@ -79,7 +79,19 @@ export const Links = styled.div`
 `
 
 export const Details = styled.div`
+	h2 {
+		margin-bottom: 10px;
+	}
+
+	div {
+		margin-top: 10px;
+	}
+
 	@media (max-width: 680px) {
 		padding-bottom: 2rem;
+
+		div {
+			justify-content: center;
+		}
 	}
 `
