@@ -2,15 +2,8 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
 	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	padding: 4rem 0;
 	z-index: 2;
-
-	@media (max-width: 960px) {
-		flex-direction: column;
-	}
 `
 
 export const Article = styled.div`
@@ -114,7 +107,7 @@ export const Markdown = styled.div`
 		pre {
 			white-space: pre-wrap;
 			word-wrap: break-word;
-			text-align: inherit;
+			text-align: left;
 
 			code {
 				font-size: 12pt;
