@@ -11,7 +11,6 @@ import {
 	PostInfo,
 	ReadingTime,
 	PostDate,
-	MarkdownWrapper,
 	Markdown,
 } from 'Theme/Article'
 
@@ -48,11 +47,9 @@ export default ({
 								</div>
 								<Tags tags={tags} />
 							</PostInfo>
-							<MarkdownWrapper>
-								<Markdown>
-									<ReactMarkdown source={content} />
-								</Markdown>
-							</MarkdownWrapper>
+							<Markdown>
+								<ReactMarkdown source={content} />
+							</Markdown>
 							<DiscussionEmbed {...disqusConfig} />
 						</Details>
 					</Animated>

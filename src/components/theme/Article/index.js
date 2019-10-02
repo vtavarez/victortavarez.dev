@@ -2,15 +2,14 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
 	position: relative;
-	z-index: 2;
-	padding: 4rem 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding: 4rem 0;
+	z-index: 2;
 
 	@media (max-width: 960px) {
 		flex-direction: column;
-		z-index: 1;
 	}
 `
 
@@ -19,12 +18,6 @@ export const Article = styled.div`
 `
 
 export const Details = styled.div`
-	@media (max-width: 960px) {
-		padding-right: unset;
-		width: 100%;
-		order: 1;
-	}
-
 	h1 {
 		margin-bottom: 1rem;
 		font-size: 22pt;
@@ -73,15 +66,10 @@ export const ReadingTime = styled.span`
 	}
 `
 
-export const MarkdownWrapper = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
+export const Markdown = styled.div`
+	margin: 0 auto;
 	padding-top: 2rem;
 	padding-bottom: 4rem;
-`
-
-export const Markdown = styled.div`
 	max-width: 1200px;
 	h1 {
 		margin-bottom: 3rem;
