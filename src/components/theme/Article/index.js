@@ -104,14 +104,8 @@ export const Markdown = styled.div`
 	}
 
 	@media (max-width: 1024px) {
-		pre {
-			white-space: pre-wrap;
-			word-wrap: break-word;
-			text-align: left;
-
-			code {
-				font-size: 12pt;
-			}
+		code {
+			font-size: 12pt;
 		}
 	}
 `

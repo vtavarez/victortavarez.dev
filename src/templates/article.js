@@ -4,6 +4,7 @@ import { Layout, SEO, Container, Tags } from 'Common'
 import { Animated, FadeAnimations } from 'animated-styled-components'
 import { Header } from 'Theme'
 import { DiscussionEmbed } from 'disqus-react'
+import { CodeBlock } from 'Theme/Article/Highlighter'
 import {
 	Wrapper,
 	Article,
@@ -48,7 +49,10 @@ export default ({
 								<Tags tags={tags} />
 							</PostInfo>
 							<Markdown>
-								<ReactMarkdown source={content} />
+								<ReactMarkdown
+									source={content}
+									renderers={{ code: CodeBlock }}
+								/>
 							</Markdown>
 							<DiscussionEmbed {...disqusConfig} />
 						</Details>
