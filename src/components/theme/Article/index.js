@@ -4,6 +4,9 @@ export const Wrapper = styled.div`
 	position: relative;
 	padding: 4rem 0;
 	z-index: 2;
+	@media (max-width: 620px) {
+		z-index: 1;
+	}
 `
 
 export const Article = styled.div`
