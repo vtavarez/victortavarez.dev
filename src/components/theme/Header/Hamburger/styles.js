@@ -16,6 +16,7 @@ export const Wrapper = styled.div`
 	${({ sidebar }) =>
 		sidebar &&
 		`
+			position: fixed;
 			right: 18%;
 			top: 1.4rem;
 		
