@@ -49,9 +49,9 @@ export const Details = styled.div`
 		}
 	}
 
-	h4 {
+	h2 {
 		margin-bottom: 2.5rem;
-		font-size: 26pt;
+		font-size: 24pt;
 		font-weight: normal;
 		color: #707070;
 		line-height: 1.3;
@@ -115,4 +115,13 @@ export const AnimatedEmoji = styled.div`
 	animation-iteration-count: 3;
 	animation-delay: 1s;
 	display: inline-block;
+	position: relative;
+	width: 47px;
+	height: 50px;
+
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
 `
