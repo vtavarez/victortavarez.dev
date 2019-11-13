@@ -18,6 +18,10 @@ export const ContactHeader = styled.h2`
     background-color: #707070;
     border-radius: 5px;
   }
+
+  @media (max-width: 620px) {
+    margin: 3rem auto 0;
+  }
 `
 
 export const FormWrapper = styled.div`

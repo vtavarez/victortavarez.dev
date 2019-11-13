@@ -1,30 +1,30 @@
 import styled, { keyframes } from 'styled-components'
 
 export const Wrapper = styled.div`
-	@media (max-width: 960px) {
-		min-height: 100vh;
-	}
+  @media (max-width: 960px) {
+    min-height: 100vh;
+  }
 `
 
 export const IntroWrapper = styled.div`
-	padding: 10rem 0 4rem 0;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+  padding: 10rem 0 4rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-	@media (max-width: 1024px) {
-		padding: 14rem 0 3rem 0;
-	}
+  @media (max-width: 1024px) {
+    padding: 14rem 0 3rem 0;
+  }
 
-	@media (max-width: 960px) {
-		flex-direction: column-reverse;
-		padding: 4rem 0 3rem 0;
-	}
+  @media (max-width: 960px) {
+    flex-direction: column-reverse;
+    padding: 4rem 0 3rem 0;
+  }
 
-	@media (max-width: 620px) {
-		flex-direction: column-reverse;
-		padding: 1rem 0 0 0;
-	}
+  @media (max-width: 620px) {
+    flex-direction: column-reverse;
+    padding: 1rem 0 0 0;
+  }
 `
 
 export const Details = styled.div`
@@ -60,7 +60,6 @@ export const Details = styled.div`
 			left 0;
 			top: 0;
 			bottom: 0;
-			transform: rotate(-1deg);
 			background-color: #2ecc71;
 			z-index: -1;
 		}
@@ -68,13 +67,13 @@ export const Details = styled.div`
 `
 
 export const Thumbnail = styled.div`
-	flex: 1;
-	@media (max-width: 960px) {
-		width: 100%;
-	}
-	img {
-		width: 100%;
-	}
+  flex: 1;
+  @media (max-width: 960px) {
+    width: 100%;
+  }
+  img {
+    width: 100%;
+  }
 `
 
 const wave = keyframes`
@@ -92,18 +91,18 @@ const wave = keyframes`
 `
 
 export const AnimatedEmoji = styled.div`
-	animation-name: ${wave};
-	animation-duration: 0.5s;
-	animation-iteration-count: 3;
-	animation-delay: 1s;
-	display: inline-block;
-	position: relative;
-	width: 37px;
-	height: 40px;
+  animation-name: ${wave};
+  animation-duration: 0.5s;
+  animation-iteration-count: 3;
+  animation-delay: 1s;
+  display: inline-block;
+  position: relative;
+  width: 37px;
+  height: 40px;
 
-	img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-	}
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
 `

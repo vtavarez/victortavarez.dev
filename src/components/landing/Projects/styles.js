@@ -6,6 +6,9 @@ export const Wrapper = styled.div`
   @media (max-width: 960px) {
     padding: 2rem 0;
   }
+  @media (max-width: 620px) {
+    padding: 0;
+  }
 `
 
 export const ProjectsHeader = styled.h2`

@@ -5,6 +5,10 @@ export const Wrapper = styled.div`
   align-items: flex-end;
   justify-content: space-between;
   flex-direction: column;
+
+  @media (max-width: 620px) {
+    margin: 2rem auto;
+  }
 `
 
 export const ArticlesHeader = styled.h2`
@@ -21,6 +25,10 @@ export const ArticlesHeader = styled.h2`
     background-color: #707070;
     border-radius: 5px;
   }
+
+  @media (max-width: 620px) {
+    margin-bottom: 0;
+  }
 `
 
 export const ArticlesWrapper = styled.div`
@@ -32,6 +40,10 @@ export const ArticlesWrapper = styled.div`
   @media (max-width: 960px) {
     flex-direction: column;
     padding: 2rem 0;
+  }
+
+  @media (max-width: 620px) {
+    padding: 0;
   }
 `
 
