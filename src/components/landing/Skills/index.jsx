@@ -21,9 +21,9 @@ export const Skills = () => (
 				<h1>Hi There!</h1>
 				<p>
 					While I specialize in front-end development, I'm a multifaceted
-					professional with 5+ years of experience assisting businesses to solve
-					complex problems through both front-end and back-end web technologies.
-					Below are a few of those technologies.
+					professional with experience assisting businesses to solve complex
+					problems through both front-end and back-end web technologies. Below
+					are a few of those technologies.
 				</p>
 				<TechnologiesWrapper>
 					{technologies.map(({ id, name, icon }) => (

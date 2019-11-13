@@ -33,7 +33,6 @@ export const Button = styled.button`
 		width: 100%;
 		z-index: -1;
 		background: rgba(46, 204, 113, 1);
-		transform: rotate(2deg);
 	}
 
 	&:disabled {

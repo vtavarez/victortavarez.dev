@@ -95,6 +95,7 @@ export const Title = styled.h1`
 		visibility: hidden;
 		transform: scaleX(0);
 		transition: all 0.3s ease-in-out 0s;
+		z-index: -1;
 	}
 
 	&:hover:after {

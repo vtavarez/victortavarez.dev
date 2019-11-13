@@ -58,7 +58,7 @@ GITHUB_TOKEN=xxxxxxxxxx
 CONTENTFUL_ACCESS_TOKEN=xxxxxxxxxx
 ```
 
-To enable comments via Disqus please add this env variable with your Disqus short name.
+To enable comments via Disqus, add this env variable with your Disqus short name.
 
 ```bash
 GATSBY_DISQUS_NAME=yourSiteShortname

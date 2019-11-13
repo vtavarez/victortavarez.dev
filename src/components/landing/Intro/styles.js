@@ -51,13 +51,13 @@ export const Details = styled.div`
 
 	h2 {
 		margin-bottom: 2.5rem;
-		font-size: 24pt;
+		font-size: 20pt;
 		font-weight: normal;
 		color: #707070;
 		line-height: 1.3;
 
 		@media (max-width: 1024px) {
-			font-size: 24pt;
+			font-size: 20pt;
 		}
 
 		@media (max-width: 620px) {
