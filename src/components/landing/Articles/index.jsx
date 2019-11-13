@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import {
 	Wrapper,
+	ArticlesHeader,
 	ArticlesWrapper,
 	Details,
 	ReadingTime,
@@ -34,6 +35,7 @@ export const Articles = () => {
 
 	return (
 		<Wrapper as={Container}>
+			<ArticlesHeader>Recent Articles</ArticlesHeader>
 			<ArticlesWrapper id="blog">
 				{edges.map(
 					({ node: { slug, title, date, readingTime, intro, tags } }) => (

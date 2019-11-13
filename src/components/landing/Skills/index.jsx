@@ -18,10 +18,10 @@ export const Skills = () => (
 				<img src={skills} alt="devs using skills to solve problems" />
 			</Thumbnail>
 			<Details>
-				<h1>Hi There!</h1>
+				<h1>A little about me...</h1>
 				<p>
 					While I specialize in front-end development, I'm a multifaceted
-					professional with experience assisting businesses to solve complex
+					professional with experience assisting businesses solve complex
 					problems through both front-end and back-end web technologies. Below
 					are a few of those technologies.
 				</p>

@@ -37,32 +37,14 @@ export const Details = styled.div`
 
 	h1 {
 		margin-bottom: 1rem;
-		font-size: 38pt;
 		color: #212121;
-
-		@media (max-width: 1024px) {
-			font-size: 34pt;
-		}
-
-		@media (max-width: 620px) {
-			font-size: 24pt;
-		}
 	}
 
 	h2 {
 		margin-bottom: 2.5rem;
-		font-size: 20pt;
 		font-weight: normal;
 		color: #707070;
 		line-height: 1.3;
-
-		@media (max-width: 1024px) {
-			font-size: 20pt;
-		}
-
-		@media (max-width: 620px) {
-			font-size: 19pt;
-		}
 	}
 
 	a {
@@ -116,8 +98,8 @@ export const AnimatedEmoji = styled.div`
 	animation-delay: 1s;
 	display: inline-block;
 	position: relative;
-	width: 47px;
-	height: 50px;
+	width: 37px;
+	height: 40px;
 
 	img {
 		position: absolute;

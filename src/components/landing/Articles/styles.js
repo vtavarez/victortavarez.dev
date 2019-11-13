@@ -7,12 +7,15 @@ export const Wrapper = styled.div`
 	flex-direction: column;
 `
 
+export const ArticlesHeader = styled.h2`
+	margin-right: auto;
+`
+
 export const ArticlesWrapper = styled.div`
 	display: flex;
 	align-self: flex-start;
 	align-items: flex-start;
 	justify-content: space-between;
-	padding: 4rem 0;
 
 	@media (max-width: 960px) {
 		flex-direction: column;
@@ -43,39 +46,26 @@ export const Details = styled.div`
 
 	p {
 		margin: 1.2rem 0;
-		font-size: 16pt;
 		font-weight: normal;
 		color: #666666;
 		word-spacing: 2px;
-
-		@media (max-width: 620px) {
-			font-size: 14pt;
-		}
+		font-size: 1.2rem;
 	}
 `
 export const PostDate = styled.span`
-	font-size: 14pt;
 	color: #707070;
 	padding-right: 5px;
-
-	@media (max-width: 620px) {
-		font-size: 12pt;
-	}
+	font-size: 1.2rem;
 `
 
 export const ReadingTime = styled.span`
-	font-size: 14pt;
 	color: #707070;
 	padding-left: 5px;
-
-	@media (max-width: 620px) {
-		font-size: 12pt;
-	}
+	font-size: 1.2rem;
 `
-export const PostTitle = styled.h1`
+export const PostTitle = styled.h2`
 	position: relative;
 	width: fit-content;
-	height: 35px;
 	cursor: pointer;
 
 	a {
@@ -85,7 +75,7 @@ export const PostTitle = styled.h1`
 	&::after {
 		content: ' ';
 		position: absolute;
-		bottom: 0;
+		top: 30px;
 		left: 0;
 		right: 0;
 		width: 100%;

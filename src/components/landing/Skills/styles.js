@@ -37,24 +37,14 @@ export const Details = styled.div`
 
 	h1 {
 		margin-bottom: 2rem;
-		font-size: 26pt;
 		color: #212121;
-
-		@media (max-width: 620px) {
-			font-size: 24pt;
-		}
 	}
 
 	p {
-		margin-bottom: 2.5rem;
-		font-size: 20pt;
+		font-size: 1.365rem;
 		font-weight: normal;
 		line-height: 1.3;
 		color: #707070;
-
-		@media (max-width: 620px) {
-			font-size: 19pt;
-		}
 	}
 `
 

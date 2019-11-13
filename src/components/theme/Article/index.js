@@ -41,11 +41,11 @@ export const PostInfo = styled.div`
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	margin-bottom: 2rem;
+	margin: 2rem 0;
 `
 
 export const PostDate = styled.span`
-	font-size: 14pt;
+	font-size: 1.2rem;
 	color: #707070;
 	padding-right: 5px;
 	@media (max-width: 620px) {
@@ -54,7 +54,7 @@ export const PostDate = styled.span`
 `
 
 export const ReadingTime = styled.span`
-	font-size: 14pt;
+	font-size: 1.2rem;
 	color: #707070;
 	padding-left: 5px;
 	@media (max-width: 620px) {
@@ -68,15 +68,17 @@ export const Markdown = styled.div`
 	padding-bottom: 4rem;
 	max-width: 1200px;
 	h1 {
-		margin-bottom: 3rem;
+		margin-bottom: 2rem;
+		font-size: 2rem;
 	}
 
 	h2 {
-		margin: 3rem 0;
+		margin: 2rem 0;
 	}
 
 	p {
 		line-height: 1.5;
+		font-size: 1.2rem;
 	}
 
 	a {
@@ -85,12 +87,9 @@ export const Markdown = styled.div`
 
 	code {
 		padding: 0.2em;
-		font-size: 16pt;
+		font-size: 1rem;
 		&::after {
 			display: none;
-		}
-		@media (max-width: 620px) {
-			font-size: 14pt;
 		}
 	}
 
