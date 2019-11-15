@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-	a {
-		color: #212121;
-	}
+  a {
+    color: #212121;
+  }
 
-	${({ desktop }) =>
-		desktop
-			? `
+  ${({ desktop }) =>
+    desktop
+      ? `
 			@media (max-width: 960px) {
 					display: none;
 			}
@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
 					}
 			}
 		`
-			: `
+      : `
 			position: relative;
 			top: 50%;
 			margin-top: -140px;
@@ -41,30 +41,30 @@ export const Wrapper = styled.div`
 `
 
 export const Underline = styled.div`
-	display: inline-block;
-	position: relative;
-	width: fit-content;
-	cursor: pointer;
-	vertical-align: center;
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+  cursor: pointer;
+  vertical-align: center;
 
-	&::after {
-		content: ' ';
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		width: 100%;
-		height: 5px;
-		visibility: hidden;
-		transform: scaleX(0) translateY(8px);
-		transition: all 0.3s ease-in-out 0s;
+  &::after {
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 5px;
+    visibility: hidden;
+    transform: scaleX(0) translateY(8px);
+    transition: all 0.3s ease-in-out 0s;
 
-		${({ desktop }) =>
-		desktop ? `background-color: #212121` : `background-color: #2ecc71`}
-	}
+    ${({ desktop }) =>
+      desktop ? `background-color: #212121;` : `background-color: #2ecc71;`}
+  }
 
-	&:hover:after {
-		visibility: visible;
-		transform: scaleX(1) translateY(8px);
-	}
+  &:hover:after {
+    visibility: visible;
+    transform: scaleX(1) translateY(8px);
+  }
 `

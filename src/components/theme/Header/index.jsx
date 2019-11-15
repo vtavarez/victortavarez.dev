@@ -5,13 +5,13 @@ import Sidebar from './Sidebar'
 import { Wrapper, Overlay } from './styles'
 
 export const Header = props => {
-	const [sidebar, toggle] = useState(false)
-	return (
-		<Wrapper>
-			<Overlay sidebar={sidebar} onClick={() => toggle(!sidebar)} />
-			<Navbar {...props} />
-			<Hamburger sidebar={sidebar} toggle={toggle} />
-			<Sidebar sidebar={sidebar} toggle={toggle} {...props} />
-		</Wrapper>
-	)
+  const [sidebar, toggle] = useState(false)
+  return (
+    <Wrapper>
+      <Overlay sidebar={sidebar} onClick={() => toggle(!sidebar)} />
+      <Navbar {...props} />
+      <Hamburger sidebar={sidebar} toggle={toggle} />
+      <Sidebar sidebar={sidebar} toggle={() => toggle(!sidebar)} {...props} />
+    </Wrapper>
+  )
 }
