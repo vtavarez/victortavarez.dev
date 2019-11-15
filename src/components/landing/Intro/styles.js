@@ -33,11 +33,20 @@ export const Details = styled.div`
 	@media (max-width: 960px) {
 		width: 100%;
 		margin-bottom: 2rem;
+
+		@media (max-width: 620px) {
+			margin-top: 3rem;
+			margin-bottom: 3rem;
+		}
 	}
 
 	h1 {
 		margin-bottom: 1rem;
 		color: #212121;
+
+		@media (max-width: 620px) {
+			font-size: 1.9rem;
+		}
 	}
 
 	h2 {
@@ -94,11 +103,16 @@ export const AnimatedEmoji = styled.div`
   animation-name: ${wave};
   animation-duration: 0.5s;
   animation-iteration-count: 3;
-  animation-delay: 1s;
+  animation-delay: 1.5s;
   display: inline-block;
   position: relative;
   width: 37px;
   height: 40px;
+
+  @media (max-width: 620px) {
+    width: 35px;
+    height: 38px;
+  }
 
   img {
     position: absolute;

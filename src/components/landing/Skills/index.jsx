@@ -21,12 +21,12 @@ export const Skills = () => (
         <h1>A little about me...</h1>
         <p>
           During my free time, I enjoy contributing to free and open source
-          projects, and sharing knowledge by blogging about current and upcoming
-          web technologies.
+          projects, and sharing the things I have learned about current and
+          upcoming web technologies.
         </p>
         <p>
           {' '}
-          While I specialize in front-end development, I'm a multifaceted
+          Although I specialize in front-end development, I am a multifaceted
           professional with experience assisting businesses solve complex
           problems through both front-end and back-end web technologies. Below
           are a few of those technologies.

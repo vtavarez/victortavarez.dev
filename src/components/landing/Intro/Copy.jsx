@@ -5,6 +5,8 @@ export default () => (
   <h2>
     I'm a front-end developer, passionate about delivering high quality,
     performant web applications for clients. Feel free to{' '}
-    <AnchorLink href="#contact">get in touch.</AnchorLink>
+    <AnchorLink offset="90" href="#contact">
+      get in touch.
+    </AnchorLink>
   </h2>
 )
