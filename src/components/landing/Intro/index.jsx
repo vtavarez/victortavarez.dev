@@ -1,12 +1,10 @@
 import React, { useContext } from 'react'
 import { Container } from 'Common'
-import { Header } from 'Theme'
-import devs from 'Static/illustrations/devs.jpg'
 import { Context } from 'State'
 import Heading from './Heading'
 import AnimatedCopy from './AnimatedCopy'
 import Copy from './Copy'
-import { Wrapper, IntroWrapper, Details, Thumbnail } from './styles'
+import { Wrapper, Introduction, Details, Thumbnail } from './styles'
 
 export const Intro = () => {
   const {
@@ -16,8 +14,7 @@ export const Intro = () => {
 
   return (
     <Wrapper>
-      <Header />
-      <IntroWrapper as={Container}>
+      <Container>
         <Details>
           {animate ? (
             <>
@@ -33,10 +30,7 @@ export const Intro = () => {
             </>
           )}
         </Details>
-        <Thumbnail>
-          <img src={devs} alt="devs collaborating on project" />
-        </Thumbnail>
-      </IntroWrapper>
+      </Container>
     </Wrapper>
   )
 }

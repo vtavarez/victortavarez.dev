@@ -15,8 +15,8 @@ export default () => {
       <SEO />
       <Overlay />
       <Intro />
-      <Projects />
       <Skills />
+      <Projects />
       <Articles />
       <Contact />
     </Layout>

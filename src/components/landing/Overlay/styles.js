@@ -21,9 +21,9 @@ const collapse = keyframes`
 
 export const Bar = styled.div`
   flex: 1;
-  background-color: #2ecc71;
+  background-color: #212121;
   animation-name: ${collapse};
-  animation-duration: 0.5s;
+  animation-duration: 1.5s;
   animation-iteration-count: 1;
   animation-delay: 0.5s;
   transform-origin: bottom;

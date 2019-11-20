@@ -1,27 +1,27 @@
 [
   {
-    "id": 0,
-    "name": "HTML",
-    "icon": "/icons/html.svg"
-  },
-  {
     "id": 1,
-    "name": "CSS",
-    "icon": "/icons/css.svg"
-  },
-  {
-    "id": 2,
     "name": "JavaScript",
     "icon": "/icons/javascript.svg"
   },
   {
-    "id": 3,
+    "id": 2,
     "name": "React",
     "icon": "/icons/react.svg"
   },
   {
-    "id": 4,
+    "id": 3,
     "name": "NodeJS",
     "icon": "/icons/node.svg"
+  },
+  {
+    "id": 4,
+    "name": "CSharp",
+    "icon": "/icons/csharp.svg"
+  },
+  {
+    "id": 5,
+    "name": "ASP.NET Core",
+    "icon": "/icons/core.svg"
   }
 ]

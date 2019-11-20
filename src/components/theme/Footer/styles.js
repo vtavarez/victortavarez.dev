@@ -1,37 +1,20 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   display: flex;
   align-items: flex-end;
   margin-top: auto;
   height: 300px;
-
-  &::after {
-    content: ' ';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    background-image: url('/illustrations/footer-background.svg');
-    background-size: contain;
-    background-position: bottom right;
-    background-repeat: no-repeat;
-    transform: rotateY(180deg);
-
-    @media (max-width: 680px) {
-      background-position: bottom;
-      background-size: contain;
-    }
-  }
-
-  @media (max-resolution: 150dpi) {
-    @media (min-width: 2000px) {
-      height: 400px;
-    }
-  }
+  clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%);
+  background: linear-gradient(
+    to bottom right,
+    rgba(46, 204, 113, 0.5),
+    rgba(39, 174, 96, 0.8),
+    rgba(41, 128, 185, 1)
+  );
 `
 
 export const Flex = styled.div`
@@ -48,7 +31,6 @@ export const Flex = styled.div`
     flex-direction: column;
     text-align: center;
     align-items: center;
-    transform: translateY(-6rem);
   }
 `
 

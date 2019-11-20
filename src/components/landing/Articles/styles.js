@@ -1,20 +1,58 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
+  position: relative;
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: column;
+  margin: 4rem auto;
+  min-height: 700px;
+  clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
+
+  &::before {
+    content: ' ';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+      to bottom right,
+      rgba(46, 204, 113, 1),
+      rgba(39, 174, 96, 0.8),
+      rgba(41, 128, 185, 0.6)
+    );
+  }
+
+  &::after {
+    content: ' ';
+    position: absolute;
+    background-image: url('../illustrations/programming.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    filter: blur(5px);
+  }
 
   @media (max-width: 620px) {
     margin: 2rem auto;
   }
+
+  @media (min-width: 1900px) {
+    min-height: 800px;
+  }
 `
 
-export const ArticlesHeader = styled.h2`
-  margin-right: auto;
+export const Heading = styled.h3`
   position: relative;
-  margin-bottom: 2rem;
+  margin: 3rem auto;
+  width: fit-content;
   &::after {
     content: ' ';
     position: absolute;
@@ -22,12 +60,8 @@ export const ArticlesHeader = styled.h2`
     left: 0;
     height: 5px;
     width: 50px;
-    background-color: #707070;
+    background-color: rgba(46, 204, 113, 1);
     border-radius: 5px;
-  }
-
-  @media (max-width: 620px) {
-    margin-bottom: 0;
   }
 `
 
@@ -69,25 +103,17 @@ export const Details = styled.div`
   }
 
   p {
-    margin: 1.2rem 0;
-    font-weight: normal;
-    color: #666666;
-    word-spacing: 2px;
-    font-size: 1.2rem;
+    margin: 1rem 0;
   }
 `
 export const PostDate = styled.span`
-  color: #707070;
   padding-right: 5px;
-  font-size: 1.2rem;
 `
 
 export const ReadingTime = styled.span`
-  color: #707070;
   padding-left: 5px;
-  font-size: 1.2rem;
 `
-export const PostTitle = styled.h2`
+export const PostTitle = styled.h3`
   position: relative;
   width: fit-content;
   cursor: pointer;
@@ -104,15 +130,29 @@ export const PostTitle = styled.h2`
     right: 0;
     width: 100%;
     height: 5px;
-    background-color: #2ecc71;
+    background-color: rgba(46, 204, 113, 1);
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out 0s;
     z-index: -1;
+    border-radius: 5px;
   }
 
   &:hover:after {
     visibility: visible;
     transform: scaleX(1);
+  }
+`
+
+export const MorePosts = styled.button`
+  margin-left: auto;
+  padding: 0;
+
+  a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: #212121;
+    padding: 10px 0;
   }
 `

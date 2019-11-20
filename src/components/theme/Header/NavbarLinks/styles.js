@@ -1,10 +1,6 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  a {
-    color: #212121;
-  }
-
   ${({ desktop }) =>
     desktop
       ? `
@@ -13,8 +9,8 @@ export const Wrapper = styled.div`
 			}
 
 			a {
-					margin-right: 1rem;
-
+          margin-right: 1rem;
+          
 					&:last-child {
 							margin-right: unset;
 					}
@@ -31,7 +27,7 @@ export const Wrapper = styled.div`
 			a {
 					margin-bottom: 2rem;
 					font-size: 14pt;
-					text-align: center;
+          text-align: center;
 
 					&:last-child {
 							margin-bottom: unset;
@@ -46,6 +42,7 @@ export const Underline = styled.div`
   width: fit-content;
   cursor: pointer;
   vertical-align: center;
+  color: #212121;
 
   &::after {
     content: ' ';
@@ -58,9 +55,8 @@ export const Underline = styled.div`
     visibility: hidden;
     transform: scaleX(0) translateY(8px);
     transition: all 0.3s ease-in-out 0s;
-
-    ${({ desktop }) =>
-      desktop ? `background-color: #212121;` : `background-color: #2ecc71;`}
+    border-radius: 5px;
+    background-color: rgba(46, 204, 113, 1);
   }
 
   &:hover:after {

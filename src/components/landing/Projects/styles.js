@@ -2,18 +2,17 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   position: relative;
-  padding: 4rem 0;
+  margin: 8rem auto;
+
   @media (max-width: 960px) {
-    padding: 2rem 0;
-  }
-  @media (max-width: 620px) {
-    padding: 0;
+    margin: 2rem auto;
   }
 `
 
-export const ProjectsHeader = styled.h2`
+export const Heading = styled.h3`
   position: relative;
-  margin-bottom: 2rem;
+  margin: 3rem auto;
+  width: fit-content;
   &::after {
     content: ' ';
     position: absolute;
@@ -21,7 +20,7 @@ export const ProjectsHeader = styled.h2`
     left: 0;
     height: 5px;
     width: 50px;
-    background-color: #707070;
+    background-color: rgba(46, 204, 113, 1);
     border-radius: 5px;
   }
 `
@@ -47,6 +46,7 @@ export const Item = styled.div`
   height: 100%;
   overflow: hidden;
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.11);
+  transition: transform 0.2s ease-in-out;
 
   h4 {
     color: #212121;
@@ -54,6 +54,10 @@ export const Item = styled.div`
 
   p {
     color: #707070;
+  }
+
+  &:hover {
+    transform: scale(1.2);
   }
 `
 

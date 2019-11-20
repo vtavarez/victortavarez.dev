@@ -5,12 +5,13 @@ import ReactMarkdown from 'react-markdown'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import {
   Wrapper,
-  ArticlesHeader,
+  Heading,
   ArticlesWrapper,
   Details,
   ReadingTime,
   PostDate,
   PostTitle,
+  MorePosts,
 } from './styles'
 
 export const Articles = () => {
@@ -34,38 +35,42 @@ export const Articles = () => {
   `)
 
   return (
-    <Wrapper as={Container}>
-      <ArticlesHeader>Recent Articles</ArticlesHeader>
-      <ArticlesWrapper id="blog">
-        {edges.map(
-          ({ node: { slug, title, date, readingTime, intro, tags } }) => (
-            <Details key={slug}>
-              <PostTitle>
-                <AniLink paintDrip hex="#2ecc71" to={`/blog/${slug}/`}>
-                  {title}
-                </AniLink>
-              </PostTitle>
-              <div>
-                <PostDate>{date}</PostDate>
-                <ReadingTime>Read time: {readingTime} min</ReadingTime>
-              </div>
-              <ReactMarkdown source={intro} />
-              <Button
-                as={AniLink}
-                paintDrip
-                hex="#2ecc71"
-                to={`/blog/${slug}/`}
-              >
-                Read more »
-              </Button>
-              <Tags tags={tags} />
-            </Details>
-          )
-        )}
-      </ArticlesWrapper>
-      <Button as={AniLink} paintDrip hex="#2ecc71" to="/blog/">
-        More Posts »
-      </Button>
+    <Wrapper>
+      <Container>
+        <Heading>Articles</Heading>
+        <ArticlesWrapper id="blog">
+          {edges.map(
+            ({ node: { slug, title, date, readingTime, intro, tags } }) => (
+              <Details key={slug}>
+                <PostTitle>
+                  <AniLink paintDrip hex="#212121" to={`/blog/${slug}/`}>
+                    {title}
+                  </AniLink>
+                </PostTitle>
+                <div>
+                  <PostDate>Post date: {date}</PostDate>
+                  <ReadingTime>Read time: {readingTime} min</ReadingTime>
+                </div>
+                <ReactMarkdown source={intro} />
+                <Button
+                  as={AniLink}
+                  paintDrip
+                  hex="#212121"
+                  to={`/blog/${slug}/`}
+                >
+                  Read more »
+                </Button>
+                <Tags tags={tags} />
+              </Details>
+            )
+          )}
+        </ArticlesWrapper>
+        <Button as={MorePosts}>
+          <AniLink paintDrip hex="#212121" to="/blog/">
+            More Posts »
+          </AniLink>
+        </Button>
+      </Container>
     </Wrapper>
   )
 }

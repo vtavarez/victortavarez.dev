@@ -1,113 +1,84 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-	position: relative;
-	padding: 4rem 0;
-	z-index: 2;
-	@media (max-width: 620px) {
-		z-index: 1;
-	}
+  padding: 4rem 0;
+  margin-bottom: 300px;
 `
 
 export const Article = styled.div`
-	min-height: 870px;
+  min-height: 870px;
 `
 
 export const Details = styled.div`
-	h1 {
-		margin-bottom: 1rem;
-		font-size: 22pt;
-		color: #212121;
+  h1 {
+    font-size: 20pt;
 
-		@media (max-width: 620px) {
-			font-size: 17pt;
-		}
-	}
+    @media (max-width: 620px) {
+      font-size: 17pt;
+    }
+  }
 
-	p {
-		margin: 1.2rem 0;
-		font-size: 16pt;
-		font-weight: normal;
-		color: #666666;
-		word-spacing: 2px;
-
-		@media (max-width: 620px) {
-			font-size: 14pt;
-		}
-	}
+  p {
+    font-weight: normal;
+  }
 `
 export const PostInfo = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 4rem auto 2rem;
 `
 
 export const PostDate = styled.span`
-	font-size: 1.2rem;
-	color: #707070;
-	padding-right: 5px;
-	@media (max-width: 620px) {
-		font-size: 12pt;
-	}
+  padding-right: 5px;
 `
 
 export const ReadingTime = styled.span`
-	font-size: 1.2rem;
-	color: #707070;
-	padding-left: 5px;
-	@media (max-width: 620px) {
-		font-size: 12pt;
-	}
+  padding-left: 5px;
 `
 
 export const Markdown = styled.div`
-	margin: 0 auto;
-	padding-top: 2rem;
-	padding-bottom: 4rem;
-	max-width: 1200px;
-	h1 {
-		margin-bottom: 2rem;
-		font-size: 2rem;
-	}
+  margin: 0 auto;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  max-width: 1200px;
+  h1 {
+    font-size: 20pt;
+  }
 
-	h2 {
-		margin: 2rem 0;
-	}
+  h2 {
+    margin: 2rem 0;
+    font-size: 17pt;
+  }
 
-	p {
-		line-height: 1.5;
-		font-size: 1.2rem;
-	}
+  a {
+    color: rgba(46, 204, 113, 1);
+  }
 
-	a {
-		color: rgba(46, 204, 113, 1);
-	}
+  code {
+    padding: 0.2em;
+    font-size: 11pt;
+    &::after {
+      display: none;
+    }
+  }
 
-	code {
-		padding: 0.2em;
-		font-size: 1rem;
-		&::after {
-			display: none;
-		}
-	}
+  blockquote {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 
-	blockquote {
-		margin-top: 2rem;
-		margin-bottom: 2rem;
-	}
+  p {
+    img {
+      display: block;
+      margin: 0 auto !important;
+    }
+  }
 
-	p {
-		img {
-			display: block;
-			margin: 0 auto !important;
-		}
-	}
-
-	@media (max-width: 1024px) {
-		code {
-			font-size: 12pt;
-		}
-	}
+  @media (max-width: 1024px) {
+    code {
+      font-size: 12pt;
+    }
+  }
 `

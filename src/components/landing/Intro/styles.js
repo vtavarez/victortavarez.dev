@@ -1,87 +1,48 @@
 import styled, { keyframes } from 'styled-components'
 
 export const Wrapper = styled.div`
-  @media (max-width: 960px) {
-    min-height: 100vh;
-  }
-`
-
-export const IntroWrapper = styled.div`
-  padding: 10rem 0 4rem 0;
+	position: relative;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+	height: 100vh;
+	background-color: transparent;
+	clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
 
-  @media (max-width: 1024px) {
-    padding: 14rem 0 3rem 0;
-  }
-
-  @media (max-width: 960px) {
-    flex-direction: column-reverse;
-    padding: 4rem 0 3rem 0;
-  }
-
-  @media (max-width: 620px) {
-    flex-direction: column-reverse;
-    padding: 1rem 0 0 0;
-  }
+	&::before {
+		content: ' ';
+		position: absolute;
+		top: 0;
+		right 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		background: linear-gradient(to bottom right, rgba(46,204,113,.5), rgba(39,174,96,.8), rgba(41,128,185,1));
+	}
+	
+	&::after {
+		content: ' ';
+		position: absolute;
+		top: 0;
+		right 0;
+		bottom: 0;
+		left: 0;
+		z-index: -2;
+		background-image: url('../illustrations/header.gif');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	}
 `
-
 export const Details = styled.div`
-	flex: 1;
-
-	@media (max-width: 960px) {
-		width: 100%;
-		margin-bottom: 2rem;
-
-		@media (max-width: 620px) {
-			margin-top: 3rem;
-			margin-bottom: 3rem;
-		}
-	}
-
-	h1 {
-		margin-bottom: 1rem;
-		color: #212121;
-
-		@media (max-width: 620px) {
-			font-size: 1.9rem;
-		}
-	}
-
-	h2 {
-		margin-bottom: 2.5rem;
-		font-weight: normal;
-		color: #707070;
-		line-height: 1.3;
-	}
-
-	a {
-		position: relative;
-		display: inline-block;
-		color: #212121;
-		z-index: 1;
-
-		&::after {
-			content: ' ';
-			position: absolute;
-			right: 0;
-			left 0;
-			top: 0;
-			bottom: 0;
-			background-color: #2ecc71;
-			z-index: -1;
-		}
-	}
-`
-
-export const Thumbnail = styled.div`
-  flex: 1;
-  @media (max-width: 960px) {
-    width: 100%;
+  h1 {
+    @media (max-width: 620px) {
+      font-size: 25pt;
+    }
   }
-  img {
-    width: 100%;
+
+  h2 {
+    font-weight: normal;
   }
 `
 
@@ -106,13 +67,8 @@ export const AnimatedEmoji = styled.div`
   animation-delay: 1.5s;
   display: inline-block;
   position: relative;
-  width: 37px;
-  height: 40px;
-
-  @media (max-width: 620px) {
-    width: 35px;
-    height: 38px;
-  }
+  width: 35px;
+  height: 38px;
 
   img {
     position: absolute;

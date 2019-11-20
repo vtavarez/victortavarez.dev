@@ -1,45 +1,30 @@
 import React from 'react'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-import { Container, Button } from 'Common'
-import skills from 'Static/illustrations/skills.jpg'
 import technologies from './technologies.json'
-import {
-  Wrapper,
-  SkillsWrapper,
-  Details,
-  Thumbnail,
-  TechnologiesWrapper,
-} from './styles'
+import { Container, Button } from 'Common'
+import { Wrapper, Details, Technologies } from './styles'
 
 export const Skills = () => (
-  <Wrapper id="skills">
-    <SkillsWrapper as={Container}>
-      <Thumbnail>
-        <img src={skills} alt="devs using skills to solve problems" />
-      </Thumbnail>
-      <Details>
-        <h1>A little about me...</h1>
-        <p>
-          During my free time, I enjoy contributing to free and open source
-          projects, and sharing the things I have learned about current and
-          upcoming web technologies.
-        </p>
-        <p>
-          {' '}
-          Although I specialize in front-end development, I am a multifaceted
-          professional with experience assisting businesses solve complex
-          problems through both front-end and back-end web technologies. Below
-          are a few of those technologies.
-        </p>
-        <TechnologiesWrapper>
-          {technologies.map(({ id, name, icon }) => (
-            <img height="30" key={id} src={icon} alt={name} />
-          ))}
-        </TechnologiesWrapper>
-        <Button as={AnchorLink} href="#contact">
-          Get in touch
-        </Button>
-      </Details>
-    </SkillsWrapper>
+  <Wrapper id="skills" as={Container}>
+    <Details>
+      <h2>front end focused.. full stack experience</h2>
+      <p>
+        While I specialize in front-end development, I have experience working
+        with engineering teams to solve complex problems through both front-end
+        and back-end web technologies.
+      </p>
+      <p>
+        I enjoy contributing to open source, and sharing things I have learned
+        about current and upcoming web technologies.
+      </p>
+      <Button as={AnchorLink} href="#contact">
+        Get in touch
+      </Button>
+    </Details>
+    <Technologies>
+      {technologies.map(({ id, name, icon }) => (
+        <img height="30" key={id} src={icon} alt={name} />
+      ))}
+    </Technologies>
   </Wrapper>
 )
