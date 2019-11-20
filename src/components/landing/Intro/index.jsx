@@ -4,7 +4,8 @@ import { Context } from 'State'
 import Heading from './Heading'
 import AnimatedCopy from './AnimatedCopy'
 import Copy from './Copy'
-import { Wrapper, Introduction, Details, Thumbnail } from './styles'
+import { Wrapper, Details } from './styles'
+import { Header } from 'Theme'
 
 export const Intro = () => {
   const {
@@ -14,6 +15,7 @@ export const Intro = () => {
 
   return (
     <Wrapper>
+      <Header />
       <Container>
         <Details>
           {animate ? (

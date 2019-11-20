@@ -29,6 +29,7 @@ export default ({
         description={intro}
         location={`/blog/${slug}`}
       />
+      <Header article />
       <Wrapper as={Container}>
         <Article>
           <Animated

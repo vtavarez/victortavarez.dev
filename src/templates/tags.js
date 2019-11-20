@@ -8,6 +8,7 @@ export default ({ pageContext: { group: tags } }) => {
   return (
     <Layout>
       <SEO title="Tags | Victor Tavarez" description="Article Tags" />
+      <Header tags />
       <Wrapper as={Container}>
         <Animated
           animation={{

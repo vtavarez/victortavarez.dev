@@ -3,25 +3,40 @@ import AnchorLink from 'react-anchor-link-smooth-scroll'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { Wrapper, Underline } from './styles'
 
-const NavbarLinks = ({ desktop }) => (
+const NavbarLinks = ({ desktop, blog, tags, tag, article }) => (
   <Wrapper desktop={desktop}>
-    {window !== 'undefined' && window.location.pathname === '/blog/' && (
+    {blog && (
       <>
         <AniLink paintDrip hex="#212121" to="/blog/tags/">
           <Underline desktop={desktop}>Tags</Underline>
         </AniLink>
       </>
     )}
-    {window !== 'undefined' &&
-      window.location.pathname.includes('/blog/') &&
-      window.location.pathname.length > 6 && (
-        <>
-          <AniLink paintDrip hex="#212121" to="/blog/">
-            <Underline desktop={desktop}>Blog</Underline>
-          </AniLink>
-        </>
-      )}
-    {window !== 'undefined' && window.location.pathname === '/' && (
+    {tags && (
+      <>
+        <AniLink paintDrip hex="#212121" to="/blog/">
+          <Underline desktop={desktop}>Blog</Underline>
+        </AniLink>
+      </>
+    )}
+    {tag && (
+      <>
+        <AniLink paintDrip hex="#212121" to="/blog/">
+          <Underline desktop={desktop}>Blog</Underline>
+        </AniLink>
+        <AniLink paintDrip hex="#212121" to="/blog/tags/">
+          <Underline desktop={desktop}>Tags</Underline>
+        </AniLink>
+      </>
+    )}
+    {article && (
+      <>
+        <AniLink paintDrip hex="#212121" to="/blog/">
+          <Underline desktop={desktop}>Blog</Underline>
+        </AniLink>
+      </>
+    )}
+    {!blog && !tags && !tag && !article && (
       <>
         <AnchorLink offset="120" href="#projects">
           <Underline desktop={desktop}>Projects</Underline>

@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   background: transparent;
   width: 100%;
   z-index: 4;
+  top: 0;
 `
 
 export const Overlay = styled.div`

@@ -12,6 +12,7 @@ import { Animated, FadeAnimations } from 'animated-styled-components'
 import ReactMarkdown from 'react-markdown'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import blog from 'Static/illustrations/blog.svg'
+import { Header } from 'Theme'
 import {
   Wrapper,
   Articles,
@@ -32,6 +33,7 @@ export default ({
         description="Articles about current and upcoming web technologies."
         location={location}
       />
+      <Header blog />
       <Wrapper as={Container}>
         <Articles>
           <Animated

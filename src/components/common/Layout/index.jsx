@@ -6,7 +6,6 @@ import './fonts.css'
 export const Layout = ({ children }) => (
   <Page>
     <Global />
-    <Header />
     {children}
     <Footer />
   </Page>

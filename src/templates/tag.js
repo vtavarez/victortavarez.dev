@@ -34,6 +34,7 @@ export default ({
         description={`${tag[0].toUpperCase() + tag.slice(1)} article archives.`}
         location={location}
       />
+      <Header tag />
       <Wrapper as={Container}>
         <Animated
           animation={{
