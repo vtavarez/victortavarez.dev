@@ -23,18 +23,18 @@ export const Bar = styled.div`
   flex: 1;
   background-color: #212121;
   animation-name: ${collapse};
-  animation-duration: 1.5s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
-  animation-delay: 0.5s;
+  animation-delay: 0.4s;
   transform-origin: bottom;
   animation-fill-mode: forwards;
 
   &:nth-child(2) {
-    animation-delay: 0.7s;
+    animation-delay: 0.6s;
   }
 
   &:nth-child(3) {
-    animation-delay: 0.9s;
+    animation-delay: 0.8s;
   }
 
   &:nth-child(4) {

@@ -28,6 +28,10 @@ export const Details = styled.div`
 
   h2 {
     font-weight: normal;
+    text-align: justify;
+    @media (max-width: 620px) {
+      font-size: 16pt;
+    }
   }
 `
 

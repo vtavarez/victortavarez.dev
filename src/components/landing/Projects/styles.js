@@ -46,7 +46,7 @@ export const Item = styled.div`
   height: 100%;
   overflow: hidden;
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.11);
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.3s ease-in;
 
   h4 {
     color: #212121;
@@ -58,6 +58,10 @@ export const Item = styled.div`
 
   &:hover {
     transform: scale(1.2);
+
+    @media (max-width: 960px) {
+      transform: scale(1);
+    }
   }
 `
 

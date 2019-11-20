@@ -21,7 +21,7 @@ export const Technologies = styled.div`
 
   img {
     margin: 1.4rem 0;
-    transition: transform 0.2s ease-in;
+    transition: transform 0.3s ease-in;
   }
 
   img:nth-child(4) {

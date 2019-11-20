@@ -13,10 +13,6 @@ export const Skills = () => (
         with engineering teams to solve complex problems through both front-end
         and back-end web technologies.
       </p>
-      <p>
-        I enjoy contributing to open source, and sharing things I have learned
-        about current and upcoming web technologies.
-      </p>
       <Button as={AnchorLink} href="#contact">
         Get in touch
       </Button>

@@ -11,8 +11,8 @@ export const Wrapper = styled.div`
   background-image: linear-gradient(
       to bottom right,
       rgba(46, 204, 113, 1),
-      rgba(39, 174, 96, 0.9),
-      rgba(41, 128, 185, 0.8)
+      rgba(39, 174, 96, 0.95),
+      rgba(41, 128, 185, 0.9)
     ),
     url('../illustrations/programming.jpg');
   background-repeat: no-repeat;
