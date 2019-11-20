@@ -8,37 +8,16 @@ export const Wrapper = styled.div`
   margin: 4rem auto;
   min-height: 700px;
   clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
-
-  &::before {
-    content: ' ';
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(
+  background-image: linear-gradient(
       to bottom right,
       rgba(46, 204, 113, 1),
-      rgba(39, 174, 96, 0.8),
-      rgba(41, 128, 185, 0.6)
-    );
-  }
-
-  &::after {
-    content: ' ';
-    position: absolute;
-    background-image: url('../illustrations/programming.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    z-index: -2;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    filter: blur(5px);
-  }
+      rgba(39, 174, 96, 0.9),
+      rgba(41, 128, 185, 0.8)
+    ),
+    url('../illustrations/programming.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 
   @media (max-width: 620px) {
     margin: 2rem auto;
