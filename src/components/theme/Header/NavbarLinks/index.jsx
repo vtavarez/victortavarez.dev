@@ -5,14 +5,15 @@ import { Wrapper, Underline } from './styles'
 
 const NavbarLinks = ({ desktop }) => (
   <Wrapper desktop={desktop}>
-    {window.location.pathname === '/blog/' && (
+    {window !== 'undefined' && window.location.pathname === '/blog/' && (
       <>
         <AniLink paintDrip hex="#212121" to="/blog/tags/">
           <Underline desktop={desktop}>Tags</Underline>
         </AniLink>
       </>
     )}
-    {window.location.pathname.includes('/blog/') &&
+    {window !== 'undefined' &&
+      window.location.pathname.includes('/blog/') &&
       window.location.pathname.length > 6 && (
         <>
           <AniLink paintDrip hex="#212121" to="/blog/">
@@ -20,7 +21,7 @@ const NavbarLinks = ({ desktop }) => (
           </AniLink>
         </>
       )}
-    {window.location.pathname === '/' && (
+    {window !== 'undefined' && window.location.pathname === '/' && (
       <>
         <AnchorLink offset="120" href="#projects">
           <Underline desktop={desktop}>Projects</Underline>
