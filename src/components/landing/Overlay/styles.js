@@ -23,7 +23,7 @@ export const Bar = styled.div`
   flex: 1;
   background-color: #212121;
   animation-name: ${collapse};
-  animation-duration: 1s;
+  animation-duration: 0.9s;
   animation-iteration-count: 1;
   animation-delay: 0.4s;
   transform-origin: bottom;
