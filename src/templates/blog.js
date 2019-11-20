@@ -11,7 +11,6 @@ import {
 import { Animated, FadeAnimations } from 'animated-styled-components'
 import ReactMarkdown from 'react-markdown'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
-import blog from 'Static/illustrations/blog.svg'
 import { Header } from 'Theme'
 import {
   Wrapper,
