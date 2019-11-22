@@ -19,6 +19,11 @@ export const Articles = () => {
             readingTime
             intro
             tags
+            image {
+              fluid {
+                src
+              }
+            }
           }
         }
       }
@@ -31,10 +36,24 @@ export const Articles = () => {
         <Heading>Articles</Heading>
         <Details>
           {edges.map(
-            ({ node: { id, slug, title, date, readingTime, intro, tags } }) => (
+            ({
+              node: {
+                id,
+                slug,
+                title,
+                date,
+                readingTime,
+                intro,
+                tags,
+                image: {
+                  fluid: { src },
+                },
+              },
+            }) => (
               <Article
                 key={id}
                 slug={slug}
+                imageSrc={src}
                 title={title}
                 date={date}
                 readingTime={readingTime}

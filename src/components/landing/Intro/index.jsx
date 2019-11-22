@@ -4,7 +4,7 @@ import { Context } from 'State'
 import Heading from './Heading'
 import AnimatedCopy from './AnimatedCopy'
 import Copy from './Copy'
-import { Wrapper, Details } from './styles'
+import { Wrapper, Details, AnimatedArrow } from './styles'
 import { Header } from 'Theme'
 
 export const Intro = () => {
@@ -33,6 +33,7 @@ export const Intro = () => {
           )}
         </Details>
       </Container>
+      <AnimatedArrow animate={animate} />
     </Wrapper>
   )
 }

@@ -25,19 +25,19 @@ export const Bar = styled.div`
   animation-name: ${collapse};
   animation-duration: 0.9s;
   animation-iteration-count: 1;
-  animation-delay: 0.4s;
+  animation-delay: 1.2s;
   transform-origin: bottom;
   animation-fill-mode: forwards;
 
   &:nth-child(2) {
-    animation-delay: 0.6s;
+    animation-delay: 1.4s;
   }
 
   &:nth-child(3) {
-    animation-delay: 0.8s;
+    animation-delay: 1.6s;
   }
 
   &:nth-child(4) {
-    animation-delay: 1s;
+    animation-delay: 1.8s;
   }
 `

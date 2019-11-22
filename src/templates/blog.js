@@ -48,11 +48,23 @@ export default ({
             <Details>
               {posts.map(
                 ({
-                  node: { id, slug, title, date, readingTime, intro, tags },
+                  node: {
+                    id,
+                    slug,
+                    title,
+                    date,
+                    readingTime,
+                    intro,
+                    tags,
+                    image: {
+                      fluid: { src },
+                    },
+                  },
                 }) => (
                   <Article
                     key={id}
                     slug={slug}
+                    imageSrc={src}
                     title={title}
                     date={date}
                     readingTime={readingTime}

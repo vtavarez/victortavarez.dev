@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
 
 export const Heading = styled.h3`
   position: relative;
-  margin: 0 auto 3rem;
+  margin: 0 auto 2rem;
   width: fit-content;
   &::after {
     content: ' ';

@@ -13,6 +13,14 @@ export const PostDate = styled.span`
 export const ReadingTime = styled.span`
   padding-left: 5px;
 `
+
+export const Image = styled.img`
+  display: block;
+  width: 300px;
+  height: auto;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.11);
+`
+
 export const Title = styled.h3`
   position: relative;
   width: fit-content;

@@ -1,11 +1,27 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
-import { Wrapper, Title, MetaData, PostDate, ReadingTime } from './styles'
+import {
+  Wrapper,
+  Title,
+  MetaData,
+  PostDate,
+  ReadingTime,
+  Image,
+} from './styles'
 import { Button, Tags } from 'Common'
 
-export const Article = ({ slug, title, date, readingTime, intro, tags }) => (
+export const Article = ({
+  slug,
+  title,
+  date,
+  readingTime,
+  intro,
+  tags,
+  imageSrc,
+}) => (
   <Wrapper>
+    <Image src={imageSrc} alt="" />
     <Title>
       <AniLink paintDrip hex="#212121" to={`/blog/${slug}/`}>
         {title}
