@@ -3,9 +3,9 @@ import styled from 'styled-components'
 export const Wrapper = styled.div`
   position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-direction: column;
-  margin: 4rem auto;
+  margin: 4rem auto 0;
   min-height: 700px;
   clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
   background-image: linear-gradient(
@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
 
 export const Heading = styled.h3`
   position: relative;
-  margin: 3rem auto;
+  margin: 0 auto 3rem;
   width: fit-content;
   &::after {
     content: ' ';
@@ -44,7 +44,7 @@ export const Heading = styled.h3`
   }
 `
 
-export const ArticlesWrapper = styled.div`
+export const Details = styled.div`
   display: flex;
   align-self: flex-start;
   align-items: flex-start;
@@ -52,18 +52,6 @@ export const ArticlesWrapper = styled.div`
 
   @media (max-width: 960px) {
     flex-direction: column;
-    padding: 2rem 0;
-  }
-
-  @media (max-width: 620px) {
-    padding: 0;
-  }
-`
-
-export const Details = styled.div`
-  flex: 1;
-
-  @media (max-width: 960px) {
     padding-right: unset;
     width: 100%;
     order: 1;
@@ -78,48 +66,12 @@ export const Details = styled.div`
     @media (max-width: 620px) {
       margin-bottom: 0;
       font-size: 17pt;
+      padding: 0;
     }
   }
 
   p {
     margin: 1rem 0;
-  }
-`
-export const PostDate = styled.span`
-  padding-right: 5px;
-`
-
-export const ReadingTime = styled.span`
-  padding-left: 5px;
-`
-export const PostTitle = styled.h3`
-  position: relative;
-  width: fit-content;
-  cursor: pointer;
-
-  a {
-    color: #212121;
-  }
-
-  &::after {
-    content: ' ';
-    position: absolute;
-    top: 30px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 5px;
-    background-color: rgba(46, 204, 113, 1);
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out 0s;
-    z-index: -1;
-    border-radius: 5px;
-  }
-
-  &:hover:after {
-    visibility: visible;
-    transform: scaleX(1);
   }
 `
 

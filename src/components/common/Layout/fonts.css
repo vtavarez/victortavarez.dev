@@ -26,12 +26,3 @@
     url('./fonts/roboto-v18-latin-700.ttf') format('truetype'),
     url('./fonts/roboto-v18-latin-700.svg#Roboto') format('svg');
 }
-
-@font-face {
-  font-family: 'Wireframe';
-  font-weight: normal;
-  font-style: normal;
-  src: url('./fonts/wirefram-webfont.woff2') format('woff2'),
-    url('./fonts/wirefram-webfont.woff') format('woff'),
-    url('./fonts/wirefram-webfont.ttf') format('truetype');
-}

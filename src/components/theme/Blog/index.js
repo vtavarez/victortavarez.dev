@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 4rem 0;
+  margin-top: 5.5rem;
   margin-bottom: 300px;
 `
 
@@ -16,6 +16,7 @@ export const Articles = styled.div`
 
 export const Details = styled.div`
   padding-right: 2rem;
+  margin-bottom: 2rem;
 
   @media (max-width: 960px) {
     padding-right: unset;
@@ -28,44 +29,12 @@ export const Details = styled.div`
     font-weight: normal;
   }
 `
-
-export const Article = styled.div`
-  margin-bottom: 2rem;
-`
-
-export const PostDate = styled.span`
-  padding-right: 5px;
-`
-
-export const ReadingTime = styled.span`
-  padding-left: 5px;
-`
-export const Title = styled.h3`
-  position: relative;
-  width: fit-content;
-  cursor: pointer;
-
-  a {
-    color: #212121;
-  }
-
-  &::after {
-    content: ' ';
-    position: absolute;
-    top: 30px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 5px;
-    background-color: #2ecc71;
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out 0s;
-    border-radius: 5px;
-  }
-
-  &:hover:after {
-    visibility: visible;
-    transform: scaleX(1);
-  }
+export const BlogImg = styled.div`
+  width: 217px;
+  height: 86px;
+  background-image: url('../illustrations/blog.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 auto;
 `

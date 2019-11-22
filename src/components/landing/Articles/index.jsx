@@ -1,18 +1,8 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { Container, Button, Tags } from 'Common'
-import ReactMarkdown from 'react-markdown'
+import { Container, Button, Article } from 'Common'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
-import {
-  Wrapper,
-  Heading,
-  ArticlesWrapper,
-  Details,
-  ReadingTime,
-  PostDate,
-  PostTitle,
-  MorePosts,
-} from './styles'
+import { Wrapper, Heading, Details, MorePosts } from './styles'
 
 export const Articles = () => {
   const {
@@ -22,6 +12,7 @@ export const Articles = () => {
       allContentfulPost(sort: { fields: date, order: DESC }, limit: 2) {
         edges {
           node {
+            id
             slug
             title
             date(formatString: "MMMM Do, YYYY")
@@ -35,36 +26,24 @@ export const Articles = () => {
   `)
 
   return (
-    <Wrapper>
+    <Wrapper id="blog">
       <Container>
         <Heading>Articles</Heading>
-        <ArticlesWrapper id="blog">
+        <Details>
           {edges.map(
-            ({ node: { slug, title, date, readingTime, intro, tags } }) => (
-              <Details key={slug}>
-                <PostTitle>
-                  <AniLink paintDrip hex="#212121" to={`/blog/${slug}/`}>
-                    {title}
-                  </AniLink>
-                </PostTitle>
-                <div>
-                  <PostDate>Post date: {date}</PostDate>
-                  <ReadingTime>Read time: {readingTime} min</ReadingTime>
-                </div>
-                <ReactMarkdown source={intro} />
-                <Button
-                  as={AniLink}
-                  paintDrip
-                  hex="#212121"
-                  to={`/blog/${slug}/`}
-                >
-                  Read more »
-                </Button>
-                <Tags tags={tags} />
-              </Details>
+            ({ node: { id, slug, title, date, readingTime, intro, tags } }) => (
+              <Article
+                key={id}
+                slug={slug}
+                title={title}
+                date={date}
+                readingTime={readingTime}
+                intro={intro}
+                tags={tags}
+              />
             )
           )}
-        </ArticlesWrapper>
+        </Details>
         <Button as={MorePosts}>
           <AniLink paintDrip hex="#212121" to="/blog/">
             More Posts »

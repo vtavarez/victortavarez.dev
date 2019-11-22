@@ -3,25 +3,13 @@ import {
   Layout,
   SEO,
   Container,
-  Button,
-  Tags,
+  Article,
   PreviousNext,
   PageNumbering,
 } from 'Common'
 import { Animated, FadeAnimations } from 'animated-styled-components'
-import ReactMarkdown from 'react-markdown'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { Header } from 'Theme'
-import {
-  Wrapper,
-  Articles,
-  Details,
-  Page,
-  Article,
-  ReadingTime,
-  PostDate,
-  Title,
-} from 'Theme/Tag'
+import { Wrapper, Articles, Details, Page } from 'Theme/Tag'
 
 export default ({
   pageContext: { posts, numberTagPages, currentPage, location, data: tag },
@@ -63,27 +51,15 @@ export default ({
                 ({
                   node: { id, slug, title, date, readingTime, intro, tags },
                 }) => (
-                  <Article key={id}>
-                    <Title>
-                      <AniLink paintDrip hex="#212121" to={`/blog/${slug}/`}>
-                        {title}
-                      </AniLink>
-                    </Title>
-                    <div>
-                      <PostDate>Post date: {date}</PostDate>
-                      <ReadingTime>Read time: {readingTime} min</ReadingTime>
-                    </div>
-                    <ReactMarkdown source={intro} />
-                    <Button
-                      as={AniLink}
-                      paintDrip
-                      hex="#2ecc71"
-                      to={`/blog/${slug}/`}
-                    >
-                      Read more »
-                    </Button>
-                    <Tags tags={tags} />
-                  </Article>
+                  <Article
+                    key={id}
+                    slug={slug}
+                    title={title}
+                    date={date}
+                    readingTime={readingTime}
+                    intro={intro}
+                    tags={tags}
+                  />
                 )
               )}
             </Details>

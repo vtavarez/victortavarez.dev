@@ -11,12 +11,11 @@ export const Wrapper = styled.div`
   }
 `
 
-export const Logo = styled.h1`
-  font-family: 'Wireframe';
-  font-size: 3rem;
-  margin-bottom: 0;
-
-  @media (max-width: 620px) {
-    font-size: 2.25rem;
-  }
+export const Logo = styled.div`
+  width: 26px;
+  height: 40px;
+  background-image: url('../illustrations/logo.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 `

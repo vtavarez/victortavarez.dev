@@ -30,7 +30,7 @@ export const Details = styled.div`
     font-weight: normal;
     text-align: justify;
     @media (max-width: 620px) {
-      font-size: 16pt;
+      font-size: 15pt;
     }
   }
 `

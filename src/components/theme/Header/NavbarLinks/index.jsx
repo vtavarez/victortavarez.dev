@@ -38,16 +38,16 @@ const NavbarLinks = ({ desktop, blog, tags, tag, article }) => (
     )}
     {!blog && !tags && !tag && !article && (
       <>
-        <AnchorLink offset="120" href="#projects">
+        <AnchorLink offset="80" href="#projects">
           <Underline desktop={desktop}>Projects</Underline>
         </AnchorLink>
         <AnchorLink offset="210" href="#skills">
           <Underline desktop={desktop}>Skills</Underline>
         </AnchorLink>
-        <AnchorLink offset="260" href="#blog">
+        <AnchorLink href="#blog">
           <Underline desktop={desktop}>Blog</Underline>
         </AnchorLink>
-        <AnchorLink offset="140" href="#contact">
+        <AnchorLink offset="70" href="#contact">
           <Underline desktop={desktop}>Contact</Underline>
         </AnchorLink>
       </>
