@@ -16,9 +16,9 @@ export const ReadingTime = styled.span`
 
 export const Image = styled.img`
   display: block;
-  width: 300px;
+  width: 350px;
   height: auto;
-  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.11);
+  box-shadow: 10px 11px 0 0 rgba(33, 33, 33, 1);
 `
 
 export const Title = styled.h3`

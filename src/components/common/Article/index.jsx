@@ -21,7 +21,7 @@ export const Article = ({
   imageSrc,
 }) => (
   <Wrapper>
-    <Image src={imageSrc} alt="" />
+    <Image src={imageSrc} alt={title} />
     <Title>
       <AniLink paintDrip hex="#212121" to={`/blog/${slug}/`}>
         {title}

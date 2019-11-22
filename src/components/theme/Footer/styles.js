@@ -9,11 +9,11 @@ export const Wrapper = styled.div`
   margin-top: auto;
   height: 300px;
   clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%);
-  background: linear-gradient(
+  background-image: linear-gradient(
     to bottom right,
-    rgba(46, 204, 113, 0.5),
-    rgba(39, 174, 96, 0.8),
-    rgba(41, 128, 185, 1)
+    rgba(46, 204, 113, 1),
+    rgba(46, 138, 204, 1),
+    rgba(112, 46, 204, 1)
   );
 `
 

@@ -22,6 +22,15 @@ export const Button = styled.button`
   text-align: center;
   box-sizing: border-box;
   padding: 10px 0;
+  clip-path: polygon(
+    16% 0,
+    100% 0,
+    100% 60%,
+    84% 100%,
+    25% 100%,
+    0 100%,
+    0 35%
+  );
 
   &::after {
     content: ' ';

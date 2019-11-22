@@ -6,13 +6,13 @@ export const Wrapper = styled.div`
   justify-content: space-evenly;
   flex-direction: column;
   margin: 4rem auto 0;
-  min-height: 700px;
+  min-height: 850px;
   clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
   background-image: linear-gradient(
       to bottom right,
       rgba(46, 204, 113, 1),
-      rgba(39, 174, 96, 0.95),
-      rgba(41, 128, 185, 0.9)
+      rgba(46, 138, 204, 1),
+      rgba(112, 46, 204, 0.9)
     ),
     url('../illustrations/programming.jpg');
   background-repeat: no-repeat;
@@ -21,10 +21,6 @@ export const Wrapper = styled.div`
 
   @media (max-width: 620px) {
     margin: 2rem auto;
-  }
-
-  @media (min-width: 1900px) {
-    min-height: 800px;
   }
 `
 
