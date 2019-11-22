@@ -12,8 +12,7 @@ export const Wrapper = styled.div`
   background-image: linear-gradient(
     to bottom right,
     rgba(46, 204, 113, 1),
-    rgba(46, 138, 204, 1),
-    rgba(112, 46, 204, 1)
+    rgba(46, 138, 204, 1)
   );
 `
 
