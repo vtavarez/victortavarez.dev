@@ -6,12 +6,12 @@ export const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   margin-top: 5.5rem;
-  margin-bottom: 300px;
 `
 
 export const Articles = styled.div`
   min-height: 870px;
   margin-top: 4rem;
+  margin-bottom: 300px;
 `
 
 export const Details = styled.div`
