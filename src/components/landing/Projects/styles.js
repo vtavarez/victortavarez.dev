@@ -57,10 +57,10 @@ export const Item = styled.div`
   }
 
   &:hover {
-    transform: scale(1.2);
+    transform: translateY(-10px);
 
     @media (max-width: 960px) {
-      transform: scale(1);
+      transform: translateY(0px);
     }
   }
 `

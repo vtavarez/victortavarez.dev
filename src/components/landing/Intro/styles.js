@@ -7,22 +7,35 @@ export const Wrapper = styled.div`
   justify-content: center;
   height: 100vh;
   max-height: 100vh;
-  background-image: linear-gradient(
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+
+  &::after {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
       to bottom right,
       rgba(46, 204, 113, 0.8),
       rgba(46, 138, 204, 0.8)
-    ),
-    url('../illustrations/header.gif');
-  clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+    );
+    z-index: -1;
+  }
 `
+
+export const Background = styled.canvas`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #212121;
+`
+
 export const Details = styled.div`
   flex: 3;
   h1 {
     @media (max-width: 620px) {
-      font-size: 25pt;
+      font-size: 2.1rem;
     }
   }
 
@@ -30,7 +43,7 @@ export const Details = styled.div`
     font-weight: normal;
     text-align: justify;
     @media (max-width: 620px) {
-      font-size: 15pt;
+      font-size: 1.3rem;
     }
   }
 `
