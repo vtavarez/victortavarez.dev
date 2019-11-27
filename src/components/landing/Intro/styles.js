@@ -69,7 +69,7 @@ export const AnimatedEmoji = styled.div`
   animation-delay: 0.5s;
   display: inline-block;
   position: relative;
-  width: 35px;
+  width: 38px;
   height: 38px;
 
   img {
