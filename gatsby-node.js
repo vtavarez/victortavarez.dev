@@ -47,49 +47,19 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
   // Creates Blog Pages
 
   const blogPostsPerPage = 6
-  const numberBlogPages = Math.ceil(edges.length / blogPostsPerPage)
+  const numberOfBlogPages = Math.ceil(edges.length / blogPostsPerPage)
 
-  Array.from({ length: numberBlogPages }).forEach(async (_, i) => {
-    const {
-      data: {
-        allContentfulPost: { edges: posts },
-      },
-    } = await graphql(
-      `
-        query($skip: Int!, $limit: Int!) {
-          allContentfulPost(
-            sort: { fields: date, order: DESC }
-            limit: $limit
-            skip: $skip
-          ) {
-            edges {
-              node {
-                id
-                date(formatString: "MMMM Do, YYYY")
-                intro
-                readingTime
-                slug
-                tags
-                title
-                image {
-                  fluid {
-                    src
-                  }
-                }
-              }
-            }
-          }
-        }
-      `,
-      { skip: i * blogPostsPerPage, limit: blogPostsPerPage }
-    )
+  Array.from({ length: numberOfBlogPages }).forEach((_, i) => {
+    const fromIndex = i * blogPostsPerPage
+    const toIndex = i === 0 ? blogPostsPerPage : fromIndex + blogPostsPerPage
+    const posts = edges.slice(fromIndex, toIndex)
 
     createPage({
       path: i === 0 ? `/blog/` : `/blog/${i + 1}`,
       component: blogPage,
       context: {
         posts,
-        numberBlogPages,
+        numberOfBlogPages,
         currentPage: i + 1,
         location: '/blog',
       },
@@ -138,76 +108,37 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 
   // Creates Tag Pages
 
-  group.map(async tag => {
-    const { fieldValue } = tag
-    const {
-      data: {
-        allContentfulPost: { totalCount },
-      },
-    } = await graphql(
-      `
-        query($tag: String) {
-          allContentfulPost(filter: { tags: { in: [$tag] } }) {
-            totalCount
-          }
-        }
-      `,
-      { tag: fieldValue }
-    )
+  const createTagPages = tag => {
+    const indexOfTag = tags => {
+      return tags.indexOf(tag)
+    }
+
+    const tagPosts = edges.filter(({ node }) => {
+      const tagIndex = indexOfTag(node.tags)
+      return node.tags[tagIndex] === tag
+    })
 
     const tagPostsPerPage = 6
-    const numberTagPages = Math.ceil(totalCount / tagPostsPerPage)
+    const numberOfTagPages = Math.ceil(tagPosts.length / tagPostsPerPage)
 
-    Array.from({ length: numberTagPages }).forEach(async (_, i) => {
-      const {
-        data: {
-          allContentfulPost: { edges: posts },
-        },
-      } = await graphql(
-        `
-          query($tag: String, $skip: Int!, $limit: Int!) {
-            allContentfulPost(
-              filter: { tags: { in: [$tag] } }
-              sort: { fields: date, order: DESC }
-              limit: $limit
-              skip: $skip
-            ) {
-              edges {
-                node {
-                  id
-                  date(formatString: "MMMM Do, YYYY")
-                  intro
-                  readingTime
-                  slug
-                  tags
-                  title
-                  image {
-                    fluid {
-                      src
-                    }
-                  }
-                }
-              }
-            }
-          }
-        `,
-        { tag: fieldValue, skip: i * blogPostsPerPage, limit: blogPostsPerPage }
-      )
+    Array.from({ length: numberOfTagPages }).forEach((_, i) => {
+      const fromIndex = i * tagPostsPerPage
+      const toIndex = i === 0 ? tagPostsPerPage : fromIndex + tagPostsPerPage
+      const posts = tagPosts.slice(fromIndex, toIndex)
 
       createPage({
-        path:
-          i === 0
-            ? `/blog/tags/${fieldValue}`
-            : `/blog/tags/${fieldValue}/${i + 1}`,
+        path: i === 0 ? `/blog/tags/${tag}` : `/blog/tags/${tag}/${i + 1}`,
         component: tagPage,
         context: {
           posts,
-          numberTagPages,
+          numberOfTagPages,
           currentPage: i + 1,
-          location: `/blog/tags/${fieldValue}`,
-          data: fieldValue,
+          location: `/blog/tags/${tag}`,
+          data: tag,
         },
       })
     })
-  })
+  }
+
+  group.forEach(({ fieldValue }) => createTagPages(fieldValue))
 }

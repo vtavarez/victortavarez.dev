@@ -66,7 +66,7 @@ export const AnimatedEmoji = styled.div`
   animation-name: ${wave};
   animation-duration: 0.5s;
   animation-iteration-count: 3;
-  animation-delay: 2s;
+  animation-delay: 0.5s;
   display: inline-block;
   position: relative;
   width: 35px;

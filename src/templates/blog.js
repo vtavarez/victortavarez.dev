@@ -12,7 +12,7 @@ import { Header } from 'Theme'
 import { Wrapper, Articles, Details, BlogImg } from 'Theme/Blog'
 
 export default ({
-  pageContext: { posts, numberBlogPages, currentPage, location },
+  pageContext: { posts, numberOfBlogPages, currentPage, location },
 }) => {
   return (
     <Layout>
@@ -41,7 +41,7 @@ export default ({
             }}
           >
             <PreviousNext
-              numPages={numberBlogPages}
+              numPages={numberOfBlogPages}
               currentPage={currentPage}
               location={location}
             />
@@ -74,7 +74,7 @@ export default ({
                 )
               )}
             </Details>
-            <PageNumbering numPages={numberBlogPages} location={location} />
+            <PageNumbering numPages={numberOfBlogPages} location={location} />
           </Animated>
         </Articles>
       </Wrapper>

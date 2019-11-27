@@ -12,7 +12,7 @@ import { Header } from 'Theme'
 import { Wrapper, Articles, Details, Page } from 'Theme/Tag'
 
 export default ({
-  pageContext: { posts, numberTagPages, currentPage, location, data: tag },
+  pageContext: { posts, numberOfTagPages, currentPage, location, data: tag },
 }) => {
   return (
     <Layout>
@@ -42,7 +42,7 @@ export default ({
             }}
           >
             <PreviousNext
-              numPages={numberTagPages}
+              numPages={numberOfTagPages}
               currentPage={currentPage}
               location={location}
             />
@@ -75,7 +75,7 @@ export default ({
                 )
               )}
             </Details>
-            <PageNumbering numPages={numberTagPages} location={location} />
+            <PageNumbering numPages={numberOfTagPages} location={location} />
           </Animated>
         </Articles>
       </Wrapper>
