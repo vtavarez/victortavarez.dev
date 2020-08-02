@@ -109,12 +109,8 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
   // Creates Tag Pages
 
   const createTagPages = tag => {
-    const indexOfTag = tags => {
-      return tags.indexOf(tag)
-    }
-
     const tagPosts = edges.filter(({ node }) => {
-      const tagIndex = indexOfTag(node.tags)
+      const tagIndex = node.tags.indexOf(tag)
       return node.tags[tagIndex] === tag
     })
 

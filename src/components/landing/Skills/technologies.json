@@ -16,12 +16,12 @@
   },
   {
     "id": 4,
-    "name": "CSharp",
-    "icon": "/icons/csharp.svg"
+    "name": "Python",
+    "icon": "/icons/python.svg"
   },
   {
     "id": 5,
-    "name": "ASP.NET Core",
-    "icon": "/icons/core.svg"
+    "name": "PostgresSQL",
+    "icon": "/icons/postgres.svg"
   }
 ]

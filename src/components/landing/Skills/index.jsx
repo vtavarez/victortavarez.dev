@@ -9,9 +9,9 @@ export const Skills = () => (
     <Details>
       <h2>front end focused.. full stack experience</h2>
       <p>
-        While I specialize in front-end development, I have experience working
-        with engineering teams to solve complex problems through both front-end
-        and back-end web technologies.
+        While I specialize in client side development, I have experience working
+        with agile teams to solve problems through both front-end and back-end
+        web technologies.
       </p>
       <Button as={AnchorLink} href="#contact">
         Get in touch
