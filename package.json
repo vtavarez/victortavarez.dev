@@ -39,7 +39,7 @@
     "react-particles-js": "3.3.0",
     "react-syntax-highlighter": "13.2.1",
     "react-typing-animation": "^1.6.2",
-    "sharp": "^0.25.3",
+    "sharp": "^0.30.5",
     "styled-components": "^5.1.1",
     "yup": "^0.29.1"
   },
