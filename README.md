@@ -1,36 +1,153 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Features
 
-## Getting Started
+- Eslint/Prettier configured
+- Scores 100% on a11y / Performance / SEO
+- Easy to customize
+- Nice project structure
+- Tablet & mobile friendly
+- Continuous deployment with [Netlify](https://netlify.com)
+- A contact form protected by Google Recaptcha
+- Can be deployed with one click or automated via web hook!
+- Blog post thumbnails auto generated via AI
+- Blog functionality via Contentful CMS
 
-First, run the development server:
+## Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+├── api
+│   └── posts.ts
+├── app
+│   ├── blog
+│   │   ├── [slug]
+│   │   │   └── page.tsx
+│   │   └── page.tsx
+│   ├── favicon.ico
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── projects
+│       ├── [slug]
+│       │   └── page.tsx
+│       └── page.tsx
+├── bun.lockb
+├── components
+│   ├── landing
+│   │   ├── Featured
+│   │   │   └── index.tsx
+│   │   ├── Hero
+│   │   │   ├── Intro
+│   │   │   │   └── index.tsx
+│   │   │   ├── Summery
+│   │   │   │   └── index.tsx
+│   │   │   └── index.tsx
+│   │   ├── Scene
+│   │   │   └── index.tsx
+│   │   └── index.ts
+│   ├── theme
+│   │   ├── EyebrowText
+│   │   │   └── index.tsx
+│   │   ├── Footer
+│   │   │   └── index.tsx
+│   │   ├── Header
+│   │   │   └── index.tsx
+│   │   ├── Project
+│   │   │   └── index.tsx
+│   │   ├── ValueProp
+│   │   │   └── index.tsx
+│   │   └── index.ts
+│   └── ui
+│       ├── Button
+│       │   ├── button.tsx
+│       │   └── index.tsx
+│       ├── Card
+│       │   └── index.tsx
+│       ├── DropdownMenu
+│       │   └── index.tsx
+│       ├── Menu
+│       │   └── index.tsx
+│       ├── Navigation
+│       │   ├── index.tsx
+│       │   └── items.json
+│       └── index.ts
+├── components.json
+├── lib
+│   ├── hooks
+│   │   └── index.tsx
+│   ├── provider
+│   │   ├── next-theme.tsx
+│   │   └── react-query.tsx
+│   └── utils
+│       └── index.ts
+├── next-env.d.ts
+├── next.config.js
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── prettier.config.js
+├── public
+├── styles
+│   └── globals.css
+├── tailwind.config.ts
+└── tsconfig.json
+```
+
+## Prerequisites
+
+[Bun](https://yarnpkg.com/en/)
+
+Please create a new file `.env.development` and put these env variables with your GitHub and Contentful tokens.
+
+> If you're building locally, you will have to create a new file `.env.local` and put the same env variables
+
+### Contentful
+
+```bash
+GITHUB_TOKEN=xxxxxxxxxx
+CONTENTFUL_ACCESS_TOKEN=xxxxxxxxxx
+```
+
+### Google ReCaptcha
+
+Edit your `data/config.js` file with your Google Recaptcha public key.
+
+When deploying on Vercel, you will have to set your private key(s) there as well.
+
+```bash
+SITE_RECAPTCHA_KEY=xxxxx
+
+SITE_RECAPTCHA_SECRET=xxxxx
+```
+
+If your unfamiliar with integrating Google Recaptcha with Netlify Forms check out this [repository](https://github.com/imorente/gatsby-netlify-form-example).
+
+## Install dependencies
+
+```bash
+bun
+```
+
+## Start dev server
+
+```bash
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Clear cache
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This removes the `.cache/` & `public/` folders
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+yarn reset
+```
 
-## Learn More
+## Built with
 
-To learn more about Next.js, take a look at the following resources:
+- Next.js
+- Framer Motion
+- Contentful
+- Three.js
+- VSCode
+- And these useful of JavaScript libraries & Gatsby plugins [package.json](package.json)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
