@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import items from "./items.json";
+import navigation_links from "@/lib/data/navigation_links.json";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -19,19 +19,31 @@ export function Navigation() {
       <div className="ml-auto">
         <NavigationMenu className="mr-2 sm:mr-[8rem]">
           <NavigationMenuList>
-            {items.map(({ id, title, href }) => (
-              <NavigationMenuItem key={id}>
-                <Link
-                  href={href}
-                  legacyBehavior
-                  passHref
-                >
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    {title}
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-            ))}
+            {navigation_links.map(
+              ({
+                id,
+                title,
+                href,
+              }: {
+                id: number;
+                title: string;
+                href: string;
+              }) => (
+                <NavigationMenuItem key={id}>
+                  <Link
+                    href={href}
+                    legacyBehavior
+                    passHref
+                  >
+                    <NavigationMenuLink
+                      className={navigationMenuTriggerStyle()}
+                    >
+                      {title}
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+              ),
+            )}
           </NavigationMenuList>
         </NavigationMenu>
       </div>

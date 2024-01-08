@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { useIsSsr } from "@/lib/hooks";
 
-export default function Title(props: any): JSX.Element {
+export default function Title() {
   const isSsr = useIsSsr();
   const animation = {
     initial: {
