@@ -7,7 +7,7 @@ export function Hero() {
     <div className="my-6 flex flex-col gap-4 xl:my-12">
       <Title />
       <Summery />
-      <ContactButton cta="Get in touch" />
+      <ContactButton>Get in touch</ContactButton>
     </div>
   );
 }

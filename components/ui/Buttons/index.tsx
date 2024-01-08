@@ -44,7 +44,7 @@ export function ModeToggle() {
   );
 }
 
-export function ContactButton({ cta }: { cta: string }) {
+export function ContactButton({ children }: { children: React.ReactNode }) {
   const animation = {
     initial: {
       opacity: 0,
@@ -71,7 +71,7 @@ export function ContactButton({ cta }: { cta: string }) {
         asChild
       >
         <Link href="#contact">
-          {cta}{" "}
+          {children}{" "}
           <span
             aria-hidden="true"
             className="ml-2"
@@ -81,5 +81,23 @@ export function ContactButton({ cta }: { cta: string }) {
         </Link>
       </Button>
     </motion.div>
+  );
+}
+
+export function SubmitButton({
+  children,
+  ...props
+}: {
+  children: React.ReactNode;
+} & React.ButtonHTMLAttributes<HTMLButtonElement>) {
+  return (
+    <Button
+      type="submit"
+      variant="outline"
+      className="w-full"
+      {...props}
+    >
+      {children}
+    </Button>
   );
 }

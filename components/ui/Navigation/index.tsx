@@ -8,7 +8,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/Menu";
-import { ModeToggle } from "@/components/ui/Button";
+import { ModeToggle } from "@/components/ui/Buttons";
 
 export function Navigation() {
   return (
