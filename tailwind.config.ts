@@ -64,6 +64,7 @@ const config: Config = {
       },
       boxShadow: {
         project: "10px 10px 0px hsl(var(--primary))",
+        outline: "0 0 0 3px hsl(var(--input))",
       },
       keyframes: {
         "accordion-down": {

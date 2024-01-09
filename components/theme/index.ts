@@ -3,4 +3,4 @@ export * from "./Footer";
 export * from "./EyebrowText";
 export * from "./ValueProp";
 export * from "./Project";
-export * from "./Contact";
+export * from "./ContactForm";
