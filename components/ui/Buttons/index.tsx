@@ -93,7 +93,7 @@ export function SubmitButton({
   return (
     <Button
       type="submit"
-      variant="outline"
+      variant="default"
       className="w-full"
       {...props}
     >

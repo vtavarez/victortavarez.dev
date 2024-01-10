@@ -68,27 +68,27 @@ const config: Config = {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: 0 },
+          from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: 0 },
+          to: { height: "0" },
         },
         "scale-panel": {
           from: { transform: "scale(1)" },
           to: { transform: "scale(1.25)" },
         },
-        "marquee": {
+        marquee: {
           "0%": { transform: "translate3d(0%, 0, 0)" },
           "100%": { transform: "translate3d(-100%, 0, 0)" },
-        }
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "scale-panel": "scale-panel 0.2s ease-in-out",
-        "marquee": "marquee 50s linear infinite",
+        marquee: "marquee 50s linear infinite",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
