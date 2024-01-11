@@ -36,19 +36,26 @@ export function Label({
   );
 }
 
-export function Field({
-  className,
-  ...props
-}: { clssName?: string } & React.InputHTMLAttributes<HTMLInputElement>) {
+export const Field = React.forwardRef<
+  HTMLInputElement,
+  React.InputHTMLAttributes<HTMLInputElement>
+>(function (
+  {
+    className,
+    ...props
+  }: { clssName?: string } & React.InputHTMLAttributes<HTMLInputElement>,
+  ref,
+) {
   return (
     <div className={cn("field", className)}>
       <input
         className="w-full bg-transparent p-3 outline-none"
+        ref={ref}
         {...props}
       />
     </div>
   );
-}
+});
 
 export const TextArea = React.forwardRef<
   HTMLTextAreaElement,
@@ -83,7 +90,25 @@ export function ErrorMessage({
 } & React.HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn("text-red-500", className)}
+      className={cn("mt-5 text-red-500", className)}
+      {...props}
+    >
+      {children}
+    </p>
+  );
+}
+
+export function SuccessMessage({
+  children,
+  className,
+  ...props
+}: {
+  children: React.ReactNode;
+  className?: string;
+} & React.HTMLAttributes<HTMLParagraphElement>) {
+  return (
+    <p
+      className={cn("mt-5 text-primary", className)}
       {...props}
     >
       {children}

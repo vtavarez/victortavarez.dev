@@ -92,9 +92,10 @@ export function SubmitButton({
 } & React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <Button
-      type="submit"
-      variant="default"
       className="w-full"
+      variant="default"
+      size="lg"
+      type="submit"
       {...props}
     >
       {children}

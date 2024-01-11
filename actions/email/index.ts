@@ -10,12 +10,14 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-export async function send(formData: FormData) {
-  const { name, email, message } = Object.fromEntries(formData) as {
-    name: string;
-    email: string;
-    message: string;
-  };
+type Inputs = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+export async function send(data: Inputs) {
+  const { name, email, message } = data;
   const options: Mail.Options = {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
@@ -23,7 +25,7 @@ export async function send(formData: FormData) {
     text: message,
   };
 
-  const mail = async () => {
+  const mail = () => {
     return new Promise<string>((resolve, reject) => {
       transporter.sendMail(options, (error, info) => {
         if (error) {
