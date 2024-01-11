@@ -5,11 +5,11 @@
 - Easy to customize
 - Nice project structure
 - Tablet & mobile friendly
-- Continuous deployment with [Netlify](https://netlify.com)
-- A contact form protected by Google Recaptcha
+- Continuous deployment with [Vercel](https://vercel.com)
+- Contact form protected by Google Recaptcha
 - Can be deployed with one click or automated via web hook!
 - Blog post thumbnails auto generated via AI
-- Blog functionality via Contentful CMS
+- Blog functionality powered by Sanity CMS
 
 ## Structure
 
@@ -94,22 +94,18 @@
 
 [Bun](https://yarnpkg.com/en/)
 
-Please create a new file `.env.development` and put these env variables with your GitHub and Contentful tokens.
+Please create a new file `.env.local` and put these env variables with your GitHub and Sanity tokens.
 
 > If you're building locally, you will have to create a new file `.env.local` and put the same env variables
 
-### Contentful
+### Sanity
 
 ```bash
 GITHUB_TOKEN=xxxxxxxxxx
-CONTENTFUL_ACCESS_TOKEN=xxxxxxxxxx
+SANITY_ACCESS_TOKEN=xxxxxxxxxx
 ```
 
 ### Google ReCaptcha
-
-Edit your `data/config.js` file with your Google Recaptcha public key.
-
-When deploying on Vercel, you will have to set your private key(s) there as well.
 
 ```bash
 SITE_RECAPTCHA_KEY=xxxxx
@@ -117,7 +113,7 @@ SITE_RECAPTCHA_KEY=xxxxx
 SITE_RECAPTCHA_SECRET=xxxxx
 ```
 
-If your unfamiliar with integrating Google Recaptcha with Netlify Forms check out this [repository](https://github.com/imorente/gatsby-netlify-form-example).
+When deploying on Vercel, you will have to set your private key(s) there as well.
 
 ## Install dependencies
 
@@ -136,17 +132,18 @@ bun dev
 This removes the `.cache/` & `public/` folders
 
 ```bash
-yarn reset
+bun reset
 ```
 
 ## Built with
 
 - Next.js
 - Framer Motion
-- Contentful
+- Sanity
+- Mystrial AI
 - Three.js
-- VSCode
-- And these useful of JavaScript libraries & Gatsby plugins [package.json](package.json)
+- TailwindCSS
+- And these useful of JavaScript libraries [package.json](package.json)
 
 ## License
 
