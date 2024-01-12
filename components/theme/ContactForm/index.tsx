@@ -15,7 +15,6 @@ import {
 import { Inputs, InputsFocusState } from "@/lib/types";
 import { schema } from "@/lib/utils";
 import { send } from "@/actions/email";
-import { set } from "sanity";
 
 export function ContactForm() {
   const { register, handleSubmit, reset, control } = useForm<Inputs>({
@@ -55,7 +54,6 @@ export function ContactForm() {
   async function onSubmit(data: Inputs) {
     const { name, email, message } = data;
     // const res = send.bind(null, data);
-    console.log(data);
     setIsSuccess(true);
     setTimeout(() => setIsSuccess(false), 5000);
     reset();
