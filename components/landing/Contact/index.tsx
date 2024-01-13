@@ -14,7 +14,7 @@ export function Contact() {
 
   return (
     <div
-      className="@container relative -mx-6 flex items-center justify-center overflow-hidden xl:-mx-16"
+      className="relative -mx-6 flex items-center justify-center overflow-hidden @container xl:-mx-16"
       ref={ref}
     >
       <ContactForm />
@@ -23,7 +23,7 @@ export function Contact() {
         style={{ y: scroll }}
       >
         {Array.from({ length: 20 }, (_, i) => (
-          <div>contact</div>
+          <div key={i}>contact</div>
         ))}
       </motion.div>
     </div>

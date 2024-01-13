@@ -2,14 +2,6 @@
 import nodemailer from "nodemailer";
 import Mail from "nodemailer/lib/mailer";
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
-
 type Inputs = {
   name: string;
   email: string;
@@ -18,6 +10,13 @@ type Inputs = {
 
 export async function send(data: Inputs) {
   const { name, email, message } = data;
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
   const options: Mail.Options = {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
@@ -25,21 +24,11 @@ export async function send(data: Inputs) {
     text: message,
   };
 
-  const mail = () => {
-    return new Promise<string>((resolve, reject) => {
-      transporter.sendMail(options, (error, info) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve("Email sent: " + info.response);
-        }
-      });
-    });
-  };
+  const mail = await transporter.sendMail(options);
 
   try {
-    return await mail();
+    return mail;
   } catch (error: any) {
-    throw new Error(error);
+    return new Error(error);
   }
 }

@@ -1,3 +1,4 @@
 export * from "./Hero";
-export * from "./Featured";
+export * from "./SelectedProjects";
+export * from "./SelectedPosts";
 export * from "./Contact";

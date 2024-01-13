@@ -1,6 +1,6 @@
 import { EyebrowText, Project, ValueProp } from "@/components/theme";
 
-export function Featured() {
+export function SelectedProjects() {
   return (
     <div className="xl:mt-36">
       <EyebrowText />

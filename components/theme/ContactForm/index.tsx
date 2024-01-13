@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useForm, useFormState } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import {
   Form,
   FieldGroup,
@@ -12,24 +13,27 @@ import {
   SuccessMessage,
   SubmitButton,
 } from "@/components/ui/";
-import { Inputs, InputsFocusState } from "@/lib/types";
+import type { Inputs, InputsFocusState, SentMessage } from "@/lib/types";
 import { schema } from "@/lib/utils";
+import { verify } from "@/actions/recaptcha";
 import { send } from "@/actions/email";
 
 export function ContactForm() {
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const { register, handleSubmit, reset, control } = useForm<Inputs>({
     mode: "onSubmit",
+    reValidateMode: "onSubmit",
     defaultValues: {
       name: "",
       email: "",
       message: "",
     },
+
     resolver: zodResolver(schema()),
   });
-
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const { dirtyFields, errors, isSubmitting, isValidating } = useFormState({
+  const { dirtyFields, isSubmitting, errors, isValidating } = useFormState({
     control,
   });
 
@@ -52,11 +56,18 @@ export function ContactForm() {
   }
 
   async function onSubmit(data: Inputs) {
-    const { name, email, message } = data;
-    // const res = send.bind(null, data);
-    setIsSuccess(true);
-    setTimeout(() => setIsSuccess(false), 5000);
-    reset();
+    const token = executeRecaptcha ? await executeRecaptcha("submit") : null;
+    const verified = token ? await verify(token) : null;
+    if (verified?.success) {
+      const res: Error | SentMessage = await send(data);
+      res?.accepted.length > 0
+        ? (setIsSuccess(true),
+          setTimeout(() => setIsSuccess(false), 5000),
+          reset())
+        : console.error(res);
+    } else {
+      console.error(verified.error);
+    }
   }
 
   return (
@@ -67,7 +78,7 @@ export function ContactForm() {
       <FieldGroup className="relative pt-12">
         <Label
           className={`absolute inset-0 transition-all duration-300 ${
-            dirtyFields?.name || focusedFields?.name
+            focusedFields?.name || dirtyFields?.name
               ? "translate-x-0 translate-y-4 text-base"
               : "translate-x-3 translate-y-14 text-lg text-black"
           } h-fit w-fit font-medium mix-blend-normal`}
@@ -81,6 +92,7 @@ export function ContactForm() {
           type="text"
           required
           aria-required
+          aria-invalid={Boolean(errors.name?.message)}
           onFocus={handleFocusEvent}
           {...register("name", { onBlur: handleFocusEvent })}
         />
@@ -91,7 +103,7 @@ export function ContactForm() {
       <FieldGroup className="relative pt-12">
         <Label
           className={`absolute inset-0 transition-all duration-300 ${
-            dirtyFields?.email || focusedFields?.email
+            focusedFields?.email || dirtyFields?.email
               ? "translate-x-0 translate-y-4 text-base"
               : "translate-x-3 translate-y-14 text-lg text-black"
           } h-fit w-fit font-medium mix-blend-normal`}
@@ -105,6 +117,7 @@ export function ContactForm() {
           type="email"
           required
           aria-required
+          aria-invalid={Boolean(errors.email?.message)}
           onFocus={handleFocusEvent}
           {...register("email", { onBlur: handleFocusEvent })}
         />
@@ -115,7 +128,7 @@ export function ContactForm() {
       <FieldGroup className="relative mb-12 pt-12">
         <Label
           className={`absolute inset-0 transition-all duration-300 ${
-            dirtyFields?.message || focusedFields?.message
+            focusedFields?.message || dirtyFields?.message
               ? "translate-x-0 translate-y-4 text-base"
               : "translate-x-3 translate-y-14 text-lg text-black"
           } h-fit w-fit font-medium mix-blend-normal`}
@@ -129,6 +142,7 @@ export function ContactForm() {
           rows={5}
           required
           aria-required
+          aria-invalid={Boolean(errors.message?.message)}
           onFocus={handleFocusEvent}
           {...register("message", { onBlur: handleFocusEvent })}
         />
@@ -136,7 +150,12 @@ export function ContactForm() {
           <ErrorMessage>{errors.message?.message}</ErrorMessage>
         )}
       </FieldGroup>
-      <SubmitButton disabled={isSubmitting || isValidating}>Send</SubmitButton>
+      <SubmitButton
+        disabled={isSubmitting || isValidating}
+        aria-disabled={isSubmitting || isValidating}
+      >
+        Send
+      </SubmitButton>
       {isSuccess && (
         <SuccessMessage>
           Thanks for reaching out! Will be in touch shortly.

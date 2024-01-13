@@ -1,12 +1,25 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
-export function Form({
-  children,
-  ...props
-}: { children: React.ReactNode } & React.FormHTMLAttributes<HTMLFormElement>) {
-  return <form {...props}>{children}</form>;
-}
+export const Form = React.forwardRef<
+  HTMLFormElement,
+  { children: React.ReactNode } & React.FormHTMLAttributes<HTMLFormElement>
+>(function (
+  {
+    children,
+    ...props
+  }: { children: React.ReactNode } & React.FormHTMLAttributes<HTMLFormElement>,
+  ref,
+) {
+  return (
+    <form
+      ref={ref}
+      {...props}
+    >
+      {children}
+    </form>
+  );
+});
 
 export function FieldGroup({
   children,
