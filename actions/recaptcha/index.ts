@@ -19,7 +19,6 @@ export async function verify(token: string) {
 
   if (json.score < 0.5) {
     return {
-      ...json,
       error: new Error("Recaptcha score too low"),
     };
   }

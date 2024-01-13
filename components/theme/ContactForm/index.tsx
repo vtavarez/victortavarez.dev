@@ -13,13 +13,19 @@ import {
   SuccessMessage,
   SubmitButton,
 } from "@/components/ui/";
-import type { Inputs, InputsFocusState, SentMessage } from "@/lib/types";
+import type {
+  Inputs,
+  InputsFocusState,
+  SentMessage,
+  RecaptchaResponse,
+} from "@/lib/types";
 import { schema } from "@/lib/utils";
 import { verify } from "@/actions/recaptcha";
 import { send } from "@/actions/email";
 
 export function ContactForm() {
   const { executeRecaptcha } = useGoogleReCaptcha();
+
   const { register, handleSubmit, reset, control } = useForm<Inputs>({
     mode: "onSubmit",
     reValidateMode: "onSubmit",
@@ -31,6 +37,7 @@ export function ContactForm() {
 
     resolver: zodResolver(schema()),
   });
+
   const [isSuccess, setIsSuccess] = useState(false);
 
   const { dirtyFields, isSubmitting, errors, isValidating } = useFormState({
@@ -56,18 +63,23 @@ export function ContactForm() {
   }
 
   async function onSubmit(data: Inputs) {
-    const token = executeRecaptcha ? await executeRecaptcha("submit") : null;
-    const verified = token ? await verify(token) : null;
+    const token: string = executeRecaptcha
+      ? await executeRecaptcha("submit")
+      : "";
+    const verified: RecaptchaResponse = token ? await verify(token) : {};
+
     if (verified?.success) {
       const res: Error | SentMessage = await send(data);
+
       res?.accepted.length > 0
         ? (setIsSuccess(true),
           setTimeout(() => setIsSuccess(false), 5000),
           reset())
         : console.error(res);
-    } else {
-      console.error(verified.error);
+      return;
     }
+
+    console.error(verified.error);
   }
 
   return (

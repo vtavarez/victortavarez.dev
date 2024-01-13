@@ -24,11 +24,12 @@ export async function send(data: Inputs) {
     text: message,
   };
 
-  const mail = await transporter.sendMail(options);
-
   try {
+    const mail = await transporter.sendMail(options);
     return mail;
   } catch (error: any) {
-    return new Error(error);
+    return {
+      error: new Error(error),
+    };
   }
 }

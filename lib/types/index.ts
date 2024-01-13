@@ -18,3 +18,12 @@ export type InputsFocusState = {
 };
 
 export type SentMessage = SentMessageInfo;
+
+export type RecaptchaResponse = {
+  success: boolean;
+  challenge_ts: string;
+  hostname: string;
+  score: number;
+  "error-codes": string[];
+  error?: Error;
+};
