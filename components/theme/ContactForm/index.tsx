@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { useFocusedFields } from "@/lib/hooks";
 import { useForm, useFormState } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
@@ -13,12 +14,7 @@ import {
   SuccessMessage,
   SubmitButton,
 } from "@/components/ui/";
-import type {
-  Inputs,
-  InputsFocusState,
-  SentMessage,
-  RecaptchaResponse,
-} from "@/lib/types";
+import type { Inputs, SentMessage, RecaptchaResponse } from "@/lib/types";
 import { schema } from "@/lib/utils";
 import { verify } from "@/actions/recaptcha";
 import { send } from "@/actions/email";
@@ -34,7 +30,6 @@ export function ContactForm() {
       email: "",
       message: "",
     },
-
     resolver: zodResolver(schema()),
   });
 
@@ -44,7 +39,7 @@ export function ContactForm() {
     control,
   });
 
-  const [focusedFields, setFocusedFields] = useState<InputsFocusState>({
+  const { focusedFields, setFocusedFields } = useFocusedFields({
     name: false,
     email: false,
     message: false,
@@ -55,11 +50,7 @@ export function ContactForm() {
       | React.FocusEvent<HTMLTextAreaElement>
       | React.FocusEvent<HTMLInputElement>,
   ) {
-    const { name } = e.currentTarget;
-    setFocusedFields({
-      ...focusedFields,
-      [name]: !focusedFields[name],
-    });
+    setFocusedFields(e.currentTarget);
   }
 
   async function onSubmit(data: Inputs) {
