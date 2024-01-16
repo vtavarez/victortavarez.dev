@@ -11,9 +11,9 @@ export default defineType({
       type: "string",
     }),
     defineField({
-      name: "description",
-      title: "Description",
-      type: "text",
+      name: "excerpt",
+      title: "Excerpt",
+      type: "string",
     }),
     defineField({
       name: "reading_time",
@@ -64,20 +64,21 @@ export default defineType({
     defineField({
       name: "body",
       title: "Body",
-      type: "blockContent",
+      type: "content",
     }),
   ],
 
   preview: {
     select: {
       title: "title",
-      description: "description",
-      author: "author.name",
       media: "mainImage",
+      excerpt: "excerpt",
+      reading_time: "reading_time",
+      author: "author.name",
     },
     prepare(selection) {
       const { author } = selection;
-      return { ...selection, subtitle: author && `by ${author}` };
+      return { ...selection, author: author && `by ${author}` };
     },
   },
 });

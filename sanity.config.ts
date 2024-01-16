@@ -5,6 +5,7 @@
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
+import { unsplashImageAsset } from "sanity-plugin-asset-source-unsplash";
 import { codeInput } from "@sanity/code-input";
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
@@ -19,6 +20,7 @@ export default defineConfig({
   schema,
   plugins: [
     deskTool(),
+    unsplashImageAsset(),
     codeInput(),
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin

@@ -27,3 +27,11 @@ export type RecaptchaResponse = {
   "error-codes": string[];
   error?: Error;
 };
+
+export type Post = {
+  title: string;
+  media: string;
+  excerpt: string;
+  reading_time: string;
+  author: string;
+};

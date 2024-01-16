@@ -7,13 +7,13 @@ import { defineType, defineArrayMember } from "sanity";
  *  {
  *    name: 'someName',
  *    title: 'Some title',
- *    type: 'blockContent'
+ *    type: 'content'
  *  }
  */
 
 export default defineType({
-  title: "Block Content",
-  name: "blockContent",
+  title: "Content",
+  name: "content",
   type: "array",
   of: [
     defineArrayMember({
@@ -30,7 +30,6 @@ export default defineType({
         { title: "H3", value: "h3" },
         { title: "H4", value: "h4" },
         { title: "Quote", value: "blockquote" },
-        { title: "Code", value: "code" },
       ],
       lists: [{ title: "Bullet", value: "bullet" }],
       // Marks let you mark up inline text in the Portable Text Editor
@@ -40,6 +39,7 @@ export default defineType({
         decorators: [
           { title: "Strong", value: "strong" },
           { title: "Emphasis", value: "em" },
+          { title: "Code", value: "code" },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
