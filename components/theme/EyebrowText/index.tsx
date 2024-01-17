@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
-export function EyebrowText(): JSX.Element {
+export function EyebrowText() {
   const animation = {
     initial: {
       opacity: 0,

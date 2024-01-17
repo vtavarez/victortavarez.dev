@@ -33,5 +33,6 @@ export type Post = {
   media: string;
   excerpt: string;
   reading_time: string;
-  author: string;
+  author_name: string;
+  author_image: string;
 };

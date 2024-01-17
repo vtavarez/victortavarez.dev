@@ -19,9 +19,9 @@ export function Headline({ children }: { children?: React.ReactNode }) {
     },
   };
   return (
-    <div className="overflow-hidden py-16">
+    <div className="overflow-hidden pb-12">
       <motion.h2
-        className="text-balanced text-xl"
+        className="text-balanced text-lg font-medium"
         {...animation}
       >
         {children}

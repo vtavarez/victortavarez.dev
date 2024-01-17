@@ -4,12 +4,12 @@ import { client } from "@/sanity/lib/client";
 
 export async function SelectedPosts() {
   const posts = await client.fetch(
-    `*[_type == "post"]{ title, excerpt, reading_time, "author": author->name, "media": mainImage.asset->url }`,
+    `*[_type == "post"]{ title, excerpt, reading_time, "author": author->{"image":image.asset->url,name}, "media": mainImage.asset->url }`,
   );
 
   return (
     <div className="my-36">
-      <Headline>(Selected Posts)</Headline>
+      <Headline>(Selected posts)</Headline>
       <div className="bg-background">
         {/* {posts.map(
           ({ title, media, excerpt, reading_time, author }: PostType) => (
@@ -29,7 +29,8 @@ export async function SelectedPosts() {
           media={posts[0].media}
           excerpt={posts[0].excerpt}
           reading_time={posts[0].reading_time}
-          author={posts[0].author}
+          author_name={posts[0].author.name}
+          author_image={posts[0].author.image}
         />
         <Post
           key={posts[0].title}
@@ -37,7 +38,8 @@ export async function SelectedPosts() {
           media={posts[0].media}
           excerpt={posts[0].excerpt}
           reading_time={posts[0].reading_time}
-          author={posts[0].author}
+          author_name={posts[0].author.name}
+          author_image={posts[0].author.image}
         />
         <Post
           key={posts[0].title}
@@ -45,7 +47,8 @@ export async function SelectedPosts() {
           media={posts[0].media}
           excerpt={posts[0].excerpt}
           reading_time={posts[0].reading_time}
-          author={posts[0].author}
+          author_name={posts[0].author.name}
+          author_image={posts[0].author.image}
         />
       </div>
     </div>

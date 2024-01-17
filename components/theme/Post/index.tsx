@@ -10,7 +10,8 @@ export function Post({
   media = "",
   excerpt = "",
   reading_time = "",
-  author = "",
+  author_name = "",
+  author_image = "",
 }: PostType) {
   const animation = {
     initial: {
@@ -49,9 +50,18 @@ export function Post({
           </div>
         </div>
         <div className="col-span-12 md:col-span-5">
-          <h3 className="pb-6 text-2xl font-semibold md:text-5xl">{title}</h3>
+          <h3 className="pb-6 text-2xl font-semibold md:text-4xl">{title}</h3>
           <p className="text-pretty pb-6">{excerpt}</p>
-          <p className="text-end text-sm text-gray-600">{author}</p>
+          <div className="flex flex-row items-end justify-between gap-4">
+            <p className="ml-auto text-end text-sm">{author_name}</p>
+            <Image
+              className="rounded-full"
+              src={author_image}
+              alt="author"
+              width={40}
+              height={40}
+            />
+          </div>
         </div>
         <div className="col-span-12 md:col-span-3">
           <Link
