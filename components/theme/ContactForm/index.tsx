@@ -90,7 +90,7 @@ export function ContactForm() {
           Name
         </Label>
         <Field
-          className="relative rounded-md bg-transparent text-black after:absolute after:inset-0 after:z-[-1] after:rounded-md after:border-4 after:border-primary after:bg-white after:shadow-project after:content-[''] focus-within:shadow-outline"
+          className="relative bg-transparent text-black after:absolute after:inset-0 after:z-[-1] after:border-4 after:border-primary after:bg-white after:shadow-project after:content-[''] focus-within:shadow-outline"
           id="name"
           type="text"
           required
@@ -115,7 +115,7 @@ export function ContactForm() {
           Email
         </Label>
         <Field
-          className="relative rounded-md bg-transparent text-black after:absolute after:inset-0 after:z-[-1] after:rounded-md after:border-4 after:border-primary after:bg-white after:shadow-project after:content-[''] focus-within:shadow-outline"
+          className="relative bg-transparent text-black after:absolute after:inset-0 after:z-[-1] after:border-4 after:border-primary after:bg-white after:shadow-project after:content-[''] focus-within:shadow-outline"
           id="email"
           type="email"
           required
@@ -140,7 +140,7 @@ export function ContactForm() {
           Message
         </Label>
         <TextArea
-          className="relative rounded-md bg-transparent text-black after:absolute after:inset-0 after:z-[-1] after:rounded-md after:border-4 after:border-primary after:bg-white after:shadow-project after:content-[''] focus-within:shadow-outline"
+          className="relative bg-transparent text-black after:absolute after:inset-0 after:z-[-1] after:border-4 after:border-primary after:bg-white after:shadow-project after:content-[''] focus-within:shadow-outline"
           id="message"
           rows={5}
           required
