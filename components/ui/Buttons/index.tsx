@@ -94,7 +94,6 @@ export function SubmitButton({
   return (
     <Button
       className="w-full"
-      variant="default"
       size="lg"
       type="submit"
       {...props}
@@ -104,15 +103,28 @@ export function SubmitButton({
   );
 }
 
-export function ReadMore({ href, cta }: { href: string; cta: string }) {
+export function ReadMore({
+  href,
+  children,
+  ...props
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
   return (
     <Button
       asChild
       variant="secondary"
+      {...props}
     >
       <Link href={href}>
-        <span>{cta}</span>
-        <ArrowUpRight size={24} />
+        {children}
+        <span
+          aria-hidden="true"
+          className="ml-2"
+        >
+          <ArrowUpRight />
+        </span>
       </Link>
     </Button>
   );

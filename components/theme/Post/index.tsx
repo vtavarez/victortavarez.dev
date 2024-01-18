@@ -39,9 +39,9 @@ export function Post({
         {...animation}
       >
         <div className="col-span-12 xl:col-span-4">
-          <div className="relative h-56 w-full">
+          <div className="relative mb-6 h-56 w-full sm:mb-0">
             <Image
-              className="absolute inset-0 h-full w-full object-cover pb-6 shadow-project sm:pb-0"
+              className="absolute inset-0 h-full w-full object-cover"
               src={media}
               alt={title}
               width={400}
@@ -53,7 +53,7 @@ export function Post({
           <h3 className="text-balance pb-6 text-2xl font-semibold sm:text-3xl xl:text-4xl">
             {title}
           </h3>
-          <p className="text-balance w-3/4 max-w-full pb-8 sm:pb-2">
+          <p className="text-balance max-w-full pb-8 sm:w-3/4 sm:pb-2">
             {excerpt}
           </p>
           <Author
@@ -63,10 +63,7 @@ export function Post({
           />
         </div>
         <div className="col-span-12 flex flex-row justify-between pb-3 xl:col-span-3">
-          <ReadMore
-            href={`/blog/${slug}`}
-            cta="Read more"
-          />
+          <ReadMore href={`/blog/${slug}`}>Read more</ReadMore>
           <Author
             className="row-start-2 xl:hidden"
             name={name}

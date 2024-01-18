@@ -11,7 +11,7 @@ export function Author({
     <div className={cn("flex flex-row items-end gap-4", className)}>
       <p className="ml-auto text-end text-sm">{name}</p>
       <Image
-        className="rounded-full"
+        className="rounded-full grayscale filter"
         src={image}
         alt="author"
         width={40}
