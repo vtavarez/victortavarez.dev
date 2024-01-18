@@ -13,6 +13,7 @@ import {
   ErrorMessage,
   SuccessMessage,
   SubmitButton,
+  BouncingLoader,
 } from "@/components/ui/";
 import type { Inputs, SentMessage, RecaptchaResponse } from "@/lib/types";
 import { schema } from "@/lib/utils";
@@ -157,11 +158,11 @@ export function ContactForm() {
         disabled={isSubmitting || isValidating}
         aria-disabled={isSubmitting || isValidating}
       >
-        Send
+        {isSubmitting || isValidating ? <BouncingLoader /> : "Send"}
       </SubmitButton>
       {isSuccess && (
         <SuccessMessage>
-          Thanks for reaching out! Will be in touch shortly.
+          Thanks for reaching out will be in touch.
         </SuccessMessage>
       )}
     </Form>

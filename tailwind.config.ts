@@ -83,12 +83,19 @@ const config: Config = {
           "0%": { transform: "translate3d(0%, 0, 0)" },
           "100%": { transform: "translate3d(-100%, 0, 0)" },
         },
+        loader: {
+          to: {
+            opacity: "0.1",
+            transform: "translate3d(0, -1rem, 0)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "scale-panel": "scale-panel 0.2s ease-in-out",
         marquee: "marquee 50s linear infinite",
+        loader: "loader 0.6s infinite alternate",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

@@ -57,3 +57,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+}
+
+.dot {
+  @apply w-2 h-2 my-6 mx-1 bg-background rounded-full;
+}

@@ -22,7 +22,7 @@ export async function SelectedPosts() {
             excerpt={excerpt}
             readingTime={readingTime}
             author={author}
-            animationDelay={_idx * 0.1}
+            animationDelay={_idx * 0.5}
           />
         ),
       )}
