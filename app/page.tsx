@@ -4,13 +4,16 @@ import {
   SelectedPosts,
   Contact,
 } from "@/components/landing";
-import { ValueProp } from "@/components/theme";
-import { Marquee } from "@/components/ui";
+import { ValueProp, EyebrowText, Marquee } from "@/components/theme";
 
 export default function Home() {
   return (
     <main className="px-6 xl:px-16">
       <Hero />
+      <EyebrowText
+        text="Selected work"
+        cta="Discover"
+      />
       <SelectedProjects />
       <ValueProp number="001">
         <p className="text-balanced mb-5 max-w-3xl leading-snug">
@@ -19,6 +22,7 @@ export default function Home() {
           nobis.
         </p>
       </ValueProp>
+      <EyebrowText text="Selected posts" />
       <SelectedPosts />
       <ValueProp number="002">
         <p className="text-balanced mb-5 max-w-3xl leading-snug">

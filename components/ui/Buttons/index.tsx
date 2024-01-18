@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Moon, Sun, ArrowRight } from "lucide-react";
+import { Moon, Sun, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "./button";
 import {
@@ -100,6 +100,20 @@ export function SubmitButton({
       {...props}
     >
       {children}
+    </Button>
+  );
+}
+
+export function ReadMore({ href, cta }: { href: string; cta: string }) {
+  return (
+    <Button
+      asChild
+      variant="secondary"
+    >
+      <Link href={href}>
+        <span>{cta}</span>
+        <ArrowUpRight size={24} />
+      </Link>
     </Button>
   );
 }

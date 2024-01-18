@@ -15,11 +15,11 @@ const buttonVariants = cva(
         outline:
           "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          "relative rounded-none text-md gap-2 border-4 border-primary px-4 py-2 text-primary shadow-project xl:ml-auto xl:px-8 xl:py-8 xl:text-lg focus-visible:bg-transparent focus-visible:text-primary",
         ghost: "hover:bg-primary hover:text-primary-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         contact:
-          "relative mt-4 rounded-none overflow-hidden font-medium border-4 border-primary bg-transparent text-base xl:text-lg text-primary after:transition-all after:duration-500 after:absolute after:origin-left after:inset-0 after:-z-10 after:bg-amber-500 after:content-[''] dark:hover:text-background after:-scale-x-0 after:-left-2 after:skew-x-[20deg] hover:after:scale-x-100 hover:after:skew-x-0 focus-visible:after:scale-x-100 focus-visibile:after:skew-x-0 focus-visibile:text-primary focus-visible:after:skew-x-0 hover:after:bg-amber-500 hover:after:transition-all hover:after:duration-500 hover:after:ease-out sm:min-w-[16rem] xl:p-9 after:opacity-75 focus-visible:bg-transparent focus-visible:text-primary focus-visible:after:duration-500 focus-visible:after:ease-out",
+          "relative mt-4 rounded-none overflow-hidden font-medium border-4 border-primary bg-transparent text-base xl:text-lg text-primary after:transition-all after:duration-500 after:absolute after:origin-left after:inset-0 after:-z-10 after:bg-amber-500 after:content-[''] dark:hover:text-background after:-scale-x-0 after:-left-3 after:skew-x-[20deg] hover:after:scale-x-100 hover:after:skew-x-0 focus-visible:after:scale-x-100 focus-visibile:after:skew-x-0 focus-visibile:text-primary focus-visible:after:skew-x-0 hover:after:bg-amber-500 hover:after:transition-all hover:after:duration-500 hover:after:ease-out sm:min-w-[16rem] xl:p-9 after:opacity-75 focus-visible:bg-transparent focus-visible:text-primary focus-visible:after:duration-500 focus-visible:after:ease-out",
       },
       size: {
         default: "h-10 px-4 py-2",

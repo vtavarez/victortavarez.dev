@@ -75,7 +75,7 @@ export function ContactForm() {
 
   return (
     <Form
-      className="my-48 w-full px-6 lg:w-1/2"
+      className="w-full px-6 pb-24 pt-16 lg:w-1/2 xl:py-48"
       onSubmit={handleSubmit(onSubmit)}
     >
       <FieldGroup className="relative pt-12">

@@ -28,11 +28,18 @@ export type RecaptchaResponse = {
   error?: Error;
 };
 
-export type Post = {
+export type PostType = {
   title: string;
   media: string;
   excerpt: string;
   reading_time: string;
-  author_name: string;
-  author_image: string;
+  slug: string;
+  author: { name: string; image: string };
+};
+
+export type AuthorType = {
+  name: string;
+  image: string;
+  bio?: string;
+  twitter?: string;
 };

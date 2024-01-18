@@ -2,33 +2,35 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
-export function EyebrowText() {
+export function EyebrowText({ text, cta }: { text: string; cta?: string }) {
   const animation = {
     initial: {
       opacity: 0,
-      y: 10,
     },
-    animate: {
+    whileInView: {
       opacity: 1,
-      y: 0,
+    },
+    viewport: {
+      once: true,
     },
     transition: {
-      type: "spring",
-      duration: 0.5,
-      damping: 10,
-      stiffness: 100,
-      delay: 1.2,
+      type: "ease",
+      duration: 1,
+      ease: [0.96, 0.085, 0.0, 0.695],
     },
   };
   return (
     <motion.div
-      className="mb-8 mt-16 flex flex-row justify-between text-lg"
+      className="flex flex-row justify-between py-8 text-lg xl:py-16"
       {...animation}
     >
-      <div className="font-medium">(Selected work)</div>
-      <div className="flex flex-row gap-1 font-medium">
-        Discover <ArrowDown />
-      </div>
+      <div className="font-medium">({text})</div>
+      {Boolean(cta) && (
+        <div className="flex flex-row gap-1 font-medium">
+          {cta}
+          <ArrowDown />
+        </div>
+      )}
     </motion.div>
   );
 }

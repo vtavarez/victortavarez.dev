@@ -1,17 +1,17 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { Post as PostType } from "@/lib/types";
+import { PostType } from "@/lib/types";
+import { ReadMore } from "@/components/ui";
+import { Author } from "./Author";
 
 export function Post({
   title = "",
   media = "",
   excerpt = "",
+  slug = "",
   reading_time = "",
-  author_name = "",
-  author_image = "",
+  author: { name, image },
 }: PostType) {
   const animation = {
     initial: {
@@ -33,15 +33,15 @@ export function Post({
   };
 
   return (
-    <div className="border-t-2 border-primary py-4 last:border-b-2 md:py-16">
+    <div className="border-t-2 border-primary py-6 last:border-b-2 sm:py-8 xl:py-16">
       <motion.div
-        className="grid grid-cols-12 md:gap-16"
+        className="grid grid-cols-12 sm:gap-8 xl:gap-16"
         {...animation}
       >
-        <div className="col-span-12 md:col-span-4">
+        <div className="col-span-12 xl:col-span-4">
           <div className="relative h-56 w-full">
             <Image
-              className="absolute inset-0 h-full w-full object-cover"
+              className="absolute inset-0 h-full w-full object-cover pb-6 shadow-project sm:pb-0"
               src={media}
               alt={title}
               width={400}
@@ -49,27 +49,29 @@ export function Post({
             />
           </div>
         </div>
-        <div className="col-span-12 md:col-span-5">
-          <h3 className="pb-6 text-2xl font-semibold md:text-4xl">{title}</h3>
-          <p className="text-pretty pb-6">{excerpt}</p>
-          <div className="flex flex-row items-end justify-between gap-4">
-            <p className="ml-auto text-end text-sm">{author_name}</p>
-            <Image
-              className="rounded-full"
-              src={author_image}
-              alt="author"
-              width={40}
-              height={40}
-            />
-          </div>
+        <div className="col-span-12 xl:col-span-5">
+          <h3 className="text-balance pb-6 text-2xl font-semibold sm:text-3xl xl:text-4xl">
+            {title}
+          </h3>
+          <p className="text-balance w-3/4 max-w-full pb-8 sm:pb-2">
+            {excerpt}
+          </p>
+          <Author
+            className="hidden xl:flex"
+            name={name}
+            image={image}
+          />
         </div>
-        <div className="col-span-12 md:col-span-3">
-          <Link
-            href={`/blog/${title}`}
-            className="ml-auto flex w-fit flex-row gap-2 border-2 border-primary px-8 py-4 text-lg text-primary shadow-project"
-          >
-            Read More <ArrowUpRight size={24} />
-          </Link>
+        <div className="col-span-12 flex flex-row justify-between pb-3 xl:col-span-3">
+          <ReadMore
+            href={`/blog/${slug}`}
+            cta="Read more"
+          />
+          <Author
+            className="row-start-2 xl:hidden"
+            name={name}
+            image={image}
+          />
         </div>
       </motion.div>
     </div>

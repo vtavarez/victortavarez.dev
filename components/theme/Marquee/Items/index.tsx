@@ -6,7 +6,7 @@ export default function Items({
   return (
     <div className="inline-block">
       <div
-        className={`grid w-max animate-marquee grid-cols-${items.length} text-[4rem] font-semibold group-hover:[animation-play-state:paused]`}
+        className={`grid w-max animate-marquee grid-cols-${items.length} text-4xl font-semibold group-hover:[animation-play-state:paused] xl:text-[4rem]`}
       >
         {items.map(({ id, cta }: { id: number; cta: string }) => (
           <span
