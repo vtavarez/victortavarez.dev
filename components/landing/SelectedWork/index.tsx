@@ -1,6 +1,6 @@
 import { Project } from "@/components/theme";
 
-export function SelectedProjects() {
+export function SelectedWork() {
   return (
     <>
       <Project

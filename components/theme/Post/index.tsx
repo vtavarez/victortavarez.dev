@@ -10,9 +10,10 @@ export function Post({
   media = "",
   excerpt = "",
   slug = "",
-  reading_time = "",
+  readingTime = "",
   author: { name, image },
-}: PostType) {
+  animationDelay = 0.1,
+}: { animationDelay?: number } & PostType) {
   const animation = {
     initial: {
       opacity: 0,
@@ -37,6 +38,7 @@ export function Post({
       <motion.div
         className="grid grid-cols-12 sm:gap-8 xl:gap-16"
         {...animation}
+        transition={{ animationDelay, ...animation.transition }}
       >
         <div className="col-span-12 xl:col-span-4">
           <div className="relative mb-6 h-56 w-full sm:mb-0">

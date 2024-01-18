@@ -1,6 +1,5 @@
 import { Header, Footer } from "@/components/theme";
-import { ThemeProvider } from "@/lib/provider/next-theme";
-import { ReCaptchaProvider } from "@/lib/provider/recaptcha";
+import { ThemeProvider } from "@/lib/providers/next-theme";
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
@@ -36,11 +35,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ReCaptchaProvider>
-            <Header />
-            {children}
-            <Footer />
-          </ReCaptchaProvider>
+          <Header />
+          {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

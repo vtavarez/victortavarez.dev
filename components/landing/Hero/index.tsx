@@ -1,3 +1,4 @@
+"use client";
 import Title from "./Title";
 import Summery from "./Summery";
 import { ContactButton } from "@/components/ui";

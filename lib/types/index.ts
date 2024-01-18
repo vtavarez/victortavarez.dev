@@ -32,7 +32,7 @@ export type PostType = {
   title: string;
   media: string;
   excerpt: string;
-  reading_time: string;
+  readingTime: string;
   slug: string;
   author: { name: string; image: string };
 };

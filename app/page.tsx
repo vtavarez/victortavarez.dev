@@ -1,6 +1,6 @@
 import {
   Hero,
-  SelectedProjects,
+  SelectedWork,
   SelectedPosts,
   Contact,
 } from "@/components/landing";
@@ -14,7 +14,7 @@ export default function Home() {
         text="Selected work"
         cta="Discover"
       />
-      <SelectedProjects />
+      <SelectedWork />
       <ValueProp number="001">
         <p className="text-balanced mb-5 max-w-3xl leading-snug">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
