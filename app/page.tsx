@@ -15,7 +15,10 @@ export default function Home() {
         cta="Discover"
       />
       <SelectedWork />
-      <ValueProp number="001">
+      <ValueProp
+        className="xl:pb-38 pb-8 pt-24  text-2xl xl:pt-48"
+        number="001"
+      >
         <p className="text-balanced mb-5 max-w-3xl leading-snug">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
           debitis tempore molestias eligendi nesciunt dicta inventore deleniti
@@ -24,7 +27,10 @@ export default function Home() {
       </ValueProp>
       <EyebrowText text="Selected posts" />
       <SelectedPosts />
-      <ValueProp number="002">
+      <ValueProp
+        className="py-24 text-2xl xl:py-48"
+        number="002"
+      >
         <p className="text-balanced mb-5 max-w-3xl leading-snug">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
           debitis tempore molestias eligendi nesciunt dicta inventore deleniti

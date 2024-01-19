@@ -6,10 +6,16 @@ import {
   CardDescription,
   CardContent,
 } from "./card";
-import type { Post } from "@/lib/types";
+import type { PostType } from "@/lib/types";
 import Image from "next/image";
 
-export function Card({ title, media, excerpt, reading_time, author }: Post) {
+export function Card({
+  title,
+  media,
+  excerpt,
+  readingTime,
+  author: { name, image },
+}: PostType) {
   return (
     <CardContainer className="border-4 border-primary bg-background shadow-project">
       <CardHeader>
@@ -24,9 +30,9 @@ export function Card({ title, media, excerpt, reading_time, author }: Post) {
       <CardContent>{excerpt}</CardContent>
       <CardFooter>
         <CardDescription className="ml-auto">
-          Reading Time: {reading_time}min
+          Reading Time: {readingTime}min
           <br />
-          {author}
+          {name}
         </CardDescription>
       </CardFooter>
     </CardContainer>

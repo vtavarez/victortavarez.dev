@@ -15,7 +15,7 @@ import {
   SubmitButton,
   BouncingLoader,
 } from "@/components/ui/";
-import type { Inputs, SentMessage, RecaptchaResponse } from "@/lib/types";
+import type { Inputs, SentMessageType, RecaptchaType } from "@/lib/types";
 import { schema } from "@/lib/utils";
 import { verify } from "@/actions/recaptcha";
 import { send } from "@/actions/email";
@@ -58,10 +58,10 @@ export function ContactForm() {
     const token: string = executeRecaptcha
       ? await executeRecaptcha("submit")
       : "";
-    const verified: RecaptchaResponse = token ? await verify(token) : {};
+    const verified: RecaptchaType = token ? await verify(token) : {};
 
     if (verified?.success) {
-      const res: Error | SentMessage = await send(data);
+      const res: Error | SentMessageType = await send(data);
 
       res?.accepted.length > 0
         ? (setIsSuccess(true),

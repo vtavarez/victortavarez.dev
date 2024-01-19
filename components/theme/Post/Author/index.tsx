@@ -8,14 +8,14 @@ export function Author({
   className,
 }: AuthorType & { className?: string }) {
   return (
-    <div className={cn("flex flex-row items-end gap-4", className)}>
-      <p className="ml-auto text-end text-sm">{name}</p>
+    <div className={cn("flex items-end gap-3 pb-2", className)}>
+      <p className="text-end">{name}</p>
       <Image
         className="rounded-full grayscale filter"
         src={image}
         alt="author"
-        width={40}
-        height={40}
+        width={30}
+        height={30}
       />
     </div>
   );

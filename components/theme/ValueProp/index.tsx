@@ -1,12 +1,20 @@
+import React from "react";
+import { cn } from "@/lib/utils";
+
 export function ValueProp({
   number,
   children,
+  className,
+  ...props
 }: {
   number: string;
   children: React.ReactNode;
-}) {
+} & React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className="grid grid-cols-12 gap-4 py-24 text-2xl xl:py-48">
+    <div
+      className={cn("grid grid-cols-12 gap-4", className)}
+      {...props}
+    >
       <div className="col-span-4 text-lg font-medium leading-loose">
         /{number}
       </div>

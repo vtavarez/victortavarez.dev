@@ -109,7 +109,7 @@ export function ReadMore({
 }: {
   href: string;
   children: React.ReactNode;
-}) {
+} & React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <Button
       asChild

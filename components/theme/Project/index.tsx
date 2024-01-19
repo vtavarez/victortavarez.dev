@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+import { ReadMore } from "@/components/ui";
 import masimo from "@/public/masimo.png";
 
 export function Project({
@@ -17,15 +17,6 @@ export function Project({
   link: string;
   date: string;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "3%"]);
-
   const animation = {
     initial: {
       opacity: 0,
@@ -49,35 +40,27 @@ export function Project({
 
   return (
     <motion.div
-      className="relative mb-8"
+      className="grid h-[300px] max-h-full w-[820px] max-w-full grid-cols-12 gap-8 border-4 border-primary shadow-project"
       {...animation}
-      ref={ref}
     >
-      <div className="group relative flex h-[720px] max-h-full w-[1650px] max-w-full items-center justify-center overflow-hidden rounded-lg shadow-project">
-        <motion.div
-          className="h-full w-full transition-all duration-500"
-          style={{
-            y: imageY,
-          }}
-        >
-          <Image
-            className="absolute inset-0 h-full w-full object-contain transition-all duration-500 group-hover:scale-105"
-            src={masimo.src}
-            width={1650}
-            height={720}
-            alt="panel"
-            priority
-          />
-        </motion.div>
-        <div className="absolute inset-0 z-10 transition-all duration-500 group-hover:bg-white/40"></div>
+      <div className="relative col-span-5">
+        <Image
+          className="absolute inset-0 h-full w-full object-cover"
+          src={masimo}
+          alt="Masimo"
+          width={400}
+          height={400}
+        />
       </div>
-      <div className="grid grid-cols-3 gap-4 py-12">
-        <div className="text-lg font-medium">Masimo</div>
-        <div className="text-lg font-medium">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis
-          maxime, voluptatum totam ut iste quaerat quis.
-        </div>
-        <div className="text-right text-lg font-medium">(2022)</div>
+      <div className="cols-span-7">
+        <p>Company Name</p>
+        <p>Excerpt</p>
+        <ReadMore
+          className=""
+          href=""
+        >
+          Case study
+        </ReadMore>
       </div>
     </motion.div>
   );

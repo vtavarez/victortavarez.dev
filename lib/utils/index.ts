@@ -1,21 +1,17 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { z } from "zod";
-
+import { format } from "date-fns";
 /**
  * Combines multiple class names into a single string.
  *
  * @param inputs - The class names to be combined.
  * @returns The combined class names as a string.
  */
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
-
-/**
- * Returns a schema object for validating input data.
- * @returns {import("zod").ZodObject} The schema object.
- */
 
 const errorMessages = {
   name: {
@@ -56,4 +52,10 @@ export function schema() {
         }),
     })
     .required();
+}
+
+const dateFormat = "MMMM dd, yyyy";
+
+export function formatDate(date: Date | string) {
+  return format(new Date(date), dateFormat);
 }

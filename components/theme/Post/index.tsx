@@ -1,12 +1,14 @@
 "use client";
-import { motion } from "framer-motion";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { PostType } from "@/lib/types";
+import { formatDate } from "@/lib/utils";
 import { ReadMore } from "@/components/ui";
 import { Author } from "./Author";
 
 export function Post({
   title = "",
+  publishedAt = "",
   media = "",
   excerpt = "",
   slug = "",
@@ -52,25 +54,23 @@ export function Post({
           </div>
         </div>
         <div className="col-span-12 xl:col-span-5">
-          <h3 className="text-balance pb-6 text-2xl font-semibold sm:text-3xl xl:text-4xl">
+          <h3 className="text-balance pb-2 text-2xl font-semibold sm:text-3xl xl:text-4xl">
             {title}
           </h3>
-          <p className="text-balance max-w-full pb-8 sm:w-3/4 sm:pb-2">
-            {excerpt}
-          </p>
           <Author
-            className="hidden xl:flex"
             name={name}
             image={image}
           />
+          <div className="inline-flex items-center justify-between gap-4">
+            <p className="text-balance pb-2">{readingTime} min read</p>
+            <p className="text-balance pb-2">{formatDate(publishedAt)}</p>
+          </div>
+          <p className="text-balance max-w-full pb-8 font-medium sm:w-3/4 sm:pb-2">
+            {excerpt}
+          </p>
         </div>
         <div className="col-span-12 flex flex-row justify-between pb-3 xl:col-span-3">
           <ReadMore href={`/blog/${slug}`}>Read more</ReadMore>
-          <Author
-            className="row-start-2 xl:hidden"
-            name={name}
-            image={image}
-          />
         </div>
       </motion.div>
     </div>

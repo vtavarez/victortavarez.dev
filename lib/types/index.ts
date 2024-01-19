@@ -1,7 +1,5 @@
 import { SentMessageInfo } from "nodemailer";
-/**
- * Represents the inputs for a form submission.
- */
+import { DateTimeInputProps } from "sanity";
 
 export type Inputs = {
   name: string;
@@ -17,9 +15,9 @@ export type InputsFocusState = {
   [key: string]: boolean;
 };
 
-export type SentMessage = SentMessageInfo;
+export type SentMessageType = SentMessageInfo;
 
-export type RecaptchaResponse = {
+export type RecaptchaType = {
   success: boolean;
   challenge_ts: string;
   hostname: string;
@@ -30,11 +28,12 @@ export type RecaptchaResponse = {
 
 export type PostType = {
   title: string;
+  publishedAt: string;
   media: string;
   excerpt: string;
   readingTime: string;
   slug: string;
-  author: { name: string; image: string };
+  author: AuthorType;
 };
 
 export type AuthorType = {
