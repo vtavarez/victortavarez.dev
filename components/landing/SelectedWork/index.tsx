@@ -1,32 +1,18 @@
 import { Project } from "@/components/theme";
 
-export function SelectedWork() {
+export async function SelectedWork() {
   return (
     <div className="mt-2 border-t-2 border-primary md:mt-0">
-      <Project
-        details="microsite / masimosafetynetalert.co.uk"
-        link=""
-        client="masimo"
-        date="march 2022"
-      />
-      <Project
-        details="ecommerce / masimopersonalhealth.com"
-        link=""
-        client="masimo"
-        date="dec 2021"
-      />
-      <Project
-        details="ecommerce / masimopersonalhealth.com"
-        link=""
-        client="masimo"
-        date="dec 2021"
-      />
-      <Project
-        details="ecommerce / masimopersonalhealth.com"
-        link=""
-        client="masimo"
-        date="dec 2021"
-      />
+      {Array.from({ length: 4 }).map((_, i) => (
+        <Project
+          key={i}
+          number={i + 1}
+          details="microsite / masimosafetynetalert.co.uk"
+          link=""
+          client="masimo"
+          date="march 2022"
+        />
+      ))}
     </div>
   );
 }

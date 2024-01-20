@@ -1,4 +1,3 @@
-"use client";
 import Items from "./Items";
 import marquee_items from "@/lib/data/marquee_items.json";
 

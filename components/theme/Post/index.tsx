@@ -36,7 +36,7 @@ export function Post({
   };
 
   return (
-    <div className="border-t-2 border-primary py-6 last:border-b-2 sm:py-8 xl:py-16">
+    <div className="border-t-2 border-primary py-6 last:border-b-2 sm:py-8 xl:py-12">
       <motion.div
         className="grid grid-cols-12 sm:gap-8 xl:gap-16"
         {...animation}

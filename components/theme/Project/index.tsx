@@ -5,11 +5,13 @@ import masimo from "@/public/masimo.png";
 
 export function Project({
   details,
+  number,
   client,
   link,
   date,
 }: {
   details: string;
+  number: number;
   client: string;
   link: string;
   date: string;
@@ -37,7 +39,7 @@ export function Project({
     <div className="group border-primary pt-4 lg:pt-8">
       <div className="grid grid-cols-12 gap-4 border-b-2 border-primary pb-4 transition-transform duration-200 ease-linear group-hover:-translate-y-2 lg:pb-8">
         <div className="col-span-12 mr-auto grid grid-rows-2 items-center justify-center gap-y-3 lg:col-span-5 lg:gap-y-7">
-          <small>{"/001"}</small>
+          <small>{"/00" + number}</small>
           <div className="overflow-hidden">
             <motion.p
               className="text-xl font-semibold uppercase leading-none lg:text-2xl"
