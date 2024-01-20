@@ -79,12 +79,12 @@ export function ContactForm() {
       className="w-full px-6 pb-24 pt-16 lg:w-1/2 xl:py-48"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <FieldGroup className="relative pt-12">
+      <FieldGroup className="relative">
         <Label
           className={`absolute inset-0 transition-all duration-300 ${
             focusedFields?.name || dirtyFields?.name
-              ? "translate-x-0 translate-y-4 text-base"
-              : "translate-x-3 translate-y-14 text-lg text-black"
+              ? "-translate-x-0 -translate-y-8 text-base"
+              : "translate-x-3 translate-y-2 text-lg text-black"
           } h-fit w-fit font-medium mix-blend-normal`}
           htmlFor="name"
         >
@@ -143,7 +143,7 @@ export function ContactForm() {
         <TextArea
           className="relative bg-transparent text-black after:absolute after:inset-0 after:z-[-1] after:border-4 after:border-primary after:bg-white after:shadow-project after:content-[''] focus-within:shadow-outline"
           id="message"
-          rows={5}
+          rows={8}
           required
           aria-required
           aria-invalid={Boolean(errors.message?.message)}

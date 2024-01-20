@@ -1,30 +1,25 @@
 "use client";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { ReadMore } from "@/components/ui";
+import { MoveUpRight } from "lucide-react";
 import masimo from "@/public/masimo.png";
 
 export function Project({
-  image,
-  summery,
+  details,
   client,
   link,
   date,
 }: {
-  image: string;
-  summery: string;
+  details: string;
   client: string;
   link: string;
   date: string;
 }) {
   const animation = {
     initial: {
-      opacity: 0,
-      y: 10,
+      y: "100%",
     },
     whileInView: {
-      opacity: 1,
-      y: 0,
+      y: "0%",
     },
     viewport: {
       once: true,
@@ -39,29 +34,37 @@ export function Project({
   };
 
   return (
-    <motion.div
-      className="grid h-[300px] max-h-full w-[820px] max-w-full grid-cols-12 gap-8 border-4 border-primary shadow-project"
-      {...animation}
-    >
-      <div className="relative col-span-5">
-        <Image
-          className="absolute inset-0 h-full w-full object-cover"
-          src={masimo}
-          alt="Masimo"
-          width={400}
-          height={400}
-        />
+    <div className="group border-primary pt-4 lg:pt-8">
+      <div className="grid grid-cols-12 gap-4 border-b-2 border-primary pb-4 transition-transform duration-200 ease-linear group-hover:-translate-y-2 lg:pb-8">
+        <div className="col-span-12 mr-auto grid grid-rows-2 items-center justify-center gap-y-3 lg:col-span-5 lg:gap-y-7">
+          <small>{"/001"}</small>
+          <div className="overflow-hidden">
+            <motion.p
+              className="text-xl font-semibold uppercase leading-none lg:text-2xl"
+              {...animation}
+              transition={{ delay: 1.5 }}
+            >
+              {client}
+            </motion.p>
+          </div>
+        </div>
+        <div className="col-span-12 inline-flex gap-4 lg:col-span-4">
+          <div className="flex flex-col items-start justify-center">
+            <p className="pb-1 text-xs uppercase leading-none lg:pb-0 lg:text-sm">
+              {details}
+            </p>
+            <p className="text-xs uppercase leading-none lg:text-sm">{date}</p>
+          </div>
+          <div className="ml-auto block lg:hidden">
+            <MoveUpRight size={24} />
+          </div>
+        </div>
+        <div className="col-span-3 flex items-center justify-center">
+          <div className="ml-auto hidden lg:block">
+            <MoveUpRight size={24} />
+          </div>
+        </div>
       </div>
-      <div className="cols-span-7">
-        <p>Company Name</p>
-        <p>Excerpt</p>
-        <ReadMore
-          className=""
-          href=""
-        >
-          Case study
-        </ReadMore>
-      </div>
-    </motion.div>
+    </div>
   );
 }
