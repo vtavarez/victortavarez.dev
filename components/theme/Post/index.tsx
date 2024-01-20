@@ -36,11 +36,11 @@ export function Post({
   };
 
   return (
-    <div className="border-t-2 border-primary py-6 last:border-b-2 sm:py-8 xl:py-12">
+    <div className="border-t-2 border-primary py-6 transition-transform duration-200 ease-linear last:border-b-2 hover:-translate-y-2 sm:py-8 xl:py-12">
       <motion.div
         className="grid grid-cols-12 sm:gap-8 xl:gap-16"
         {...animation}
-        transition={{ animationDelay, ...animation.transition }}
+        transition={{ delay: animationDelay, ...animation.transition }}
       >
         <div className="col-span-12 xl:col-span-4">
           <div className="relative mb-6 h-56 w-full sm:mb-0">
@@ -54,7 +54,7 @@ export function Post({
           </div>
         </div>
         <div className="col-span-12 xl:col-span-5">
-          <h3 className="text-balance pb-2 text-2xl font-semibold sm:text-3xl xl:text-4xl">
+          <h3 className="text-balance pb-2 text-2xl font-semibold sm:text-3xl">
             {title}
           </h3>
           <Author

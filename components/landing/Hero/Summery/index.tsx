@@ -18,7 +18,7 @@ export default function Summery() {
       {...animation}
     >
       <span className="relative z-10 inline-block">
-        Helping businesses bring{" "}
+        Helping people and businesses bring{" "}
       </span>
       <span className="relative block w-fit before:absolute before:inset-0 before:-right-2 before:-z-10 before:-rotate-1 before:bg-amber-500 before:opacity-75 before:content-[''] dark:text-background">
         dynamic and engaging user

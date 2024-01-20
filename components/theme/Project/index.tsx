@@ -44,7 +44,7 @@ export function Project({
             <motion.p
               className="text-xl font-semibold uppercase leading-none lg:text-2xl"
               {...animation}
-              transition={{ delay: 1.5 }}
+              transition={{ delay: 0.5 * number }}
             >
               {client}
             </motion.p>
