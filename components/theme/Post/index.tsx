@@ -7,14 +7,14 @@ import { ReadMore } from "@/components/ui";
 import { Author } from "./Author";
 
 export function Post({
-  title = "",
-  publishedAt = "",
-  media = "",
-  excerpt = "",
-  slug = "",
-  readingTime = "",
+  title,
+  publishedAt,
+  media,
+  excerpt,
+  slug,
+  readingTime,
   author: { name, image },
-  animationDelay = 0.1,
+  animationDelay,
 }: { animationDelay?: number } & PostType) {
   const animation = {
     initial: {
@@ -32,15 +32,16 @@ export function Post({
       type: "ease",
       duration: 1,
       ease: [0.96, 0.085, 0.0, 0.695],
+      delay: animationDelay,
     },
   };
 
   return (
     <div className="border-t-2 border-primary py-6 transition-transform duration-200 ease-linear last:border-b-2 hover:-translate-y-2 sm:py-8 xl:py-12">
       <motion.div
+        layout
         className="grid grid-cols-12 sm:gap-8 xl:gap-16"
         {...animation}
-        transition={{ delay: animationDelay, ...animation.transition }}
       >
         <div className="col-span-12 xl:col-span-4">
           <div className="relative mb-6 h-56 w-full sm:mb-0">
@@ -70,7 +71,7 @@ export function Post({
           </p>
         </div>
         <div className="col-span-12 flex flex-row justify-between pb-3 xl:col-span-3">
-          <ReadMore href={`/blog/${slug}`}>Read more</ReadMore>
+          <ReadMore href={"/blog/" + slug}>Read more</ReadMore>
         </div>
       </motion.div>
     </div>

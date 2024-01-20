@@ -6,7 +6,7 @@ export async function SelectedWork() {
       {Array.from({ length: 4 }).map((_, i) => (
         <Project
           key={i}
-          number={i + 1}
+          number={i * 1}
           details="microsite / masimosafetynetalert.co.uk"
           link=""
           client="masimo"

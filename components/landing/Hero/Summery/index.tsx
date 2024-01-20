@@ -14,6 +14,7 @@ export default function Summery() {
   };
   return (
     <motion.h2
+      layout
       className="text-[1.6rem] font-medium leading-snug tracking-tight text-primary md:text-[2rem] xl:my-5 xl:w-1/2 xl:text-[2.5rem]"
       {...animation}
     >

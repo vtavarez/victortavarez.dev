@@ -1,14 +1,12 @@
 import { motion } from "framer-motion";
-import { useIsSsr } from "@/lib/hooks";
 
 export default function Title() {
-  const isSsr = useIsSsr();
   const animation = {
     initial: {
-      y: !isSsr && window.innerWidth > 390 ? 110 : 135,
+      y: "110%",
     },
     animate: {
-      y: 0,
+      y: "0%",
     },
     transition: {
       type: "tween",
@@ -20,6 +18,7 @@ export default function Title() {
     <h1 className="text-[3.8rem] font-bold uppercase leading-none tracking-tighter text-primary md:text-[4.2rem] lg:text-[5rem] xl:text-[7rem]">
       <div className="overflow-y-hidden">
         <motion.span
+          layout
           className="mb-4 block sm:mb-auto"
           {...animation}
         >
@@ -28,9 +27,10 @@ export default function Title() {
       </div>
       <div className="mt-[-0.8rem] overflow-y-hidden">
         <motion.span
+          layout
           className="block"
           {...animation}
-          transition={{ delay: 0.1, ...animation.transition }}
+          transition={{ ...animation.transition, delay: 0.1 }}
         >
           Software Engineer
         </motion.span>

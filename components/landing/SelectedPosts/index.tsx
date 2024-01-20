@@ -9,32 +9,13 @@ export async function SelectedPosts() {
 
   return (
     <div className="border-b-1 border-primary">
-      {posts.map(
-        (
-          {
-            title,
-            publishedAt,
-            media,
-            excerpt,
-            readingTime,
-            slug,
-            author,
-          }: PostType,
-          _idx: number,
-        ) => (
-          <Post
-            key={title}
-            title={title}
-            publishedAt={publishedAt}
-            media={media}
-            slug={slug}
-            excerpt={excerpt}
-            readingTime={readingTime}
-            author={author}
-            animationDelay={_idx * 0.5}
-          />
-        ),
-      )}
+      {posts.map((post: PostType, _idx: number) => (
+        <Post
+          key={post.title}
+          {...post}
+          animationDelay={_idx * 0.5}
+        />
+      ))}
     </div>
   );
 }

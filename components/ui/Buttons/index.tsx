@@ -64,7 +64,10 @@ export function ContactButton({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <motion.div {...animation}>
+    <motion.div
+      layout
+      {...animation}
+    >
       <Button
         variant="contact"
         className="shadow-project"
