@@ -1,4 +1,4 @@
-import { useState, useEffect, useReducer } from "react";
+import { useState, useEffect, useReducer, useRef } from "react";
 import type { InputsFocusState } from "@/lib/types";
 
 export const useIsSsr = () => {

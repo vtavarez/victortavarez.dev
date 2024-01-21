@@ -15,14 +15,14 @@ export default function Title() {
     },
   };
   return (
-    <h1 className="text-[3.8rem] font-bold uppercase leading-none tracking-tighter text-primary md:text-[4.2rem] lg:text-[5rem] xl:text-[7rem]">
+    <h1 className="text-[3.8rem] font-bold uppercase leading-none tracking-tighter text-primary md:text-[4.2rem] lg:text-[5rem] xl:text-[12rem]">
       <div className="overflow-y-hidden">
         <motion.span
           layout
           className="mb-4 block sm:mb-auto"
           {...animation}
         >
-          Victor Tavarez
+          Victor
         </motion.span>
       </div>
       <div className="mt-[-0.8rem] overflow-y-hidden">
@@ -32,7 +32,7 @@ export default function Title() {
           {...animation}
           transition={{ ...animation.transition, delay: 0.1 }}
         >
-          Software Engineer
+          Tavarez.
         </motion.span>
       </div>
     </h1>

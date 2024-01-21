@@ -89,6 +89,11 @@ const config: Config = {
             transform: "translate3d(0, -1rem, 0)",
           },
         },
+        blink: {
+          "0%": { opacity: "0" },
+          "50%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -96,6 +101,7 @@ const config: Config = {
         "scale-panel": "scale-panel 0.2s ease-in-out",
         marquee: "marquee 120s linear infinite",
         loader: "loader 0.6s infinite alternate",
+        blink: "blink 1s infinite",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
