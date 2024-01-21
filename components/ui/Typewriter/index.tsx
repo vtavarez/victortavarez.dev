@@ -22,9 +22,7 @@ export const Typewriter = ({
         setSentence((prev) => prev + chars[i]);
       }, i * 50);
     }
-
     setBlink(true);
-
     setTimeout(
       () => {
         setBlink((prev) => !prev);
@@ -38,7 +36,6 @@ export const Typewriter = ({
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            console.log(entry);
             if (entry.isIntersecting) {
               typeSentence();
               if (once) {
@@ -49,11 +46,9 @@ export const Typewriter = ({
         },
         { threshold: 0.8 },
       );
-
       if (container.current) observer.observe(container.current);
-      return () => observer.disconnect();
+      initialRender.current = false;
     }
-    initialRender.current = false;
   }, []);
 
   return <span className={blink ? "blink" : ""}>{sentence}</span>;
