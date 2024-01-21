@@ -76,7 +76,7 @@ export function ContactForm() {
 
   return (
     <Form
-      className="w-full px-6 pb-24 pt-16 lg:w-1/2 xl:py-48"
+      className="w-[768px] max-w-full pb-24 pt-8 xl:ml-20 xl:pb-48 xl:pt-28"
       onSubmit={handleSubmit(onSubmit)}
     >
       <FieldGroup className="relative">
@@ -85,7 +85,7 @@ export function ContactForm() {
             focusedFields?.name || dirtyFields?.name
               ? "-translate-x-0 -translate-y-8 text-base"
               : "translate-x-3 translate-y-2 text-lg text-black"
-          } h-fit w-fit font-medium mix-blend-normal`}
+          } h-fit w-fit transform-gpu font-medium mix-blend-normal will-change-transform`}
           htmlFor="name"
         >
           Name
@@ -110,7 +110,7 @@ export function ContactForm() {
             focusedFields?.email || dirtyFields?.email
               ? "translate-x-0 translate-y-4 text-base"
               : "translate-x-3 translate-y-14 text-lg text-black"
-          } h-fit w-fit font-medium mix-blend-normal`}
+          } h-fit w-fit transform-gpu font-medium mix-blend-normal will-change-transform`}
           htmlFor="email"
         >
           Email
@@ -135,7 +135,7 @@ export function ContactForm() {
             focusedFields?.message || dirtyFields?.message
               ? "translate-x-0 translate-y-4 text-base"
               : "translate-x-3 translate-y-14 text-lg text-black"
-          } h-fit w-fit font-medium mix-blend-normal`}
+          } h-fit w-fit transform-gpu font-medium mix-blend-normal will-change-transform`}
           htmlFor="message"
         >
           Message

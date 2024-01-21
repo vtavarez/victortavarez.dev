@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { urlForImage } from "@/sanity/lib/image";
 import { motion } from "framer-motion";
 import { PostType } from "@/lib/types";
 import { formatDate } from "@/lib/utils";
