@@ -1,33 +1,36 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Children, createElement } from "react";
+import { cn } from "@/lib/utils";
 
 export const Typewriter = ({
-  container,
+  containerRef,
   children,
   once,
   ...props
 }: {
-  container: React.RefObject<HTMLDivElement>;
-  children: string;
+  containerRef: React.RefObject<HTMLDivElement>;
+  children: React.ReactNode;
   once?: boolean;
 }) => {
   const initialRender = useRef(true);
   const [sentence, setSentence] = useState("");
   const [blink, setBlink] = useState(false);
 
+  const [node] = Children.toArray(children) as React.ReactElement[];
+
   function typeSentence() {
-    const chars = children.split("");
+    const chars = node.props.children.split("");
     for (let i = 0; i < chars.length; i++) {
       setTimeout(() => {
         setSentence((prev) => prev + chars[i]);
-      }, i * 50);
+      }, i * 40);
     }
     setBlink(true);
     setTimeout(
       () => {
         setBlink((prev) => !prev);
       },
-      chars.length * 50 + 500,
+      chars.length * 40 + 500,
     );
   }
 
@@ -46,10 +49,17 @@ export const Typewriter = ({
         },
         { threshold: 0.8 },
       );
-      if (container.current) observer.observe(container.current);
+      if (containerRef.current) observer.observe(containerRef.current);
       initialRender.current = false;
     }
   }, []);
 
-  return <span className={blink ? "blink" : ""}>{sentence}</span>;
+  return createElement(
+    node.type,
+    {
+      ...node.props,
+      className: cn(node.props.className, blink ? "blink" : ""),
+    },
+    sentence,
+  );
 };

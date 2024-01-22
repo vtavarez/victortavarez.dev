@@ -24,14 +24,14 @@ export function ValueProp({
         {"/" + number}
       </div>
       <div className="text-balance col-span-12 flex items-start justify-center text-left text-3xl font-medium md:col-span-11 md:items-center lg:text-5xl">
-        <p className="text-balance mb-5 max-w-3xl pl-4 leading-snug transition-all duration-200 ease-linear md:pl-0">
-          <Typewriter
-            container={container}
-            once={true}
-          >
+        <Typewriter
+          containerRef={container}
+          once={true}
+        >
+          <p className="text-balance mb-5 max-w-3xl pl-4 leading-snug transition-all duration-200 ease-linear md:pl-0">
             {children}
-          </Typewriter>
-        </p>
+          </p>
+        </Typewriter>
       </div>
     </div>
   );
