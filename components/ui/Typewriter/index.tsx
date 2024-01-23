@@ -23,14 +23,14 @@ export const Typewriter = ({
     for (let i = 0; i < chars.length; i++) {
       setTimeout(() => {
         setSentence((prev) => prev + chars[i]);
-      }, i * 40);
+      }, i * 50);
     }
     setBlink(true);
     setTimeout(
       () => {
         setBlink((prev) => !prev);
       },
-      chars.length * 40 + 500,
+      chars.length * 50 + 500,
     );
   }
 

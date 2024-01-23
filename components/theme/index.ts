@@ -6,3 +6,4 @@ export * from "./Marquee";
 export * from "./Project";
 export * from "./Post";
 export * from "./ContactForm";
+export * from "./ThreeScene";
