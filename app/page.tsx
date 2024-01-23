@@ -33,9 +33,9 @@ export default function Home() {
         I have also worked with a wide range of clients, from small businesses
         to large corporations.
       </ValueProp>
-      <Marquee />
+      <EyebrowText text="Lets connect" />
       <ValueProp
-        className="h-[368px] py-24 text-2xl xl:pb-8 xl:pt-48"
+        className="h-[368px] py-24 text-2xl xl:pb-8 xl:pt-0"
         number="003"
       >
         If you would like to get in touch, please feel free to reach out.

@@ -76,7 +76,7 @@ export function ContactForm() {
 
   return (
     <Form
-      className="w-[768px] max-w-full pb-24 pt-8 xl:ml-20 xl:pb-48 xl:pt-28"
+      className="w-[768px] max-w-full pb-24 pt-8 xl:ml-20 xl:pb-48 xl:pt-0"
       onSubmit={handleSubmit(onSubmit)}
     >
       <FieldGroup className="relative">

@@ -1,13 +1,11 @@
 "use client";
-import Model from "./Model";
-import { Canvas } from "@react-three/fiber";
+import { ThreeCanvas } from "@/components/ui";
+import { Commodore64 } from "./Models";
 
 export function ThreeScene() {
   return (
-    <Canvas>
-      <ambientLight />
-      <pointLight position={[10, 10, 10]} />
-      <Model position={[0, 0, 0]} />
-    </Canvas>
+    <ThreeCanvas>
+      <Commodore64 />
+    </ThreeCanvas>
   );
 }

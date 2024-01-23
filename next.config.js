@@ -7,7 +7,8 @@ const nextConfig = {
         hostname: 'cdn.sanity.io',
       }
     ]
-  }
+  },
+  transpilePackages: ['three']
 }
 
 module.exports = nextConfig
