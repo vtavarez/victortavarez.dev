@@ -31,7 +31,7 @@ export type PostType = {
   publishedAt: string;
   media: string;
   excerpt: string;
-  readingTime: string;
+  readingTime: number;
   slug: string;
   author: AuthorType;
 };

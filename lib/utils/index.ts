@@ -13,6 +13,20 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+const dateFormat = "MMMM dd, yyyy";
+
+/**
+ * Formats a date into a string using the specified format.
+ * @param date - The date to format. Can be a Date object or a string.
+ * @returns The formatted date string.
+ */
+export function formatDate(date: Date | string) {
+  return format(new Date(date), dateFormat);
+}
+
+/**
+ * Error messages for form validation.
+ */
 const errorMessages = {
   name: {
     required: "Name is Required",
@@ -32,30 +46,44 @@ const errorMessages = {
   },
 };
 
-export function schema() {
-  return z
-    .object({
-      name: z
-        .string({ required_error: errorMessages.name.required })
-        .min(2, { message: errorMessages.name.min })
-        .max(100, { message: errorMessages.name.max })
-        .regex(/^[a-zA-Z ]+$/, { message: errorMessages.name.regex }),
-      email: z
-        .string({ required_error: errorMessages.email.required })
-        .email({ message: errorMessages.email.invalid }),
-      message: z
-        .string({ required_error: errorMessages.message.required })
-        .min(10, { message: errorMessages.message.min })
-        .max(500, { message: errorMessages.message.max })
-        .regex(/^[a-zA-Z0-9\s.,!?]+$/, {
-          message: errorMessages.message.regex,
-        }),
-    })
-    .required();
-}
+/**
+ * Defines the contact form schema.
+ * The schema includes validation rules for the name, email, and message fields.
+ */
+export const contactFormSchema = z
+  .object({
+    name: z
+      .string({ required_error: errorMessages.name.required })
+      .min(2, { message: errorMessages.name.min })
+      .max(100, { message: errorMessages.name.max })
+      .regex(/^[a-zA-Z ]+$/, { message: errorMessages.name.regex }),
+    email: z
+      .string({ required_error: errorMessages.email.required })
+      .email({ message: errorMessages.email.invalid }),
+    message: z
+      .string({ required_error: errorMessages.message.required })
+      .min(10, { message: errorMessages.message.min })
+      .max(500, { message: errorMessages.message.max })
+      .regex(/^[a-zA-Z0-9\s.,!?]+$/, {
+        message: errorMessages.message.regex,
+      }),
+  })
+  .required();
 
-const dateFormat = "MMMM dd, yyyy";
+/**
+ * Represents the schema for a post.
+ */
+export const postSchema = z.object({
+  title: z.string(),
+  publishedAt: z.string(),
+  excerpt: z.string(),
+  readingTime: z.number(),
+  slug: z.string(),
+  author: z.object({ name: z.string(), image: z.string() }),
+  media: z.string(),
+});
 
-export function formatDate(date: Date | string) {
-  return format(new Date(date), dateFormat);
-}
+/**
+ * Represents a schema for a list of posts.
+ */
+export const postListSchema = z.array(postSchema);

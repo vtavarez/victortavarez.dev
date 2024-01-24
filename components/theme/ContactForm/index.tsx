@@ -16,7 +16,7 @@ import {
   BouncingLoader,
 } from "@/components/ui/";
 import type { Inputs, SentMessageType, RecaptchaType } from "@/lib/types";
-import { schema } from "@/lib/utils";
+import { contactFormSchema } from "@/lib/utils";
 import { verify } from "@/actions/recaptcha";
 import { send } from "@/actions/email";
 
@@ -31,7 +31,7 @@ export function ContactForm() {
       email: "",
       message: "",
     },
-    resolver: zodResolver(schema()),
+    resolver: zodResolver(contactFormSchema),
   });
 
   const [isSuccess, setIsSuccess] = useState(false);
