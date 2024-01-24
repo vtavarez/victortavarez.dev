@@ -1,8 +1,7 @@
 "use client";
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { PresentationControls, PerspectiveCamera } from "@react-three/drei";
-import { BouncingLoader } from "@/components/ui";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 
 export function ThreeCanvas({
   children,
@@ -11,8 +10,8 @@ export function ThreeCanvas({
   children: React.ReactNode;
 }) {
   return (
-    <Suspense fallback={<BouncingLoader />}>
-      <Canvas {...props}>
+    <Canvas {...props}>
+      <Suspense fallback={null}>
         <directionalLight
           position={[0, 20, 10]}
           intensity={0.8 * Math.PI}
@@ -34,15 +33,13 @@ export function ThreeCanvas({
           makeDefault
           position={[0, 0, 160]}
         />
-        <PresentationControls
-          enabled={true}
-          global={false}
-          cursor={true}
-          polar={[-Infinity, Infinity]}
-        >
-          {children}
-        </PresentationControls>
-      </Canvas>
-    </Suspense>
+        <OrbitControls
+          enableDamping
+          enableRotate
+          enableZoom={false}
+        />
+        {children}
+      </Suspense>
+    </Canvas>
   );
 }

@@ -91,6 +91,7 @@ export function ContactForm() {
           Name
         </Label>
         <Field
+          autoComplete="name"
           className="relative bg-transparent text-black after:absolute after:inset-0 after:z-[-1] after:border-4 after:border-primary after:bg-white after:shadow-project after:content-[''] focus-within:shadow-outline"
           id="name"
           type="text"
@@ -116,6 +117,7 @@ export function ContactForm() {
           Email
         </Label>
         <Field
+          autoComplete="email"
           className="relative bg-transparent text-black after:absolute after:inset-0 after:z-[-1] after:border-4 after:border-primary after:bg-white after:shadow-project after:content-[''] focus-within:shadow-outline"
           id="email"
           type="email"
