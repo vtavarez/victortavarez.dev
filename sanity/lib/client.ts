@@ -9,7 +9,11 @@ export const client = createClient({
   useCdn,
 });
 
-export async function getPosts<Object>({ limit = 3 }): Promise<PostType[]> {
+export async function getPosts({
+  limit = 3,
+}: {
+  limit: number;
+}): Promise<PostType[]> {
   const posts = await client.fetch(
     `*[_type == "post"][0..${limit}] | order(publishedAt desc){ title, publishedAt, excerpt, "readingTime":reading_time, "slug":slug.current, "author": author->{"image":image.asset->url,name}, "media": mainImage.asset->url }`,
     {},
