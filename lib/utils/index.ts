@@ -50,7 +50,7 @@ const errorMessages = {
  * Defines the contact form schema.
  * The schema includes validation rules for the name, email, and message fields.
  */
-export const contactFormSchema = z
+export const contactSchema = z
   .object({
     name: z
       .string({ required_error: errorMessages.name.required })
@@ -87,3 +87,12 @@ export const postSchema = z.object({
  * Represents a schema for a list of posts.
  */
 export const postListSchema = z.array(postSchema);
+
+export const recaptchaSchema = z.object({
+  success: z.boolean(),
+  score: z.number(),
+  action: z.string(),
+  challenge_ts: z.string(),
+  hostname: z.string(),
+  "error-codes": z.array(z.string()).optional(),
+});

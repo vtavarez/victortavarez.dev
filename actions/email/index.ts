@@ -1,15 +1,12 @@
 "use server";
 import nodemailer from "nodemailer";
 import Mail from "nodemailer/lib/mailer";
-
-type Inputs = {
-  name: string;
-  email: string;
-  message: string;
-};
+import { contactSchema } from "@/lib/utils";
+import { Inputs } from "@/lib/types";
 
 export async function send(data: Inputs) {
   const { name, email, message } = data;
+  contactSchema.parse(data);
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -24,12 +21,16 @@ export async function send(data: Inputs) {
     text: message,
   };
 
-  try {
-    const mail = await transporter.sendMail(options);
-    return mail;
-  } catch (error: any) {
+  const res = await transporter.sendMail(options);
+
+  if (res.rejected.length) {
     return {
-      error: new Error(error),
+      ...res,
+      error: {
+        message: "Error sending email",
+      },
     };
   }
+
+  return await transporter.sendMail(options);
 }

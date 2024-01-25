@@ -1,6 +1,4 @@
-import { SentMessageInfo } from "nodemailer";
-import { DateTimeInputProps } from "sanity";
-
+import { SentMessageInfo } from "nodemailer/lib/smtp-transport";
 export type Inputs = {
   name: string;
   email: string;
@@ -15,14 +13,14 @@ export type InputsFocusState = {
   [key: string]: boolean;
 };
 
-export type SentMessageType = SentMessageInfo;
+export type SentMessageType = SentMessageInfo & { error?: { message: string } };
 
 export type RecaptchaType = {
   success: boolean;
   challenge_ts: string;
   hostname: string;
   score: number;
-  "error-codes": string[];
+  "error-codes"?: string[];
   error?: Error;
 };
 

@@ -1,4 +1,6 @@
 "use server";
+import { recaptchaSchema } from "@/lib/utils";
+
 export async function verify(token: string) {
   const secret = process.env.RECAPTCHA_SECRET_KEY;
   const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`;
@@ -10,6 +12,8 @@ export async function verify(token: string) {
   });
   const json = await response.json();
 
+  recaptchaSchema.parse(json);
+
   if (!json.success) {
     return {
       ...json,
@@ -19,7 +23,9 @@ export async function verify(token: string) {
 
   if (json.score < 0.5) {
     return {
-      error: new Error("Recaptcha score too low"),
+      ...json,
+      succsess: false,
+      error: new Error(`Recaptcha score too low: ${json.score}`),
     };
   }
 

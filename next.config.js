@@ -8,7 +8,12 @@ const nextConfig = {
       }
     ]
   },
-  transpilePackages: ['three']
+  transpilePackages: ['three'],
+  logging: {
+    fetches: {
+      fullUrl: true,
+    }
+  }
 }
 
 module.exports = nextConfig

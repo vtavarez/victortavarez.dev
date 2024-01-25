@@ -16,7 +16,7 @@ import {
   BouncingLoader,
 } from "@/components/ui/";
 import type { Inputs, SentMessageType, RecaptchaType } from "@/lib/types";
-import { contactFormSchema } from "@/lib/utils";
+import { contactSchema } from "@/lib/utils";
 import { verify } from "@/actions/recaptcha";
 import { send } from "@/actions/email";
 
@@ -31,7 +31,7 @@ export function ContactForm() {
       email: "",
       message: "",
     },
-    resolver: zodResolver(contactFormSchema),
+    resolver: zodResolver(contactSchema),
   });
 
   const [isSuccess, setIsSuccess] = useState(false);
@@ -58,16 +58,16 @@ export function ContactForm() {
     const token: string = executeRecaptcha
       ? await executeRecaptcha("submit")
       : "";
-    const verified: RecaptchaType = token ? await verify(token) : {};
+    const verified: RecaptchaType = token && (await verify(token));
 
     if (verified?.success) {
-      const res: Error | SentMessageType = await send(data);
+      const res: SentMessageType = await send(data);
 
-      res?.accepted.length > 0
+      res.accepted.length
         ? (setIsSuccess(true),
           setTimeout(() => setIsSuccess(false), 5000),
           reset())
-        : console.error(res);
+        : console.error(res?.error?.message, "Response: " + res?.rejected);
       return;
     }
 
