@@ -1,15 +1,5 @@
-import { useState, useEffect, useReducer, useRef } from "react";
+import { useReducer, useSyncExternalStore, useRef } from "react";
 import type { InputsFocusState } from "@/lib/types";
-
-export const useIsSsr = () => {
-  const [isSsr, setIsSsr] = useState(true);
-
-  useEffect(() => {
-    setIsSsr(false);
-  }, []);
-
-  return isSsr;
-};
 
 export const useFocusedFields = (fields: InputsFocusState) => {
   const inputFocusReducer = (
@@ -30,3 +20,23 @@ export const useFocusedFields = (fields: InputsFocusState) => {
 
   return { focusedFields, setFocusedFields };
 };
+
+export function useObserverReady(fn: () => void, strictMode: boolean = true) {
+  const initialRender = useRef(true);
+  return useSyncExternalStore(
+    (callback: () => void) => {
+      window.addEventListener("load", callback);
+      return () => window.removeEventListener("load", () => null);
+    },
+    () => {
+      if (strictMode && initialRender.current) {
+        fn();
+        initialRender.current = false;
+        return;
+      }
+
+      if (!strictMode) fn();
+    },
+    () => null,
+  );
+}

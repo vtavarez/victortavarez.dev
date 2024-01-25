@@ -86,7 +86,7 @@ export const postSchema = z.object({
 /**
  * Represents a schema for a list of posts.
  */
-export const postListSchema = z.array(postSchema);
+export const postListSchema = z.promise(z.array(postSchema));
 
 export const recaptchaSchema = z.object({
   success: z.boolean(),

@@ -4,7 +4,7 @@ import { getPosts } from "@/sanity/lib/client";
 import { postListSchema } from "@/lib/utils";
 
 export async function SelectedPosts() {
-  const posts = postListSchema.parse(getPosts({ limit: 3 }));
+  const posts = await postListSchema.parse(getPosts({ limit: 3 }));
 
   return (
     <div className="border-b-1 border-primary">

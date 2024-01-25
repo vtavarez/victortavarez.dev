@@ -1,5 +1,6 @@
 "use client";
-import { useState, useEffect, useRef, Children, createElement } from "react";
+import { useState, Children, createElement } from "react";
+import { useObserverReady } from "@/lib/hooks";
 import { cn } from "@/lib/utils";
 
 export const Typewriter = ({
@@ -12,13 +13,12 @@ export const Typewriter = ({
   children: React.ReactNode;
   once?: boolean;
 }) => {
-  const initialRender = useRef(true);
   const [sentence, setSentence] = useState("");
   const [blink, setBlink] = useState(false);
 
   const [node] = Children.toArray(children) as React.ReactElement[];
 
-  function typeSentence() {
+  function typeContent() {
     const chars = node.props.children.split("");
     for (let i = 0; i < chars.length; i++) {
       setTimeout(() => {
@@ -34,25 +34,26 @@ export const Typewriter = ({
     );
   }
 
-  useEffect(() => {
-    if (initialRender.current) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              typeSentence();
-              if (once) {
-                observer.unobserve(entry.target);
-              }
+  useObserverReady(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            typeContent();
+            if (once) {
+              observer.unobserve(entry.target);
             }
-          });
-        },
-        { threshold: 0.8 },
-      );
-      if (containerRef.current) observer.observe(containerRef.current);
-      initialRender.current = false;
+          }
+        });
+      },
+      { threshold: 0.8 },
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+      return;
     }
-  }, []);
+  }, true);
 
   return createElement(
     node.type,
