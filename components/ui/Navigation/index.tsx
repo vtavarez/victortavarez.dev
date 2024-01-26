@@ -12,7 +12,7 @@ import { ModeToggle } from "@/components/ui/Buttons";
 
 export function Navigation() {
   return (
-    <div className="space-between flex flex-row items-center px-3 py-2 xl:px-16 xl:py-3">
+    <div className="space-between -mx-6 flex flex-row items-center px-3 py-2 xl:mx-0 xl:py-3">
       <h2 className="mr-auto text-lg font-medium leading-none tracking-tighter text-primary">
         <Link href="/">Victor.</Link>
       </h2>

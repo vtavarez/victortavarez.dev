@@ -1,4 +1,3 @@
-import { Header, Footer } from "@/components/theme";
 import { ThemeProvider } from "@/lib/providers/next-theme";
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
@@ -17,15 +16,19 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
+  header,
   children,
+  footer,
 }: {
+  header: React.ReactNode;
   children: React.ReactNode;
+  footer: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "relative min-h-screen bg-background px-6 pb-44 font-sans antialiased xl:px-16",
           fontSans.variable,
         )}
       >
@@ -35,9 +38,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
+          {header}
           {children}
-          <Footer />
+          {footer}
         </ThemeProvider>
       </body>
     </html>

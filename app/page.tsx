@@ -4,11 +4,11 @@ import {
   SelectedPosts,
   Contact,
 } from "@/components/landing";
-import { ValueProp, EyebrowText, Marquee } from "@/components/theme";
+import { ValueProp, EyebrowText } from "@/components/theme";
 
 export default function Home() {
   return (
-    <main className="px-6 xl:px-16">
+    <main>
       <Hero />
       <EyebrowText text="Selected posts" />
       <SelectedPosts />

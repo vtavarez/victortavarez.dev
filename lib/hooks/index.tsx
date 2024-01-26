@@ -1,5 +1,6 @@
-import { useReducer, useSyncExternalStore, useRef } from "react";
+import { useReducer, useSyncExternalStore, useEffect, useRef } from "react";
 import type { InputsFocusState } from "@/lib/types";
+import { ZodVoidDef } from "zod";
 
 export const useFocusedFields = (fields: InputsFocusState) => {
   const inputFocusReducer = (
@@ -21,22 +22,17 @@ export const useFocusedFields = (fields: InputsFocusState) => {
   return { focusedFields, setFocusedFields };
 };
 
-export function useObserverReady(fn: () => void, strictMode: boolean = true) {
+export function useObserverReady(fn: () => void) {
   const initialRender = useRef(true);
-  return useSyncExternalStore(
-    (callback: () => void) => {
-      window.addEventListener("load", callback);
-      return () => window.removeEventListener("load", () => null);
-    },
-    () => {
-      if (strictMode && initialRender.current) {
-        fn();
-        initialRender.current = false;
-        return;
-      }
+  useEffect(() => {
+    if (initialRender.current) {
+      fn();
+      initialRender.current = false;
+      return;
+    }
 
-      if (!strictMode) fn();
-    },
-    () => null,
-  );
+    return () => {
+      initialRender.current = true;
+    };
+  }, []);
 }

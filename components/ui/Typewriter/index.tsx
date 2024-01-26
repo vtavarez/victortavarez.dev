@@ -1,5 +1,5 @@
 "use client";
-import { useState, Children, createElement } from "react";
+import { useState, Children, createElement, useRef } from "react";
 import { useObserverReady } from "@/lib/hooks";
 import { cn } from "@/lib/utils";
 
@@ -15,7 +15,6 @@ export const Typewriter = ({
 }) => {
   const [sentence, setSentence] = useState("");
   const [blink, setBlink] = useState(false);
-
   const [node] = Children.toArray(children) as React.ReactElement[];
 
   function typeContent() {
@@ -26,12 +25,7 @@ export const Typewriter = ({
       }, i * 50);
     }
     setBlink(true);
-    setTimeout(
-      () => {
-        setBlink((prev) => !prev);
-      },
-      chars.length * 50 + 500,
-    );
+    setTimeout(() => setBlink((prev) => !prev), chars.length * 50 + 500);
   }
 
   useObserverReady(() => {
@@ -48,12 +42,8 @@ export const Typewriter = ({
       },
       { threshold: 0.8 },
     );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-      return;
-    }
-  }, true);
+    containerRef.current && observer.observe(containerRef.current);
+  });
 
   return createElement(
     node.type,

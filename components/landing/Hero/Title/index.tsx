@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 export default function Title() {
   const animation = {
     initial: {
-      y: "110%",
+      y: "115%",
     },
     animate: {
       y: "0%",
@@ -15,8 +15,8 @@ export default function Title() {
     },
   };
   return (
-    <h1 className="text-[3.8rem] font-bold uppercase leading-none tracking-tighter text-primary md:text-[4.2rem] xl:text-[12rem]">
-      <div className="overflow-y-hidden">
+    <h1 className="text-[3.8rem] font-bold uppercase leading-none tracking-tighter text-primary md:text-[4.2rem] xl:text-[12rem] 2xl:text-[13rem]">
+      <div className="overflow-y-hidden pt-4">
         <motion.span
           layout
           className="mb-4 block sm:mb-auto"
@@ -25,7 +25,7 @@ export default function Title() {
           Victor
         </motion.span>
       </div>
-      <div className="mt-[-0.8rem] overflow-y-hidden">
+      <div className="-mt-[0.8rem] overflow-y-hidden">
         <motion.span
           layout
           className="block"

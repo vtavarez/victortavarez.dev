@@ -23,7 +23,7 @@ export function ValueProp({
       <div className="col-span-12 text-lg font-medium leading-loose md:col-span-1">
         {"/" + number}
       </div>
-      <div className="text-balance col-span-12 flex items-start justify-center text-left text-3xl font-medium md:col-span-11 md:items-center lg:text-5xl">
+      <div className="text-balance col-span-12 flex items-start justify-center text-left text-3xl font-medium md:col-span-11 md:items-center lg:text-[2.5rem]">
         <Typewriter
           containerRef={container}
           once={true}

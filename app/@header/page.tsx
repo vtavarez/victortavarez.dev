@@ -1,8 +1,8 @@
 import { Navigation } from "@/components/ui";
 
-export function Header() {
+export default function Header() {
   return (
-    <header className="">
+    <header>
       <Navigation />
     </header>
   );
