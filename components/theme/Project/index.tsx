@@ -43,7 +43,7 @@ export function Project({
           <small>{"/00" + (number + 1)}</small>
           <div className="overflow-hidden">
             <motion.p
-              className="text-xl font-semibold uppercase leading-none lg:text-2xl"
+              className="text-xl font-semibold uppercase leading-none"
               {...animation}
             >
               {client}

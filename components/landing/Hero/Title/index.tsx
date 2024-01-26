@@ -16,7 +16,7 @@ export default function Title() {
   };
   return (
     <h1 className="text-[3.8rem] font-bold uppercase leading-none tracking-tighter text-primary md:text-[4.2rem] xl:text-[12rem] 2xl:text-[13rem]">
-      <div className="overflow-y-hidden pt-4">
+      <div className="overflow-y-hidden">
         <motion.span
           layout
           className="mb-4 block sm:mb-auto"

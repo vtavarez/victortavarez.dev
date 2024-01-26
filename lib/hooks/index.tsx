@@ -1,6 +1,5 @@
-import { useReducer, useSyncExternalStore, useEffect, useRef } from "react";
+import { useReducer, useEffect, useRef } from "react";
 import type { InputsFocusState } from "@/lib/types";
-import { ZodVoidDef } from "zod";
 
 export const useFocusedFields = (fields: InputsFocusState) => {
   const inputFocusReducer = (

@@ -76,7 +76,7 @@ export function ContactForm() {
 
   return (
     <Form
-      className="w-[768px] max-w-full pb-24 pt-8 xl:ml-20 xl:pb-48 xl:pt-0"
+      className="w-[658px] max-w-full pb-24 pt-8 xl:ml-20 xl:pb-48 xl:pt-0"
       onSubmit={handleSubmit(onSubmit)}
     >
       <FieldGroup className="relative">
@@ -84,7 +84,7 @@ export function ContactForm() {
           className={`absolute inset-0 transition-all duration-300 ${
             focusedFields?.name || dirtyFields?.name
               ? "-translate-x-0 -translate-y-8 text-base"
-              : "translate-x-3 translate-y-2 text-lg text-black"
+              : "translate-x-3 translate-y-2 text-lg"
           } h-fit w-fit transform-gpu font-medium mix-blend-normal will-change-transform`}
           htmlFor="name"
         >
@@ -92,7 +92,7 @@ export function ContactForm() {
         </Label>
         <Field
           autoComplete="name"
-          className="relative bg-transparent text-black after:absolute after:inset-0 after:z-[-1] after:border-4 after:border-primary after:bg-white after:shadow-project after:content-[''] focus-within:shadow-outline"
+          className="relative bg-transparent font-medium text-primary after:absolute after:inset-0 after:z-[-1] after:border-4 after:border-primary after:bg-background after:shadow-project after:content-[''] focus-within:shadow-outline"
           id="name"
           type="text"
           required
@@ -110,7 +110,7 @@ export function ContactForm() {
           className={`absolute inset-0 transition-all duration-300 ${
             focusedFields?.email || dirtyFields?.email
               ? "translate-x-0 translate-y-4 text-base"
-              : "translate-x-3 translate-y-14 text-lg text-black"
+              : "translate-x-3 translate-y-14 text-lg"
           } h-fit w-fit transform-gpu font-medium mix-blend-normal will-change-transform`}
           htmlFor="email"
         >
@@ -118,7 +118,7 @@ export function ContactForm() {
         </Label>
         <Field
           autoComplete="email"
-          className="relative bg-transparent text-black after:absolute after:inset-0 after:z-[-1] after:border-4 after:border-primary after:bg-white after:shadow-project after:content-[''] focus-within:shadow-outline"
+          className="relative bg-transparent font-medium text-primary after:absolute after:inset-0 after:z-[-1] after:border-4 after:border-primary after:bg-background after:shadow-project after:content-[''] focus-within:shadow-outline"
           id="email"
           type="email"
           required
@@ -136,14 +136,14 @@ export function ContactForm() {
           className={`absolute inset-0 transition-all duration-300 ${
             focusedFields?.message || dirtyFields?.message
               ? "translate-x-0 translate-y-4 text-base"
-              : "translate-x-3 translate-y-14 text-lg text-black"
+              : "translate-x-3 translate-y-14 text-lg"
           } h-fit w-fit transform-gpu font-medium mix-blend-normal will-change-transform`}
           htmlFor="message"
         >
           Message
         </Label>
         <TextArea
-          className="relative bg-transparent text-black after:absolute after:inset-0 after:z-[-1] after:border-4 after:border-primary after:bg-white after:shadow-project after:content-[''] focus-within:shadow-outline"
+          className="relative bg-transparent font-medium text-primary after:absolute after:inset-0 after:z-[-1] after:border-4 after:border-primary after:bg-background after:shadow-project after:content-[''] focus-within:shadow-outline"
           id="message"
           rows={8}
           required

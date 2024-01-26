@@ -3,7 +3,7 @@ import { Project } from "@/components/theme";
 export async function SelectedWork() {
   return (
     <div className="mt-2 border-t-2 border-primary md:mt-0">
-      {Array.from({ length: 4 }).map((_, i) => (
+      {Array.from({ length: 3 }).map((_, i) => (
         <Project
           key={i}
           number={i * 1}

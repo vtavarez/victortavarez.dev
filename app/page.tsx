@@ -28,10 +28,10 @@ export default function Home() {
         className="h-[768px] py-24 text-2xl xl:mb-32 xl:pb-8 xl:pt-48"
         number="002"
       >
-        With over 8 years of experience working with the web, I have worked on a
-        wide range of projects, from small websites to large scale applications.
-        I have also worked with a wide range of clients, from small businesses
-        to large corporations.
+        With almost a decade of working with the web, I have worked on a wide
+        range of projects, from small websites to large scale applications. I
+        have also worked with a wide range of clients, from small teams to large
+        corporations.
       </ValueProp>
       <EyebrowText text="Lets connect" />
       <ValueProp
