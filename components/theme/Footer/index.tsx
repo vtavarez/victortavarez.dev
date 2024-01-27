@@ -21,7 +21,7 @@ export function Footer() {
       <div className="flex flex-col justify-center py-2">
         <Marquee />
       </div>
-      <div className="mt-6 flex h-fit w-full flex-row justify-between px-6 text-base xl:px-16">
+      <div className="mt-6 flex h-fit w-full flex-row justify-between px-6 text-base font-medium xl:px-16">
         <div className="flex flex-col items-center justify-center">
           <ul className="flex flex-row flex-wrap items-center justify-between gap-4">
             <li>
