@@ -1,6 +1,6 @@
 import { Navigation } from "@/components/ui";
 
-export default function Header() {
+export function Header() {
   return (
     <header>
       <Navigation />

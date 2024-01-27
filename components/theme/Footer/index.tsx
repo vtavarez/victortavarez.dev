@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArrowUp } from "lucide-react";
 import { Marquee } from "@/components/theme";
-export default function Footer() {
+
+export function Footer() {
   return (
     <footer className="absolute bottom-0 -mx-6 h-80 w-full overflow-x-hidden bg-background py-8 text-primary xl:-mx-16">
       <div className="flex h-fit w-full flex-col justify-between px-6 pb-4 text-base font-medium md:flex-row xl:px-16">

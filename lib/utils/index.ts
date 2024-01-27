@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { z } from "zod";
+import { ZodAny, z } from "zod";
 import { format } from "date-fns";
 /**
  * Combines multiple class names into a single string.
@@ -81,12 +81,13 @@ export const postSchema = z.object({
   slug: z.string(),
   author: z.object({ name: z.string(), image: z.string() }),
   media: z.string(),
+  body: z.array(z.custom()).optional()
 });
 
 /**
  * Represents a schema for a list of posts.
  */
-export const postListSchema = z.promise(z.array(postSchema));
+export const postListSchema = z.array(postSchema);
 
 export const recaptchaSchema = z.object({
   success: z.boolean(),

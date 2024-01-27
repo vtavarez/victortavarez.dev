@@ -1,4 +1,5 @@
 import { ThemeProvider } from "@/lib/providers/next-theme";
+import { Header, Footer } from "@/components/theme";
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
@@ -16,9 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  header,
   children,
-  footer,
 }: {
   header: React.ReactNode;
   children: React.ReactNode;
@@ -38,9 +37,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {header}
+          <Header />
           {children}
-          {footer}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
