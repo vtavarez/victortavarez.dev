@@ -1,5 +1,6 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+import { useObserver } from "@/lib/hooks";
 import { Typewriter } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
@@ -12,7 +13,12 @@ export function ValueProp({
   number: string;
   children: string;
 } & React.HTMLAttributes<HTMLDivElement>) {
-  const container = useRef(null);
+  const container = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useObserver(() => setIsInView((prev) => !prev), container, {
+    amount: 0.8,
+  });
 
   return (
     <div
@@ -24,14 +30,13 @@ export function ValueProp({
         {"/" + number}
       </div>
       <div className="text-balance col-span-12 flex items-start justify-center text-left text-3xl font-medium md:col-span-11 md:items-center lg:text-[2.5rem]">
-        <Typewriter
-          containerRef={container}
-          once={true}
-        >
-          <p className="text-balance mb-5 max-w-3xl pl-4 leading-snug transition-all duration-200 ease-linear md:pl-0">
-            {children}
-          </p>
-        </Typewriter>
+        {isInView && (
+          <Typewriter>
+            <p className="text-balance mb-5 max-w-3xl pl-4 leading-snug transition-all duration-200 ease-linear md:pl-0">
+              {children}
+            </p>
+          </Typewriter>
+        )}
       </div>
     </div>
   );
