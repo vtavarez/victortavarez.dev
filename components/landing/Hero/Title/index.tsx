@@ -15,7 +15,10 @@ export default function Title() {
     },
   };
   return (
-    <h1 className="text-[3.8rem] font-bold uppercase leading-none tracking-tighter text-primary md:text-[4.2rem] xl:text-[12rem] 2xl:text-[13rem]">
+    <div
+      className="text-[3.8rem] font-bold uppercase leading-none tracking-tighter text-primary md:text-[4.2rem] xl:text-[12rem] 2xl:text-[13rem]"
+      aria-description="Victor Tavarez"
+    >
       <div className="overflow-y-hidden">
         <motion.span
           layout
@@ -35,6 +38,6 @@ export default function Title() {
           Tavarez.
         </motion.span>
       </div>
-    </h1>
+    </div>
   );
 }

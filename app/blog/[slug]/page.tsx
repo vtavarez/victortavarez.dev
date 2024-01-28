@@ -1,12 +1,33 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPost } from "@/sanity/lib/client";
 import { postSchema } from "@/lib/utils";
 
-type PostParams = {
-  slug: string;
+type PostProps = {
+  params: {
+    slug: string;
+  };
 };
 
-export default async function Post({ params }: { params: PostParams }) {
+export async function generateMetadata({
+  params,
+}: PostProps): Promise<Metadata> {
+  const post = postSchema.safeParse(await getPost(params.slug));
+
+  if (!post.success) {
+    return {
+      title: "404 Not Found - Victor Tavarez",
+      description: "This post could not be found.",
+    };
+  }
+
+  return {
+    title: post.data.title + " - Victor Tavarez",
+    description: post.data.excerpt,
+  };
+}
+
+export default async function Post({ params }: PostProps) {
   const post = postSchema.safeParse(await getPost(params.slug));
 
   if (!post.success) {
@@ -14,5 +35,5 @@ export default async function Post({ params }: { params: PostParams }) {
     return notFound();
   }
 
-  return <div>{post.data.title}</div>;
+  return <h1>{post.data.title}</h1>;
 }

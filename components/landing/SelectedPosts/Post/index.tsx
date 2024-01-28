@@ -1,11 +1,10 @@
 "use client";
 import Image from "next/image";
-import { urlForImage } from "@/sanity/lib/image";
 import { motion } from "framer-motion";
 import { PostType } from "@/lib/types";
 import { formatDate } from "@/lib/utils";
 import { ReadMore } from "@/components/ui";
-import { Author } from "./Author";
+import { Author } from "@/components/ui";
 
 export function Post({
   title,
@@ -60,10 +59,10 @@ export function Post({
           <h3 className="text-balance pb-2 text-2xl font-semibold sm:text-3xl">
             {title}
           </h3>
-          {/* <Author
+          <Author
             name={name}
             image={image}
-          /> */}
+          />
           <div className="inline-flex items-center justify-between gap-2 text-sm lg:text-base">
             <p className="text-balance pb-2">{readingTime} min read</p>
             <p className="text-balance pb-2">{formatDate(publishedAt)}</p>

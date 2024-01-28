@@ -1,5 +1,6 @@
 export * from "./Navigation";
 export * from "./Buttons";
+export * from "./Author";
 export * from "./Card";
 export * from "./Loaders";
 export * from "./Marquee";

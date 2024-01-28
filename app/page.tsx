@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <EyebrowText text="Selected posts" />
+      <EyebrowText>Selected posts</EyebrowText>
       <SelectedPosts />
       <ValueProp
         className="xl:pb-38 h-[728px] pb-8 pt-20 text-2xl xl:h-[768px] xl:pt-48"
@@ -19,10 +19,7 @@ export default function Home() {
         Hey there, and welcome to my corner of the web. Above you will find a
         selection of my writing. Below you will find a selection of my work.
       </ValueProp>
-      <EyebrowText
-        text="Selected work"
-        cta="Discover"
-      />
+      <EyebrowText cta="Discover">Selected work</EyebrowText>
       <SelectedWork />
       <ValueProp
         className="h-[768px] py-24 text-2xl xl:mb-32 xl:pb-8 xl:pt-48"
@@ -33,7 +30,7 @@ export default function Home() {
         have also worked with a wide range of clients, from small teams to large
         corporations.
       </ValueProp>
-      <EyebrowText text="Lets connect" />
+      <EyebrowText>Lets connect</EyebrowText>
       <ValueProp
         className="h-[368px] py-24 text-2xl xl:pb-8 xl:pt-0"
         number="003"

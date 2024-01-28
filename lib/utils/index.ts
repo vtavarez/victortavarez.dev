@@ -2,12 +2,6 @@ import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { z } from "zod";
 import { format } from "date-fns";
-/**
- * Combines multiple class names into a single string.
- *
- * @param inputs - The class names to be combined.
- * @returns The combined class names as a string.
- */
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -15,18 +9,10 @@ export function cn(...inputs: ClassValue[]) {
 
 const dateFormat = "MMMM dd, yyyy";
 
-/**
- * Formats a date into a string using the specified format.
- * @param date - The date to format. Can be a Date object or a string.
- * @returns The formatted date string.
- */
 export function formatDate(date: Date | string) {
   return format(new Date(date), dateFormat);
 }
 
-/**
- * Error messages for form validation.
- */
 const errorMessages = {
   name: {
     required: "Name is Required",
@@ -46,10 +32,6 @@ const errorMessages = {
   },
 };
 
-/**
- * Defines the contact form schema.
- * The schema includes validation rules for the name, email, and message fields.
- */
 export const contactSchema = z
   .object({
     name: z
@@ -70,9 +52,6 @@ export const contactSchema = z
   })
   .required();
 
-/**
- * Represents the schema for a post.
- */
 export const postSchema = z.object({
   title: z.string(),
   publishedAt: z.string(),
@@ -81,12 +60,9 @@ export const postSchema = z.object({
   slug: z.string(),
   author: z.object({ name: z.string(), image: z.string() }),
   media: z.string(),
-  body: z.array(z.custom()).optional()
+  body: z.array(z.custom()).optional(),
 });
 
-/**
- * Represents a schema for a list of posts.
- */
 export const postListSchema = z.array(postSchema);
 
 export const recaptchaSchema = z.object({

@@ -2,7 +2,6 @@
 import Title from "./Title";
 import Summery from "./Summery";
 import { ContactButton } from "@/components/ui";
-import { ThreeScene } from "@/components/theme";
 
 export function Hero() {
   return (

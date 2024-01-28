@@ -1,4 +1,4 @@
-import { Post } from "@/components/theme";
+import { Post } from "./Post";
 import type { PostType } from "@/lib/types";
 import { getPosts } from "@/sanity/lib/client";
 import { postListSchema } from "@/lib/utils";
