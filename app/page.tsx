@@ -17,7 +17,7 @@ export default function Home() {
         number="001"
       >
         Hey there, and welcome to my corner of the web. Above you will find a
-        selection of my writing. Below you will find a selection of my work.
+        selection of my writing, and below you will find a selection of my work.
       </ValueProp>
       <EyebrowText cta="Discover">Selected work</EyebrowText>
       <SelectedWork />

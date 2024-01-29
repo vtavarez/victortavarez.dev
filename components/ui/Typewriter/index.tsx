@@ -10,12 +10,12 @@ export const Typewriter = ({
   children: React.ReactNode;
 }) => {
   const [node] = Children.toArray(children) as React.ReactElement[];
-  const { sentence, cursor } = useTypingAnimation(node);
+  const { sentence, caret } = useTypingAnimation(node);
   return createElement(
     node.type,
     {
       ...node.props,
-      className: cn(node.props.className, cursor ? "blink" : ""),
+      className: cn(node.props.className, caret ? "caret" : ""),
     },
     sentence,
   );

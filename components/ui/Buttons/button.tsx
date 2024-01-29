@@ -14,11 +14,11 @@ const buttonVariants = cva(
         outline:
           "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary:
-          "relative xl:ml-auto xl:text-lg px-6 py-2 xl:px-9 xl:py-4 shadow-project bg-transparent rounded-none overflow-hidden font-medium border-4 border-primary text-base after:absolute after:content-[''] after:inset-0 after:bg-amber-500 after:-z-10 after:origin-left after:-scale-x-0 after:-left-3 after:skew-x-[20deg] after:transition-all after:duration-500 after:ease-in-out dark:hover:text-background hover:after:scale-x-100 hover:after:skew-x-0 focus-visible:after:scale-x-100 focus-visible:after:skew-x-0 focus-visible:text-primary focus-visible:bg-transparent focus-visible:after:skew-x-0 focus-visible:dark:text-background after:opacity-75",
+          "relative xl:ml-auto xl:text-lg px-6 py-2 xl:px-9 xl:py-4 bg-transparent shadow-project rounded-none overflow-hidden font-medium border-4 border-primary text-base focus-visible:text-primary focus-visible:bg-transparent highlight-animation",
         ghost: "hover:bg-primary hover:text-primary-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         contact:
-          "relative mt-4 px-6 py-4 xl:px-12 xl:py-6 rounded-none overflow-hidden font-medium border-4 border-primary bg-transparent text-base xl:text-lg text-primary after:transition-all after:duration-500 after:absolute after:origin-left after:inset-0 after:-z-10 after:bg-amber-500 after:content-[''] dark:hover:text-background after:-scale-x-0 after:-left-3 after:skew-x-[20deg] after:ease-in-out hover:after:scale-x-100 hover:after:skew-x-0 focus-visible:after:scale-x-100 focus-visible:after:skew-x-0 focus-visible:text-primary focus-visible:bg-transparent focus-visible:after:skew-x-0 focus-visible:dark:text-background after:opacity-75",
+          "relative px-6 py-4 xl:px-12 xl:py-6 rounded-none overflow-hidden font-medium border-4 border-primary bg-transparent text-base xl:text-lg text-primary focus-visible:text-primary focus-visible:bg-transparent highlight-animation",
       },
       size: {
         default: "h-fit",

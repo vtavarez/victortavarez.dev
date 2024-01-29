@@ -47,12 +47,12 @@ export function ModeToggle() {
 export function ContactButton({ children }: { children: React.ReactNode }) {
   const animation = {
     initial: {
-      opacity: 0,
       y: 10,
+      opacity: 0,
     },
     animate: {
-      opacity: 1,
       y: 0,
+      opacity: 1,
     },
     transition: {
       type: "spring",
@@ -63,15 +63,31 @@ export function ContactButton({ children }: { children: React.ReactNode }) {
     },
   };
 
+  const shadowAnimation = {
+    initial: {
+      opacity: 0,
+    },
+    animate: {
+      opacity: 1,
+    },
+    transition: {
+      type: "spring",
+      duration: 0.1,
+      damping: 10,
+      stiffness: 100,
+      delay: 0.85,
+    },
+  };
+
   return (
     <motion.div
       layout
+      className="relative mt-4 w-fit "
       {...animation}
     >
       <Button
-        variant="contact"
-        className="shadow-project"
         asChild
+        variant="contact"
       >
         <Link href="#contact">
           {children}{" "}
@@ -83,6 +99,10 @@ export function ContactButton({ children }: { children: React.ReactNode }) {
           </span>
         </Link>
       </Button>
+      <motion.div
+        className="absolute inset-0 -z-10 shadow-project"
+        {...shadowAnimation}
+      />
     </motion.div>
   );
 }

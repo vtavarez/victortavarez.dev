@@ -45,27 +45,50 @@ export function useObserver(
 }
 
 export function useTypingAnimation(node: React.ReactElement) {
-  const initalRender = useRef(true);
-  const [sentence, setSentence] = useState("");
-  const [cursor, setCursor] = useState(false);
+  const initalRender = useRef<boolean>(true);
+  const animationFrame = useRef<number>(0);
+  const index = useRef<number>(0);
+  const previousTime = useRef<number>(0);
 
-  function type() {
-    const chars = node.props.children.split("");
-    for (let i = 0; i < chars.length; i++) {
-      setTimeout(() => {
-        setSentence((prev) => prev + chars[i]);
-      }, i * 50);
+  const [sentence, setSentence] = useState("");
+  const [caret, setCaret] = useState(false);
+  const chars = node.props.children.split("");
+
+  function type(currentTime: number, currentIndex: number): void {
+    let delta = currentTime - previousTime.current;
+    let fps = 30;
+
+    if (currentIndex < chars.length) {
+      if (delta >= Math.floor(1000 / fps)) {
+        setSentence((prev) => prev + chars[currentIndex]);
+        index.current = currentIndex + 1;
+        previousTime.current = currentTime;
+      }
+
+      animationFrame.current = requestAnimationFrame(() => {
+        type(performance.now(), index.current);
+      });
+      return;
     }
-    setCursor(true);
-    setTimeout(() => setCursor((prev) => !prev), chars.length * 50 + 500);
+
+    setTimeout(() => setCaret((prev) => !prev), 500);
+    cancelAnimationFrame(animationFrame.current);
   }
 
   useEffect(() => {
     if (initalRender.current) {
-      type();
       initalRender.current = false;
+
+      animationFrame.current = requestAnimationFrame(() => {
+        previousTime.current = performance.now();
+        type(performance.now(), index.current);
+      });
+
+      setCaret(true);
     }
+
+    () => cancelAnimationFrame(animationFrame.current);
   }, []);
 
-  return { sentence, cursor };
+  return { sentence, caret };
 }
