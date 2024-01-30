@@ -4,11 +4,18 @@ import { motion } from "framer-motion";
 import { formatDate } from "@/lib/utils";
 import { type PostType } from "@/lib/types";
 
-export function Post({ title, media, excerpt, publishedAt, author }: PostType) {
+export function Post({
+  number,
+  title,
+  media,
+  excerpt,
+  publishedAt,
+  author,
+}: PostType & { number: number }) {
   return (
     <div className="flex h-[460px] w-[460px] max-w-full flex-col gap-6">
       <div>
-        <p className="pb-2 text-sm">/001</p>
+        <p className="pb-2 text-sm font-medium">/00{number}</p>
         <h3 className="text-pretty h-6 overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold leading-none">
           {title}
         </h3>
@@ -21,6 +28,7 @@ export function Post({ title, media, excerpt, publishedAt, author }: PostType) {
           width={600}
           height={600}
           alt={excerpt}
+          priority
         />
       </div>
     </div>

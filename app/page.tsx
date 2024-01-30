@@ -4,11 +4,11 @@ import {
   SelectedPosts,
   Contact,
 } from "@/components/landing";
-import { ValueProp, EyebrowText } from "@/components/theme";
+import { RouteAnimation, ValueProp, EyebrowText } from "@/components/theme";
 
 export default function Home() {
   return (
-    <main>
+    <RouteAnimation>
       <Hero />
       <EyebrowText>Selected posts</EyebrowText>
       <SelectedPosts />
@@ -38,6 +38,6 @@ export default function Home() {
         If you would like to get in touch, please feel free to reach out.
       </ValueProp>
       <Contact />
-    </main>
+    </RouteAnimation>
   );
 }
