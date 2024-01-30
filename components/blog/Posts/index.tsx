@@ -1,22 +1,24 @@
-import Image from "next/image";
+import { Post } from "./Post";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { type PostType } from "@/lib/types";
 
-export function Posts() {
+type PostsProps = {
+  posts: PostType[];
+};
+
+export function Posts({
+  posts,
+  ...props
+}: PostsProps & React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className="flex flex-row gap-4 border-t-2 border-primary pt-2">
-      <div className="relative h-10 max-h-full">
-        <Image
-          className="absolute h-full w-full object-cover"
-          src=""
-          width={400}
-          height={400}
-          alt=""
+    <div className={cn(props.className, "flex flex-row gap-4")}>
+      {posts.map((post) => (
+        <Post
+          key={post.slug}
+          {...post}
         />
-      </div>
-      <div>
-        <h3 className="text-2xl font-bold">Title</h3>
-        <p className="text-sm">Date</p>
-        <p className="text-sm">Description</p>
-      </div>
+      ))}
     </div>
   );
 }

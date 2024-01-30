@@ -33,7 +33,7 @@ export function ValueProp({
         {isInView && (
           <Typewriter>
             <p
-              className="text-balance mb-5 max-w-3xl pl-4 leading-snug transition-all duration-200 ease-linear md:pl-0"
+              className="text-balance mb-5 max-w-3xl pl-4 leading-snug md:pl-0"
               aria-description={children}
             >
               {children}

@@ -72,4 +72,5 @@ export const recaptchaSchema = z.object({
   challenge_ts: z.string(),
   hostname: z.string(),
   "error-codes": z.array(z.string()).optional(),
+  error: z.custom<typeof Error>().optional(),
 });

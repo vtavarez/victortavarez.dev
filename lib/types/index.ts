@@ -1,4 +1,7 @@
+import { postSchema, recaptchaSchema } from "@/lib/utils";
 import { SentMessageInfo } from "nodemailer/lib/smtp-transport";
+import { z } from "zod";
+
 export type Inputs = {
   name: string;
   email: string;
@@ -15,24 +18,9 @@ export type InputsFocusState = {
 
 export type SentMessageType = SentMessageInfo & { error?: { message: string } };
 
-export type RecaptchaType = {
-  success: boolean;
-  challenge_ts: string;
-  hostname: string;
-  score: number;
-  "error-codes"?: string[];
-  error?: Error;
-};
+export type RecaptchaType = z.infer<typeof recaptchaSchema>;
 
-export type PostType = {
-  title: string;
-  publishedAt: string;
-  media: string;
-  excerpt: string;
-  readingTime: number;
-  slug: string;
-  author: AuthorType;
-};
+export type PostType = z.infer<typeof postSchema>;
 
 export type AuthorType = {
   name: string;

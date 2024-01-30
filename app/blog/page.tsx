@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import type { PostType } from "@/lib/types";
 import { getPosts } from "@/sanity/lib/client";
 import { postListSchema } from "@/lib/utils";
 import { EyebrowText } from "@/components/theme";
+import { Posts } from "@/components/blog";
 
 export const metadata: Metadata = {
   title: "Blog - Victor Tavarez",
@@ -16,6 +16,14 @@ export default async function Blog() {
   return (
     <main>
       <EyebrowText cta="Explore">Thoughts</EyebrowText>
+      {!posts.success ? (
+        <Posts posts={[]} />
+      ) : (
+        <Posts
+          className=""
+          posts={posts.data}
+        />
+      )}
     </main>
   );
 }
