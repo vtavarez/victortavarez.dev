@@ -49,18 +49,18 @@ export function useTypingAnimation(node: React.ReactElement) {
   const animationFrame = useRef<number>(0);
   const index = useRef<number>(0);
   const previousTime = useRef<number>(0);
+  const chars = useRef<string[]>(node.props.children.split(""));
 
-  const [sentence, setSentence] = useState("");
-  const [caret, setCaret] = useState(false);
-  const chars = node.props.children.split("");
+  const [sentence, setSentence] = useState<string>("");
+  const [caret, setCaret] = useState<boolean>(false);
 
   function type(currentTime: number, currentIndex: number): void {
     let delta = currentTime - previousTime.current;
     let fps = 30;
 
-    if (currentIndex < chars.length) {
+    if (currentIndex < chars.current.length) {
       if (delta >= Math.floor(1000 / fps)) {
-        setSentence((prev) => prev + chars[currentIndex]);
+        setSentence((prev) => prev + chars.current[currentIndex]);
         index.current = currentIndex + 1;
         previousTime.current = currentTime;
       }

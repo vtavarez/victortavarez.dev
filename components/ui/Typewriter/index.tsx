@@ -3,12 +3,12 @@ import { Children, createElement } from "react";
 import { useTypingAnimation } from "@/lib/hooks";
 import { cn } from "@/lib/utils";
 
-export const Typewriter = ({
+export function Typewriter({
   children,
   ...props
 }: {
   children: React.ReactNode;
-}) => {
+}) {
   const [node] = Children.toArray(children) as React.ReactElement[];
   const { sentence, caret } = useTypingAnimation(node);
   return createElement(
@@ -19,4 +19,4 @@ export const Typewriter = ({
     },
     sentence,
   );
-};
+}

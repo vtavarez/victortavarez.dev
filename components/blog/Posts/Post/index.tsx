@@ -26,7 +26,7 @@ export function Post({
 
   return (
     <motion.div
-      className="mb-10 flex h-[460px] w-[430px] max-w-full flex-col gap-4"
+      className="h-post-card w-post-card mb-10 flex max-w-full flex-col gap-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: number * 0.15 }}

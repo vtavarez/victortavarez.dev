@@ -75,18 +75,18 @@ export function Post({
             </div>
           </div>
           <div className="col-span-12 xl:col-span-5">
-            <h3 className="text-balance pb-2 text-2xl font-semibold sm:text-3xl">
+            <h3 className="text-pretty max-w-[500px] pb-2 text-2xl font-semibold md:text-3xl">
               {title}
             </h3>
-            {/* <Author
-              name={name}
-              image={image}
-            /> */}
             <div className="inline-flex items-center justify-between gap-2 text-sm lg:text-base">
               <p className="text-balance pb-2">{readingTime} min read</p>
               <p className="text-balance pb-2">{formatDate(publishedAt)}</p>
+              {/* <Author
+                name={name}
+                image={image}
+              /> */}
             </div>
-            <p className="text-balance max-w-full pb-8 sm:w-3/4 sm:pb-2">
+            <p className="text-pretty max-w-full pb-8 sm:w-3/4 sm:pb-2">
               {excerpt}
             </p>
           </div>

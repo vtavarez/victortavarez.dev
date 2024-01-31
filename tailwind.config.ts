@@ -54,6 +54,12 @@ const config: Config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      width: {
+        "post-card": "430px",
+      },
+      height: {
+        "post-card": "460px",
+      },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
