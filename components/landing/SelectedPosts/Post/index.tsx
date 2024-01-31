@@ -53,7 +53,7 @@ export function Post({
   };
 
   return (
-    <div className="border-t-2 border-primary py-6 transition-transform duration-200 ease-linear last:border-b-2 hover:-translate-y-2 sm:py-8 xl:py-10">
+    <div className="border-b-2 border-primary py-6 transition-transform duration-200 ease-linear hover:-translate-y-2 sm:py-8 xl:py-10">
       <motion.div
         layout
         {...scaleAnimation}
@@ -65,7 +65,7 @@ export function Post({
           <div className="col-span-12 xl:col-span-4">
             <div className="relative mb-6 h-44 w-full sm:mb-0">
               <Image
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover object-top"
                 src={media}
                 alt={title}
                 width={400}
@@ -78,10 +78,10 @@ export function Post({
             <h3 className="text-balance pb-2 text-2xl font-semibold sm:text-3xl">
               {title}
             </h3>
-            <Author
+            {/* <Author
               name={name}
               image={image}
-            />
+            /> */}
             <div className="inline-flex items-center justify-between gap-2 text-sm lg:text-base">
               <p className="text-balance pb-2">{readingTime} min read</p>
               <p className="text-balance pb-2">{formatDate(publishedAt)}</p>

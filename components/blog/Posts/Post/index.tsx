@@ -1,6 +1,6 @@
+"use client";
 import Image from "next/image";
-import { Author } from "@/components/ui";
-import { motion } from "framer-motion";
+import { delay, motion } from "framer-motion";
 import { formatDate } from "@/lib/utils";
 import { type PostType } from "@/lib/types";
 
@@ -12,14 +12,31 @@ export function Post({
   publishedAt,
   author,
 }: PostType & { number: number }) {
+  const animation = {
+    animate: {
+      initial: { opacity: 0 },
+      animate: { opacity: 1 },
+      transition: {
+        type: "tween",
+        ease: "linear",
+        duration: 2,
+      },
+    },
+  };
+
   return (
-    <div className="flex h-[460px] w-[460px] max-w-full flex-col gap-6">
+    <motion.div
+      className="mb-10 flex h-[460px] w-[430px] max-w-full flex-col gap-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: number * 0.15 }}
+    >
       <div>
         <p className="pb-2 text-sm font-medium">/00{number}</p>
-        <h3 className="text-pretty h-6 overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold leading-none">
+        <h3 className="text-pretty min-h-[2rem] w-fit overflow-hidden text-ellipsis text-lg font-medium leading-none">
           {title}
         </h3>
-        <p className="text-sm">{formatDate(publishedAt)}</p>
+        <p className="text-base">— {formatDate(publishedAt)}</p>
       </div>
       <div className="relative h-full w-full">
         <Image
@@ -31,6 +48,6 @@ export function Post({
           priority
         />
       </div>
-    </div>
+    </motion.div>
   );
 }

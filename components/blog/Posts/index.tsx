@@ -1,9 +1,6 @@
 import { Post } from "./Post";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { type PostType } from "@/lib/types";
-import { notFound } from "next/navigation";
-import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 
 type PostsProps = {
   posts: PostType[];
@@ -11,13 +8,13 @@ type PostsProps = {
 
 export function Posts({
   posts,
-  ...props
+  className,
 }: PostsProps & React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       className={cn(
-        props.className,
-        "flex flex-row gap-6 xl:mt-[50%] xl:-translate-y-[50%]",
+        className,
+        "my-20 inline-flex flex-wrap gap-5 xl:mb-[260px]",
       )}
     >
       {posts.map((post, idx) => (

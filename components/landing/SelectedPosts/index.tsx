@@ -12,7 +12,7 @@ export async function SelectedPosts() {
   }
 
   return (
-    <div className="border-b-1 border-primary">
+    <div className="border-t-2 border-primary">
       {posts.data.map((post: PostType, _idx: number) => (
         <Post
           key={post.title}

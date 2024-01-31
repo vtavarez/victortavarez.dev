@@ -79,6 +79,10 @@
   @apply after:absolute after:content-[''] after:inset-0 after:bg-amber-500 after:-z-10 after:origin-left after:-scale-x-0 after:-left-3 after:skew-x-[20deg] after:transition-all after:duration-500 after:ease-in-out dark:hover:text-background hover:after:scale-x-100 hover:after:skew-x-0 focus-visible:after:scale-x-100 focus-visible:after:skew-x-0 focus-visible:dark:text-background after:opacity-75;
 }
 
+.underline-animation {
+  @apply relative after:absolute after:content-[''] after:bottom-1 after:left-0 after:right-0 after:bg-primary after:h-[2px] after:transition-transform after:duration-200 after:ease-linear after:scale-x-0 after:origin-center hover:after:scale-x-100;
+}
+
 .grecaptcha-badge { 
   visibility: hidden;
 }

@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <RouteAnimation>
       <Hero />
-      <EyebrowText>Selected posts</EyebrowText>
+      <EyebrowText cta="Selected posts">Discover</EyebrowText>
       <SelectedPosts />
       <ValueProp
         className="xl:pb-38 h-[728px] pb-8 pt-20 text-2xl xl:h-[768px] xl:pt-48"
@@ -19,7 +19,7 @@ export default function Home() {
         Hey there, and welcome to my corner of the web. Above you will find a
         selection of my writing, and below you will find a selection of my work.
       </ValueProp>
-      <EyebrowText cta="Discover">Selected work</EyebrowText>
+      <EyebrowText cta="Selected work">Discover</EyebrowText>
       <SelectedWork />
       <ValueProp
         className="h-[768px] py-24 text-2xl xl:mb-32 xl:pb-8 xl:pt-48"
