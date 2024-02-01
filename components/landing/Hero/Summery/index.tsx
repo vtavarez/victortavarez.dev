@@ -16,12 +16,10 @@ export default function Summery() {
     <motion.div
       layout
       aria-description="Helping people and businesses bring dynamic and engaging user experiences to life."
-      className="text-[1.6rem] font-medium leading-snug tracking-tight text-primary md:text-[2rem] xl:my-5 xl:text-[2.5rem]"
+      className="text-pretty text-[1.6rem] font-medium leading-snug tracking-tight text-primary md:text-[2rem] xl:my-5 xl:text-[2.5rem]"
       {...animation}
     >
-      <span className="relative z-10 inline-block">
-        Helping people and businesses bring
-      </span>
+      <span className="relative z-10">Helping people and businesses bring</span>
       <span className="relative block w-fit before:absolute before:inset-0 before:-right-2 before:-z-10 before:-rotate-1 before:bg-amber-500 before:opacity-75 before:content-[''] dark:text-background">
         dynamic and engaging user
       </span>

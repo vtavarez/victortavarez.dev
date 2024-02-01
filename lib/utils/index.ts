@@ -1,17 +1,24 @@
+// import { PrismaClient } from "@prisma/client";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { z } from "zod";
 import { format } from "date-fns";
 
+// Tailwind CSS Classnames Merging Utility
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+// Date Formatting
 
 const dateFormat = "MMMM dd, yyyy";
 
 export function formatDate(date: Date | string) {
   return format(new Date(date), dateFormat);
 }
+
+// Validation Schemas
 
 const errorMessages = {
   name: {
@@ -53,6 +60,7 @@ export const contactSchema = z
   .required();
 
 export const postSchema = z.object({
+  _id: z.string(),
   title: z.string(),
   publishedAt: z.string(),
   excerpt: z.string(),
@@ -74,3 +82,5 @@ export const recaptchaSchema = z.object({
   "error-codes": z.array(z.string()).optional(),
   error: z.custom<typeof Error>().optional(),
 });
+
+// Prisma Client

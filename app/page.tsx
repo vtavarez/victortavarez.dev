@@ -8,7 +8,7 @@ import { RouteAnimation, ValueProp, EyebrowText } from "@/components/theme";
 
 export default function Home() {
   return (
-    <RouteAnimation>
+    <>
       <Hero />
       <EyebrowText cta="Selected posts">Discover</EyebrowText>
       <SelectedPosts />
@@ -38,6 +38,6 @@ export default function Home() {
         If you would like to get in touch, please feel free to reach out.
       </ValueProp>
       <Contact />
-    </RouteAnimation>
+    </>
   );
 }

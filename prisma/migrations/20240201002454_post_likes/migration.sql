@@ -1,0 +1,5 @@
+-- CreateTable
+CREATE TABLE "PostLikes" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "likes" INTEGER NOT NULL DEFAULT 0
+);

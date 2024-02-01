@@ -18,14 +18,14 @@ export default async function Blog() {
   };
 
   return (
-    <RouteAnimation>
+    <>
       <EyebrowText cta="Thoughts">Explore</EyebrowText>
-      <div className="xl:h-lvh flex flex-col justify-end xl:mb-[460px]">
+      <div className="flex flex-col justify-end xl:mb-[460px] xl:h-lvh">
         <h1 className="py-8 text-3xl font-medium text-primary xl:mt-[260px] xl:py-16">
           Blog
         </h1>
         <Posts {...props} />
       </div>
-    </RouteAnimation>
+    </>
   );
 }

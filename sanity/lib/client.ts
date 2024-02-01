@@ -3,6 +3,7 @@ import { apiVersion, dataset, projectId, useCdn } from "../env";
 import { PostType } from "@/lib/types";
 
 const nodes = `{
+  _id,
   title,
   publishedAt,
   excerpt,
@@ -10,7 +11,7 @@ const nodes = `{
   "slug":slug.current,
   "author": author->{"image":image.asset->url,name},
   "media": mainImage.asset->url
-  }`
+  }`;
 
 export const client = createClient({
   apiVersion,
@@ -25,16 +26,21 @@ function extractPost(res: Array<PostType>): PostType {
 
 export async function getPosts(
   limit: number = 3,
-  order: string = 'desc'
+  order: string = "desc",
 ): Promise<PostType[]> {
   const postsArray = await client.fetch(
-    `*[_type == "post"][0..${limit}] | order(publishedAt ${order})${nodes}`, {}, { cache: "force-cache", next: { tags: ["posts"] } });
+    `*[_type == "post"][0..${limit}] | order(publishedAt ${order})${nodes}`,
+    {},
+    { cache: "force-cache", next: { tags: ["posts"] } },
+  );
   return postsArray;
 }
 
-export async function getPost(
-  slug: string
-): Promise<PostType> {
-  const postsArray = await client.fetch(`*[slug.current == "${slug}"]${nodes}`, {}, { cache: "force-cache", next: { tags: ["post"] } });
+export async function getPost(slug: string): Promise<PostType> {
+  const postsArray = await client.fetch(
+    `*[slug.current == "${slug}"]${nodes}`,
+    {},
+    { cache: "force-cache", next: { tags: ["post"] } },
+  );
   return extractPost(postsArray);
 }

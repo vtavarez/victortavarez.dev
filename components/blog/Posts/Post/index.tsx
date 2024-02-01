@@ -26,14 +26,14 @@ export function Post({
 
   return (
     <motion.div
-      className="h-post-card w-post-card mb-10 flex max-w-full flex-col gap-4"
+      className="mb-10 flex h-post-card w-post-card max-w-full flex-col gap-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: number * 0.15 }}
     >
       <div>
         <p className="pb-2 text-sm font-medium">/00{number}</p>
-        <h3 className="text-pretty min-h-[2rem] w-fit overflow-hidden text-ellipsis text-lg font-medium leading-none">
+        <h3 className="min-h-[2rem] w-fit overflow-hidden text-ellipsis text-pretty text-lg font-medium leading-none">
           {title}
         </h3>
         <p className="text-base">— {formatDate(publishedAt)}</p>
