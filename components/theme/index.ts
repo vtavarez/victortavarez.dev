@@ -1,7 +1,6 @@
 export * from "./Header";
 export * from "./Footer";
 export * from "./ThreeScene";
-export * from "./RouteAnimation";
 export * from "./EyebrowText";
 export * from "./Heading";
 export * from "./ValueProp";

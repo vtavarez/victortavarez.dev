@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { getPosts } from "@/sanity/lib/client";
 import { postListSchema } from "@/lib/utils";
-import { RouteAnimation, EyebrowText } from "@/components/theme";
+import { EyebrowText } from "@/components/theme";
 import { Posts } from "@/components/blog";
 
 export const metadata: Metadata = {
