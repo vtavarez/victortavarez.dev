@@ -55,23 +55,21 @@ export function ContactForm() {
   }
 
   async function onSubmit(data: Inputs) {
-    const token: string = executeRecaptcha
-      ? await executeRecaptcha("submit")
-      : "";
+    const token = executeRecaptcha && (await executeRecaptcha("submit"));
     const verified: RecaptchaType = token && (await verify(token));
 
-    if (verified?.success) {
+    if (verified.success) {
       const res: SentMessageType = await send(data);
 
-      res.accepted.length
-        ? (setIsSuccess(true),
+      "rejected" in res
+        ? console.error(res.error?.message, "Response: " + res.rejected)
+        : (setIsSuccess(true),
           setTimeout(() => setIsSuccess(false), 5000),
-          reset())
-        : console.error(res?.error?.message, "Response: " + res?.rejected);
+          reset());
       return;
     }
 
-    console.error(verified.error);
+    return console.error(verified.error);
   }
 
   return (
@@ -164,7 +162,7 @@ export function ContactForm() {
       </SubmitButton>
       {isSuccess && (
         <SuccessMessage>
-          Thanks for reaching out will be in touch.
+          Thanks for reaching out I will be in touch.
         </SuccessMessage>
       )}
     </Form>

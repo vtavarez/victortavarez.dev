@@ -5,5 +5,5 @@ export * from "./RouteAnimation";
 export * from "./EyebrowText";
 export * from "./Heading";
 export * from "./ValueProp";
-export * from "./Project";
+export * from "./Work";
 export * from "./ContactForm";

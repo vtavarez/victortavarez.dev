@@ -1,8 +1,9 @@
-// import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { z } from "zod";
 import { format } from "date-fns";
+import { type TypedObject } from "sanity";
 
 // Tailwind CSS Classnames Merging Utility
 
@@ -68,7 +69,7 @@ export const postSchema = z.object({
   slug: z.string(),
   author: z.object({ name: z.string(), image: z.string() }),
   media: z.string(),
-  body: z.array(z.custom()).optional(),
+  body: z.custom<TypedObject>().array().optional(),
 });
 
 export const postListSchema = z.array(postSchema);
@@ -84,3 +85,40 @@ export const recaptchaSchema = z.object({
 });
 
 // Prisma Client
+
+class DBConnection {
+  private readonly prisma: PrismaClient;
+
+  constructor() {
+    this.prisma = new PrismaClient();
+  }
+
+  private async disconnect() {
+    await this.prisma.$disconnect();
+  }
+
+  async create(data: { id: string; likes: number }) {
+    try {
+      const likes = await this.prisma.postLikes.create({ data });
+      await this.prisma.$disconnect();
+      return likes;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async update(data: { id: string; likes: number }) {
+    try {
+      const likes = await this.prisma.postLikes.update({
+        where: { id: data.id },
+        data: { likes: data.likes },
+      });
+      await this.prisma.$disconnect();
+      return likes;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+}
+
+export const db = new DBConnection();

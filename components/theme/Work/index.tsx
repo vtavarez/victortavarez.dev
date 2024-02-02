@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { MoveUpRight } from "lucide-react";
 import masimo from "@/public/masimo.png";
 
-export function Project({
+export function Work({
   details,
   number,
   client,

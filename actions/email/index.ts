@@ -23,7 +23,7 @@ export async function send(data: Inputs) {
 
   const res = await transporter.sendMail(options);
 
-  if (res.rejected.length) {
+  if ("rejected" in res) {
     return {
       ...res,
       error: {
@@ -32,5 +32,5 @@ export async function send(data: Inputs) {
     };
   }
 
-  return await transporter.sendMail(options);
+  return res;
 }

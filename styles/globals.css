@@ -80,7 +80,7 @@
 }
 
 .underline-animation {
-  @apply relative after:absolute after:content-[''] after:bottom-1 after:left-0 after:right-0 after:bg-primary after:h-[2px] after:transition-transform after:duration-200 after:ease-linear after:scale-x-0 after:origin-center hover:after:scale-x-100;
+  @apply relative after:absolute after:content-[''] after:bottom-1 after:left-0 after:right-0 after:bg-primary after:h-[2px] after:transition-transform after:duration-200 after:ease-linear after:scale-x-0 after:origin-left group-hover:after:scale-x-100 group-focus:after:scale-x-100;
 }
 
 .grecaptcha-badge { 

@@ -27,6 +27,7 @@ export function Posts({
         className,
         "my-20 inline-flex flex-wrap gap-5 xl:mb-[260px]",
       )}
+      {...animation}
     >
       {posts.map((post, idx) => (
         <Post
