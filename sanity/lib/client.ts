@@ -25,11 +25,12 @@ function extractPost(res: Array<PostType>): PostType {
 }
 
 export async function getPosts(
+  start: number = 0,
   limit: number = 3,
   order: string = "desc",
 ): Promise<PostType[]> {
   const postsArray = await client.fetch(
-    `*[_type == "post"][0..${limit}] | order(publishedAt ${order}){${nodes}}`,
+    `*[_type == "post"][${start}..${limit}] | order(publishedAt ${order}){${nodes}}`,
     {},
     { cache: "force-cache", next: { tags: ["posts"] } },
   );

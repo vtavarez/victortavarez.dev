@@ -48,8 +48,8 @@ export function useTypingAnimation(node: React.ReactElement) {
   const initalRender = useRef<boolean>(true);
   const animationFrame = useRef<number>(0);
   const index = useRef<number>(0);
-  const previousTime = useRef<number>(0);
-  const chars = useRef<string[]>(node.props.children.split(""));
+  const previousTime = useRef<number>(performance.now());
+  const chars = useRef<string>(node.props.children);
 
   const [sentence, setSentence] = useState<string>("");
   const [caret, setCaret] = useState<boolean>(false);
@@ -60,12 +60,12 @@ export function useTypingAnimation(node: React.ReactElement) {
 
     if (currentIndex < chars.current.length) {
       if (delta >= Math.floor(1000 / fps)) {
-        setSentence((prev) => prev + chars.current[currentIndex]);
+        setSentence((prev) => prev + chars.current.charAt(currentIndex));
         index.current = currentIndex + 1;
         previousTime.current = currentTime;
       }
 
-      animationFrame.current = requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
         type(performance.now(), index.current);
       });
       return;
@@ -80,7 +80,6 @@ export function useTypingAnimation(node: React.ReactElement) {
       initalRender.current = false;
 
       animationFrame.current = requestAnimationFrame(() => {
-        previousTime.current = performance.now();
         type(performance.now(), index.current);
       });
 

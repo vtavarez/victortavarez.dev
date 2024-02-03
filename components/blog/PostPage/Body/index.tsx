@@ -9,18 +9,25 @@ export function Body({ value }: { value: TypedObject[] }) {
   const components = {
     types: {
       code: ({
-        value,
+        value: { filename, code, language },
       }: {
         value: { filename: string; code: string; language: string };
       }) => {
         Refractor.registerLanguage(tsx);
         return (
-          <Refractor
-            className="refractor my-3"
-            language={value.language}
-            value={value.code}
-            inline={false}
-          />
+          <div className="my-3">
+            {filename && (
+              <div className="mt-2 h-fit w-full bg-primary p-4 text-sm font-medium text-background">
+                {filename}
+              </div>
+            )}
+            <Refractor
+              className="refractor mb-2"
+              language={language}
+              value={code}
+              inline={false}
+            />
+          </div>
         );
       },
     },

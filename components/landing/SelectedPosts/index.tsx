@@ -4,9 +4,9 @@ import { getPosts } from "@/sanity/lib/client";
 import { postListSchema } from "@/lib/utils";
 
 export async function SelectedPosts() {
-  const posts = postListSchema.safeParse(await getPosts(3, "desc"));
+  const posts = postListSchema.safeParse(await getPosts(0, 3, "desc"));
 
-  if (!posts.success) {
+  if ("error" in posts) {
     console.error(posts.error.issues);
     return null;
   }
