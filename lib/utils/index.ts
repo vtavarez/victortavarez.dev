@@ -65,10 +65,10 @@ export const postSchema = z.object({
   title: z.string(),
   publishedAt: z.string(),
   excerpt: z.string(),
-  readingTime: z.number(),
+  timeToRead: z.number(),
   slug: z.string(),
   author: z.object({ name: z.string(), image: z.string() }),
-  media: z.string(),
+  mainImage: z.object({ url: z.string(), alt: z.string() }),
   body: z.custom<TypedObject>().array().optional(),
 });
 

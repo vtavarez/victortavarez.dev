@@ -7,10 +7,10 @@ const nodes = `
   title,
   publishedAt,
   excerpt,
-  "readingTime":reading_time,
+  timeToRead,
   "slug":slug.current,
   "author": author->{"image":image.asset->url,name},
-  "media": mainImage.asset->url,
+  "mainImage": {"url":mainImage.asset->url, "alt":mainImage.alt},
 `;
 
 export const client = createClient({

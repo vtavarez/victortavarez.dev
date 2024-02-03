@@ -1,5 +1,6 @@
 "use client";
 import { Post } from "./Post";
+import { PostsPagination } from "./Pagination";
 import { EyebrowText } from "@/components/theme";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -23,10 +24,10 @@ export function Posts({
     },
   };
   return (
-    <div className={cn(className, "min-h-[85lvh] bg-background")}>
+    <div className={cn(className, "relative min-h-[85lvh] bg-background")}>
       <EyebrowText cta="Thoughts">Explore</EyebrowText>
       <motion.div
-        className="inline-flex flex-wrap gap-5 pt-12"
+        className="inline-flex flex-wrap gap-5 pt-6"
         {...animation}
       >
         {posts.map((post, idx) => (
@@ -37,6 +38,13 @@ export function Posts({
           />
         ))}
       </motion.div>
+      <div className="absolute bottom-20 left-0 right-0 flex items-center justify-center">
+        <PostsPagination
+          currentPage={1}
+          totalPages={1}
+          basePath="/blog"
+        />
+      </div>
     </div>
   );
 }

@@ -8,7 +8,8 @@ import { PostType } from "@/lib/types";
 
 export function PostPage({
   title,
-  media,
+  mainImage: { url, alt },
+  timeToRead,
   excerpt,
   publishedAt,
   author,
@@ -17,25 +18,28 @@ export function PostPage({
   return (
     <div className="relative pt-[100lvh]">
       <Heading>{title}</Heading>
-      <div className="min-h-[82lvh] bg-background">
+      <div className="-mx-6 min-h-[85lvh] bg-background xl:-mx-8">
         <div className="relative aspect-video w-full">
           <Image
             className="absolute aspect-video h-full w-full object-cover"
-            src={media}
+            src={url}
             width={1400}
             height={1400}
-            alt={excerpt}
+            alt={alt}
           />
         </div>
-        <h2>{excerpt}</h2>
-        <div className="grid w-fit grid-cols-2 gap-2">
-          <p className="flex items-center leading-none">
-            {formatDate(publishedAt)}
-          </p>
-          <Author {...author} />
-        </div>
-        <article className="text-base">
-          <Body value={body} />
+        <article className="mx-auto text-base xl:max-w-[70%]">
+          <h2 className="mx-auto my-4 w-fit">{excerpt}</h2>
+          <div className="mx-auto flex w-fit items-center gap-8">
+            <Author {...author} />
+            <div className="grid grid-cols-2 gap-4 leading-none">
+              <span>{formatDate(publishedAt)}</span>
+              <span>{timeToRead + " min read"}</span>
+            </div>
+          </div>
+          <div className="py-12">
+            <Body value={body} />
+          </div>
         </article>
       </div>
     </div>

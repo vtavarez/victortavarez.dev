@@ -58,7 +58,7 @@ const config: Config = {
         "post-card": "430px",
       },
       height: {
-        "post-card": "460px",
+        "post-card": "530px",
       },
       fontSize: {
         "responsive-heading": "clamp(1rem, 3vw, 2.5rem)",

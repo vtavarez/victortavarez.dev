@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Blog() {
-  const posts = postListSchema.safeParse(await getPosts(4, "desc"));
+  const posts = postListSchema.safeParse(await getPosts(8, "desc"));
 
   const props = {
     posts: posts.success ? posts.data : [],

@@ -4,16 +4,14 @@ import { motion } from "framer-motion";
 import { PostType } from "@/lib/types";
 import { formatDate } from "@/lib/utils";
 import { ReadMore } from "@/components/ui";
-import { Author } from "@/components/ui";
 
 export function Post({
   title,
   publishedAt,
-  media,
+  mainImage: { url, alt },
   excerpt,
   slug,
-  readingTime,
-  author: { name, image },
+  timeToRead,
   animationDelay = 0,
 }: { animationDelay?: number } & PostType) {
   const scaleAnimation = {
@@ -66,8 +64,8 @@ export function Post({
             <div className="relative mb-6 h-44 w-full sm:mb-0">
               <Image
                 className="absolute inset-0 h-full w-full object-cover object-top"
-                src={media}
-                alt={title}
+                src={url}
+                alt={alt}
                 width={400}
                 height={300}
                 priority
@@ -75,18 +73,14 @@ export function Post({
             </div>
           </div>
           <div className="col-span-12 xl:col-span-5">
-            <h3 className="text-pretty max-w-[500px] pb-2 text-2xl font-semibold md:text-3xl">
+            <h3 className="max-w-[500px] text-pretty pb-2 text-2xl font-semibold md:text-3xl">
               {title}
             </h3>
             <div className="inline-flex items-center justify-between gap-2 text-sm lg:text-base">
-              <p className="text-balance pb-2">{readingTime} min read</p>
               <p className="text-balance pb-2">{formatDate(publishedAt)}</p>
-              {/* <Author
-                name={name}
-                image={image}
-              /> */}
+              <p className="text-balance pb-2">{timeToRead} min read</p>
             </div>
-            <p className="text-pretty max-w-full pb-8 sm:w-3/4 sm:pb-2">
+            <p className="max-w-full text-pretty pb-8 sm:w-3/4 sm:pb-2">
               {excerpt}
             </p>
           </div>
