@@ -2,9 +2,9 @@ import {
   Hero,
   SelectedWork,
   SelectedPosts,
-  Contact,
+  LetsConnect,
 } from "@/components/landing";
-import { RouteAnimation, ValueProp, EyebrowText } from "@/components/theme";
+import { ValueProp, EyebrowText } from "@/components/theme";
 
 export default function Home() {
   return (
@@ -37,7 +37,7 @@ export default function Home() {
       >
         If you would like to get in touch, please feel free to reach out.
       </ValueProp>
-      <Contact />
+      <LetsConnect />
     </>
   );
 }

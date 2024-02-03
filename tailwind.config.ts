@@ -60,6 +60,9 @@ const config: Config = {
       height: {
         "post-card": "460px",
       },
+      fontSize: {
+        "responsive-heading": "clamp(1rem, 3vw, 2.5rem)",
+      },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },

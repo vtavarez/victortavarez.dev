@@ -13,24 +13,12 @@ export function Post({
   publishedAt,
   author,
 }: PostType & { number: number }) {
-  const animation = {
-    animate: {
-      initial: { opacity: 0 },
-      animate: { opacity: 1 },
-      transition: {
-        type: "tween",
-        ease: "linear",
-        duration: 2,
-      },
-    },
-  };
-
   return (
     <motion.div
       className="mb-10"
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: number * 0.15 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: number * 0.25 }}
     >
       <Link
         className="group flex h-post-card w-post-card max-w-full flex-col gap-4"

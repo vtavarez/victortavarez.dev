@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { getPosts } from "@/sanity/lib/client";
 import { postListSchema } from "@/lib/utils";
-import { EyebrowText } from "@/components/theme";
+import { Heading } from "@/components/theme";
 import { Posts } from "@/components/blog";
 
 export const metadata: Metadata = {
@@ -19,11 +19,8 @@ export default async function Blog() {
 
   return (
     <>
-      <EyebrowText cta="Thoughts">Explore</EyebrowText>
-      <div className="flex flex-col justify-end xl:mb-[460px] xl:h-lvh">
-        <h1 className="py-8 text-3xl font-medium text-primary xl:mt-[260px] xl:py-16">
-          Blog
-        </h1>
+      <div className="relative pt-[100lvh]">
+        <Heading>Blog</Heading>
         <Posts {...props} />
       </div>
     </>
