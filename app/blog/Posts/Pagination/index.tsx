@@ -10,15 +10,10 @@ import {
 
 type PaginationProps = {
   currentPage: number;
-  totalPages: number;
-  basePath: string;
+  total: number;
 };
 
-export function PostsPagination({
-  currentPage,
-  totalPages,
-  basePath,
-}: PaginationProps) {
+export function PostsPagination({ currentPage, total }: PaginationProps) {
   return (
     <Pagination>
       <PaginationContent>
@@ -26,7 +21,7 @@ export function PostsPagination({
           <PaginationPrevious href="#" />
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#">1</PaginationLink>
+          <PaginationLink href="#">{currentPage}</PaginationLink>
         </PaginationItem>
         <PaginationItem>
           <PaginationEllipsis />

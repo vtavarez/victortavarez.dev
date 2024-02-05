@@ -7,10 +7,12 @@ import { cn } from "@/lib/utils";
 import { type PostType } from "@/lib/types";
 
 type PostsProps = {
+  totalPosts: number;
   posts: PostType[];
 };
 
 export function Posts({
+  totalPosts,
   posts,
   className,
 }: PostsProps & React.HTMLAttributes<HTMLDivElement>) {
@@ -41,8 +43,7 @@ export function Posts({
       <div className="absolute bottom-20 left-0 right-0 flex items-center justify-center">
         <PostsPagination
           currentPage={1}
-          totalPages={1}
-          basePath="/blog"
+          total={totalPosts}
         />
       </div>
     </div>
