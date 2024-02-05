@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import { getPosts } from "@/sanity/lib/client";
-import { postListSchema } from "@/lib/utils";
+import { postListSchema } from "@/lib/schema";
 import { Heading } from "@/components/theme";
-import { Posts } from "@/components/blog";
+import { Posts } from "./Posts";
 
 export const metadata: Metadata = {
   title: "Blog - Victor Tavarez",

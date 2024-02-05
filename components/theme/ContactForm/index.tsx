@@ -16,7 +16,7 @@ import {
   BouncingLoader,
 } from "@/components/ui/";
 import type { Inputs, SentMessageType, RecaptchaType } from "@/lib/types";
-import { contactSchema } from "@/lib/utils";
+import { contactSchema } from "@/lib/schema";
 import { verify } from "@/actions/recaptcha";
 import { send } from "@/actions/email";
 

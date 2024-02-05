@@ -1,5 +1,5 @@
 "use server";
-import { recaptchaSchema } from "@/lib/utils";
+import { recaptchaSchema } from "@/lib/schema";
 
 export async function verify(token: string) {
   const secret = process.env.RECAPTCHA_SECRET_KEY;

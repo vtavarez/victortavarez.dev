@@ -1,8 +1,8 @@
-import { PostPage } from "@/components/blog";
+import { PostPage } from "./Post";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPost } from "@/sanity/lib/client";
-import { postSchema } from "@/lib/utils";
+import { postSchema } from "@/lib/schema";
 
 type PostProps = {
   params: {

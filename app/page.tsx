@@ -1,9 +1,4 @@
-import {
-  Hero,
-  SelectedWork,
-  SelectedPosts,
-  LetsConnect,
-} from "@/components/landing";
+import { Hero, SelectedWork, SelectedPosts, LetsConnect } from "./Home";
 import { ValueProp, EyebrowText } from "@/components/theme";
 
 export default function Home() {

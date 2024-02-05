@@ -1,7 +1,7 @@
 "use server";
 import nodemailer from "nodemailer";
 import Mail from "nodemailer/lib/mailer";
-import { contactSchema } from "@/lib/utils";
+import { contactSchema } from "@/lib/schema";
 import { Inputs } from "@/lib/types";
 
 export async function send(data: Inputs) {

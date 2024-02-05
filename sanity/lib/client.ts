@@ -3,7 +3,7 @@ import { apiVersion, dataset, projectId, useCdn } from "../env";
 import { PostType } from "@/lib/types";
 
 const nodes = `
-   _id,
+  'id':_id,
   title,
   publishedAt,
   excerpt,
@@ -22,6 +22,15 @@ export const client = createClient({
 
 function extractPost(res: Array<PostType>): PostType {
   return res[0];
+}
+
+export async function getPostsCount(): Promise<number> {
+  const count = await client.fetch(
+    `count(*[_type == "post"])`,
+    {},
+    { cache: "force-cache", next: { tags: ["posts"] } },
+  );
+  return count;
 }
 
 export async function getPosts(

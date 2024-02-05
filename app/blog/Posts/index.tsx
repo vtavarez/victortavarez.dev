@@ -32,7 +32,7 @@ export function Posts({
       >
         {posts.map((post, idx) => (
           <Post
-            key={post._id}
+            key={post.id}
             number={idx + 1}
             {...post}
           />

@@ -1,7 +1,7 @@
 import { Post } from "./Post";
 import type { PostType } from "@/lib/types";
 import { getPosts } from "@/sanity/lib/client";
-import { postListSchema } from "@/lib/utils";
+import { postListSchema } from "@/lib/schema";
 
 export async function SelectedPosts() {
   const posts = postListSchema.safeParse(await getPosts(0, 3, "desc"));
@@ -15,7 +15,7 @@ export async function SelectedPosts() {
     <div className="border-t-2 border-primary">
       {posts.data.map((post: PostType, _idx: number) => (
         <Post
-          key={post.title}
+          key={post.id}
           {...post}
           animationDelay={_idx * 0.5}
         />
