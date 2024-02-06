@@ -44,14 +44,14 @@ export function Posts({
   };
 
   async function fetchPosts() {
-    const posts = await getPostsChunk(from + 8, to + 8, "desc");
+    const currentPosts = await getPostsChunk(from + 8, to + 8, "desc");
 
-    if (posts) {
+    if (currentPosts) {
       setChunk({
         from: from + 8,
         to: to + 8,
-        currentChunk: 1,
-        currentPosts: posts,
+        currentChunk: currentChunk + 1,
+        currentPosts,
       });
     }
   }
