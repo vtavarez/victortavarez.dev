@@ -13,11 +13,21 @@ type PostsProps = {
   posts: PostType[];
 };
 
-type Chunk = {
+type PostsChunk = {
   from: number;
   to: number;
   currentChunk: number;
   currentPosts: PostType[];
+};
+
+const animation = {
+  initial: { x: "100%" },
+  whileInView: { x: "0%" },
+  transition: {
+    type: "tween",
+    ease: "linear",
+    duration: 0.8,
+  },
 };
 
 export function Posts({
@@ -25,12 +35,13 @@ export function Posts({
   posts,
   className,
 }: PostsProps & React.HTMLAttributes<HTMLDivElement>) {
-  const [{ from, to, currentChunk, currentPosts }, setChunk] = useState<Chunk>({
-    from: 0,
-    to: 8,
-    currentChunk: 1,
-    currentPosts: posts,
-  });
+  const [{ from, to, currentChunk, currentPosts }, setChunk] =
+    useState<PostsChunk>({
+      from: 0,
+      to: 8,
+      currentChunk: 1,
+      currentPosts: posts,
+    });
 
   const totalChunks = Math.ceil(totalPosts / 8);
 
@@ -42,16 +53,6 @@ export function Posts({
 
     "error" in response ? console.error(response.error) : setChunk(response);
   }
-
-  const animation = {
-    initial: { x: "100%" },
-    whileInView: { x: "0%" },
-    transition: {
-      type: "tween",
-      ease: "linear",
-      duration: 0.8,
-    },
-  };
 
   return (
     <div className={cn(className, "min-h-[80lvh] bg-background")}>

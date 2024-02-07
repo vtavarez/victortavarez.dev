@@ -1,8 +1,8 @@
 import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: "post",
-  title: "Posts",
+  name: "work",
+  title: "Work",
   type: "document",
   fields: [
     defineField({
@@ -21,12 +21,6 @@ export default defineType({
           .required(),
     }),
     defineField({
-      name: "timeToRead",
-      title: "Reading Time",
-      type: "number",
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
       name: "slug",
       title: "Slug",
       type: "slug",
@@ -34,13 +28,6 @@ export default defineType({
         source: "title",
         maxLength: 96,
       },
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: "author",
-      title: "Author",
-      type: "reference",
-      to: { type: "author" },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -80,18 +67,10 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
   ],
-
   preview: {
     select: {
       title: "title",
-      media: "mainImage",
-      excerpt: "excerpt",
-      reading_time: "timeToRead",
-      author: "author.name",
-    },
-    prepare(selection) {
-      const { author } = selection;
-      return { ...selection, author: author && `by ${author}` };
+      slug: "slug",
     },
   },
 });

@@ -5,7 +5,7 @@ import { Heading } from "@/components/theme";
 import { formatDate } from "@/lib/utils";
 import { PostType } from "@/lib/types";
 
-export function PostPage({
+export function Post({
   title,
   mainImage: { url, alt },
   timeToRead,

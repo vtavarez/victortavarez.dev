@@ -1,4 +1,4 @@
-import { PostPage } from "./Post";
+import { Post as Content } from "@/components/routes/Blog";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPost } from "@/sanity/lib/client";
@@ -32,6 +32,6 @@ export default async function Post({ params }: PostProps) {
   return "error" in response ? (
     (console.error(response.error.issues), notFound())
   ) : (
-    <PostPage {...response.data} />
+    <Content {...response.data} />
   );
 }
