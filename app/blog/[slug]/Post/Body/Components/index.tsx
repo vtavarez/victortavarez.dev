@@ -22,9 +22,7 @@ export const Components: PortableTextComponents = {
       <h3 className="my-4 text-2xl font-bold">{children}</h3>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="my-4 border-l-4 pl-4 italic">
-        {children}
-      </blockquote>
+      <blockquote className="my-4 border-l-4 pl-4">{children}</blockquote>
     ),
   },
   types: {
