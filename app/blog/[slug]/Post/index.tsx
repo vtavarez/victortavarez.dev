@@ -26,6 +26,7 @@ export function PostPage({
             width={1400}
             height={1400}
             alt={alt}
+            priority
           />
         </div>
         <article className="mx-auto text-base xl:max-w-[70%]">

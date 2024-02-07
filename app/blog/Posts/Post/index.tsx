@@ -33,7 +33,7 @@ export function Post({
             {excerpt}
           </p>
         </div>
-        <div className="relative h-full w-full shadow-project">
+        <div className="relative h-full w-full">
           <Image
             className="absolute aspect-square h-full w-full object-cover"
             src={url}

@@ -11,27 +11,27 @@ import {
 type PaginationProps = {
   currentChunk: number;
   totalChunks: number;
-  setChunk: (chunk: number) => void;
+  requestedChunk: (chunk: number) => void;
 };
 
 export function PostsPagination({
   currentChunk,
   totalChunks,
-  setChunk,
+  requestedChunk,
+  ...props
 }: PaginationProps) {
-  function settingChunk(e: React.MouseEvent<HTMLAnchorElement>, chunk: number) {
-    e.stopPropagation();
-    e.preventDefault();
-    setChunk(chunk);
-  }
-
   return (
-    <Pagination>
+    <Pagination {...props}>
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
-            href="#"
-            onClick={(e) => settingChunk(e, currentChunk - 1)}
+            href="javascript:void(0)"
+            className={
+              currentChunk === 1 ? "pointer-events-none opacity-50" : ""
+            }
+            onClick={(e) => (
+              e.preventDefault(), requestedChunk(currentChunk - 1)
+            )}
             aria-disabled={currentChunk === 1}
           />
         </PaginationItem>
@@ -50,8 +50,15 @@ export function PostsPagination({
         </PaginationItem>
         <PaginationItem>
           <PaginationNext
-            href="#"
-            onClick={(e) => settingChunk(e, currentChunk + 1)}
+            href="javascript:void(0)"
+            className={
+              currentChunk === totalChunks
+                ? "pointer-events-none opacity-50"
+                : ""
+            }
+            onClick={(e) => (
+              e.preventDefault(), requestedChunk(currentChunk + 1)
+            )}
             aria-disabled={currentChunk === totalChunks}
           />
         </PaginationItem>
