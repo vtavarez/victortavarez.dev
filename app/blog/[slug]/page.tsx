@@ -13,25 +13,25 @@ type PostProps = {
 export async function generateMetadata({
   params,
 }: PostProps): Promise<Metadata> {
-  const post = postSchema.safeParse(await getPost(params.slug));
+  const response = postSchema.safeParse(await getPost(params.slug));
 
-  return "error" in post
+  return "error" in response
     ? {
         title: "404 Not Found - Victor Tavarez",
         description: "This post could not be found.",
       }
     : {
-        title: post.data.title + " - Victor Tavarez",
-        description: post.data.excerpt,
+        title: response.data.title + " - Victor Tavarez",
+        description: response.data.excerpt,
       };
 }
 
 export default async function Post({ params }: PostProps) {
-  const post = postSchema.safeParse(await getPost(params.slug));
+  const response = postSchema.safeParse(await getPost(params.slug));
 
-  return "error" in post ? (
-    (console.error(post.error.issues), notFound())
+  return "error" in response ? (
+    (console.error(response.error.issues), notFound())
   ) : (
-    <PostPage {...post.data} />
+    <PostPage {...response.data} />
   );
 }

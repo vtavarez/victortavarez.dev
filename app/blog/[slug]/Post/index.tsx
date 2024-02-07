@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { Body } from "./Body";
-import { Author } from "@/components/ui";
 import { Heading } from "@/components/theme";
 import { formatDate } from "@/lib/utils";
 import { PostType } from "@/lib/types";
@@ -12,7 +11,6 @@ export function PostPage({
   timeToRead,
   excerpt,
   publishedAt,
-  author,
   body = [],
 }: PostType) {
   return (
@@ -30,9 +28,8 @@ export function PostPage({
           />
         </div>
         <article className="mx-auto text-base xl:max-w-[70%]">
-          <h2 className="mx-auto my-4 w-fit">{excerpt}</h2>
+          <h2 className="mx-auto my-2 w-fit">{excerpt}</h2>
           <div className="mx-auto flex w-fit items-center gap-8">
-            <Author {...author} />
             <div className="grid grid-cols-2 gap-4 leading-none">
               <span>{formatDate(publishedAt)}</span>
               <span>{timeToRead + " min read"}</span>
