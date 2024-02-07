@@ -35,7 +35,7 @@ code[class*="language-"] *::selection {
 }
 
 pre[class*="language-"] {
-	padding: 1em;
+	padding: 0 1em 1em; 
 	overflow: auto;
 	@apply dark:bg-background bg-primary;
 }

@@ -25,7 +25,7 @@ export function PostsPagination({
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
-            href="javascript:void(0)"
+            href="#"
             className={
               currentChunk === 1 ? "pointer-events-none opacity-50" : ""
             }
@@ -50,7 +50,7 @@ export function PostsPagination({
         </PaginationItem>
         <PaginationItem>
           <PaginationNext
-            href="javascript:void(0)"
+            href="#"
             className={
               currentChunk === totalChunks
                 ? "pointer-events-none opacity-50"

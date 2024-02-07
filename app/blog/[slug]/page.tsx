@@ -1,4 +1,4 @@
-import { Post as Content } from "@/components/routes/Blog";
+import { Post } from "@/components/routes/Blog";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPost } from "@/sanity/lib/client";
@@ -26,12 +26,12 @@ export async function generateMetadata({
       };
 }
 
-export default async function Post({ params }: PostProps) {
+export default async function Page({ params }: PostProps) {
   const response = postSchema.safeParse(await getPost(params.slug));
 
   return "error" in response ? (
     (console.error(response.error.issues), notFound())
   ) : (
-    <Content {...response.data} />
+    <Post {...response.data} />
   );
 }

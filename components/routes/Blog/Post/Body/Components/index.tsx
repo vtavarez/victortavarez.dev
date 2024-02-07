@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Refractor from "react-refractor";
 import js from "refractor/lang/javascript";
 import tsx from "refractor/lang/tsx";
@@ -12,17 +13,17 @@ Refractor.registerLanguage(jsx);
 
 export const Components: PortableTextComponents = {
   block: {
-    h1: ({ children }) => (
-      <h1 className="my-6 text-4xl font-bold">{children}</h1>
-    ),
+    normal: ({ children }) => <p className="mb-6">{children}</p>,
     h2: ({ children }) => (
-      <h2 className="my-5 text-3xl font-bold">{children}</h2>
+      <h2 className="my-6 text-xl font-bold xl:text-3xl">{children}</h2>
     ),
     h3: ({ children }) => (
-      <h3 className="my-4 text-2xl font-bold">{children}</h3>
+      <h3 className="my-6 text-2xl font-bold">{children}</h3>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="my-4 border-l-4 pl-4">{children}</blockquote>
+      <blockquote className="mx-auto my-8 border-l-4 border-primary pl-4 xl:max-w-[90%]">
+        {children}
+      </blockquote>
     ),
   },
   types: {
@@ -32,7 +33,7 @@ export const Components: PortableTextComponents = {
       value: { filename: string; code: string; language: string };
     }) => {
       return (
-        <div className="my-3">
+        <div className="my-10">
           {filename && (
             <div className="mt-2 flex h-fit w-full flex-row items-center justify-between bg-primary p-4 text-sm font-medium text-background">
               <span>{filename}</span>
@@ -68,9 +69,21 @@ export const Components: PortableTextComponents = {
   },
   marks: {
     code: ({ text }: { text: string }) => (
-      <code className="inline-block bg-primary px-[3px] py-[2px] text-sm leading-none text-background">
+      <code className="inline-block bg-primary  px-[3px] py-[2px] text-xs leading-none text-background xl:text-sm">
         {text}
       </code>
     ),
+    link: ({ value, children }) => {
+      return (
+        <a
+          className="font-medium text-primary underline"
+          href={value.href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {children}
+        </a>
+      );
+    },
   },
 };

@@ -1,7 +1,14 @@
 "use client";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-export function Heading({ children }: { children: React.ReactNode }) {
+export function Heading({
+  children,
+  icon,
+  ...props
+}: {
+  children: React.ReactNode;
+  icon?: boolean;
+} & React.HTMLAttributes<HTMLDivElement>) {
   const animation = {
     initial: { y: "100%", opacity: 0 },
     animate: { y: "0%", opacity: 1 },
@@ -12,16 +19,18 @@ export function Heading({ children }: { children: React.ReactNode }) {
     },
   };
   return (
-    <div className="h-100lvh fixed inset-0 -z-10 flex items-end overflow-hidden px-6 pb-[6.66%] xl:px-8">
+    <div {...props}>
       <motion.h1
-        className="text-responsive-heading flex w-full items-end font-medium leading-none text-primary"
+        className="flex w-full items-center text-responsive-heading font-medium leading-none text-primary"
         {...animation}
       >
         {children}
-        <ArrowDown
-          className="ml-auto"
-          size={34}
-        />
+        {icon && (
+          <ArrowDown
+            className="ml-auto"
+            size={34}
+          />
+        )}
       </motion.h1>
     </div>
   );

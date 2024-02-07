@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "Thoughts on the current state of web development, and experiences and the lessons I've learned along the way.",
 };
 
-export default async function Blog() {
+export default async function Page() {
   const totalPosts = await getPostsCount();
   const posts = postListSchema.safeParse(await getPosts(0, 8, "desc"));
 
@@ -22,7 +22,12 @@ export default async function Blog() {
   return (
     <>
       <div className="relative pt-[100lvh]">
-        <Heading>Blog</Heading>
+        <Heading
+          className="h-100lvh fixed inset-0 -z-10 flex items-end overflow-hidden px-6 pb-[6.66%] xl:px-8"
+          icon
+        >
+          Blog
+        </Heading>
         <Posts {...props} />
       </div>
     </>

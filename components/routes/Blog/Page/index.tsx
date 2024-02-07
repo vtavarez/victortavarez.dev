@@ -55,9 +55,9 @@ export function Posts({
   }
 
   return (
-    <div className={cn(className, "min-h-[80lvh] bg-background")}>
+    <div className={cn(className, "h-[100lvh] bg-background")}>
       <EyebrowText cta="Thoughts">Explore</EyebrowText>
-      <div className="flex flex-col justify-evenly gap-12">
+      <div className="flex min-h-[85%] flex-col justify-between">
         <motion.div
           className="inline-flex flex-wrap gap-5 pt-6"
           {...animation}
@@ -70,7 +70,7 @@ export function Posts({
             />
           ))}
         </motion.div>
-        <div className="flex items-center justify-center">
+        <div className="mb-4 flex items-center justify-center">
           <PostsPagination
             currentChunk={currentChunk}
             totalChunks={totalChunks}

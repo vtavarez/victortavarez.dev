@@ -83,6 +83,15 @@
   @apply relative after:absolute after:content-[''] after:bottom-1 after:left-0 after:right-0 after:bg-primary after:h-[2px] after:transition-transform after:duration-200 after:ease-linear after:scale-x-0 after:origin-left group-hover:after:scale-x-100 group-focus:after:scale-x-100;
 }
 
+.marquee-gradiant-left {
+  @apply before:absolute before:content-[''] before:left-0 before:bottom-0 before:top-0 before:w-[15%] before:z-10 before:bg-gradient-to-r before:from-primary before:to-transparent;
+}
+
+.marquee-gradiant-right {
+  @apply after:absolute after:content-[''] after:right-0 after:bottom-0 after:top-0 after:w-[15%] after:z-10 after:bg-gradient-to-l after:from-primary after:to-transparent;
+}
+
+
 .grecaptcha-badge { 
   visibility: hidden;
 }
