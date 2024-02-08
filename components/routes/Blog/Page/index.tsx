@@ -1,12 +1,12 @@
-"use client";
-import { useState } from "react";
-import { getPostsChunk } from "@/actions/get-posts-chunk";
-import { Post } from "./Post";
-import { PostsPagination } from "./Pagination";
-import { EyebrowText } from "@/components/theme";
-import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
-import { type PostType } from "@/lib/types";
+'use client';
+import { useState } from 'react';
+import { getPostsChunk } from '@/actions/get-posts-chunk';
+import { Post } from './Post';
+import { PostsPagination } from './Pagination';
+import { EyebrowText } from '@/components/theme';
+import { motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
+import { type PostType } from '@/lib/types';
 
 type PostsProps = {
   totalPosts: number;
@@ -21,11 +21,11 @@ type PostsChunk = {
 };
 
 const animation = {
-  initial: { x: "100%" },
-  whileInView: { x: "0%" },
+  initial: { x: '100%' },
+  whileInView: { x: '0%' },
   transition: {
-    type: "tween",
-    ease: "linear",
+    type: 'tween',
+    ease: 'linear',
     duration: 0.8,
   },
 };
@@ -51,11 +51,11 @@ export function Posts({
         ? await getPostsChunk(from + 8, to + 8)
         : await getPostsChunk(from - 8, to - 8);
 
-    "error" in response ? console.error(response.error) : setChunk(response);
+    'error' in response ? console.error(response.error) : setChunk(response);
   }
 
   return (
-    <div className={cn(className, "h-[100lvh] bg-background")}>
+    <div className={cn(className, 'h-[100lvh] bg-background')}>
       <EyebrowText cta="Thoughts">Explore</EyebrowText>
       <div className="flex min-h-[85%] flex-col justify-between">
         <motion.div
@@ -74,7 +74,7 @@ export function Posts({
           <PostsPagination
             currentChunk={currentChunk}
             totalChunks={totalChunks}
-            requestedChunk={(chunk) => requestChunk(chunk)}
+            requestedChunk={chunk => requestChunk(chunk)}
           />
         </div>
       </div>

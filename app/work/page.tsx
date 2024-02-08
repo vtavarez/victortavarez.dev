@@ -1,5 +1,5 @@
-import { Heading } from "@/components/theme";
-import { Menu } from "@/components/routes/Work";
+import { Heading } from '@/components/theme';
+import { Menu } from '@/components/routes/Work';
 
 export default async function Page() {
   return (

@@ -1,4 +1,4 @@
-import { postSchema, recaptchaSchema } from "@/lib/utils";
+import { postSchema, recaptchaSchema } from "@/lib/schema";
 import { SentMessageInfo } from "nodemailer/lib/smtp-transport";
 import { z } from "zod";
 

@@ -1,9 +1,9 @@
-"use client";
-import Image from "next/image";
-import { Body } from "./Body";
-import { Heading } from "@/components/theme";
-import { formatDate } from "@/lib/utils";
-import { PostType } from "@/lib/types";
+'use client';
+import Image from 'next/image';
+import { Body } from './Body';
+import { Heading } from '@/components/theme';
+import { formatDate } from '@/lib/utils';
+import { PostType } from '@/lib/types';
 
 export function Post({
   title,
@@ -37,7 +37,7 @@ export function Post({
           <div className="mx-auto flex w-fit items-center gap-8">
             <div className="grid grid-cols-2 gap-4 leading-none">
               <span>{formatDate(publishedAt)}</span>
-              <span>{timeToRead + " min read"}</span>
+              <span>{timeToRead + ' min read'}</span>
             </div>
           </div>
           <div className="py-8 xl:pb-24 xl:pt-14">

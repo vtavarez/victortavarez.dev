@@ -1,10 +1,15 @@
 module.exports = {
   printWidth: 80,
-  doubleQuote: true,
+  arrowParens: 'avoid',
+  singleQuote: true,
   jsxDoubleQuote: true,
   singleAttributePerLine: true,
+  tabWidth: 2,
+  useTabs: false,
+  bracketSpacing: true,
+  proseWrap: 'always',
   formatOnSave: true,
   semi: true,
   tailwindConfig: './tailwind.config.ts',
   plugins: ['prettier-plugin-tailwindcss'],
-}
+};

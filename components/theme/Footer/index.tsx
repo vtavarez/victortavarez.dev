@@ -1,6 +1,6 @@
-import { Socials } from "./Socials";
-import { Links } from "./Links";
-import { Marquee } from "@/components/ui";
+import { Socials } from './Socials';
+import { Links } from './Links';
+import { Marquee } from '@/components/ui';
 
 export function Footer() {
   return (
@@ -10,7 +10,7 @@ export function Footer() {
         <Marquee>
           {Array.from({ length: 3 }).map((_, i) => (
             <span key={i}>
-              let's deliver a seamless and delightful user journey.
+              {"let's deliver a seamless and delightful user journey."}
             </span>
           ))}
         </Marquee>

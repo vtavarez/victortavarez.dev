@@ -1,6 +1,6 @@
-import React, { useReducer, useEffect, useRef, useState } from "react";
-import { inView } from "framer-motion";
-import type { InputsFocusState } from "@/lib/types";
+import React, { useReducer, useEffect, useRef, useState } from 'react';
+import { inView } from 'framer-motion';
+import type { InputsFocusState } from '@/lib/types';
 
 export const useFocusedFields = (fields: InputsFocusState) => {
   const inputFocusReducer = (
@@ -25,14 +25,14 @@ export const useFocusedFields = (fields: InputsFocusState) => {
 export function useObserver(
   fn: () => void,
   ref: any,
-  options: { amount?: number | "some" | "all" },
+  options: { amount?: number | 'some' | 'all' },
 ) {
   const initialRender = useRef(true);
   useEffect(() => {
     if (initialRender.current) {
       inView(
         ref.current,
-        (entry) => {
+        entry => {
           if (entry.isIntersecting) {
             fn();
           }
@@ -51,7 +51,7 @@ export function useTypingAnimation(node: React.ReactElement) {
   const previousTime = useRef<number>(performance.now());
   const chars = useRef<string>(node.props.children);
 
-  const [sentence, setSentence] = useState<string>("");
+  const [sentence, setSentence] = useState<string>('');
   const [caret, setCaret] = useState<boolean>(false);
 
   function type(currentTime: number, currentIndex: number): void {
@@ -60,7 +60,7 @@ export function useTypingAnimation(node: React.ReactElement) {
 
     if (currentIndex < chars.current.length) {
       if (delta >= Math.floor(1000 / fps)) {
-        setSentence((prev) => prev + chars.current.charAt(currentIndex));
+        setSentence(prev => prev + chars.current.charAt(currentIndex));
         index.current = currentIndex + 1;
         previousTime.current = currentTime;
       }
@@ -71,7 +71,7 @@ export function useTypingAnimation(node: React.ReactElement) {
       return;
     }
 
-    setTimeout(() => setCaret((prev) => !prev), 500);
+    setTimeout(() => setCaret(prev => !prev), 500);
     cancelAnimationFrame(animationFrame.current);
   }
 

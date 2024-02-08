@@ -1,5 +1,5 @@
-import React from "react";
-import { cn } from "@/lib/utils";
+import React from 'react';
+import { cn } from '@/lib/utils';
 
 export const Form = React.forwardRef<
   HTMLFormElement,
@@ -20,6 +20,8 @@ export const Form = React.forwardRef<
     </form>
   );
 });
+
+Form.displayName = 'Form';
 
 export function FieldGroup({
   children,
@@ -60,7 +62,7 @@ export const Field = React.forwardRef<
   ref,
 ) {
   return (
-    <div className={cn("field", className)}>
+    <div className={cn('field', className)}>
       <input
         className="w-full bg-transparent p-3 outline-none"
         ref={ref}
@@ -69,6 +71,8 @@ export const Field = React.forwardRef<
     </div>
   );
 });
+
+Field.displayName = 'Field';
 
 export const TextArea = React.forwardRef<
   HTMLTextAreaElement,
@@ -83,7 +87,7 @@ export const TextArea = React.forwardRef<
   ref,
 ) {
   return (
-    <div className={cn("field", className)}>
+    <div className={cn('field', className)}>
       <textarea
         className="w-full bg-transparent p-3 outline-none"
         ref={ref}
@@ -92,6 +96,8 @@ export const TextArea = React.forwardRef<
     </div>
   );
 });
+
+TextArea.displayName = 'TextArea';
 
 export function ErrorMessage({
   children,
@@ -103,7 +109,7 @@ export function ErrorMessage({
 } & React.HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn("mt-5 text-red-500", className)}
+      className={cn('mt-5 text-red-500', className)}
       {...props}
     >
       {children}
@@ -121,7 +127,7 @@ export function SuccessMessage({
 } & React.HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn("mt-5 text-primary", className)}
+      className={cn('mt-5 text-primary', className)}
       {...props}
     >
       {children}
