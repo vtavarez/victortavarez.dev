@@ -8,7 +8,6 @@ export function ValueProp({
   number,
   children,
   className,
-  ...props
 }: {
   number: string;
   children: string;
@@ -25,14 +24,14 @@ export function ValueProp({
       ref={container}
       className={cn('grid grid-cols-12 gap-4', className)}
     >
-      <div className="col-span-12 text-base font-medium leading-loose md:col-span-1">
+      <div className="col-span-12 pt-28 text-base font-medium leading-loose lg:col-span-1 lg:pt-0">
         {'/ ' + number}
       </div>
-      <div className="col-span-12 flex items-start justify-center text-left text-3xl font-medium md:col-span-11 md:items-center lg:text-[2rem]">
+      <div className="col-span-12 flex flex-col items-center justify-start text-responsive-heading font-medium lg:col-span-11 lg:justify-center">
         {isInView && (
           <Typewriter>
             <p
-              className="mb-5 max-w-3xl pl-4 leading-snug md:pl-0"
+              className="max-w-3xl pl-2 leading-snug md:pl-6 lg:p-0"
               aria-description={children}
             >
               {children}

@@ -44,10 +44,15 @@ export function Posts({
   }
 
   return (
-    <div className={cn(className, 'h-[90lvh] min-h-full bg-background')}>
+    <div
+      className={cn(
+        className,
+        'h-[90lvh] min-h-full bg-gradient-to-t from-background from-95% to-transparent xl:pt-24',
+      )}
+    >
       <EyebrowText cta="Thoughts">Explore</EyebrowText>
       <div className="flex min-h-[85%] flex-col justify-between">
-        <div className="my-14 inline-flex flex-wrap gap-5">
+        <div className="mb-14 mt-8 inline-flex flex-wrap gap-5">
           {currentPosts.map((post, idx) => (
             <Post
               key={post.id}

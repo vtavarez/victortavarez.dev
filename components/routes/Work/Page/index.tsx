@@ -13,8 +13,8 @@ const variants = {
 
 export function Menu({ items }: { items: string[] }) {
   return (
-    <nav>
-      <ul className="flex list-none flex-col justify-center gap-2 text-2xl font-medium">
+    <nav className="translate-y-3 md:translate-y-0">
+      <ul className="text-responsive-menu flex list-none flex-col justify-center font-medium xl:gap-2">
         <motion.li
           custom={0}
           className="w-fit rounded-md transition-colors hover:bg-primary hover:text-background"

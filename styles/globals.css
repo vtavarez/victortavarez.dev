@@ -72,7 +72,7 @@
 }
 
 .caret {
-  @apply relative after:absolute after:inline after:xl:bottom-2 after:bottom-1 after:z-10 after:xl:h-10 after:w-2 after:bg-primary after:content-[''] after:h-8;
+  @apply relative after:absolute after:inline after:xl:bottom-2 after:bottom-1 after:z-10 after:xl:h-8 after:w-2 after:bg-primary after:content-[''] after:h-6;
 }
 
 .highlight-animation {

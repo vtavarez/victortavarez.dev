@@ -3,7 +3,7 @@ import { Menu } from '@/components/routes/Work';
 
 export default async function Page() {
   return (
-    <div className="flex h-[100lvh] flex-row items-end justify-between pb-20 xl:pb-28">
+    <div className="flex h-[100lvh] flex-row items-end justify-between pb-12 xl:pb-20">
       <Heading>Work</Heading>
       <Menu items={[]} />
     </div>

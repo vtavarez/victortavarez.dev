@@ -54,6 +54,9 @@ const config: Config = {
           foreground: 'hsl(var(--card-foreground))',
         },
       },
+      size: {
+        'responsive-icon': 'clamp(1.5rem, 3vw, 2rem)',
+      },
       height: {
         'post-card': '230px',
       },
@@ -62,6 +65,7 @@ const config: Config = {
       },
       fontSize: {
         'responsive-heading': 'clamp(1.2rem, 3vw, 2rem)',
+        'responsive-menu': 'clamp(1.1rem, 3vw, 2rem)',
         'responsive-title': 'clamp(4.5rem, 16vw, 13rem)',
         'responsive-subtitle': 'clamp(1.4rem, 3vw, 2.5rem)',
       },

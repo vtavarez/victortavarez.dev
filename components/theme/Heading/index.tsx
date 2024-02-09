@@ -25,12 +25,7 @@ export function Heading({
         {...animation}
       >
         {children}
-        {icon && (
-          <ArrowDown
-            className="ml-auto"
-            size={34}
-          />
-        )}
+        {icon && <ArrowDown className="size-responsive-icon ml-auto" />}
       </motion.h1>
     </div>
   );

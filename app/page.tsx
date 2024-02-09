@@ -10,9 +10,9 @@ export default function Page() {
   return (
     <div className="pt-[100lvh]">
       <Hero />
-      <div className="bg-gradient-to-t from-background from-95% to-transparent">
+      <div className="bg-gradient-to-t from-background from-95% to-transparent xl:pt-24">
         <ValueProp
-          className="xl:pb-38 h-[728px] pb-8 pt-20  xl:h-[100lvh] xl:pt-48"
+          className="h-[100lvh] py-8 xl:pt-48 "
           number="001"
         >
           Thanks for visiting my corner of the web. Here you will find a
