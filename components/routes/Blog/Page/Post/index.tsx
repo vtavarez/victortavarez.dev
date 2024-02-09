@@ -1,8 +1,19 @@
-import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { formatDate } from "@/lib/utils";
-import { type PostType } from "@/lib/types";
+'use client';
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { formatDate } from '@/lib/utils';
+import { type PostType } from '@/lib/types';
+import { custom } from 'zod';
+
+const variants = {
+  initial: { opacity: 0, x: 20 },
+  animate: (custom: number) => ({
+    opacity: 1,
+    x: 0,
+    transition: { delay: custom * 0.2, duration: 0.5, ease: 'linear' },
+  }),
+};
 
 export function Post({
   number,
@@ -16,13 +27,14 @@ export function Post({
   return (
     <motion.div
       className="mb-10"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ delay: number * 0.25 }}
+      custom={number}
+      initial="initial"
+      whileInView="animate"
+      variants={variants}
     >
       <Link
         className="group flex h-post-card w-post-card max-w-full flex-col gap-2 focus:outline-none"
-        href={"/blog/" + slug}
+        href={'/blog/' + slug}
       >
         <div>
           <p className="pb-2 text-sm font-medium">/00{number}</p>
@@ -45,7 +57,7 @@ export function Post({
         </div>
         <div className="mt-4 grid w-fit grid-cols-2 gap-4 pb-2 text-base leading-none">
           <span>— {formatDate(publishedAt)}</span>
-          <span>{timeToRead + " min read"}</span>
+          <span>{timeToRead + ' min read'}</span>
         </div>
       </Link>
     </motion.div>

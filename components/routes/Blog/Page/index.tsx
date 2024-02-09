@@ -4,7 +4,6 @@ import { getPostsChunk } from '@/actions/get-posts-chunk';
 import { Post } from './Post';
 import { PostsPagination } from './Pagination';
 import { EyebrowText } from '@/components/theme';
-import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { type PostType } from '@/lib/types';
 
@@ -18,16 +17,6 @@ type PostsChunk = {
   to: number;
   currentChunk: number;
   currentPosts: PostType[];
-};
-
-const animation = {
-  initial: { x: '100%' },
-  whileInView: { x: '0%' },
-  transition: {
-    type: 'tween',
-    ease: 'linear',
-    duration: 0.8,
-  },
 };
 
 export function Posts({
@@ -55,13 +44,15 @@ export function Posts({
   }
 
   return (
-    <div className={cn(className, 'h-[100lvh] bg-background')}>
+    <div
+      className={cn(
+        className,
+        'mt-[100lvh] h-[85lvh] min-h-full bg-background',
+      )}
+    >
       <EyebrowText cta="Thoughts">Explore</EyebrowText>
       <div className="flex min-h-[85%] flex-col justify-between">
-        <motion.div
-          className="inline-flex flex-wrap gap-5 pt-6"
-          {...animation}
-        >
+        <div className="my-14 inline-flex flex-wrap gap-5">
           {currentPosts.map((post, idx) => (
             <Post
               key={post.id}
@@ -69,8 +60,8 @@ export function Posts({
               {...post}
             />
           ))}
-        </motion.div>
-        <div className="mb-4 flex items-center justify-center">
+        </div>
+        <div className="mb-8 flex items-center justify-center">
           <PostsPagination
             currentChunk={currentChunk}
             totalChunks={totalChunks}
