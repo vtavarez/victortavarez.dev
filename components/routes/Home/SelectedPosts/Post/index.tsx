@@ -76,11 +76,11 @@ export function Post({
             <p className="text-pretty text-2xl font-medium md:text-2xl">
               {title}
             </p>
-            <div className="inline-flex items-center gap-3 text-sm lg:text-base">
+            <p className="max-w-full text-balance pb-2">{excerpt}</p>
+            <div className="inline-flex items-center gap-3 text-sm">
               <p className="text-balance pb-2">— {formatDate(publishedAt)}</p>
               <p className="text-balance pb-2">{timeToRead} min read</p>
             </div>
-            <p className="max-w-full text-balance pb-8">{excerpt}</p>
           </div>
           <div className="col-span-12 flex flex-row justify-between pb-3 xl:col-span-3 xl:pt-4">
             <ReadMore href={'/blog/' + slug}>Read more</ReadMore>

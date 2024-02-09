@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { formatDate } from "@/lib/utils";
-import socials from "@/lib/data/socials.json";
+import Link from 'next/link';
+import { formatDate } from '@/lib/utils';
+import socials from '@/lib/data/socials.json';
 
 export function Socials() {
   const today = new Date();
@@ -11,7 +11,7 @@ export function Socials() {
       <div>Socials</div>
       <div>
         <div>
-          <ul>
+          <ul className="xl:pr-4">
             {socials.map(({ id, title, href }) => (
               <li key={id}>
                 <Link href={href}>{title}</Link>

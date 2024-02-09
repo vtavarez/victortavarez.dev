@@ -3,21 +3,21 @@ import {
   SelectedWork,
   SelectedPosts,
   LetsConnect,
-} from "@/components/routes/Home";
-import { ValueProp, EyebrowText } from "@/components/theme";
+} from '@/components/routes/Home';
+import { ValueProp, EyebrowText } from '@/components/theme';
 
 export default function Page() {
   return (
     <>
       <Hero />
-      <EyebrowText cta="Selected posts">Discover</EyebrowText>
-      <SelectedPosts />
+      {/* <EyebrowText cta="Selected posts">Discover</EyebrowText>
+      <SelectedPosts /> */}
       <ValueProp
-        className="xl:pb-38 h-[728px] pb-8 pt-20 text-2xl xl:h-[768px] xl:pt-48"
+        className="xl:pb-38 h-[728px] pb-8 pt-20  xl:h-[768px] xl:pt-48"
         number="001"
       >
-        Hey there, and welcome to my corner of the web. Above you will find a
-        selection of my writing, and below you will find a selection of my work.
+        Thanks for visiting my corner of the web. Here you will find a selection
+        of my writing, and work.
       </ValueProp>
       <EyebrowText cta="Selected work">Discover</EyebrowText>
       <SelectedWork />

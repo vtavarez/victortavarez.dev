@@ -54,11 +54,11 @@ const config: Config = {
           foreground: 'hsl(var(--card-foreground))',
         },
       },
-      width: {
-        'post-card': '430px',
-      },
       height: {
-        'post-card': '530px',
+        'post-card': '230px',
+      },
+      maxWidth: {
+        'post-card': '430px',
       },
       fontSize: {
         'responsive-heading': 'clamp(1rem, 3vw, 2.5rem)',

@@ -1,6 +1,6 @@
-"use client";
-import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+'use client';
+import { motion } from 'framer-motion';
+import { ArrowDown } from 'lucide-react';
 export function Heading({
   children,
   icon,
@@ -10,11 +10,11 @@ export function Heading({
   icon?: boolean;
 } & React.HTMLAttributes<HTMLDivElement>) {
   const animation = {
-    initial: { y: "100%", opacity: 0 },
-    animate: { y: "0%", opacity: 1 },
+    initial: { y: '100%', opacity: 0 },
+    animate: { y: '0%', opacity: 1 },
     transition: {
-      type: "tween",
-      ease: "linear",
+      type: 'tween',
+      ease: 'linear',
       duration: 0.4,
     },
   };

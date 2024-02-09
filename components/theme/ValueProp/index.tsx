@@ -1,8 +1,8 @@
-"use client";
-import React, { useRef, useState } from "react";
-import { useObserver } from "@/lib/hooks";
-import { Typewriter } from "@/components/ui";
-import { cn } from "@/lib/utils";
+'use client';
+import React, { useRef, useState } from 'react';
+import { useObserver } from '@/lib/hooks';
+import { Typewriter } from '@/components/ui';
+import { cn } from '@/lib/utils';
 
 export function ValueProp({
   number,
@@ -16,18 +16,18 @@ export function ValueProp({
   const container = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
 
-  useObserver(() => setIsInView((prev) => !prev), container, {
+  useObserver(() => setIsInView(prev => !prev), container, {
     amount: 0.8,
   });
 
   return (
     <div
       ref={container}
-      className={cn("grid max-h-full grid-cols-12 gap-4", className)}
+      className={cn('grid max-h-full grid-cols-12 gap-4', className)}
       {...props}
     >
       <div className="col-span-12 text-base font-medium leading-loose md:col-span-1">
-        {"/" + number}
+        {'/ ' + number}
       </div>
       <div className="col-span-12 flex items-start justify-center text-left text-3xl font-medium md:col-span-11 md:items-center lg:text-[2.5rem]">
         {isInView && (

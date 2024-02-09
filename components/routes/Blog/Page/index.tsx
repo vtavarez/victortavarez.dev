@@ -44,12 +44,7 @@ export function Posts({
   }
 
   return (
-    <div
-      className={cn(
-        className,
-        'mt-[100lvh] h-[85lvh] min-h-full bg-background',
-      )}
-    >
+    <div className={cn(className, 'h-[90lvh] min-h-full bg-background')}>
       <EyebrowText cta="Thoughts">Explore</EyebrowText>
       <div className="flex min-h-[85%] flex-col justify-between">
         <div className="my-14 inline-flex flex-wrap gap-5">
