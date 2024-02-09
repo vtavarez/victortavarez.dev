@@ -21,7 +21,7 @@ export function Heading({
   return (
     <div {...props}>
       <motion.h1
-        className="flex w-full items-center text-responsive-heading font-medium leading-none text-primary"
+        className="flex w-full items-end text-responsive-heading font-medium leading-none text-primary"
         {...animation}
       >
         {children}

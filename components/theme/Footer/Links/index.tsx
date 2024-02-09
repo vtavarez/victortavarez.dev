@@ -1,10 +1,10 @@
-import Link from "next/link";
-import { ArrowUp } from "lucide-react";
-import links from "@/lib/data/navigation_links.json";
+import Link from 'next/link';
+import { ArrowUp } from 'lucide-react';
+import links from '@/lib/data/navigation_links.json';
 
 export function Links() {
   return (
-    <div className="mt-6 flex h-fit w-full flex-row justify-between px-6 text-base font-medium xl:px-16">
+    <div className="mt-6 flex h-fit w-full flex-row justify-between px-6 text-base font-medium xl:px-8">
       <div className="flex flex-col items-center justify-center">
         <ul className="flex flex-row flex-wrap items-center justify-between gap-4">
           {links.map(({ id, title, href }) => (

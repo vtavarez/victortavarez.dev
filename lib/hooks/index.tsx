@@ -22,7 +22,7 @@ export const useFocusedFields = (fields: InputsFocusState) => {
   return { focusedFields, setFocusedFields };
 };
 
-export function useObserver(
+export function useIntersectionObserver(
   fn: () => void,
   ref: any,
   options: { amount?: number | 'some' | 'all' },
@@ -45,48 +45,46 @@ export function useObserver(
 }
 
 export function useTypingAnimation(node: React.ReactElement) {
-  const initalRender = useRef<boolean>(true);
-  const animationFrame = useRef<number>(0);
-  const index = useRef<number>(0);
-  const previousTime = useRef<number>(performance.now());
-  const chars = useRef<string>(node.props.children);
+  const state = useRef({
+    initalRender: true,
+    animationFrame: 0,
+    fps: 30,
+    index: 0,
+    previousTime: performance.now(),
+    chars: node.props.children,
+  });
 
   const [sentence, setSentence] = useState<string>('');
   const [caret, setCaret] = useState<boolean>(false);
 
   function type(currentTime: number, currentIndex: number): void {
-    let delta = currentTime - previousTime.current;
-    let fps = 30;
+    let delta = currentTime - state.current.previousTime;
 
-    if (currentIndex < chars.current.length) {
-      if (delta >= Math.floor(1000 / fps)) {
-        setSentence(prev => prev + chars.current.charAt(currentIndex));
-        index.current = currentIndex + 1;
-        previousTime.current = currentTime;
+    if (currentIndex < state.current.chars.length) {
+      if (delta >= Math.floor(1000 / state.current.fps)) {
+        state.current.index = currentIndex + 1;
+        state.current.previousTime = currentTime;
+        setSentence(prev => prev + state.current.chars.charAt(currentIndex));
       }
-
-      requestAnimationFrame(() => {
-        type(performance.now(), index.current);
-      });
+      requestAnimationFrame(() => type(performance.now(), state.current.index));
       return;
     }
 
     setTimeout(() => setCaret(prev => !prev), 500);
-    cancelAnimationFrame(animationFrame.current);
+    cancelAnimationFrame(state.current.animationFrame);
   }
 
   useEffect(() => {
-    if (initalRender.current) {
-      initalRender.current = false;
+    if (state.current.initalRender) {
+      state.current.initalRender = false;
 
-      animationFrame.current = requestAnimationFrame(() => {
-        type(performance.now(), index.current);
+      state.current.animationFrame = requestAnimationFrame(() => {
+        type(performance.now(), state.current.index);
       });
 
       setCaret(true);
     }
-
-    () => cancelAnimationFrame(animationFrame.current);
+    () => cancelAnimationFrame(state.current.animationFrame);
   }, []);
 
   return { sentence, caret };
