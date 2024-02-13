@@ -1,13 +1,13 @@
 'use client';
 import { motion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, ArrowRight } from 'lucide-react';
 export function Heading({
   children,
   icon,
   ...props
 }: {
   children: React.ReactNode;
-  icon?: boolean;
+  icon?: string;
 } & React.HTMLAttributes<HTMLDivElement>) {
   const animation = {
     initial: { y: '100%', opacity: 0 },
@@ -25,7 +25,12 @@ export function Heading({
         {...animation}
       >
         {children}
-        {icon && <ArrowDown className="size-responsive-icon ml-auto" />}
+        {icon === 'arrow-down' && (
+          <ArrowDown className="size-responsive-icon ml-auto" />
+        )}
+        {icon === 'arrow-right' && (
+          <ArrowRight className="size-responsive-icon ml-auto" />
+        )}
       </motion.h1>
     </div>
   );

@@ -24,7 +24,7 @@ export default async function Page() {
       <div className="relative pt-[100lvh]">
         <Heading
           className="fixed inset-0 -z-10 flex h-[100lvh] items-end overflow-hidden px-6 pb-12 xl:px-8 xl:pb-20"
-          icon
+          icon="arrow-down"
         >
           Blog
         </Heading>

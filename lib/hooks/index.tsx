@@ -1,5 +1,4 @@
 import React, { useReducer, useEffect, useRef, useState } from 'react';
-import { inView } from 'framer-motion';
 import type { InputsFocusState } from '@/lib/types';
 
 export const useFocusedFields = (fields: InputsFocusState) => {
@@ -21,28 +20,6 @@ export const useFocusedFields = (fields: InputsFocusState) => {
 
   return { focusedFields, setFocusedFields };
 };
-
-export function useIntersectionObserver(
-  fn: () => void,
-  ref: any,
-  options: { amount?: number | 'some' | 'all' },
-) {
-  const initialRender = useRef(true);
-  useEffect(() => {
-    if (initialRender.current) {
-      inView(
-        ref.current,
-        entry => {
-          if (entry.isIntersecting) {
-            fn();
-          }
-        },
-        options,
-      );
-      initialRender.current = false;
-    }
-  }, []);
-}
 
 export function useTypingAnimation(node: React.ReactElement) {
   const state = useRef({

@@ -1,13 +1,15 @@
-"use client";
-import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+'use client';
+import { motion } from 'framer-motion';
+import { ArrowDown, ArrowRight } from 'lucide-react';
 
 export function EyebrowText({
   children,
   cta,
+  icon,
 }: {
   children: React.ReactNode;
   cta?: string;
+  icon?: string;
 }) {
   const animation = {
     initial: {
@@ -20,7 +22,7 @@ export function EyebrowText({
       once: true,
     },
     transition: {
-      type: "ease",
+      type: 'ease',
       duration: 1,
       ease: [0.96, 0.085, 0.0, 0.695],
     },
@@ -34,7 +36,8 @@ export function EyebrowText({
       {Boolean(cta) && (
         <div className="flex flex-row gap-1 font-medium">
           {cta}
-          <ArrowDown />
+          {icon === 'arrow-down' && <ArrowDown />}
+          {icon === 'arrow-right' && <ArrowRight />}
         </div>
       )}
     </motion.div>

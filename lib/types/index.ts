@@ -1,6 +1,12 @@
-import { postSchema, recaptchaSchema } from "@/lib/schema";
-import { SentMessageInfo } from "nodemailer/lib/smtp-transport";
-import { z } from "zod";
+import { postSchema, recaptchaSchema } from '@/lib/schema';
+import { SentMessageInfo } from 'nodemailer/lib/smtp-transport';
+import { z } from 'zod';
+
+declare global {
+  interface Window {
+    readonly innerWidth: number;
+  }
+}
 
 export type Inputs = {
   name: string;
