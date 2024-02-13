@@ -3,14 +3,12 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform, easeInOut } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
-export function HorizontalContent({
+function HorizontalContent({
   children,
   className,
-  lock,
 }: {
   children: React.ReactNode;
   className?: string;
-  lock?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -28,18 +26,34 @@ export function HorizontalContent({
   );
 
   return (
-    <div
+    <section
       ref={ref}
       className="relative h-[200lvh]"
     >
       <div className="sticky top-0 overflow-hidden">
-        <motion.div
+        <motion.section
           className={cn('flex flex-row', className)}
           style={{ x }}
         >
           {children}
-        </motion.div>
+        </motion.section>
       </div>
-    </div>
+    </section>
   );
 }
+
+function HorizontalContentItem({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <section className={cn('flex min-w-full flex-col', className)}>
+      {children}
+    </section>
+  );
+}
+
+export { HorizontalContent, HorizontalContentItem };

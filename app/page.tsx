@@ -5,17 +5,17 @@ import {
   LetsConnect,
 } from '@/components/routes/Home';
 import { ValueProp, EyebrowText } from '@/components/theme';
-import { HorizontalContent } from '@/components/ui';
+import { HorizontalContent, HorizontalContentItem } from '@/components/ui';
 
 export default function Page() {
   return (
-    <div className="pt-[100lvh]">
+    <section className="pt-[100lvh]">
       <Hero />
-      <div className="bg-gradient-to-t from-background from-95% to-transparent xl:pt-24">
-        <HorizontalContent lock>
-          <div className="min-w-full">
+      <section className="bg-gradient-to-t from-background from-95% to-transparent xl:pt-24">
+        <HorizontalContent>
+          <HorizontalContentItem>
             <ValueProp
-              className="h-[82lvh] xl:mb-56 xl:pt-20"
+              className="h-horizontal-content xl:pt-20"
               number="001"
             >
               Thanks for visiting my corner of the web. Here you will find a
@@ -27,12 +27,12 @@ export default function Page() {
             >
               Discover
             </EyebrowText>
-          </div>
-          <div className="min-w-full">
-            <div className="flex h-[100lvh] justify-end xl:pr-4 xl:pt-20">
+          </HorizontalContentItem>
+          <HorizontalContentItem>
+            <div className="h-horizontal-content flex justify-end xl:pr-4 xl:pt-20">
               <SelectedPosts />
             </div>
-          </div>
+          </HorizontalContentItem>
         </HorizontalContent>
         <EyebrowText
           cta="Selected work"
@@ -58,7 +58,7 @@ export default function Page() {
           If you would like to get in touch, please feel free to reach out.
         </ValueProp>
         <LetsConnect />
-      </div>
-    </div>
+      </section>
+    </section>
   );
 }

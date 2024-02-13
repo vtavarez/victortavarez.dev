@@ -59,6 +59,7 @@ const config: Config = {
       },
       height: {
         'post-card': '230px',
+        'horizontal-content': 'calc(100vh - 152px)',
       },
       maxWidth: {
         'post-card': '430px',
