@@ -5,31 +5,29 @@ import { Heading } from '@/components/theme';
 import { Posts } from '@/components/routes/Blog';
 
 export const metadata: Metadata = {
-  title: 'Blog - Victor Tavarez',
-  description:
-    "Thoughts on the current state of web development, and experiences and the lessons I've learned along the way.",
+	title: 'Blog - Victor Tavarez',
+	description:
+		"Thoughts on the current state of web development, and experiences and the lessons I've learned along the way.",
 };
 
 export default async function Page() {
-  const totalPosts = await getPostsCount();
-  const posts = postListSchema.safeParse(await getPosts(0, 8, 'desc'));
+	const totalPosts = await getPostsCount();
+	const posts = postListSchema.safeParse(await getPosts(0, 8, 'desc'));
 
-  const props = {
-    totalPosts,
-    posts: 'error' in posts ? (console.error(posts.error), []) : posts.data,
-  };
+	const props = {
+		totalPosts,
+		posts: 'error' in posts ? (console.error(posts.error), []) : posts.data,
+	};
 
-  return (
-    <>
-      <div className="relative pt-[100lvh]">
-        <Heading
-          className="fixed inset-0 -z-10 flex h-[100lvh] items-end overflow-hidden px-6 pb-12 xl:px-8 xl:pb-20"
-          icon="arrow-down"
-        >
-          Blog
-        </Heading>
-        <Posts {...props} />
-      </div>
-    </>
-  );
+	return (
+		<section className="relative pt-[100lvh]">
+			<Heading
+				className="fixed inset-0 -z-10 flex h-[100lvh] items-end overflow-hidden px-6 pb-12 xl:px-8 xl:pb-20"
+				icon="arrow-down"
+			>
+				Blog
+			</Heading>
+			<Posts {...props} />
+		</section>
+	);
 }

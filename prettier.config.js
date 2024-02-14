@@ -5,7 +5,7 @@ module.exports = {
   jsxDoubleQuote: true,
   singleAttributePerLine: true,
   tabWidth: 2,
-  useTabs: false,
+  useTabs: true,
   bracketSpacing: true,
   proseWrap: 'always',
   formatOnSave: true,
