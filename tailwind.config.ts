@@ -61,6 +61,10 @@ const config: Config = {
         'post-card': '230px',
         'horizontal-content': 'calc(100vh - 152px)',
       },
+      minHeight: {
+        'blog-page': 'calc(100vh - 240px)',
+        'blog-posts': 'calc(100vh - 432px)',
+      },
       maxWidth: {
         'post-card': '430px',
       },

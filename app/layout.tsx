@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          'relative overflow-x-hidden bg-background px-6 pb-60 font-sans antialiased xl:min-h-screen xl:px-8',
+          'relative overflow-x-hidden bg-background px-6 pb-60 font-sans antialiased xl:min-h-screen xl:px-8 xl:pt-16',
           fontSans.variable,
         )}
       >

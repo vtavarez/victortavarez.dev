@@ -1,10 +1,8 @@
 'use client';
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { formatDate } from '@/lib/utils';
 import { type PostType } from '@/lib/types';
-import { custom } from 'zod';
 
 const variants = {
   initial: { opacity: 0, x: 20 },
@@ -20,6 +18,7 @@ export function Post({
   title,
   mainImage: { url, alt },
   excerpt,
+  categories,
   slug,
   timeToRead,
   publishedAt,
@@ -32,7 +31,7 @@ export function Post({
       variants={variants}
     >
       <Link
-        className="max-w-post-card group flex h-post-card flex-col focus:outline-none"
+        className="group flex h-post-card max-w-post-card flex-col focus:outline-none"
         href={'/blog/' + slug}
       >
         <div>
@@ -40,9 +39,17 @@ export function Post({
           <h3 className="underline-animation min-h-[1.8rem] w-fit overflow-hidden text-ellipsis text-pretty text-lg font-medium leading-none">
             {title}
           </h3>
-          <p className="h-20 overflow-hidden text-ellipsis text-pretty text-sm">
+          <p className="mb-3 overflow-hidden text-ellipsis text-pretty text-sm">
             {excerpt}
           </p>
+        </div>
+        <div className="mb-4 inline-flex gap-2 text-xs leading-none">
+          {categories.map(category => (
+            <span key={category}>
+              {category}
+              {categories.length > 1 && ','}
+            </span>
+          ))}
         </div>
         <div className="grid w-fit grid-cols-2 gap-4 pb-2 text-sm leading-none">
           <span>— {formatDate(publishedAt)}</span>

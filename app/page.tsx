@@ -29,7 +29,7 @@ export default function Page() {
             </EyebrowText>
           </HorizontalContentItem>
           <HorizontalContentItem>
-            <div className="h-horizontal-content flex justify-end xl:pr-4 xl:pt-20">
+            <div className="flex h-horizontal-content justify-center xl:pr-4 xl:pt-20">
               <SelectedPosts />
             </div>
           </HorizontalContentItem>

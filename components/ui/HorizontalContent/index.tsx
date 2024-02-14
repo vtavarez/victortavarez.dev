@@ -16,14 +16,9 @@ function HorizontalContent({
     offset: ['start start', 'end end'],
   });
 
-  const x = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ['0px', `-${window ? window.innerWidth : 0}px`],
-    {
-      ease: easeInOut,
-    },
-  );
+  const x = useTransform(scrollYProgress, [0, 1], ['0%s', '-100%'], {
+    ease: easeInOut,
+  });
 
   return (
     <section

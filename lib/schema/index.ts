@@ -1,22 +1,22 @@
-import { z } from "zod";
-import { type TypedObject } from "sanity";
+import { z } from 'zod';
+import { type TypedObject } from 'sanity';
 
 const errorMessages = {
   name: {
-    required: "Name is Required",
-    min: "Name must be 2 or more characters long",
-    max: "Name must be 2 or fewer characters long",
-    regex: "Name can only contain letters and spaces",
+    required: 'Name is Required',
+    min: 'Name must be 2 or more characters long',
+    max: 'Name must be 2 or fewer characters long',
+    regex: 'Name can only contain letters and spaces',
   },
   email: {
-    required: "Email is Required",
-    invalid: "Invalid email",
+    required: 'Email is Required',
+    invalid: 'Invalid email',
   },
   message: {
-    required: "Message is Required",
-    min: "Message must be 10 or more characters long",
-    max: "Message must be 500 or fewer characters long",
-    regex: "Message can only contain letters, numbers, and spaces",
+    required: 'Message is Required',
+    min: 'Message must be 10 or more characters long',
+    max: 'Message must be 500 or fewer characters long',
+    regex: 'Message can only contain letters, numbers, and spaces',
   },
 };
 
@@ -47,6 +47,7 @@ export const postSchema = z.object({
   excerpt: z.string(),
   timeToRead: z.number(),
   slug: z.string(),
+  categories: z.array(z.string()),
   author: z.object({ name: z.string(), image: z.string() }),
   mainImage: z.object({ url: z.string(), alt: z.string() }),
   body: z.custom<TypedObject>().array().optional(),
@@ -60,6 +61,6 @@ export const recaptchaSchema = z.object({
   action: z.string(),
   challenge_ts: z.string(),
   hostname: z.string(),
-  "error-codes": z.array(z.string()).optional(),
+  'error-codes': z.array(z.string()).optional(),
   error: z.custom<typeof Error>().optional(),
 });
