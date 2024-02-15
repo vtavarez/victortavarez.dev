@@ -18,7 +18,7 @@ export default function Page() {
 							/ 001
 						</div>
 						<div className="flex h-horizontal-content flex-col justify-center pt-20">
-							<ValueProp className="min-h-24">
+							<ValueProp className="min-h-22">
 								Thanks for visiting my corner of the web. Here you will find a
 								selection of my writing, and work.
 							</ValueProp>
@@ -35,7 +35,7 @@ export default function Page() {
 							/ 002
 						</div>
 						<div className="flex h-horizontal-content flex-col justify-center pt-20">
-							<ValueProp className="min-h-12 xl:pr-12 2xl:pr-16">
+							<ValueProp className="min-h-12">
 								Below is a selection of my writing on topics I found
 								interesting.
 							</ValueProp>
