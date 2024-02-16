@@ -1,5 +1,5 @@
-import { revalidateTag } from "next/cache";
+import { revalidateTag } from 'next/cache';
 export async function POST(request: Request) {
-  revalidateTag("posts");
-  return new Response("OK");
+	revalidateTag('work');
+	return new Response('OK');
 }
