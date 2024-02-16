@@ -63,3 +63,10 @@ class DBConnection {
 }
 
 export const db = new DBConnection();
+
+export async function getProjects(): Promise<void> {
+	const response = await fetch('https://api.example.com/work', {
+		cache: 'force-cache',
+		next: { tags: ['post'] },
+	});
+}

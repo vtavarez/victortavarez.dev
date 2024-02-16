@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@/lib/providers/next-theme';
+import { ThemeProvider } from '@/lib/context/next-theme';
 import { Header, Footer } from '@/components/theme';
 import { Inter as FontSans } from 'next/font/google';
 import { cn } from '@/lib/utils';
@@ -6,42 +6,42 @@ import type { Metadata } from 'next';
 import '@/styles/globals.css';
 
 export const fontSans = FontSans({
-  subsets: ['latin'],
-  variable: '--font-sans',
+	subsets: ['latin'],
+	variable: '--font-sans',
 });
 
 export const metadata: Metadata = {
-  title: 'Victor Tavarez',
-  description:
-    "Hey, I'm Victor. I enjoy building dynamic and engaging user experiences on the web and sharing my knowledge with others.",
+	title: 'Victor Tavarez',
+	description:
+		"Hey, I'm Victor. I enjoy building dynamic and engaging user experiences on the web and sharing my knowledge with others.",
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: {
-  header: React.ReactNode;
-  children: React.ReactNode;
-  footer: React.ReactNode;
+	header: React.ReactNode;
+	children: React.ReactNode;
+	footer: React.ReactNode;
 }) {
-  return (
-    <html lang="en">
-      <body
-        className={cn(
-          'relative overflow-x-hidden bg-background px-6 pb-60 font-sans antialiased xl:min-h-screen xl:px-8 xl:pt-16',
-          fontSans.variable,
-        )}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </ThemeProvider>
-      </body>
-    </html>
-  );
+	return (
+		<html lang="en">
+			<body
+				className={cn(
+					'relative overflow-x-hidden bg-background px-6 pb-60 font-sans antialiased xl:min-h-screen xl:px-8 xl:pt-16',
+					fontSans.variable,
+				)}
+			>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="light"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<Header />
+					<main>{children}</main>
+					<Footer />
+				</ThemeProvider>
+			</body>
+		</html>
+	);
 }
