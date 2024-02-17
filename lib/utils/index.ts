@@ -28,20 +28,20 @@ export function* typeWriter(text: string) {
 // Prisma Client
 
 class DBConnection {
-	private readonly prisma: PrismaClient;
+	private readonly client: PrismaClient;
 
-	constructor() {
-		this.prisma = new PrismaClient();
+	constructor(client: typeof PrismaClient) {
+		this.client = new client();
 	}
 
 	private async disconnect() {
-		await this.prisma.$disconnect();
+		await this.client.$disconnect();
 	}
 
 	async create(data: { id: string; likes: number }) {
 		try {
-			const likes = await this.prisma.postLikes.create({ data });
-			await this.prisma.$disconnect();
+			const likes = await this.client.postLikes.create({ data });
+			await this.disconnect();
 			return likes;
 		} catch (error) {
 			console.error(error);
@@ -50,11 +50,11 @@ class DBConnection {
 
 	async update(data: { id: string; likes: number }) {
 		try {
-			const likes = await this.prisma.postLikes.update({
+			const likes = await this.client.postLikes.update({
 				where: { id: data.id },
 				data: { likes: data.likes },
 			});
-			await this.prisma.$disconnect();
+			await this.disconnect();
 			return likes;
 		} catch (error) {
 			console.error(error);
@@ -62,11 +62,52 @@ class DBConnection {
 	}
 }
 
-export const db = new DBConnection();
+export const db = new DBConnection(PrismaClient);
 
-export async function getProjects(): Promise<void> {
-	const response = await fetch('https://api.example.com/work', {
+// Fetching Data
+
+function extractProjects(res: any): any[] {
+	const {
+		data: {
+			viewer: { repositories },
+		},
+	} = res;
+	return repositories.nodes;
+}
+
+export async function getProjects(
+	number: number,
+	direction: string,
+): Promise<any[]> {
+	const response = await fetch('https://api.github.com/graphql', {
+		method: 'POST',
 		cache: 'force-cache',
 		next: { tags: ['projects'] },
+		headers: {
+			Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			query: `
+				query {
+					viewer {
+						repositories(
+							first: ${number}
+							privacy: PUBLIC
+							orderBy: { field: CREATED_AT, direction: ${direction} }
+						) {
+							nodes {
+								name
+								description
+								url
+								stargazerCount
+								forkCount
+							}
+						}
+					}
+				}
+			`,
+		}),
 	});
+	return extractProjects(response.json());
 }
