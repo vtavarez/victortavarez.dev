@@ -2,7 +2,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, easeInOut } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { verify } from '@/actions/recaptcha';
 
 function HorizontalContent({
 	children,
@@ -39,7 +38,7 @@ function HorizontalContent({
 	);
 }
 
-function HorizontalContentItem({
+function ContentItem({
 	children,
 	className,
 }: {
@@ -53,4 +52,4 @@ function HorizontalContentItem({
 	);
 }
 
-export { HorizontalContent, HorizontalContentItem };
+export { HorizontalContent, ContentItem };

@@ -8,10 +8,10 @@ const nodes = `
   publishedAt,
   excerpt,
   timeToRead,
-  "slug":slug.current,
-  "categories":categories[]->title,
-  "author":{"image":author->image.asset->url,"name":author->name},
-  "mainImage": {"url":mainImage.asset->url, "alt":mainImage.alt},
+  'slug':slug.current,
+  'categories':categories[]->title,
+  'author':{'image':author->image.asset->url,'name':author->name},
+  'mainImage': {'url':mainImage.asset->url, 'alt':mainImage.alt},
 `;
 
 export const client = createClient({
@@ -21,7 +21,7 @@ export const client = createClient({
 	useCdn,
 });
 
-function extractPost(res: Array<PostType>): PostType {
+function extractPost(res: PostType[]): PostType {
 	return res[0];
 }
 
@@ -56,9 +56,9 @@ export async function getPost(slug: string): Promise<PostType> {
 	return extractPost(postsArray);
 }
 
-export async function getWork(slug: string): Promise<PostType> {
+export async function getWork(slug: string, order: string): Promise<PostType> {
 	const postsArray = await client.fetch(
-		`*[slug.current == "${slug}"]{${nodes} body}`,
+		`*[_type == "work"] order(publishedAt ${order}){${nodes} body}`,
 		{},
 		{ cache: 'force-cache', next: { tags: ['work'] } },
 	);

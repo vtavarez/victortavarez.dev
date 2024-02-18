@@ -24,7 +24,10 @@ export default function RootLayout({
 	footer: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
+		<html
+			lang="en"
+			suppressHydrationWarning={true}
+		>
 			<body
 				className={cn(
 					'relative overflow-x-hidden bg-background px-6 pb-60 font-sans antialiased xl:min-h-screen xl:px-8 xl:pt-16',

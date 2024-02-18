@@ -8,10 +8,12 @@ export function ValueProp({
 	number,
 	children,
 	className,
+	onAnimationFinished,
 }: {
 	number?: string;
 	children: string;
 	className?: string;
+	onAnimationFinished?: () => void;
 }) {
 	const [isInView, setIsInView] = useState(false);
 
@@ -24,9 +26,14 @@ export function ValueProp({
 			<div className="col-span-12 pt-28 text-base font-medium leading-loose lg:col-span-1 lg:pt-0">
 				{number && '/ ' + number}
 			</div>
-			<div className="col-span-12 text-responsive-heading font-medium lg:col-span-11">
+			<div
+				className={cn(
+					'col-span-12 text-responsive-heading font-medium',
+					number ? 'lg:col-span-11' : 'lg:col-span-12',
+				)}
+			>
 				{isInView && (
-					<Typewriter>
+					<Typewriter onFinished={onAnimationFinished}>
 						<p
 							className="mx-auto max-w-5xl whitespace-normal pl-2 leading-snug md:pl-6 lg:p-0"
 							aria-label={children}

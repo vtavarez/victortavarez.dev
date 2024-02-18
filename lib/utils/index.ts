@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
-import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { format } from 'date-fns';
+import { type ClassValue, clsx } from 'clsx';
 
 // Tailwind CSS Classnames Merging Utility
 
@@ -61,8 +61,6 @@ class DBConnection {
 		}
 	}
 }
-
-export const db = new DBConnection(PrismaClient);
 
 // Fetching Data
 

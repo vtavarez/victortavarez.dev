@@ -22,7 +22,7 @@ export const useFocusedFields = (fields: InputsFocusState) => {
 	return { focusedFields, setFocusedFields };
 };
 
-export function useTypingAnimation(node: React.ReactElement) {
+export function useTypingAnimation(node: React.ReactElement, cb?: () => void) {
 	const [sentence, setSentence] = useState<string>('');
 	const [caret, setCaret] = useState<boolean>(true);
 
@@ -33,7 +33,10 @@ export function useTypingAnimation(node: React.ReactElement) {
 			const { value, done } = animation.next();
 			if (done) {
 				clearInterval(interval);
-				setTimeout(() => setCaret(prev => !prev), 500);
+				setTimeout(() => {
+					cb && cb();
+					setCaret(prev => !prev);
+				}, 500);
 				return;
 			}
 			setSentence(prev => prev + value);
