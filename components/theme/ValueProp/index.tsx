@@ -23,9 +23,11 @@ export function ValueProp({
 			viewport={{ once: true, amount: 0.9 }}
 			onViewportEnter={() => setIsInView(true)}
 		>
-			<div className="col-span-12 pt-28 text-base font-medium leading-loose lg:col-span-1 lg:pt-0">
-				{number && '/ ' + number}
-			</div>
+			{number && (
+				<div className="col-span-12 pt-28 text-base font-medium leading-loose lg:col-span-1 lg:pt-0">
+					{'/ ' + number}
+				</div>
+			)}
 			<div
 				className={cn(
 					'col-span-12 text-responsive-heading font-medium',
@@ -35,7 +37,7 @@ export function ValueProp({
 				{isInView && (
 					<Typewriter onFinished={onAnimationFinished}>
 						<p
-							className="mx-auto max-w-5xl whitespace-normal pl-2 leading-snug md:pl-6 lg:p-0"
+							className="mx-auto w-full max-w-5xl whitespace-normal pl-2 leading-snug md:pl-6 lg:p-0"
 							aria-label={children}
 						>
 							{children}
