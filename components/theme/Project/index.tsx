@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import { Card } from '@/components/ui';
 
 const variants = {
 	initial: { opacity: 0, x: 20 },
@@ -10,13 +11,29 @@ const variants = {
 	}),
 };
 
-export function Project({ number }: { number: number }) {
+export function Project({
+	number,
+	name,
+	description,
+	url,
+	stargazerCount,
+	forkCount,
+}: {
+	number: number;
+	name: string;
+	description: string;
+	url: string;
+	stargazerCount: number;
+	forkCount: number;
+}) {
 	return (
 		<motion.div
 			custom={number}
 			initial="initial"
 			whileInView="animate"
 			variants={variants}
-		></motion.div>
+		>
+			<Card className="w-full max-w-post-card" />
+		</motion.div>
 	);
 }

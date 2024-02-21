@@ -58,7 +58,7 @@ const config: Config = {
 				'responsive-icon': 'clamp(1.5rem, 3vw, 2rem)',
 			},
 			height: {
-				'post-card': '230px',
+				'post-card': '210px',
 				'horizontal-content': 'calc(100vh - 152px)',
 			},
 			minHeight: {

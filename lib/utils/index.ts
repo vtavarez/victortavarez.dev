@@ -2,7 +2,9 @@ import { PrismaClient } from '@prisma/client';
 import { twMerge } from 'tailwind-merge';
 import { format } from 'date-fns';
 import { type ClassValue, clsx } from 'clsx';
-
+import { projectsResponseSchema } from '@/lib/schema';
+import { type ProjectsData, ProjectsResponse } from '@/lib/types';
+import { SafeParseError, SafeParseSuccess } from 'zod';
 // Tailwind CSS Classnames Merging Utility
 
 export function cn(...inputs: ClassValue[]) {
@@ -64,19 +66,21 @@ class DBConnection {
 
 // Fetching Data
 
-function extractProjects(res: any): any[] {
+function extractProjects(res: ProjectsResponse): ProjectsData {
 	const {
 		data: {
 			viewer: { repositories },
 		},
 	} = res;
-	return repositories.nodes;
+	return {
+		projects: repositories.nodes,
+	};
 }
 
 export async function getProjects(
 	number: number,
 	direction: string,
-): Promise<any[]> {
+): Promise<ProjectsData> {
 	const response = await fetch('https://api.github.com/graphql', {
 		method: 'POST',
 		cache: 'force-cache',
@@ -92,7 +96,7 @@ export async function getProjects(
 						repositories(
 							first: ${number}
 							privacy: PUBLIC
-							orderBy: { field: CREATED_AT, direction: ${direction} }
+							orderBy: { field: CREATED_AT, direction: ${direction.toUpperCase()} }
 						) {
 							nodes {
 								name
@@ -100,6 +104,9 @@ export async function getProjects(
 								url
 								stargazerCount
 								forkCount
+								primaryLanguage {
+									name
+								}
 							}
 						}
 					}
@@ -107,5 +114,18 @@ export async function getProjects(
 			`,
 		}),
 	});
-	return extractProjects(response.json());
+
+	const parsedResponse = projectsResponseSchema.safeParse(
+		await response.json(),
+	);
+
+	if (!parsedResponse.success) {
+		console.error(parsedResponse.error.errors[0]);
+		return {
+			error: `Error: ${parsedResponse.error.errors[0]}`,
+			projects: [],
+		};
+	}
+
+	return extractProjects(parsedResponse.data);
 }
