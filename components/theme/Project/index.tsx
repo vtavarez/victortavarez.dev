@@ -33,7 +33,7 @@ export function Project({
 			whileInView="animate"
 			variants={variants}
 		>
-			<Card className="w-full max-w-post-card" />
+			<Card className="w-card h-card rounded-none border-card border-primary bg-background" />
 		</motion.div>
 	);
 }

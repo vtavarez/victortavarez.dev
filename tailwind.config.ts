@@ -57,7 +57,11 @@ const config: Config = {
 			size: {
 				'responsive-icon': 'clamp(1.5rem, 3vw, 2rem)',
 			},
+			width: {
+				card: '430px',
+			},
 			height: {
+				card: '210px',
 				'post-card': '210px',
 				'horizontal-content': 'calc(100vh - 152px)',
 			},
@@ -66,6 +70,7 @@ const config: Config = {
 				'blog-posts': 'calc(100vh - 432px)',
 			},
 			maxWidth: {
+				card: '430px',
 				'post-card': '430px',
 			},
 			fontSize: {
@@ -76,6 +81,9 @@ const config: Config = {
 			},
 			fontFamily: {
 				sans: ['var(--font-sans)', ...fontFamily.sans],
+			},
+			borderWidth: {
+				card: '1px',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

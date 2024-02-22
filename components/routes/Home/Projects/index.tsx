@@ -8,7 +8,7 @@ export async function Projects() {
 		<section className="mt-2 flex h-horizontal-content flex-col justify-between md:mt-0">
 			<div className="mx-auto flex h-full w-full max-w-5xl flex-col justify-center">
 				<ValueProp>Here are a few of my most recent projects.</ValueProp>
-				<div className="inline-flex min-h-[294px] w-full flex-wrap justify-between xl:pt-12">
+				<div className="inline-flex min-h-[294px] w-full flex-wrap justify-stretch gap-6 xl:pt-12">
 					{response.error
 						? null
 						: response.projects.map((project, i) => (
