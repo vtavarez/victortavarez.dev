@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui';
 
@@ -33,7 +34,12 @@ export function Project({
 			whileInView="animate"
 			variants={variants}
 		>
-			<Card className="w-card h-card rounded-none border-card border-primary bg-background" />
+			<Link
+				href={url}
+				target="_blank"
+				rel="noopener noreferrer"
+			></Link>
+			<Card className="h-card w-card rounded-none border-card border-primary bg-background" />
 		</motion.div>
 	);
 }
