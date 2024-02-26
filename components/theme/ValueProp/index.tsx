@@ -19,7 +19,7 @@ export function ValueProp({
 
 	return (
 		<motion.div
-			className={cn('grid grid-cols-12 gap-4', className)}
+			className={cn('grid grid-cols-12 gap-4 overflow-hidden', className)}
 			viewport={{ once: true, amount: 0.9 }}
 			onViewportEnter={() => setIsInView(true)}
 		>

@@ -3,43 +3,43 @@ import { motion } from 'framer-motion';
 import { ArrowDown, ArrowRight } from 'lucide-react';
 
 export function EyebrowText({
-  children,
-  cta,
-  icon,
+	children,
+	cta,
+	icon,
 }: {
-  children: React.ReactNode;
-  cta?: string;
-  icon?: string;
+	children: React.ReactNode;
+	cta?: string;
+	icon?: string;
 }) {
-  const animation = {
-    initial: {
-      opacity: 0,
-    },
-    whileInView: {
-      opacity: 1,
-    },
-    viewport: {
-      once: true,
-    },
-    transition: {
-      type: 'ease',
-      duration: 1,
-      ease: [0.96, 0.085, 0.0, 0.695],
-    },
-  };
-  return (
-    <motion.div
-      className="flex flex-row justify-between py-8 text-base xl:py-16"
-      {...animation}
-    >
-      <div className="font-medium">({children})</div>
-      {Boolean(cta) && (
-        <div className="flex flex-row gap-1 font-medium">
-          {cta}
-          {icon === 'arrow-down' && <ArrowDown />}
-          {icon === 'arrow-right' && <ArrowRight />}
-        </div>
-      )}
-    </motion.div>
-  );
+	const animation = {
+		initial: {
+			opacity: 0,
+		},
+		whileInView: {
+			opacity: 1,
+		},
+		viewport: {
+			once: true,
+		},
+		transition: {
+			type: 'ease',
+			duration: 1,
+			ease: [0.96, 0.085, 0.0, 0.695],
+		},
+	};
+	return (
+		<motion.div
+			className="flex flex-row justify-between py-16 text-base"
+			{...animation}
+		>
+			<div className="font-medium">({children})</div>
+			{Boolean(cta) && (
+				<div className="flex flex-row gap-1 font-medium">
+					{cta}
+					{icon === 'arrow-down' && <ArrowDown />}
+					{icon === 'arrow-right' && <ArrowRight />}
+				</div>
+			)}
+		</motion.div>
+	);
 }

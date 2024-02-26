@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { Star, GitFork } from 'lucide-react';
 import { Card } from '@/components/ui';
 
 const variants = {
@@ -38,8 +39,32 @@ export function Project({
 				href={url}
 				target="_blank"
 				rel="noopener noreferrer"
-			></Link>
-			<Card className="h-card w-card rounded-none border-card border-primary bg-background" />
+			>
+				<Card className="h-card w-card border-none bg-background">
+					<div className="flex h-full flex-col justify-between p-4">
+						<div>
+							<h2 className="text-lg font-medium">{name}</h2>
+							<p className="text-sm">{description}</p>
+						</div>
+						<div className="mt-4 flex justify-between">
+							<div className="flex items-center">
+								<Star
+									size={16}
+									className="mr-2"
+								/>
+								<span>{stargazerCount}</span>
+							</div>
+							<div className="flex items-center">
+								<GitFork
+									size={16}
+									className="mr-2"
+								/>
+								<span>{forkCount}</span>
+							</div>
+						</div>
+					</div>
+				</Card>
+			</Link>
 		</motion.div>
 	);
 }

@@ -23,12 +23,12 @@ function HorizontalContent({
 	return (
 		<section
 			ref={ref}
-			className="relative h-[200lvh]"
+			className="relative h-[200lvh] bg-background"
 		>
 			<div className="sticky top-0 overflow-hidden">
 				<motion.section
 					layout
-					className={cn('flex flex-row', className)}
+					className={cn('flex h-[100lvh] flex-row', className)}
 					style={{ x }}
 				>
 					{children}
