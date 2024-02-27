@@ -28,7 +28,7 @@ function HorizontalContent({
 			<div className="sticky top-0 overflow-hidden">
 				<motion.section
 					layout
-					className={cn('flex h-[100lvh] flex-row', className)}
+					className={cn('flex flex-row', className)}
 					style={{ x }}
 				>
 					{children}
