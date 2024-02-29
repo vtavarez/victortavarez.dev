@@ -36,11 +36,6 @@ export type PostType = z.infer<typeof postSchema>;
 
 export type Project = z.infer<typeof projectSchema>;
 
-export type ProjectsData = {
-	error?: string;
-	projects: Project[];
-};
-
 export type ProjectsResponse = z.infer<typeof projectsResponseSchema>;
 
 export type AuthorType = {

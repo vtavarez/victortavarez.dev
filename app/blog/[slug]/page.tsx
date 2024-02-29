@@ -1,7 +1,6 @@
 import { Post } from '@/components/routes/blog';
 import { notFound } from 'next/navigation';
 import { getPost } from '@/lib/utils';
-import { postSchema } from '@/lib/schema';
 import { type Metadata } from 'next';
 
 type PostProps = {
@@ -27,11 +26,7 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params }: PostProps) {
-	const response = postSchema.safeParse(await getPost(params.slug));
+	const response = await getPost(params.slug);
 
-	return 'error' in response ? (
-		(console.error(response.error.issues), notFound())
-	) : (
-		<Post {...response.data} />
-	);
+	return 'error' in response ? notFound() : <Post {...response} />;
 }

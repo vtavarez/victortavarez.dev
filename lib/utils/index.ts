@@ -4,8 +4,7 @@ import { twMerge } from 'tailwind-merge';
 import { format } from 'date-fns';
 import { type ClassValue, clsx } from 'clsx';
 import { postListSchema, projectsResponseSchema } from '@/lib/schema';
-import { type ProjectsData, ProjectsResponse, PostType } from '@/lib/types';
-import post from '@/sanity/schemas/post';
+import { type Project, ProjectsResponse, PostType } from '@/lib/types';
 
 // Tailwind CSS Classnames Merging Utility
 
@@ -146,21 +145,19 @@ export async function getWork(slug: string, order: string): Promise<PostType> {
 	return extractPost(postsArray);
 }
 
-function extractProjects(res: ProjectsResponse): ProjectsData {
+function extractProjects(res: ProjectsResponse): Project[] {
 	const {
 		data: {
 			viewer: { repositories },
 		},
 	} = res;
-	return {
-		projects: repositories.nodes,
-	};
+	return repositories.nodes;
 }
 
 export async function getProjects(
 	number: number,
 	direction: string,
-): Promise<ProjectsData> {
+): Promise<Project[]> {
 	const response = await fetch('https://api.github.com/graphql', {
 		method: 'POST',
 		cache: 'force-cache',
@@ -199,10 +196,7 @@ export async function getProjects(
 
 	if ('error' in result) {
 		console.error(result.error.issues);
-		return {
-			error: `Error: ${result.error.issues}`,
-			projects: [],
-		};
+		return [];
 	}
 
 	return extractProjects(result.data);
