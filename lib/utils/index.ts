@@ -195,17 +195,15 @@ export async function getProjects(
 		}),
 	});
 
-	const parsedResponse = projectsResponseSchema.safeParse(
-		await response.json(),
-	);
+	const result = projectsResponseSchema.safeParse(await response.json());
 
-	if (!parsedResponse.success) {
-		console.error(parsedResponse.error.errors[0]);
+	if ('error' in result) {
+		console.error(result.error.issues);
 		return {
-			error: `Error: ${parsedResponse.error.errors[0]}`,
+			error: `Error: ${result.error.issues}`,
 			projects: [],
 		};
 	}
 
-	return extractProjects(parsedResponse.data);
+	return extractProjects(result.data);
 }

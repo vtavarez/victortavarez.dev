@@ -7,7 +7,7 @@ export async function getPostsChunk(from: number, to: number) {
 	return {
 		from: from + 8,
 		to: to + 8,
-		currentChunk: from / 8 + 1,
-		currentPosts: posts,
+		current: from / 8 + 1,
+		posts,
 	};
 }

@@ -15,28 +15,27 @@ type PostsProps = {
 type PostsChunk = {
 	from: number;
 	to: number;
-	currentChunk: number;
-	currentPosts: PostType[];
+	current: number;
+	posts: PostType[];
 };
 
 export function Posts({ totalPosts, posts, className }: PostsProps) {
-	const [{ from, to, currentChunk, currentPosts }, setChunk] =
-		useState<PostsChunk>({
-			from: 0,
-			to: 8,
-			currentChunk: 1,
-			currentPosts: posts,
-		});
+	const [chunk, setChunk] = useState<PostsChunk>({
+		from: 0,
+		to: 8,
+		current: 1,
+		posts,
+	});
 
-	const totalChunks = Math.ceil(totalPosts / 8);
+	const total = Math.ceil(totalPosts / 8);
 
-	async function requestChunk(requestedChunk: number) {
-		const response: PostsChunk =
-			requestedChunk > currentChunk
-				? await getPostsChunk(from + 8, to + 8)
-				: await getPostsChunk(from - 8, to - 8);
+	async function requestChunk(requested: number) {
+		const posts: PostsChunk =
+			requested > chunk.current
+				? await getPostsChunk(chunk.from + 8, chunk.to + 8)
+				: await getPostsChunk(chunk.from - 8, chunk.to - 8);
 
-		'error' in response ? console.error(response.error) : setChunk(response);
+		setChunk(posts);
 	}
 
 	return (
@@ -49,7 +48,7 @@ export function Posts({ totalPosts, posts, className }: PostsProps) {
 			<EyebrowText cta="Thoughts">Explore</EyebrowText>
 			<div className="flex min-h-blog-posts flex-col justify-between">
 				<div className="mb-14 mt-8 inline-flex flex-wrap gap-5">
-					{currentPosts.map((post, idx) => (
+					{chunk.posts.map((post, idx) => (
 						<Post
 							key={post.id}
 							number={idx + 1}
@@ -59,8 +58,8 @@ export function Posts({ totalPosts, posts, className }: PostsProps) {
 				</div>
 				<div className="mb-8 flex items-center justify-center">
 					<PostsPagination
-						currentChunk={currentChunk}
-						totalChunks={totalChunks}
+						currentChunk={chunk.current}
+						totalChunks={total}
 						requestedChunk={chunk => requestChunk(chunk)}
 					/>
 				</div>
