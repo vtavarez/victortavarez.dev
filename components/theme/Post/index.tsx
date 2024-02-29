@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { formatDate } from '@/lib/utils';
 import { type PostType } from '@/lib/types';
+import { on } from 'events';
 
 const variants = {
 	initial: { opacity: 0, x: 20 },
@@ -26,6 +27,7 @@ export function Post({
 		<motion.div
 			custom={number}
 			initial="initial"
+			viewport={{ once: true, amount: 0.2 }}
 			whileInView="animate"
 			variants={variants}
 		>

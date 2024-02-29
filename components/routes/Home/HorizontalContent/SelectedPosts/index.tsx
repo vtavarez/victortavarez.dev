@@ -1,5 +1,4 @@
 import { getPosts } from '@/lib/utils';
-import { postListSchema } from '@/lib/schema';
 import { ContentItem } from '@/components/ui';
 import { EyebrowText, Posts } from '@/components/theme';
 

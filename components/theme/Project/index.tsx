@@ -32,6 +32,7 @@ export function Project({
 		<motion.div
 			custom={number}
 			initial="initial"
+			viewport={{ once: true, amount: 0.2 }}
 			whileInView="animate"
 			variants={variants}
 		>

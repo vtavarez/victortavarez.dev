@@ -1,7 +1,7 @@
 'use client';
-import { Fragment, useState } from 'react';
-import type { PostType } from '@/lib/types';
+import { useState } from 'react';
 import { ValueProp, Post } from '@/components/theme';
+import { type PostType } from '@/lib/types';
 
 export function Posts({ items }: { items: PostType[] }) {
 	const [finishedAnimation, setAnimationFinished] = useState(false);
