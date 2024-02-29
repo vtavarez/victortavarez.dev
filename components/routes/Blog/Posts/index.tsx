@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { getPostsChunk } from '@/actions/get-posts-chunk';
+import { getPostsChunk } from '@/actions/posts';
 import { PostsPagination } from './Pagination';
 import { EyebrowText, Post } from '@/components/theme';
 import { cn } from '@/lib/utils';

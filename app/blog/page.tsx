@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
-import { getPostsCount, getPosts } from '@/sanity/lib/client';
-import { postListSchema } from '@/lib/schema';
+import { getPostsCount, getPosts } from '@/lib/utils';
 import { Heading } from '@/components/theme';
 import { Posts } from '@/components/routes/blog';
 
@@ -12,11 +11,11 @@ export const metadata: Metadata = {
 
 export default async function Page() {
 	const totalPosts = await getPostsCount();
-	const posts = postListSchema.safeParse(await getPosts(0, 8, 'desc'));
+	const posts = await getPosts(0, 8, 'desc');
 
 	const props = {
 		totalPosts,
-		posts: 'error' in posts ? (console.error(posts.error), []) : posts.data,
+		posts,
 	};
 
 	return (

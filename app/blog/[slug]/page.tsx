@@ -1,8 +1,8 @@
 import { Post } from '@/components/routes/blog';
-import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getPost } from '@/sanity/lib/client';
+import { getPost } from '@/lib/utils';
 import { postSchema } from '@/lib/schema';
+import { type Metadata } from 'next';
 
 type PostProps = {
 	params: {
@@ -13,7 +13,7 @@ type PostProps = {
 export async function generateMetadata({
 	params,
 }: PostProps): Promise<Metadata> {
-	const response = postSchema.safeParse(await getPost(params.slug));
+	const response = await getPost(params.slug);
 
 	return 'error' in response
 		? {
@@ -21,8 +21,8 @@ export async function generateMetadata({
 				description: 'This post could not be found.',
 			}
 		: {
-				title: response.data.title + ' - Victor Tavarez',
-				description: response.data.excerpt,
+				title: response.title + ' - Victor Tavarez',
+				description: response.excerpt,
 			};
 }
 
