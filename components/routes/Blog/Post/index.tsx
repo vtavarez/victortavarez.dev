@@ -21,7 +21,7 @@ export function Post({
 				{title}
 			</Heading>
 			<div className="min-h-[100lvh] bg-background">
-				<article className="mx-auto px-6 text-sm xl:max-w-[65%] xl:px-0 xl:text-base">
+				<article className="mx-auto px-2 text-sm sm:max-w-[85%] xl:px-0 xl:text-base 2xl:max-w-[65%]">
 					<div className="mx-auto flex w-fit items-center gap-8">
 						<span>{formatDate(publishedAt)}</span>
 						<span>{timeToRead + ' min read'}</span>

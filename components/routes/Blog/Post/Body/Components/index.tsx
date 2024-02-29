@@ -68,7 +68,7 @@ export const Components: PortableTextComponents = {
 	},
 	marks: {
 		code: ({ text }: { text: string }) => (
-			<code className="inline-block bg-gray-800/10 px-[3px] py-[2px] text-xs leading-none text-primary dark:bg-gray-200/15 xl:text-sm">
+			<code className="inline-block rounded-sm bg-gray-800/10 px-[3px] py-[2px] text-xs leading-none text-primary dark:bg-gray-200/15 xl:text-sm">
 				{text}
 			</code>
 		),

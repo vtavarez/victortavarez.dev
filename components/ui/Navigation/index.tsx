@@ -17,7 +17,7 @@ export function Navigation() {
 			<h2 className="mr-auto pl-2 text-base font-medium leading-none tracking-tighter text-primary">
 				<Link href="/">Victor.</Link>
 			</h2>
-			<div className="hiddentext-base mx-auto font-medium leading-none tracking-tighter text-primary md:block">
+			<div className="mx-auto hidden text-base font-medium leading-none tracking-tighter text-primary md:block">
 				Web Developer
 			</div>
 			<div className="ml-auto">
