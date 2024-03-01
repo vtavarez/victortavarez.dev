@@ -1,6 +1,7 @@
 import { getPosts } from '@/lib/utils';
+import { Posts } from './Posts';
 import { ContentItem } from '@/components/ui';
-import { EyebrowText, Posts } from '@/components/theme';
+import { EyebrowText } from '@/components/theme';
 
 export async function SelectedPosts() {
 	const posts = await getPosts(0, 3, 'desc');

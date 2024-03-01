@@ -4,7 +4,6 @@ export * from './ThreeScene';
 export * from './EyebrowText';
 export * from './Heading';
 export * from './ValueProp';
-export * from './Posts';
 export * from './Post';
 export * from './Work';
 export * from './Project';
