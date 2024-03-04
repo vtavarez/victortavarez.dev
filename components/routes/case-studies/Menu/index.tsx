@@ -13,64 +13,25 @@ const variants = {
 
 export function Menu({ items }: { items: string[] }) {
 	return (
-		<nav className="translate-y-3 md:translate-y-0">
+		<nav className="translate-y-3 md:translate-y-0" role="navigation">
 			<ul className="flex list-none flex-col justify-center text-responsive-menu font-medium">
-				<motion.li
-					custom={0}
-					className="w-fit rounded-md transition-colors hover:bg-primary hover:text-background"
-					initial="initial"
-					animate="animate"
-					variants={variants}
-				>
-					<Link
-						href="#"
-						className="block px-3 py-2"
+				{items.map((item, index) => (
+					<motion.li
+						key={index}
+						custom={0}
+						className="w-fit rounded-md transition-colors hover:bg-primary hover:text-background"
+						initial="initial"
+						animate="animate"
+						variants={variants}
 					>
-						SafetyNet Alert
-					</Link>
-				</motion.li>
-				<motion.li
-					custom={1}
-					className="w-fit rounded-md transition-colors hover:bg-primary hover:text-background"
-					initial="initial"
-					animate="animate"
-					variants={variants}
-				>
-					<Link
-						href="#"
-						className="block px-3 py-2"
-					>
-						The Sill
-					</Link>
-				</motion.li>
-				<motion.li
-					custom={2}
-					className="w-fit rounded-md transition-colors hover:bg-primary hover:text-background"
-					initial="initial"
-					animate="animate"
-					variants={variants}
-				>
-					<Link
-						href="#"
-						className="block px-3 py-2"
-					>
-						Abby&Finn
-					</Link>
-				</motion.li>
-				<motion.li
-					custom={3}
-					className="w-fit rounded-md transition-colors hover:bg-primary hover:text-background"
-					initial="initial"
-					animate="animate"
-					variants={variants}
-				>
-					<Link
-						href="#"
-						className="block px-3 py-2"
-					>
-						Quality Control Solutions
-					</Link>
-				</motion.li>
+						<Link
+							href="#"
+							className="block px-3 py-2"
+						>
+							SafetyNet Alert
+						</Link>
+					</motion.li>
+				))}
 			</ul>
 		</nav>
 	);

@@ -136,13 +136,25 @@ export async function getPost(
 	return extractPost(result.data);
 }
 
-export async function getWork(slug: string, order: string): Promise<PostType> {
-	const postsArray = await client.fetch(
-		`*[_type == "work"] order(publishedAt ${order}){${workNodes} body}`,
+export async function getWork(
+	slug: string,
+): Promise<PostType | { error: string }> {
+	const response = await client.fetch(
+		`*[_type == "${slug}"]{${workNodes} body}`,
 		{},
 		{ cache: 'force-cache', next: { tags: ['work'] } },
 	);
-	return extractPost(postsArray);
+
+	const result = postListSchema.safeParse(response);
+
+	if ('error' in result) {
+		console.error(result.error.issues);
+		return {
+			error: `Error: ${result.error.issues}`,
+		};
+	}
+
+	return extractPost(result.data);
 }
 
 function extractProjects(res: ProjectsResponse): Project[] {

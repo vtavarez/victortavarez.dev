@@ -83,3 +83,12 @@ export const projectsResponseSchema = z.object({
 		}),
 	}),
 });
+
+export const workSchema = z.object({
+	title: z.string(),
+	excerpt: z.string(),
+	slug: z.string(),
+	categories: z.array(z.string()),
+	publishedAt: z.string(),
+	body: z.custom<TypedObject>().array(),
+});
