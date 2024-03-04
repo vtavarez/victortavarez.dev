@@ -3,10 +3,11 @@ import {
 	projectSchema,
 	recaptchaSchema,
 	projectsResponseSchema,
+	workSchema,
 } from '@/lib/schema';
 import { SentMessageInfo } from 'nodemailer/lib/smtp-transport';
 import { z } from 'zod';
-import { error } from 'console';
+import { Work } from '../../components/theme/Work/index';
 
 declare global {
 	interface Window {
@@ -33,6 +34,8 @@ export type SentMessageType = SentMessageInfo & { error?: { message: string } };
 export type RecaptchaType = z.infer<typeof recaptchaSchema>;
 
 export type PostType = z.infer<typeof postSchema>;
+
+export type WorkType = z.infer<typeof workSchema>;
 
 export type Project = z.infer<typeof projectSchema>;
 

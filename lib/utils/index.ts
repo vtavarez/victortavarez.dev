@@ -3,8 +3,17 @@ import { PrismaClient } from '@prisma/client';
 import { twMerge } from 'tailwind-merge';
 import { format } from 'date-fns';
 import { type ClassValue, clsx } from 'clsx';
-import { postListSchema, projectsResponseSchema } from '@/lib/schema';
-import { type Project, ProjectsResponse, PostType } from '@/lib/types';
+import {
+	postListSchema,
+	workListSchema,
+	projectsResponseSchema,
+} from '@/lib/schema';
+import type {
+	Project,
+	ProjectsResponse,
+	PostType,
+	WorkType,
+} from '@/lib/types';
 
 // Tailwind CSS Classnames Merging Utility
 
@@ -79,9 +88,21 @@ const postNodes = `
   'mainImage': {'url':mainImage.asset->url, 'alt':mainImage.alt},
 `;
 
-const workNodes = ``;
+const workNodes = `
+	'id':_id,
+	title,
+	publishedAt,
+	'slug':slug.current,
+	excerpt,
+	'categories':categories[]->title,
+	body,
+`;
 
 function extractPost(res: PostType[]): PostType {
+	return res[0];
+}
+
+function extractWork(res: WorkType[]): WorkType {
 	return res[0];
 }
 
@@ -138,14 +159,14 @@ export async function getPost(
 
 export async function getWork(
 	slug: string,
-): Promise<PostType | { error: string }> {
+): Promise<WorkType | { error: string }> {
 	const response = await client.fetch(
-		`*[_type == "${slug}"]{${workNodes} body}`,
+		`*[slug.current == "${slug}"]{${workNodes}}`,
 		{},
 		{ cache: 'force-cache', next: { tags: ['work'] } },
 	);
 
-	const result = postListSchema.safeParse(response);
+	const result = workListSchema.safeParse(response);
 
 	if ('error' in result) {
 		console.error(result.error.issues);
@@ -154,7 +175,7 @@ export async function getWork(
 		};
 	}
 
-	return extractPost(result.data);
+	return extractWork(result.data);
 }
 
 function extractProjects(res: ProjectsResponse): Project[] {

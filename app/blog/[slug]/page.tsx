@@ -12,21 +12,21 @@ type PostProps = {
 export async function generateMetadata({
 	params,
 }: PostProps): Promise<Metadata> {
-	const response = await getPost(params.slug);
+	const post = await getPost(params.slug);
 
-	return 'error' in response
+	return 'error' in post
 		? {
 				title: '404 Not Found - Victor Tavarez',
 				description: 'This post could not be found.',
 			}
 		: {
-				title: response.title + ' - Victor Tavarez',
-				description: response.excerpt,
+				title: post.title + ' - Victor Tavarez',
+				description: post.excerpt,
 			};
 }
 
 export default async function Page({ params }: PostProps) {
-	const response = await getPost(params.slug);
+	const post = await getPost(params.slug);
 
-	return 'error' in response ? notFound() : <Post {...response} />;
+	return 'error' in post ? notFound() : <Post {...post} />;
 }

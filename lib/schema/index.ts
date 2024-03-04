@@ -65,6 +65,17 @@ export const postSchema = z.object({
 
 export const postListSchema = z.array(postSchema);
 
+export const workSchema = z.object({
+	title: z.string(),
+	excerpt: z.string(),
+	slug: z.string(),
+	categories: z.array(z.string()),
+	publishedAt: z.string(),
+	body: z.custom<TypedObject>().array(),
+});
+
+export const workListSchema = z.array(workSchema);
+
 export const projectSchema = z.object({
 	name: z.string(),
 	description: z.string(),
@@ -82,13 +93,4 @@ export const projectsResponseSchema = z.object({
 			}),
 		}),
 	}),
-});
-
-export const workSchema = z.object({
-	title: z.string(),
-	excerpt: z.string(),
-	slug: z.string(),
-	categories: z.array(z.string()),
-	publishedAt: z.string(),
-	body: z.custom<TypedObject>().array(),
 });
