@@ -7,4 +7,5 @@ export * from './ValueProp';
 export * from './Post';
 export * from './Work';
 export * from './Project';
+export * from './Content';
 export * from './ContactForm';

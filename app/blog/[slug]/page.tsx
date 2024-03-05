@@ -1,17 +1,15 @@
-import { Post } from '@/components/routes/blog';
+import { Content } from '@/components/theme';
 import { notFound } from 'next/navigation';
 import { getPost } from '@/lib/utils';
 import { type Metadata } from 'next';
 
-type PostProps = {
+type Props = {
 	params: {
 		slug: string;
 	};
 };
 
-export async function generateMetadata({
-	params,
-}: PostProps): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const post = await getPost(params.slug);
 
 	return 'error' in post
@@ -25,8 +23,8 @@ export async function generateMetadata({
 			};
 }
 
-export default async function Page({ params }: PostProps) {
+export default async function Page({ params }: Props) {
 	const post = await getPost(params.slug);
 
-	return 'error' in post ? notFound() : <Post {...post} />;
+	return 'error' in post ? notFound() : <Content {...post} />;
 }

@@ -59,22 +59,22 @@ export const postSchema = z.object({
 	slug: z.string(),
 	categories: z.array(z.string()),
 	author: z.object({ name: z.string(), image: z.string() }),
-	mainImage: z.object({ url: z.string(), alt: z.string() }),
-	body: z.custom<TypedObject>().array().optional(),
-});
-
-export const postListSchema = z.array(postSchema);
-
-export const workSchema = z.object({
-	title: z.string(),
-	excerpt: z.string(),
-	slug: z.string(),
-	categories: z.array(z.string()),
-	publishedAt: z.string(),
 	body: z.custom<TypedObject>().array(),
 });
 
-export const workListSchema = z.array(workSchema);
+export const postsResponseSchema = z.array(postSchema);
+
+export const caseStudySchema = z.object({
+	id: z.string(),
+	title: z.string(),
+	publishedAt: z.string(),
+	excerpt: z.string(),
+	slug: z.string(),
+	categories: z.array(z.string()),
+	body: z.custom<TypedObject>().array(),
+});
+
+export const caseStudiesResponseSchema = z.array(caseStudySchema);
 
 export const projectSchema = z.object({
 	name: z.string(),

@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { formatDate } from '@/lib/utils';
 import { type PostType } from '@/lib/types';
-import { on } from 'events';
 
 const variants = {
 	initial: { opacity: 0, x: 20 },

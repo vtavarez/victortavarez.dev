@@ -4,7 +4,7 @@ import { ContentItem } from '@/components/ui';
 import { EyebrowText } from '@/components/theme';
 
 export async function SelectedPosts() {
-	const posts = await getPosts(0, 3, 'desc');
+	const posts = await getPosts();
 
 	return (
 		<ContentItem>

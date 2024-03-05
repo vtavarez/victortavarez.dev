@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { type CaseStudyType } from '@/lib/types';
 
 const variants = {
 	initial: { opacity: 0, x: 20 },
@@ -11,11 +12,14 @@ const variants = {
 	}),
 };
 
-export function Menu({ items }: { items: string[] }) {
+export function Menu({ items }: { items: CaseStudyType[] }) {
 	return (
-		<nav className="translate-y-3 md:translate-y-0" role="navigation">
+		<nav
+			className="translate-y-3 md:translate-y-0"
+			role="navigation"
+		>
 			<ul className="flex list-none flex-col justify-center text-responsive-menu font-medium">
-				{items.map((item, index) => (
+				{items.map(({ title }, index) => (
 					<motion.li
 						key={index}
 						custom={0}
@@ -28,7 +32,7 @@ export function Menu({ items }: { items: string[] }) {
 							href="#"
 							className="block px-3 py-2"
 						>
-							SafetyNet Alert
+							{title}
 						</Link>
 					</motion.li>
 				))}

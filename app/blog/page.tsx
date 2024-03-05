@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default async function Page() {
 	const totalPosts = await getPostsCount();
-	const posts = await getPosts(0, 8, 'desc');
+	const posts = await getPosts(0, 8);
 
 	const props = {
 		totalPosts,

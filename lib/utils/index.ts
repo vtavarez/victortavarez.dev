@@ -4,15 +4,17 @@ import { twMerge } from 'tailwind-merge';
 import { format } from 'date-fns';
 import { type ClassValue, clsx } from 'clsx';
 import {
-	postListSchema,
-	workListSchema,
+	postsResponseSchema,
+	caseStudiesResponseSchema,
 	projectsResponseSchema,
 } from '@/lib/schema';
 import type {
-	Project,
+	ProjectType,
 	ProjectsResponse,
+	CaseStudiesResponse,
+	PostsResponse,
 	PostType,
-	WorkType,
+	CaseStudyType,
 } from '@/lib/types';
 
 // Tailwind CSS Classnames Merging Utility
@@ -86,9 +88,10 @@ const postNodes = `
   'categories':categories[]->title,
   'author':{'image':author->image.asset->url,'name':author->name},
   'mainImage': {'url':mainImage.asset->url, 'alt':mainImage.alt},
+	body,
 `;
 
-const workNodes = `
+const studyNodes = `
 	'id':_id,
 	title,
 	publishedAt,
@@ -98,12 +101,21 @@ const workNodes = `
 	body,
 `;
 
-function extractPost(res: PostType[]): PostType {
+function extractPost(res: PostsResponse): PostType {
 	return res[0];
 }
 
-function extractWork(res: WorkType[]): WorkType {
+function extractStudy(res: CaseStudiesResponse): CaseStudyType {
 	return res[0];
+}
+
+function extractProjects(res: ProjectsResponse): ProjectType[] {
+	const {
+		data: {
+			viewer: { repositories },
+		},
+	} = res;
+	return repositories.nodes;
 }
 
 export async function getPostsCount(): Promise<number> {
@@ -126,7 +138,7 @@ export async function getPosts(
 		{ cache: 'force-cache', next: { tags: ['posts'] } },
 	);
 
-	const result = postListSchema.safeParse(response);
+	const result = postsResponseSchema.safeParse(response);
 
 	if ('error' in result) {
 		console.error(result.error.issues);
@@ -140,12 +152,12 @@ export async function getPost(
 	slug: string,
 ): Promise<PostType | { error: string }> {
 	const response = await client.fetch(
-		`*[slug.current == "${slug}"]{${postNodes} body}`,
+		`*[slug.current == "${slug}"]{${postNodes}}`,
 		{},
 		{ cache: 'force-cache', next: { tags: ['post'] } },
 	);
 
-	const result = postListSchema.safeParse(response);
+	const result = postsResponseSchema.safeParse(response);
 
 	if ('error' in result) {
 		console.error(result.error.issues);
@@ -157,16 +169,37 @@ export async function getPost(
 	return extractPost(result.data);
 }
 
-export async function getWork(
-	slug: string,
-): Promise<WorkType | { error: string }> {
+export async function getCaseStudies(
+	start: number = 0,
+	limit: number = 4,
+	order: string = 'desc',
+): Promise<CaseStudyType[]> {
 	const response = await client.fetch(
-		`*[slug.current == "${slug}"]{${workNodes}}`,
+		`*[_type == "study"][${start}..${limit}] | order(publishedAt ${order}){${studyNodes}}`,
 		{},
-		{ cache: 'force-cache', next: { tags: ['work'] } },
+		{ cache: 'force-cache', next: { tags: ['studies'] } },
 	);
 
-	const result = workListSchema.safeParse(response);
+	const result = caseStudiesResponseSchema.safeParse(response);
+
+	if ('error' in result) {
+		console.error(result.error.issues);
+		return [];
+	}
+
+	return result.data;
+}
+
+export async function getCaseStudy(
+	slug: string,
+): Promise<CaseStudyType | { error: string }> {
+	const response = await client.fetch(
+		`*[slug.current == "${slug}"]{${studyNodes}}`,
+		{},
+		{ cache: 'force-cache', next: { tags: ['study'] } },
+	);
+
+	const result = caseStudiesResponseSchema.safeParse(response);
 
 	if ('error' in result) {
 		console.error(result.error.issues);
@@ -175,22 +208,13 @@ export async function getWork(
 		};
 	}
 
-	return extractWork(result.data);
-}
-
-function extractProjects(res: ProjectsResponse): Project[] {
-	const {
-		data: {
-			viewer: { repositories },
-		},
-	} = res;
-	return repositories.nodes;
+	return extractStudy(result.data);
 }
 
 export async function getProjects(
 	number: number,
 	direction: string,
-): Promise<Project[]> {
+): Promise<ProjectType[]> {
 	const response = await fetch('https://api.github.com/graphql', {
 		method: 'POST',
 		cache: 'force-cache',

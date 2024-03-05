@@ -1,31 +1,29 @@
-import { Project } from '@/components/routes/case-studies';
+import { Content } from '@/components/theme';
 import { notFound } from 'next/navigation';
-import { getWork } from '@/lib/utils';
+import { getCaseStudy } from '@/lib/utils';
 import { type Metadata } from 'next';
 
-type PostProps = {
+type Props = {
 	params: {
 		slug: string;
 	};
 };
 
-export async function generateMetadata({
-	params,
-}: PostProps): Promise<Metadata> {
-	const project = await getWork(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	const study = await getCaseStudy(params.slug);
 
-	return 'error' in project
+	return 'error' in study
 		? {
 				title: '404 Not Found - Victor Tavarez',
 				description: 'This post could not be found.',
 			}
 		: {
-				title: project.title + ' - Victor Tavarez',
-				description: project.excerpt,
+				title: study.title + ' - Victor Tavarez',
+				description: study.excerpt,
 			};
 }
 
-export default async function Page({ params }: PostProps) {
-	const project = await getWork(params.slug);
-	return 'error' in project ? notFound() : <Project {...project} />;
+export default async function Page({ params }: Props) {
+	const study = await getCaseStudy(params.slug);
+	return 'error' in study ? notFound() : <Content {...study} />;
 }
