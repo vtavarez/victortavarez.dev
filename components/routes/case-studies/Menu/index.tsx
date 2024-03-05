@@ -19,7 +19,7 @@ export function Menu({ items }: { items: CaseStudyType[] }) {
 			role="navigation"
 		>
 			<ul className="flex list-none flex-col justify-center text-responsive-menu font-medium">
-				{items.map(({ title }, index) => (
+				{items.map(({ title, slug }, index) => (
 					<motion.li
 						key={index}
 						custom={0}
@@ -29,7 +29,7 @@ export function Menu({ items }: { items: CaseStudyType[] }) {
 						variants={variants}
 					>
 						<Link
-							href="#"
+							href={'/case-studies/' + slug}
 							className="block px-3 py-2"
 						>
 							{title}
