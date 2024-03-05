@@ -17,8 +17,8 @@ import {
 } from '@/components/ui/';
 import type { Inputs, SentMessageType, RecaptchaType } from '@/lib/types';
 import { contactSchema } from '@/lib/schema';
-import { verify } from '@/actions/recaptcha';
-import { send } from '@/actions/email';
+import { verify } from '@/app/actions/recaptcha';
+import { send } from '@/app/actions/email';
 
 export function ContactForm() {
 	const { executeRecaptcha } = useGoogleReCaptcha();

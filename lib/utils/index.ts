@@ -95,8 +95,9 @@ const studyNodes = `
 	'id':_id,
 	title,
 	publishedAt,
-	'slug':slug.current,
 	excerpt,
+	duration,
+	'slug':slug.current,
 	'categories':categories[]->title,
 	body,
 `;
