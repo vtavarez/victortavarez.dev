@@ -67,8 +67,9 @@ export const postsResponseSchema = z.array(postSchema);
 export const caseStudySchema = z.object({
 	id: z.string(),
 	title: z.string(),
-	publishedAt: z.string(),
 	excerpt: z.string(),
+	kickoffDate: z.string(),
+	duration: z.string(),
 	slug: z.string(),
 	categories: z.array(z.string()),
 	body: z.custom<TypedObject>().array(),

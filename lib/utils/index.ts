@@ -94,7 +94,7 @@ const postNodes = `
 const studyNodes = `
 	'id':_id,
 	title,
-	publishedAt,
+	kickoffDate,
 	excerpt,
 	duration,
 	'slug':slug.current,

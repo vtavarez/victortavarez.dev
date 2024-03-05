@@ -45,8 +45,8 @@ export default defineType({
 			validation: Rule => Rule.required(),
 		}),
 		defineField({
-			name: 'publishedAt',
-			title: 'Published at',
+			name: 'kickoffDate',
+			title: 'Kickoff Date',
 			type: 'datetime',
 			validation: Rule => Rule.required(),
 		}),
