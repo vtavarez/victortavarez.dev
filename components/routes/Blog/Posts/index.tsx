@@ -4,7 +4,7 @@ import { getPostsChunk } from '@/app/actions/posts';
 import { PostsPagination } from './Pagination';
 import { EyebrowText, Post } from '@/components/theme';
 import { cn } from '@/lib/utils';
-import { type PostType } from '@/lib/types';
+import { type Post } from '@/lib/types';
 
 type PostsProps = {
 	totalPosts: number;

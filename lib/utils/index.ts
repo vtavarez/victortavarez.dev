@@ -1,5 +1,4 @@
 import { client } from '@/sanity/lib/client';
-import { PrismaClient } from '@prisma/client';
 import { twMerge } from 'tailwind-merge';
 import { format } from 'date-fns';
 import { type ClassValue, clsx } from 'clsx';
@@ -36,43 +35,6 @@ export function formatDate(date: Date | string) {
 export function* typeWriter(text: string) {
 	for (let char of text) {
 		yield char;
-	}
-}
-
-// Prisma Client Helper Class
-
-class DBConnection {
-	private readonly client: PrismaClient;
-
-	constructor(client: typeof PrismaClient) {
-		this.client = new client();
-	}
-
-	private async disconnect() {
-		await this.client.$disconnect();
-	}
-
-	async create(data: { id: string; likes: number }) {
-		try {
-			const likes = await this.client.postLikes.create({ data });
-			await this.disconnect();
-			return likes;
-		} catch (error) {
-			console.error(error);
-		}
-	}
-
-	async update(data: { id: string; likes: number }) {
-		try {
-			const likes = await this.client.postLikes.update({
-				where: { id: data.id },
-				data: { likes: data.likes },
-			});
-			await this.disconnect();
-			return likes;
-		} catch (error) {
-			console.error(error);
-		}
 	}
 }
 

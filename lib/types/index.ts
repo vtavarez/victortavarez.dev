@@ -30,9 +30,9 @@ export type InputsFocusState = {
 	[key: string]: boolean;
 };
 
-export type SentMessageType = SentMessageInfo & { error?: { message: string } };
+export type SentMessage = SentMessageInfo & { error?: { message: string } };
 
-export type RecaptchaType = z.infer<typeof recaptchaSchema>;
+export type Recaptcha = z.infer<typeof recaptchaSchema>;
 
 export type PostType = z.infer<typeof postSchema>;
 

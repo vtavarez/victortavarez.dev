@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useFocusedFields } from '@/lib/hooks';
 import { useForm, useFormState } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -15,17 +15,17 @@ import {
 	SubmitButton,
 	BouncingLoader,
 } from '@/components/ui/';
-import type { Inputs, SentMessageType, RecaptchaType } from '@/lib/types';
-import { contactSchema } from '@/lib/schema';
 import { verify } from '@/app/actions/recaptcha';
 import { send } from '@/app/actions/email';
+import { contactSchema } from '@/lib/schema';
+import type { Inputs } from '@/lib/types';
 
 export function ContactForm() {
 	const { executeRecaptcha } = useGoogleReCaptcha();
 
 	const { register, handleSubmit, reset, control } = useForm<Inputs>({
-		mode: 'onSubmit',
-		reValidateMode: 'onSubmit',
+		mode: 'onBlur',
+		reValidateMode: 'onBlur',
 		defaultValues: {
 			name: '',
 			email: '',
@@ -34,7 +34,12 @@ export function ContactForm() {
 		resolver: zodResolver(contactSchema),
 	});
 
-	const [isSuccess, setIsSuccess] = useState(false);
+	const [submitStatus, setSubmitStatus] = useState({
+		isSuccess: false,
+		isError: false,
+		successMessage: 'Thanks for reaching out, will be in touch.',
+		errorMessage: 'Looks like there was an error, please try again.',
+	});
 
 	const { dirtyFields, isSubmitting, errors, isValidating } = useFormState({
 		control,
@@ -55,21 +60,24 @@ export function ContactForm() {
 	}
 
 	async function onSubmit(data: Inputs) {
-		const token = executeRecaptcha && (await executeRecaptcha('submit'));
-		const verified: RecaptchaType = token && (await verify(token));
+		const token = executeRecaptcha ? await executeRecaptcha('submit') : '';
+		const verified = await verify(token);
 
 		if (verified.success) {
-			const res: SentMessageType = await send(data);
+			const response = await send(data);
 
-			'rejected' in res
-				? console.error(res.error?.message, 'Response: ' + res.rejected)
-				: (setIsSuccess(true),
-					setTimeout(() => setIsSuccess(false), 5000),
-					reset());
-			return;
+			if ('error' in response) {
+				setSubmitStatus({ ...submitStatus, isError: true });
+				return;
+			}
+
+			reset();
+			setTimeout(
+				() => setSubmitStatus({ ...submitStatus, isSuccess: false }),
+				5000,
+			);
+			setSubmitStatus({ ...submitStatus, isSuccess: true });
 		}
-
-		return console.error(verified.error);
 	}
 
 	return (
@@ -160,10 +168,11 @@ export function ContactForm() {
 			>
 				{isSubmitting || isValidating ? <BouncingLoader /> : 'Send'}
 			</SubmitButton>
-			{isSuccess && (
-				<SuccessMessage>
-					Thanks for reaching out I will be in touch.
-				</SuccessMessage>
+			{submitStatus.isSuccess && (
+				<SuccessMessage>{submitStatus.successMessage}</SuccessMessage>
+			)}
+			{submitStatus.isError && (
+				<ErrorMessage>{submitStatus.errorMessage}</ErrorMessage>
 			)}
 		</Form>
 	);

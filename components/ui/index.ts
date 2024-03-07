@@ -6,6 +6,5 @@ export * from './Loaders';
 export * from './Marquee';
 export * from './Form';
 export * from './Typewriter';
-export * from './ThreeCanvas';
 export * from './Pagination';
 export * from './HorizontalContent';

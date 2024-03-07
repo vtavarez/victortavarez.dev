@@ -6,7 +6,7 @@ import { Posts } from '@/components/routes/blog';
 export const metadata: Metadata = {
 	title: 'Blog - Victor Tavarez',
 	description:
-		"Thoughts on the current state of web development, and experiences and the lessons I've learned along the way.",
+		"Thoughts on the current state of web development, experiences, and the lessons I've learned along the way.",
 };
 
 export default async function Page() {

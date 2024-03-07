@@ -1,36 +1,38 @@
-"use server";
-import nodemailer from "nodemailer";
-import Mail from "nodemailer/lib/mailer";
-import { contactSchema } from "@/lib/schema";
-import { Inputs } from "@/lib/types";
+'use server';
+import nodemailer from 'nodemailer';
+import Mail from 'nodemailer/lib/mailer';
+import { contactSchema } from '@/lib/schema';
+import { Inputs } from '@/lib/types';
+
+const transporter = nodemailer.createTransport({
+	service: 'gmail',
+	auth: {
+		user: process.env.EMAIL_USER,
+		pass: process.env.EMAIL_PASS,
+	},
+});
 
 export async function send(data: Inputs) {
-  const { name, email, message } = data;
-  contactSchema.parse(data);
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
-  const options: Mail.Options = {
-    from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
-    subject: `New message from ${name} (${email})`,
-    text: message,
-  };
+	const { name, email, message } = data;
+	contactSchema.parse(data);
 
-  const res = await transporter.sendMail(options);
+	const options: Mail.Options = {
+		from: process.env.EMAIL_USER,
+		to: process.env.EMAIL_USER,
+		subject: `New message from ${name} (${email})`,
+		text: message,
+	};
 
-  if ("rejected" in res) {
-    return {
-      ...res,
-      error: {
-        message: "Error sending email",
-      },
-    };
-  }
+	const res = await transporter.sendMail(options);
 
-  return res;
+	if ('err' in res) {
+		console.error(res.err);
+		return {
+			error: {
+				message: 'Error sending email',
+			},
+		};
+	}
+
+	return res;
 }

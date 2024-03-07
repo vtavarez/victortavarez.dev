@@ -16,7 +16,7 @@ const errorMessages = {
 		required: 'Message is Required',
 		min: 'Message must be 10 or more characters long',
 		max: 'Message must be 500 or fewer characters long',
-		regex: 'Message can only contain letters, numbers, and spaces',
+		regex: 'Message can only contain letters, numbers, and punctuation',
 	},
 };
 
