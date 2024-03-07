@@ -14,7 +14,7 @@ import navigation_links from '@/lib/data/navigation_links.json';
 export function Navigation() {
 	return (
 		<div className={cn('-mx-2 flex flex-row items-center py-2 xl:py-3')}>
-			<h2 className="mr-auto pl-2 text-base font-medium leading-none tracking-tighter text-primary">
+			<h2 className="mr-auto pl-2 text-sm font-medium leading-none tracking-tighter text-primary lg:text-base">
 				<Link href="/">Victor.</Link>
 			</h2>
 			<div className="mx-auto hidden text-base font-medium leading-none tracking-tighter text-primary md:block">

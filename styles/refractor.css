@@ -1,7 +1,7 @@
 pre[class*="language-"],
 code[class*="language-"] {
 	color: #d4d4d4;
-	font-size: 14px;
+	font-size: 12px;
 	text-shadow: none;
 	font-family: Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono", "Courier New", monospace;
 	direction: ltr;
@@ -17,6 +17,13 @@ code[class*="language-"] {
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
+}
+
+@media screen and (min-width: 768px) {
+	pre[class*="language-"],
+	code[class*="language-"] {
+		font-size: 14px;
+	}
 }
 
 pre[class*="language-"]::selection,

@@ -9,6 +9,7 @@ type ContentType = {
 	duration?: string;
 	categories: string[];
 	publishedAt: string;
+	kickoffDate: string;
 	body: TypedObject[];
 };
 
@@ -18,6 +19,7 @@ export function Content({
 	duration,
 	categories,
 	publishedAt,
+	kickoffDate,
 	body,
 }: ContentType) {
 	return (
@@ -30,17 +32,42 @@ export function Content({
 			</Heading>
 			<div className="min-h-[100lvh] bg-background">
 				<article className="mx-auto px-2 text-sm sm:max-w-[85%] xl:px-0 xl:text-base 2xl:max-w-[65%]">
-					<div className="mx-auto w-fit flex-col items-center gap-8">
-						<div>{formatDate(publishedAt)}</div>
+					<div className="mx-auto flex w-fit flex-col items-center gap-1 text-sm lg:text-base">
 						{duration ? (
 							<>
-								<div>{'Project duration: ' + duration}</div>
-								<div>{'Scope of work: ' + categories.join(', ')}</div>
+								<div>{formatDate(kickoffDate)}</div>
+								<div>
+									Project duration:{' '}
+									<span className="text-xs lg:text-sm">{duration}</span>
+								</div>
+								<div>
+									Scope of work:{' '}
+									{categories.map((category, idx) => (
+										<span
+											key={idx}
+											className="inline-block rounded-sm bg-gray-800/10 px-[3px] py-[2px] text-center text-xs leading-none text-primary dark:bg-gray-200/15 lg:text-sm"
+										>
+											{category}
+										</span>
+									))}
+								</div>
 							</>
 						) : (
 							<>
-								<div>{timeToRead + ' min read'}</div>
-								<div>{categories.join(', ')}</div>
+								<div className="mb-3 flex flex-row gap-4">
+									<span>{formatDate(publishedAt)}</span>
+									<span>{timeToRead + ' min read'}</span>
+								</div>
+								<div className="flex flex-row justify-center gap-2">
+									{categories.map((category, idx) => (
+										<span
+											key={idx}
+											className="inline-block rounded-sm bg-gray-800/10 px-[3px] py-[2px] text-center text-xs leading-none text-primary dark:bg-gray-200/15 lg:text-sm"
+										>
+											{category}
+										</span>
+									))}
+								</div>
 							</>
 						)}
 					</div>

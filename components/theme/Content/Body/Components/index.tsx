@@ -14,10 +14,14 @@ export const Components: PortableTextComponents = {
 	block: {
 		normal: ({ children }) => <p className="mb-6">{children}</p>,
 		h2: ({ children }) => (
-			<h2 className="my-6 text-xl font-semibold">{children}</h2>
+			<h2 className="my-4 text-lg font-semibold lg:my-6 lg:text-xl">
+				{children}
+			</h2>
 		),
 		h3: ({ children }) => (
-			<h3 className="my-6 text-xl font-semibold">{children}</h3>
+			<h3 className="my-4 text-lg font-semibold lg:my-6 lg:text-xl">
+				{children}
+			</h3>
 		),
 		blockquote: ({ children }) => (
 			<blockquote className="mx-auto my-8 border-l-4 border-primary pl-4 xl:max-w-[90%]">

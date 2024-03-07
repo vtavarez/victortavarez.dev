@@ -74,8 +74,8 @@ const config: Config = {
 				'post-card': '430px',
 			},
 			fontSize: {
-				'responsive-heading': 'clamp(1.2rem, 3vw, 1.9rem)',
-				'responsive-menu': 'clamp(1.1rem, 3vw, 1.9rem)',
+				'responsive-heading': 'clamp(1rem, 3vw, 1.9rem)',
+				'responsive-menu': 'clamp(1rem, 3vw, 1.9rem)',
 				'responsive-title': 'clamp(4.5rem, 16vw, 13rem)',
 				'responsive-subtitle': 'clamp(1.4rem, 3vw, 2.5rem)',
 			},

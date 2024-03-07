@@ -36,7 +36,7 @@ export function Post({
 			>
 				<div>
 					<p className="pb-2 text-sm font-medium">/ 00{number}</p>
-					<h3 className="underline-animation min-h-[1.8rem] w-fit overflow-hidden text-ellipsis text-pretty text-lg font-medium leading-none">
+					<h3 className="underline-animation min-h-[1.6rem] w-fit overflow-hidden text-ellipsis text-pretty text-base font-medium leading-none lg:text-lg">
 						{title}
 					</h3>
 					<p className="mb-3 overflow-hidden text-ellipsis text-pretty text-sm">
@@ -45,9 +45,11 @@ export function Post({
 				</div>
 				<div className="mb-4 inline-flex gap-2 text-xs leading-none">
 					{categories.map(category => (
-						<span key={category}>
+						<span
+							key={category}
+							className="rounded-sm bg-gray-800/10 px-[3px] py-[2px] text-xs leading-none text-primary dark:bg-gray-200/15 xl:text-sm"
+						>
 							{category}
-							{categories.length > 1 && ','}
 						</span>
 					))}
 				</div>
