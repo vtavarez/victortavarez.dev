@@ -11,7 +11,7 @@ export function Items({ items }: { items: ProjectType[] }) {
 				className="xl:pl-4"
 				onAnimationFinished={() => setAnimationFinished(true)}
 			>
-				Here are a few of my most recent projects.
+				Here are a few of my most recent side projects.
 			</ValueProp>
 			<div className="inline-flex min-h-[492px] w-full flex-wrap justify-between gap-6 xl:pt-12">
 				{animationFinished &&

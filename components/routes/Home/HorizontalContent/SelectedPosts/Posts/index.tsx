@@ -8,7 +8,7 @@ export function Posts({ items }: { items: PostType[] }) {
 	return (
 		<div className="min-h-[348px] w-full max-w-5xl">
 			<ValueProp
-				className="min-h-12"
+				className="mb-4 min-h-12 lg:mb-0"
 				onAnimationFinished={() => setAnimationFinished(true)}
 			>
 				Below is a selection of my writing on topics I had found interesting.

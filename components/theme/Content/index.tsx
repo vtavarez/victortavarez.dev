@@ -3,15 +3,26 @@ import { Heading } from '@/components/theme';
 import { formatDate } from '@/lib/utils';
 import { type TypedObject } from 'sanity';
 
-type ContentType = {
+type Content = {
 	title: string;
-	timeToRead?: number;
-	duration?: string;
 	categories: string[];
-	publishedAt: string;
-	kickoffDate: string;
+	excerpt: string;
 	body: TypedObject[];
 };
+
+type CaseStudy = {
+	timeToRead: never;
+	publishedAt: never;
+	kickoffDate: string;
+	duration: string;
+} & Content;
+
+type BlogPost = {
+	kickoffDate: never;
+	duration: never;
+	timeToRead: number;
+	publishedAt: string;
+} & Content;
 
 export function Content({
 	title,
@@ -20,8 +31,9 @@ export function Content({
 	categories,
 	publishedAt,
 	kickoffDate,
+	excerpt,
 	body,
-}: ContentType) {
+}: BlogPost | CaseStudy) {
 	return (
 		<section className="relative pt-[100lvh]">
 			<Heading
@@ -33,7 +45,7 @@ export function Content({
 			<div className="min-h-[100lvh] bg-background">
 				<article className="mx-auto px-2 text-sm sm:max-w-[85%] xl:px-0 xl:text-base 2xl:max-w-[65%]">
 					<div className="mx-auto flex w-fit flex-col items-center gap-1 text-sm lg:text-base">
-						{duration ? (
+						{kickoffDate && (
 							<>
 								<div>{formatDate(kickoffDate)}</div>
 								<div>
@@ -51,8 +63,10 @@ export function Content({
 										</span>
 									))}
 								</div>
+								<p className="mt-6">{excerpt}</p>
 							</>
-						) : (
+						)}
+						{publishedAt && (
 							<>
 								<div className="mb-3 flex flex-row gap-4">
 									<span>{formatDate(publishedAt)}</span>
@@ -68,6 +82,7 @@ export function Content({
 										</span>
 									))}
 								</div>
+								<p className="mt-6">{excerpt}</p>
 							</>
 						)}
 					</div>

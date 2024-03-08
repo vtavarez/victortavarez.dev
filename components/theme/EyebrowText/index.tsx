@@ -29,7 +29,7 @@ export function EyebrowText({
 	};
 	return (
 		<motion.div
-			className="flex flex-row justify-between py-16 text-sm lg:text-base"
+			className="flex flex-row justify-between py-24 text-sm lg:py-20 lg:text-base"
 			{...animation}
 		>
 			<div className="font-medium">({children})</div>

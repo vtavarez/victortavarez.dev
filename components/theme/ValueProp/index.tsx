@@ -37,7 +37,7 @@ export function ValueProp({
 				{isInView && (
 					<Typewriter onFinished={onAnimationFinished}>
 						<p
-							className="mx-auto w-full max-w-5xl whitespace-normal pl-2 leading-snug md:pl-6 lg:p-0"
+							className="mx-auto w-full max-w-5xl whitespace-normal leading-snug"
 							aria-label={children}
 						>
 							{children}
