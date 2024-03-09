@@ -1,10 +1,10 @@
 'use client';
 import { useState } from 'react';
-import { getPostsChunk } from '@/app/actions/posts';
+import { getPostsChunk } from '@/actions/posts';
 import { PostsPagination } from './Pagination';
 import { EyebrowText, Post } from '@/components/theme';
 import { cn } from '@/lib/utils';
-import { type Post } from '@/lib/types';
+import { type PostType } from '@/lib/types';
 
 type PostsProps = {
 	totalPosts: number;
@@ -45,7 +45,12 @@ export function Posts({ totalPosts, posts, className }: PostsProps) {
 				'min-h-blog-page bg-gradient-to-t from-background from-95% to-transparent xl:pt-24',
 			)}
 		>
-			<EyebrowText cta="Thoughts">Explore</EyebrowText>
+			<EyebrowText
+				className="pt-16"
+				cta="Thoughts"
+			>
+				Explore
+			</EyebrowText>
 			<div className="flex min-h-blog-posts flex-col justify-between">
 				<div className="mb-14 mt-8 inline-flex flex-wrap gap-5">
 					{chunk.posts.map((post, idx) => (

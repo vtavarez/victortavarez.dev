@@ -30,6 +30,7 @@ export function Project({
 }) {
 	return (
 		<motion.div
+			className="w-full max-w-card"
 			custom={number}
 			initial="initial"
 			viewport={{ once: true, amount: 0.2 }}
@@ -41,10 +42,10 @@ export function Project({
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				<Card className="h-card w-card border-none bg-background">
-					<div className="flex h-full flex-col justify-between p-4">
+				<Card className="h-card border-none bg-background">
+					<div className="flex h-full flex-col justify-between pt-4 lg:p-4">
 						<div>
-							<h2 className="text-lg font-medium">{name}</h2>
+							<p className="text-base font-medium lg:text-lg">{name}</p>
 							<p className="text-sm">{description}</p>
 						</div>
 						<div className="mt-4 flex justify-between">

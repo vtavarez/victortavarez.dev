@@ -13,7 +13,7 @@ export function Items({ items }: { items: ProjectType[] }) {
 			>
 				Here are a few of my most recent side projects.
 			</ValueProp>
-			<div className="inline-flex min-h-[492px] w-full flex-wrap justify-between gap-6 xl:pt-12">
+			<div className="flex min-h-[492px] w-full flex-row flex-wrap justify-between gap-6 pt-8 xl:pt-12">
 				{animationFinished &&
 					items.map((project: ProjectType, i: number) => (
 						<Project

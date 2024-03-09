@@ -6,10 +6,10 @@ export async function Projects() {
 	const projects = await getProjects(6, 'desc');
 
 	return (
-		<section className="mt-2 flex h-horizontal-content flex-col justify-between md:mt-0">
+		<section className="min-h-horizontal-content mt-2 flex flex-col justify-between md:mt-0">
 			<Items items={projects} />
 			<div>
-				<EyebrowText>Lets connect</EyebrowText>
+				<EyebrowText className="pt-20">Lets connect</EyebrowText>
 			</div>
 		</section>
 	);

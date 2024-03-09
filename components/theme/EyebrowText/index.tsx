@@ -1,4 +1,5 @@
 'use client';
+import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import { ArrowDown, ArrowRight } from 'lucide-react';
 
@@ -6,10 +7,12 @@ export function EyebrowText({
 	children,
 	cta,
 	icon,
+	className,
 }: {
 	children: React.ReactNode;
 	cta?: string;
 	icon?: string;
+	className?: string;
 }) {
 	const animation = {
 		initial: {
@@ -29,15 +32,22 @@ export function EyebrowText({
 	};
 	return (
 		<motion.div
-			className="flex flex-row justify-between py-24 text-sm lg:py-20 lg:text-base"
+			className={cn(
+				'mt-2 flex flex-row justify-between pb-8 pt-24 text-sm lg:py-20 lg:text-base',
+				className,
+			)}
 			{...animation}
 		>
 			<div className="font-medium">({children})</div>
 			{Boolean(cta) && (
 				<div className="flex flex-row gap-1 font-medium">
 					{cta}
-					{icon === 'arrow-down' && <ArrowDown />}
-					{icon === 'arrow-right' && <ArrowRight />}
+					{icon === 'arrow-down' && (
+						<ArrowDown className="size-responsive-icon" />
+					)}
+					{icon === 'arrow-right' && (
+						<ArrowRight className="size-responsive-icon" />
+					)}
 				</div>
 			)}
 		</motion.div>
