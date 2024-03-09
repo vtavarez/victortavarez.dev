@@ -3,37 +3,37 @@ import { Heading } from '@/components/theme';
 import { formatDate } from '@/lib/utils';
 import { type TypedObject } from 'sanity';
 
+type Case = {
+	kickoffDate: string;
+	duration: string;
+	publishedAt?: never;
+	timeToRead?: never;
+};
+
+type Post = {
+	timeToRead: number;
+	publishedAt: string;
+	kickoffDate?: never;
+	duration?: never;
+};
+
 type Content = {
 	title: string;
 	categories: string[];
 	excerpt: string;
 	body: TypedObject[];
-};
-
-type CaseStudy = {
-	timeToRead: never;
-	publishedAt: never;
-	kickoffDate: string;
-	duration: string;
-} & Content;
-
-type BlogPost = {
-	kickoffDate: never;
-	duration: never;
-	timeToRead: number;
-	publishedAt: string;
-} & Content;
+} & (Case | Post);
 
 export function Content({
 	title,
-	timeToRead,
+	kickoffDate,
 	duration,
 	categories,
-	publishedAt,
-	kickoffDate,
 	excerpt,
+	publishedAt,
+	timeToRead,
 	body,
-}: BlogPost | CaseStudy) {
+}: Content) {
 	return (
 		<section className="relative pt-[100lvh]">
 			<Heading

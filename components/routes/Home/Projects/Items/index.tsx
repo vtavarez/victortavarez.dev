@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { Project, ValueProp } from '@/components/theme';
-import type { Project as ProjectType } from '@/lib/types';
+import type { ProjectType } from '@/lib/types';
 
 export function Items({ items }: { items: ProjectType[] }) {
 	const [animationFinished, setAnimationFinished] = useState(false);

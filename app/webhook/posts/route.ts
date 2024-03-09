@@ -1,7 +1,7 @@
+import { NextRequest } from 'next/server';
 import { revalidateTag } from 'next/cache';
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
 	try {
-		const response = await request.json();
 		revalidateTag('posts');
 		return new Response('OK');
 	} catch (error) {
