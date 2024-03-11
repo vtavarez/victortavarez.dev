@@ -25,19 +25,19 @@ export function PostsPagination({ numberOfPages, ...props }: Props) {
 				<PaginationItem>
 					<PaginationPrevious
 						href={page === 1 ? '#' : `${pathname}?page=${page - 1}`}
-						className={page === 1 ? 'pointer-events-none opacity-50' : ''}
+						isActive={page !== 1}
 						aria-disabled={page === 1}
 					/>
 				</PaginationItem>
 				{Array.from({ length: numberOfPages }).map((_, i) => (
-					<PaginationItem key={i}>
-						<PaginationLink
-							href={i + 1 === page ? '#' : `${pathname}?page=${i + 1}`}
-							isActive={i + 1 === page}
-						>
-							{i + 1}
-						</PaginationLink>
-					</PaginationItem>
+					<PaginationLink
+						key={i}
+						href={i + 1 > 1 ? `${pathname}?page=${i + 1}` : pathname}
+						isActive={i + 1 !== 1 && i + 1 !== numberOfPages - 1}
+						aria-disabled={i + 1 === 1 || i + 1 === numberOfPages - 1}
+					>
+						{i + 1}
+					</PaginationLink>
 				))}
 				<PaginationItem>
 					<PaginationEllipsis />
@@ -45,9 +45,7 @@ export function PostsPagination({ numberOfPages, ...props }: Props) {
 				<PaginationItem>
 					<PaginationNext
 						href={page === numberOfPages ? '#' : `${pathname}?page=${page + 1}`}
-						className={
-							page === numberOfPages ? 'pointer-events-none opacity-50' : ''
-						}
+						isActive={page !== numberOfPages}
 						aria-disabled={page === numberOfPages}
 					/>
 				</PaginationItem>
