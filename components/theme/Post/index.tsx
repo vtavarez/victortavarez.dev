@@ -31,12 +31,12 @@ export function Post({
 			variants={variants}
 		>
 			<Link
-				className="group flex h-post-card max-w-post-card flex-col focus:outline-none"
+				className="max-h-post-card group flex h-full max-w-post-card flex-col focus:outline-none"
 				href={'/blog/' + slug}
 			>
 				<div>
-					<p className="pb-2 text-sm font-medium">/ 00{number}</p>
-					<h3 className="underline-animation min-h-[1.6rem] w-fit overflow-hidden text-ellipsis text-pretty text-base font-medium leading-none lg:text-lg">
+					<p className="pb-2 text-xs font-medium md:text-sm">/ 00{number}</p>
+					<h3 className="underline-animation min-h-[1.4rem] w-fit overflow-hidden text-ellipsis text-pretty text-sm font-medium leading-none lg:text-lg">
 						{title}
 					</h3>
 					<p className="mb-3 overflow-hidden text-ellipsis text-pretty text-sm">
@@ -53,7 +53,7 @@ export function Post({
 						</span>
 					))}
 				</div>
-				<div className="grid w-fit grid-cols-2 gap-4 pb-2 text-sm leading-none">
+				<div className="grid w-fit grid-cols-2 gap-4 pb-2 text-xs leading-none md:text-sm">
 					<span>— {formatDate(publishedAt)}</span>
 					<span>{timeToRead + ' min read'}</span>
 				</div>

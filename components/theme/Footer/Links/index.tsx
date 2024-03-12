@@ -15,7 +15,7 @@ export function Links() {
 				</ul>
 			</div>
 			<div className="flex flex-row items-center justify-center gap-4">
-				Top <ArrowUp />
+				Top <ArrowUp className="size-eyebrow-icon" />
 			</div>
 		</div>
 	);

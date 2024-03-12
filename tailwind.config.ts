@@ -55,7 +55,8 @@ const config: Config = {
 				},
 			},
 			size: {
-				'responsive-icon': 'clamp(1.3rem, 3vw, 2rem)',
+				'heading-icon': 'clamp(1.3rem, 3vw, 2rem)',
+				'eyebrow-icon': 'clamp(1.3rem, 3vw, 1.5rem)',
 			},
 			width: {
 				card: '430px',
@@ -69,6 +70,9 @@ const config: Config = {
 				'blog-page': 'calc(100vh - 240px)',
 				'blog-posts': 'calc(100vh - 432px)',
 				'horizontal-content': 'calc(100vh - 152px)',
+			},
+			maxHeight: {
+				'post-card': '210px',
 			},
 			maxWidth: {
 				card: '430px',

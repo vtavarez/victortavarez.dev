@@ -35,6 +35,7 @@ export function PostsPagination({ numberOfPages, ...props }: Props) {
 						href={i + 1 > 1 ? `${pathname}?page=${i + 1}` : pathname}
 						isActive={i + 1 !== 1 && i + 1 !== numberOfPages - 1}
 						aria-disabled={i + 1 === 1 || i + 1 === numberOfPages - 1}
+						aria-current={i + 1 === page}
 					>
 						{i + 1}
 					</PaginationLink>

@@ -37,12 +37,12 @@ export function Content({
 	return (
 		<section className="relative pt-[100lvh]">
 			<Heading
-				className="fixed inset-0 -z-10 flex h-[100lvh] items-end overflow-hidden px-6 pb-8 xl:px-8 xl:pb-20"
+				className="fixed inset-0 -z-10 flex h-[100lvh] items-end overflow-hidden px-6 pb-6 xl:px-8 xl:pb-12"
 				icon="arrow-down"
 			>
 				{title}
 			</Heading>
-			<div className="min-h-[100lvh] bg-background">
+			<div className="min-h-[100lvh] bg-gradient-to-t from-background from-95% to-transparent">
 				<article className="mx-auto px-2 text-sm sm:max-w-[85%] xl:px-0 xl:text-base 2xl:max-w-[65%]">
 					<div className="mx-auto flex w-fit flex-col items-center gap-1 text-sm lg:text-base">
 						{kickoffDate && (

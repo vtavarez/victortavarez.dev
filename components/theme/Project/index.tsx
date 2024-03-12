@@ -45,8 +45,8 @@ export function Project({
 				<Card className="h-card border-none bg-background">
 					<div className="flex h-full flex-col justify-between pt-4 lg:p-4">
 						<div>
-							<p className="text-base font-medium lg:text-lg">{name}</p>
-							<p className="text-sm">{description}</p>
+							<p className="text-sm font-medium lg:text-lg">{name}</p>
+							<p className="text-xs md:text-sm">{description}</p>
 						</div>
 						<div className="mt-4 flex justify-between">
 							<div className="flex items-center">

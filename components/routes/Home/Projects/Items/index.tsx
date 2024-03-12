@@ -6,7 +6,7 @@ import type { ProjectType } from '@/lib/types';
 export function Items({ items }: { items: ProjectType[] }) {
 	const [animationFinished, setAnimationFinished] = useState(false);
 	return (
-		<div className="mx-auto flex h-full w-full max-w-5xl flex-col justify-center">
+		<div className="mx-auto w-full max-w-5xl">
 			<ValueProp
 				className="xl:pl-4"
 				onAnimationFinished={() => setAnimationFinished(true)}

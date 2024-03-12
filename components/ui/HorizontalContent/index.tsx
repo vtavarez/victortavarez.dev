@@ -23,7 +23,7 @@ function HorizontalContent({
 	return (
 		<section
 			ref={ref}
-			className="relative h-[200lvh] bg-background"
+			className="relative h-[250lvh] bg-gradient-to-t from-background from-95% to-transparent"
 		>
 			<div className="sticky top-0 overflow-hidden">
 				<motion.section
