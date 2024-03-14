@@ -13,7 +13,7 @@ export const fontSans = FontSans({
 export const metadata: Metadata = {
 	title: 'Victor Tavarez',
 	description:
-		"Hey, I'm Victor. I enjoy building dynamic and engaging user experiences on the web.",
+		'Hey, welcome. Thanks for visiting my corner of the web. Here you will find a selection of my writing, and work.',
 };
 
 export default function RootLayout({

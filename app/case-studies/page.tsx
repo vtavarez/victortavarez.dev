@@ -1,6 +1,13 @@
 import { Heading } from '@/components/theme';
 import { Menu } from '@/components/routes/case-studies';
 import { getCaseStudies } from '@/lib/utils';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+	title: 'Case Studies - Victor Tavarez',
+	description:
+		"Case studies that delve into recent projects I've undertaken for various clients.",
+};
 
 export default async function Page() {
 	const studies = await getCaseStudies();
