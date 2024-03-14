@@ -162,6 +162,12 @@ export function ContactForm() {
 					<ErrorMessage>{errors.message?.message}</ErrorMessage>
 				)}
 			</FieldGroup>
+			<Field
+				className="hidden"
+				type="hidden"
+				name="_subject"
+				value="New contact message on victortavarez.dev"
+			/>
 			<SubmitButton
 				disabled={isSubmitting || isValidating}
 				aria-disabled={isSubmitting || isValidating}
