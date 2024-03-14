@@ -8,7 +8,7 @@ export function Intro() {
 				/ 001
 			</div>
 			<div className="flex h-horizontal-content flex-col justify-center pt-14 lg:pt-20">
-				<ValueProp className="min-h-22">
+				<ValueProp className="min-h-28">
 					Thanks for visiting my corner of the web. Here you will find a
 					selection of my writing, and work.
 				</ValueProp>

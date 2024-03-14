@@ -35,7 +35,10 @@ export default defineType({
 			name: 'categories',
 			title: 'Categories',
 			type: 'array',
-			of: [defineArrayMember({ type: 'reference', to: { type: 'category' } })],
+			//@ts-ignore
+			of: [
+				defineArrayMember({ type: 'reference', to: [{ type: 'category' }] }),
+			],
 			validation: Rule => Rule.required(),
 		}),
 		defineField({

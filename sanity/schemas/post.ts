@@ -40,14 +40,18 @@ export default defineType({
 			name: 'author',
 			title: 'Author',
 			type: 'reference',
-			to: { type: 'author' },
+			//@ts-ignore
+			to: [{ type: 'author' }],
 			validation: Rule => Rule.required(),
 		}),
 		defineField({
 			name: 'categories',
 			title: 'Categories',
 			type: 'array',
-			of: [defineArrayMember({ type: 'reference', to: { type: 'category' } })],
+			//@ts-ignore
+			of: [
+				defineArrayMember({ type: 'reference', to: [{ type: 'category' }] }),
+			],
 			validation: Rule => Rule.required(),
 		}),
 		defineField({
@@ -71,10 +75,6 @@ export default defineType({
 			excerpt: 'excerpt',
 			reading_time: 'timeToRead',
 			author: 'author.name',
-		},
-		prepare(selection) {
-			const { author } = selection;
-			return { ...selection, author: author && `by ${author}` };
 		},
 	},
 });
