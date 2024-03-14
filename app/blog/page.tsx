@@ -12,7 +12,7 @@ type Props = {
 export const metadata: Metadata = {
 	title: 'Blog - Victor Tavarez',
 	description:
-		"Find my thoughts on the current state of web development, my experiences through out my career, and the lessons I've learned along the way.",
+		"Thoughts on the current state of web development, experiences throughout my career, and the lessons I've learned along the way.",
 };
 
 export default async function Page({ params }: Props) {
