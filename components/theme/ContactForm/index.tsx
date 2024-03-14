@@ -24,7 +24,7 @@ export function ContactForm() {
 	const { executeRecaptcha } = useGoogleReCaptcha();
 
 	const { register, handleSubmit, reset, control } = useForm<Inputs>({
-		mode: 'onBlur',
+		mode: 'onSubmit',
 		reValidateMode: 'onBlur',
 		defaultValues: {
 			name: '',

@@ -1,38 +1,32 @@
 'use server';
-import nodemailer from 'nodemailer';
-import Mail from 'nodemailer/lib/mailer';
 import { contactSchema } from '@/lib/schema';
 import { Inputs } from '@/lib/types';
 
-const transporter = nodemailer.createTransport({
-	service: 'gmail',
-	auth: {
-		user: process.env.EMAIL_USER,
-		pass: process.env.EMAIL_PASS,
-	},
-});
-
 export async function send(data: Inputs) {
-	const { name, email, message } = data;
 	contactSchema.parse(data);
 
-	const options: Mail.Options = {
-		from: process.env.EMAIL_USER,
-		to: process.env.EMAIL_USER,
-		subject: `New message from ${name} (${email})`,
-		text: message,
-	};
+	try {
+		const res = await fetch('https://formspree.io/f/xpzvlggy', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data),
+		});
 
-	const res = await transporter.sendMail(options);
+		const json = await res.json();
 
-	if ('err' in res) {
-		console.error(res.err);
+		if ('errors' in json) {
+			throw new Error(json.errors);
+		}
+
+		return json;
+	} catch (err) {
+		console.error(err);
 		return {
 			error: {
 				message: 'Error sending email',
 			},
 		};
 	}
-
-	return res;
 }
