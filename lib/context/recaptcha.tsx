@@ -1,18 +1,18 @@
-"use client";
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+'use client';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 
 export function ReCaptchaProvider({ children }: { children: React.ReactNode }) {
-  return (
-    <GoogleReCaptchaProvider
-      reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
-      scriptProps={{
-        async: false,
-        defer: true,
-        appendTo: "head",
-        nonce: undefined,
-      }}
-    >
-      {children}
-    </GoogleReCaptchaProvider>
-  );
+	return (
+		<GoogleReCaptchaProvider
+			reCaptchaKey="6LdpWE8pAAAAAFOiaw3g6Pia4mT1pHtfWpHlePIi"
+			scriptProps={{
+				async: false,
+				defer: true,
+				appendTo: 'head',
+				nonce: undefined,
+			}}
+		>
+			{children}
+		</GoogleReCaptchaProvider>
+	);
 }
