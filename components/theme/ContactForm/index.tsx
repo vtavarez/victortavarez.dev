@@ -15,8 +15,7 @@ import {
 	SubmitButton,
 	BouncingLoader,
 } from '@/components/ui/';
-import { verify } from '@/actions/recaptcha';
-import { send } from '@/actions/email';
+import { verify, send } from '@/app/actions';
 import { contactSchema } from '@/lib/schema';
 import type { Inputs } from '@/lib/types';
 
