@@ -63,6 +63,7 @@ export function ContactForm() {
 		const verified = await verify(token);
 
 		if (verified.success) {
+			console.log('verified');
 			const response = await send(data);
 
 			if ('error' in response) {
