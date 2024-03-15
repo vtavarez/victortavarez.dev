@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+import { BouncingLoader } from '@/components/ui';
 import { PostsPagination } from './Pagination';
 import { EyebrowText, Post } from '@/components/theme';
 import { cn } from '@/lib/utils';
@@ -34,7 +36,9 @@ export function Posts({ totalPages, posts, className }: Props) {
 					))}
 				</div>
 				<div className="mb-8 flex items-center justify-center">
-					<PostsPagination numberOfPages={totalPages} />
+					<Suspense fallback={<BouncingLoader />}>
+						<PostsPagination numberOfPages={totalPages} />
+					</Suspense>
 				</div>
 			</div>
 		</div>
