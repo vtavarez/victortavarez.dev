@@ -16,7 +16,7 @@ export async function verify(token: string) {
 
 	const result = recaptchaSchema.safeParse(json);
 
-	if (!result.success) {
+	if ('error' in result) {
 		console.error(result.error.issues);
 		return {
 			...json,

@@ -37,7 +37,7 @@ export function ContactForm() {
 		isSuccess: false,
 		isError: false,
 		successMessage: 'Thanks for reaching out, will be in touch.',
-		errorMessage: 'Looks like there was an error, please try again.',
+		errorMessage: 'Looks like there was an error, please try again later.',
 	});
 
 	const { dirtyFields, isSubmitting, errors, isValidating } = useFormState({
