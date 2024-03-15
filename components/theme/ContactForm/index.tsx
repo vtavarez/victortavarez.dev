@@ -59,24 +59,28 @@ export function ContactForm() {
 	}
 
 	async function onSubmit(data: Inputs) {
-		const token = executeRecaptcha ? await executeRecaptcha('submit') : '';
-		const verified = await verify(token);
+		try {
+			const token = executeRecaptcha ? await executeRecaptcha('submit') : '';
+			const verified = await verify(token);
 
-		if (verified.success) {
-			console.log('verified');
-			const response = await send(data);
+			if (verified.success) {
+				const response = await send(data);
 
-			if ('error' in response) {
-				setSubmitStatus({ ...submitStatus, isError: true });
-				return;
+				if ('error' in response) {
+					setSubmitStatus({ ...submitStatus, isError: true });
+					return;
+				}
+
+				reset();
+				setTimeout(
+					() => setSubmitStatus({ ...submitStatus, isSuccess: false }),
+					5000,
+				);
+				setSubmitStatus({ ...submitStatus, isSuccess: true });
 			}
-
-			reset();
-			setTimeout(
-				() => setSubmitStatus({ ...submitStatus, isSuccess: false }),
-				5000,
-			);
-			setSubmitStatus({ ...submitStatus, isSuccess: true });
+		} catch (err) {
+			console.error(err);
+			setSubmitStatus({ ...submitStatus, isError: true });
 		}
 	}
 
