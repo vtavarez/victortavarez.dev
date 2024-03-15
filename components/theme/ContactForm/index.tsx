@@ -169,6 +169,7 @@ export function ContactForm() {
 				value="New contact message on victortavarez.dev"
 			/>
 			<SubmitButton
+				className="dark:hover:bg-primary"
 				disabled={isSubmitting || isValidating}
 				aria-disabled={isSubmitting || isValidating}
 			>

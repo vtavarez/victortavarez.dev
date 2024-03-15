@@ -2,6 +2,7 @@ export * from './Navigation';
 export * from './Buttons';
 export * from './Author';
 export * from './Card';
+export * from './Animations';
 export * from './Loaders';
 export * from './Marquee';
 export * from './Form';
