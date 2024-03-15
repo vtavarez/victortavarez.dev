@@ -50,20 +50,18 @@ const PaginationLink = ({
 	size = 'icon',
 	...props
 }: PaginationLinkProps) => (
-	<PaginationItem>
-		<Link
-			aria-current={isActive ? 'page' : undefined}
-			className={cn(
-				buttonVariants({
-					variant: isActive ? 'outline' : 'disabled',
-					size,
-				}),
-				className,
-			)}
-			scroll={false}
-			{...props}
-		></Link>
-	</PaginationItem>
+	<Link
+		aria-current={isActive ? 'page' : undefined}
+		className={cn(
+			buttonVariants({
+				variant: isActive ? 'outline' : 'disabled',
+				size,
+			}),
+			className,
+		)}
+		scroll={false}
+		{...props}
+	></Link>
 );
 PaginationLink.displayName = 'PaginationLink';
 

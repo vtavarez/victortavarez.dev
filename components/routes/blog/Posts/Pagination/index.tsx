@@ -30,15 +30,16 @@ export function PostsPagination({ numberOfPages, ...props }: Props) {
 					/>
 				</PaginationItem>
 				{Array.from({ length: numberOfPages }).map((_, i) => (
-					<PaginationLink
-						key={i}
-						href={i + 1 > 1 ? `${pathname}?page=${i + 1}` : pathname}
-						isActive={i + 1 !== 1 && i + 1 !== numberOfPages - 1}
-						aria-disabled={i + 1 === 1 || i + 1 === numberOfPages - 1}
-						aria-current={i + 1 === page}
-					>
-						{i + 1}
-					</PaginationLink>
+					<PaginationItem key={i}>
+						<PaginationLink
+							href={i + 1 > 1 ? `${pathname}?page=${i + 1}` : pathname}
+							isActive={i + 1 !== 1 && i + 1 !== numberOfPages - 1}
+							aria-disabled={i + 1 === 1 || i + 1 === numberOfPages - 1}
+							aria-current={i + 1 === page}
+						>
+							{i + 1}
+						</PaginationLink>
+					</PaginationItem>
 				))}
 				<PaginationItem>
 					<PaginationEllipsis />

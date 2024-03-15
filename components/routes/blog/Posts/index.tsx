@@ -3,7 +3,7 @@ import { BouncingLoader } from '@/components/ui';
 import { PostsPagination } from './Pagination';
 import { EyebrowText, Post } from '@/components/theme';
 import { cn } from '@/lib/utils';
-import { type PostType } from '@/lib/types';
+import type { PostType } from '@/lib/types';
 
 type Props = {
 	totalPages: number;
