@@ -1,4 +1,3 @@
-import { ReCaptchaProvider } from '@/lib/context/recaptcha';
 import { ValueProp, ContactForm } from '@/components/theme';
 
 export function Contact() {
@@ -10,9 +9,7 @@ export function Contact() {
 				</ValueProp>
 			</div>
 			<div className="flex items-center justify-center">
-				<ReCaptchaProvider>
-					<ContactForm />
-				</ReCaptchaProvider>
+				<ContactForm />
 			</div>
 		</section>
 	);

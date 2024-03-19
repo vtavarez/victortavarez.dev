@@ -41,13 +41,17 @@ export const contactSchema = z
 	.required();
 
 export const recaptchaSchema = z.object({
-	success: z.boolean(),
-	score: z.number(),
-	action: z.string(),
-	challenge_ts: z.string(),
-	hostname: z.string(),
-	'error-codes': z.array(z.string()).optional(),
-	error: z.custom<typeof Error>().optional(),
+	event: z.object({
+		expectedAction: z.string(),
+	}),
+	riskAnalysis: z.object({
+		reasons: z.array(z.string()),
+		score: z.number(),
+	}),
+	tokenProperties: z.object({
+		action: z.string(),
+		valid: z.boolean(),
+	}),
 });
 
 export const postSchema = z.object({

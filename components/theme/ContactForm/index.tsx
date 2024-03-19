@@ -2,8 +2,8 @@
 import { useState } from 'react';
 import { useFocusedFields } from '@/lib/hooks';
 import { useForm, useFormState } from 'react-hook-form';
+import { load } from 'recaptcha-v3';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import {
 	Form,
 	FieldGroup,
@@ -20,8 +20,6 @@ import { contactSchema } from '@/lib/schema';
 import type { Inputs } from '@/lib/types';
 
 export function ContactForm() {
-	const { executeRecaptcha } = useGoogleReCaptcha();
-
 	const { register, handleSubmit, reset, control } = useForm<Inputs>({
 		mode: 'onSubmit',
 		reValidateMode: 'onBlur',
@@ -60,9 +58,18 @@ export function ContactForm() {
 
 	async function onSubmit(data: Inputs) {
 		try {
-			// @ts-ignore
-			const token = await executeRecaptcha('submit');
-			const verified = await verify(token);
+			const recaptcha = await load(
+				process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '',
+				{
+					useEnterprise: true,
+					autoHideBadge: true,
+				},
+			);
+
+			const token = await recaptcha.execute('SUBMIT_CONTACT_FORM');
+
+			const verified: { success: boolean; error?: string } =
+				await verify(token);
 
 			if (verified.success) {
 				const response = await send(data);

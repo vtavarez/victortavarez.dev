@@ -1,45 +1,72 @@
 'use server';
+import { createTransport } from 'nodemailer';
+import { SES } from '@aws-sdk/client-ses';
 import { recaptchaSchema } from '@/lib/schema';
 import { contactSchema } from '@/lib/schema';
 import { Inputs } from '@/lib/types';
 
+const ses = new SES({ apiVersion: '2010-12-01', region: 'us-east-1' });
+
+const email = createTransport({
+	SES: {},
+});
+
 export async function verify(token: string) {
-	const secret = process.env.RECAPTCHA_SECRET_KEY;
-	const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`;
-	const response = await fetch(url, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+	const url = `https://recaptchaenterprise.googleapis.com/v1/projects/victortavarez-dev/assessments?key=${process.env.RECAPTCHA_SECRET_KEY}`;
+	const request = {
+		event: {
+			token,
+			expectedAction: 'SUBMIT_CONTACT_FORM',
+			siteKey: process.env.RECAPTCHA_SITE_KEY,
 		},
-	});
-	const json = await response.json();
+	};
 
-	const result = recaptchaSchema.safeParse(json);
+	try {
+		const response = await fetch(url, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(request),
+		});
 
-	if ('error' in result) {
-		console.error(result.error.issues);
+		const data = await response.json();
+
+		const validationResults = recaptchaSchema.safeParse(data);
+
+		if ('error' in validationResults) {
+			console.error(validationResults.error.issues);
+			return {
+				...data,
+				error: new Error('Failed to verify recaptcha token'),
+			};
+		}
+
+		if (data.riskAnalysis.score < 0.5) {
+			return {
+				...data,
+				success: false,
+				error: new Error(`Recaptcha score too low: ${data.riskAnalysis.score}`),
+			};
+		}
+
 		return {
-			...json,
+			...data,
+			success: true,
+		};
+	} catch (err) {
+		console.error(err);
+		return {
 			error: new Error('Failed to verify recaptcha token'),
 		};
 	}
-
-	if (json.score < 0.5) {
-		return {
-			...json,
-			success: false,
-			error: new Error(`Recaptcha score too low: ${json.score}`),
-		};
-	}
-
-	return json;
 }
 
 export async function send(data: Inputs) {
-	const result = contactSchema.safeParse(data);
+	const validationResults = contactSchema.safeParse(data);
 
-	if ('error' in result) {
-		console.error(result.error.issues);
+	if ('error' in validationResults) {
+		console.error(validationResults.error.issues);
 		return {
 			error: {
 				message: 'Error: Invalid input',
