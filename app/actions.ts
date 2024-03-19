@@ -44,7 +44,8 @@ export async function verify(token: string) {
 			console.error(validationResults.error.issues);
 			return {
 				...data,
-				error: new Error('Failed to verify recaptcha token'),
+				success: false,
+				error: 'Failed to verify recaptcha token',
 			};
 		}
 
@@ -52,7 +53,7 @@ export async function verify(token: string) {
 			return {
 				...data,
 				success: false,
-				error: new Error(`Recaptcha score too low: ${data.riskAnalysis.score}`),
+				error: `Recaptcha score too low: ${data.riskAnalysis.score}`,
 			};
 		}
 
@@ -63,7 +64,7 @@ export async function verify(token: string) {
 	} catch (err) {
 		console.error(err);
 		return {
-			error: new Error('Failed to verify recaptcha token'),
+			error: 'Failed to verify recaptcha token',
 		};
 	}
 }

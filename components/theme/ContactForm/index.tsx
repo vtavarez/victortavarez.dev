@@ -59,7 +59,7 @@ export function ContactForm() {
 	async function onSubmit(data: Inputs) {
 		try {
 			const recaptcha = await load(
-				process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '',
+				process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string,
 				{
 					useEnterprise: true,
 					autoHideBadge: true,
