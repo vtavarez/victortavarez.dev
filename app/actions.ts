@@ -1,15 +1,21 @@
 'use server';
 import { createTransport } from 'nodemailer';
-import { SES } from '@aws-sdk/client-ses';
 import { recaptchaSchema } from '@/lib/schema';
-import { contactSchema } from '@/lib/schema';
+import { contactSchema, contactResponseSchema } from '@/lib/schema';
 import { Inputs } from '@/lib/types';
+import type SMTPTransport from 'nodemailer/lib/smtp-transport';
 
-const ses = new SES({ apiVersion: '2010-12-01', region: 'us-east-1' });
+const options: SMTPTransport.Options = {
+	host: process.env.EMAIL_HOST,
+	port: 587,
+	secure: false,
+	auth: {
+		user: process.env.EMAIL_USER,
+		pass: process.env.EMAIL_PASS,
+	},
+};
 
-const email = createTransport({
-	SES: {},
-});
+const transporter = createTransport(options);
 
 export async function verify(token: string) {
 	const url = `https://recaptchaenterprise.googleapis.com/v1/projects/victortavarez-dev/assessments?key=${process.env.RECAPTCHA_SECRET_KEY}`;
@@ -75,21 +81,33 @@ export async function send(data: Inputs) {
 	}
 
 	try {
-		const response = await fetch('https://formspree.io/f/xpzvlggy', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(data),
+		const response = await transporter.sendMail({
+			from: process.env.EMAIL_FROM,
+			to: process.env.EMAIL_TO,
+			subject: 'New message from victortavarez.dev',
+			html: `
+				<p><strong>Name:</strong> ${data.name}</p>
+				<p><strong>Email:</strong> ${data.email}</p>
+				<p><strong>Message:</strong> ${data.message}</p>
+			`,
 		});
 
-		const json = await response.json();
+		const validationResults = contactResponseSchema.safeParse(response);
 
-		if ('errors' in json) {
-			throw new Error(json.errors);
+		if ('error' in validationResults) {
+			console.error(validationResults.error.issues);
+			return {
+				error: {
+					message: 'Response validation failed',
+					issues: validationResults.error.issues,
+				},
+			};
 		}
 
-		return json;
+		return {
+			...response,
+			success: true,
+		};
 	} catch (err) {
 		console.error(err);
 		return {

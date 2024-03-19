@@ -40,6 +40,17 @@ export const contactSchema = z
 	})
 	.required();
 
+export const contactResponseSchema = z.object({
+	accepted: z.array(z.string()),
+	rejected: z.array(z.string()),
+	response: z.string(),
+	envelope: z.object({
+		from: z.string(),
+		to: z.array(z.string()),
+	}),
+	messageId: z.string(),
+});
+
 export const recaptchaSchema = z.object({
 	event: z.object({
 		expectedAction: z.string(),
