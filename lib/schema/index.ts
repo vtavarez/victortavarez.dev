@@ -1,41 +1,23 @@
 import { z } from 'zod';
 import { type TypedObject } from 'sanity';
 
-const errorMessages = {
-	name: {
-		required: 'Name is Required',
-		min: 'Name must be 2 or more characters long',
-		max: 'Name must be 2 or fewer characters long',
-		regex: 'Name can only contain letters and spaces',
-	},
-	email: {
-		required: 'Email is Required',
-		invalid: 'Invalid email',
-	},
-	message: {
-		required: 'Message is Required',
-		min: 'Message must be 10 or more characters long',
-		max: 'Message must be 500 or fewer characters long',
-		regex: 'Message can only contain letters, numbers, and punctuation',
-	},
-};
-
 export const contactSchema = z
 	.object({
 		name: z
-			.string({ required_error: errorMessages.name.required })
-			.min(2, { message: errorMessages.name.min })
-			.max(100, { message: errorMessages.name.max })
-			.regex(/^[a-zA-Z ]+$/, { message: errorMessages.name.regex }),
+			.string({ required_error: 'Name is Required' })
+			.max(100, { message: 'Name can not exceeed 100 characters.' })
+			.regex(/^[a-zA-Z ]+$/, {
+				message: 'Name can only contain letters and spaces.',
+			}),
 		email: z
-			.string({ required_error: errorMessages.email.required })
-			.email({ message: errorMessages.email.invalid }),
+			.string({ required_error: 'Email is Required' })
+			.email({ message: 'Invalid email' }),
 		message: z
-			.string({ required_error: errorMessages.message.required })
-			.min(10, { message: errorMessages.message.min })
-			.max(500, { message: errorMessages.message.max })
-			.regex(/^[a-zA-Z0-9\s.,!?]+$/, {
-				message: errorMessages.message.regex,
+			.string({ required_error: 'Please include a brief message.' })
+			.min(10, { message: 'Message must be at least 10 characters long.' })
+			.max(500, { message: 'Message can not exceed 500 characters.' })
+			.regex(/^[a-zA-Z0-9\s\.,!?()-]+$/, {
+				message: 'Message can only contain commonly used characters.',
 			}),
 	})
 	.required();

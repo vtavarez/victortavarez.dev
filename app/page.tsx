@@ -4,7 +4,6 @@ import {
 	HorizontalContent,
 	Contact,
 } from '@/components/routes/home';
-import { ValueProp } from '@/components/theme';
 
 export default function Page() {
 	return (
