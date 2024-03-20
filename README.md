@@ -1,102 +1,85 @@
 ## Features
 
+- Next.js 14
 - Eslint/Prettier configured
 - Scores 100% on a11y / Performance / SEO
 - Easy to customize
 - Nice project structure
 - Tablet & mobile friendly
 - Continuous deployment with [Vercel](https://vercel.com)
-- Contact form protected by Google Recaptcha
-- Can be deployed with one click or automated via web hook!
-- Blog post thumbnails auto generated via AI
+- Contact form protected by Google Recaptcha v3
 - Blog functionality powered by Sanity CMS
 
 ## Structure
 
 ```bash
-├── api
-│   └── posts.ts
+
 ├── app
 │   ├── blog
-│   │   ├── [slug]
-│   │   │   └── page.tsx
-│   │   └── page.tsx
+│   ├── case-studies
+│   ├── studio
+│   ├── webhook
+│   ├── actions.ts
 │   ├── favicon.ico
 │   ├── layout.tsx
-│   ├── page.tsx
-│   └── projects
-│       ├── [slug]
-│       │   └── page.tsx
-│       └── page.tsx
-├── bun.lockb
+│   └── page.tsx
 ├── components
-│   ├── landing
-│   │   ├── Featured
-│   │   │   └── index.tsx
-│   │   ├── Hero
-│   │   │   ├── Intro
-│   │   │   │   └── index.tsx
-│   │   │   ├── Summery
-│   │   │   │   └── index.tsx
-│   │   │   └── index.tsx
-│   │   ├── Scene
-│   │   │   └── index.tsx
-│   │   └── index.ts
+│   ├── routes
+│   │   ├── blog
+│   │   ├── case-studies
+│   │   └── home
 │   ├── theme
+│   │   ├── ContactForm
+│   │   ├── Content
 │   │   ├── EyebrowText
-│   │   │   └── index.tsx
 │   │   ├── Footer
-│   │   │   └── index.tsx
 │   │   ├── Header
-│   │   │   └── index.tsx
+│   │   ├── Heading
+│   │   ├── Post
 │   │   ├── Project
-│   │   │   └── index.tsx
 │   │   ├── ValueProp
-│   │   │   └── index.tsx
+│   │   ├── Work
 │   │   └── index.ts
 │   └── ui
-│       ├── Button
-│       │   ├── button.tsx
-│       │   └── index.tsx
+│       ├── Animations
+│       ├── Author
+│       ├── Buttons
 │       ├── Card
-│       │   └── index.tsx
 │       ├── DropdownMenu
-│       │   └── index.tsx
+│       ├── Form
+│       ├── HorizontalContent
+│       ├── Loaders
+│       ├── Marquee
 │       ├── Menu
-│       │   └── index.tsx
 │       ├── Navigation
-│       │   ├── index.tsx
-│       │   └── items.json
+│       ├── Pagination
+│       ├── Typewriter
 │       └── index.ts
-├── components.json
 ├── lib
+│   ├── data
 │   ├── hooks
-│   │   └── index.tsx
-│   ├── provider
-│   │   ├── next-theme.tsx
-│   │   └── react-query.tsx
+│   ├── schema
+│   ├── types
 │   └── utils
-│       └── index.ts
-├── next-env.d.ts
-├── next.config.js
-├── package-lock.json
-├── package.json
-├── postcss.config.js
-├── prettier.config.js
-├── public
+├── sanity
+│   ├── lib
+│   ├── schemas
+│   ├── env.ts
+│   └── schema.ts
 ├── styles
-│   └── globals.css
-├── tailwind.config.ts
-└── tsconfig.json
+│   ├── globals.css
+│   └── refractor.css
 ```
 
 ## Prerequisites
 
 [Bun](https://yarnpkg.com/en/)
 
-Please create a new file `.env.local` and put these env variables with your GitHub and Sanity tokens.
+Please create a new file `.env.local` and put these env variables with your
+GitHub and Sanity tokens.
 
-> If you're building locally, you will have to create a new file `.env.local` and put the same env variables
+> If you're building locally, you will have to create a new file `.env.local`
+> and put the same env variables
 
 ### Sanity
 
@@ -111,9 +94,11 @@ SANITY_ACCESS_TOKEN=xxxxxxxxxx
 SITE_RECAPTCHA_KEY=xxxxx
 
 SITE_RECAPTCHA_SECRET=xxxxx
+
 ```
 
-When deploying on Vercel, you will have to set your private key(s) there as well.
+When deploying on Vercel, you will have to set your private key(s) there as
+well.
 
 ## Install dependencies
 
@@ -139,12 +124,11 @@ bun reset
 
 - Next.js
 - Framer Motion
-- Sanity
-- Mystrial AI
-- Three.js
 - TailwindCSS
+- Sanity
 - And these useful of JavaScript libraries [package.json](package.json)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the
+[LICENSE.md](LICENSE.md) file for details
