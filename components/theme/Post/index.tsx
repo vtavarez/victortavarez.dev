@@ -31,7 +31,7 @@ export function Post({
 			variants={variants}
 		>
 			<Link
-				className="max-h-post-card group flex h-full max-w-post-card flex-col focus:outline-none"
+				className="group flex h-full max-h-post-card max-w-post-card flex-col focus:outline-none"
 				href={'/blog/' + slug}
 			>
 				<div>
@@ -47,7 +47,7 @@ export function Post({
 					{categories.map(category => (
 						<span
 							key={category}
-							className="rounded-sm bg-gray-800/10 px-[3px] py-[2px] text-xs leading-none text-primary dark:bg-gray-200/15 xl:text-sm"
+							className="rounded-sm bg-primary px-[5px] py-[2px] text-xs leading-none text-background dark:bg-gray-200/15 xl:text-sm"
 						>
 							{category}
 						</span>

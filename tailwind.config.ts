@@ -70,6 +70,7 @@ const config: Config = {
 				'blog-page': 'calc(100vh - 240px)',
 				'blog-posts': 'calc(100vh - 432px)',
 				'horizontal-content': 'calc(100vh - 152px)',
+				'not-found': 'calc(100lvh - 240px)',
 			},
 			maxHeight: {
 				'post-card': '210px',
