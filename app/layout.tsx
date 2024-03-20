@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@/lib/context/next-theme';
+import { ThemeProvider } from 'next-themes';
 import { Header, Footer } from '@/components/theme';
 import { Inter as FontSans } from 'next/font/google';
 import { cn } from '@/lib/utils';
