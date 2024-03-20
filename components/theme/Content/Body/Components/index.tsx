@@ -12,19 +12,15 @@ Refractor.registerLanguage(jsx);
 
 export const Components: PortableTextComponents = {
 	block: {
-		normal: ({ children }) => <p className="mb-6">{children}</p>,
+		normal: ({ children }) => <p className="mb-6 text-sm">{children}</p>,
 		h2: ({ children }) => (
-			<h2 className="my-4 text-lg font-semibold lg:my-6 lg:text-xl">
-				{children}
-			</h2>
+			<h2 className="my-4 text-lg font-semibold lg:my-6">{children}</h2>
 		),
 		h3: ({ children }) => (
-			<h3 className="my-4 text-lg font-semibold lg:my-6 lg:text-xl">
-				{children}
-			</h3>
+			<h3 className="my-4 text-lg font-semibold lg:my-6">{children}</h3>
 		),
 		blockquote: ({ children }) => (
-			<blockquote className="mx-auto my-8 border-l-4 border-primary pl-4 xl:max-w-[90%]">
+			<blockquote className="mx-auto my-8 border-l-4 border-primary pl-4 text-sm xl:max-w-[90%]">
 				{children}
 			</blockquote>
 		),
@@ -72,7 +68,7 @@ export const Components: PortableTextComponents = {
 	},
 	marks: {
 		code: ({ text }: { text: string }) => (
-			<code className="inline-block rounded-sm bg-gray-800/10 px-[3px] py-[2px] text-xs leading-none text-primary dark:bg-gray-200/15 xl:text-sm">
+			<code className="inline-block rounded-sm bg-gray-800/10 px-[5px] py-[3px] text-xs leading-none text-primary dark:bg-gray-200/15">
 				{text}
 			</code>
 		),

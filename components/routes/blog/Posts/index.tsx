@@ -26,7 +26,7 @@ export function Posts({ totalPages, posts, className }: Props) {
 				Explore
 			</EyebrowText>
 			<div className="flex min-h-blog-posts flex-col justify-between">
-				<div className="mb-14 mt-8 inline-flex flex-wrap gap-5">
+				<div className="mb-14 mt-6 inline-flex flex-wrap gap-5 xl:mt-0">
 					{posts.map((post, idx) => (
 						<Post
 							key={post.id}

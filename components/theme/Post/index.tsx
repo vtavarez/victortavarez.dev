@@ -31,12 +31,12 @@ export function Post({
 			variants={variants}
 		>
 			<Link
-				className="group flex h-full max-h-post-card max-w-post-card flex-col focus:outline-none"
+				className="group flex h-full max-h-post-card max-w-post-card -translate-x-3 flex-col rounded-md px-4 py-3 transition-colors duration-200 ease-in-out hover:bg-primary hover:text-background focus:bg-primary focus:text-background"
 				href={'/blog/' + slug}
 			>
 				<div>
 					<p className="pb-2 text-xs font-medium md:text-sm">/ 00{number}</p>
-					<h3 className="underline-animation min-h-[1.4rem] w-fit overflow-hidden text-ellipsis text-pretty text-sm font-medium leading-none lg:text-lg">
+					<h3 className="min-h-[1.4rem] w-fit overflow-hidden text-ellipsis text-pretty text-sm font-medium leading-none lg:text-lg">
 						{title}
 					</h3>
 					<p className="mb-3 overflow-hidden text-ellipsis text-pretty text-sm">
@@ -47,7 +47,7 @@ export function Post({
 					{categories.map(category => (
 						<span
 							key={category}
-							className="rounded-sm bg-primary px-[5px] py-[2px] text-xs leading-none text-background dark:bg-gray-200/15 xl:text-sm"
+							className="rounded-sm bg-primary px-[5px] py-[2px] text-xs leading-none text-background transition-colors duration-200 ease-in-out hover:bg-primary hover:text-background focus:outline-none group-hover:bg-background group-hover:text-primary xl:text-xs"
 						>
 							{category}
 						</span>

@@ -43,8 +43,8 @@ export function Content({
 				{title}
 			</Heading>
 			<div className="min-h-[100lvh] bg-gradient-to-t from-background from-95% to-transparent">
-				<article className="mx-auto px-2 text-sm sm:max-w-[85%] xl:px-0 xl:text-base 2xl:max-w-[65%]">
-					<div className="mx-auto flex w-fit flex-col items-center gap-1 text-sm lg:text-base">
+				<article className="mx-auto px-2 text-sm sm:max-w-[85%] xl:px-0 2xl:max-w-[65%]">
+					<div className="mx-auto flex w-fit flex-col gap-1">
 						{kickoffDate && (
 							<>
 								<div>{formatDate(kickoffDate)}</div>
@@ -57,7 +57,7 @@ export function Content({
 									{categories.map((category, idx) => (
 										<span
 											key={idx}
-											className="inline-block rounded-sm bg-gray-800/10 px-[3px] py-[2px] text-center text-xs leading-none text-primary dark:bg-gray-200/15 lg:text-sm"
+											className="inline-block rounded-sm bg-primary px-[5px] py-[3px] text-center text-xs leading-none text-background"
 										>
 											{category}
 										</span>
@@ -68,7 +68,7 @@ export function Content({
 						)}
 						{publishedAt && (
 							<>
-								<div className="mb-3 flex flex-row gap-4">
+								<div className="mx-auto mb-3 flex flex-row gap-4">
 									<span>{formatDate(publishedAt)}</span>
 									<span>{timeToRead + ' min read'}</span>
 								</div>
@@ -76,7 +76,7 @@ export function Content({
 									{categories.map((category, idx) => (
 										<span
 											key={idx}
-											className="inline-block rounded-sm bg-gray-800/10 px-[3px] py-[2px] text-center text-xs leading-none text-primary dark:bg-gray-200/15 lg:text-sm"
+											className="inline-block rounded-sm bg-primary px-[5px] py-[3px] text-center text-xs leading-none text-background"
 										>
 											{category}
 										</span>

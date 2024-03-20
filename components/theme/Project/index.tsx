@@ -41,8 +41,9 @@ export function Project({
 				href={url}
 				target="_blank"
 				rel="noopener noreferrer"
+				className="group rounded-md"
 			>
-				<Card className="h-card border-none bg-background">
+				<Card className="h-card border-none bg-background transition-colors duration-200 ease-in-out hover:bg-primary hover:text-background group-focus:bg-primary group-focus:text-background">
 					<div className="flex h-full flex-col justify-between pt-4 lg:p-4">
 						<div>
 							<p className="text-sm font-medium lg:text-lg">{name}</p>
