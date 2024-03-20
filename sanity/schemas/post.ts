@@ -40,7 +40,6 @@ export default defineType({
 			name: 'author',
 			title: 'Author',
 			type: 'reference',
-			//@ts-ignore
 			to: [{ type: 'author' }],
 			validation: Rule => Rule.required(),
 		}),
@@ -48,7 +47,6 @@ export default defineType({
 			name: 'categories',
 			title: 'Categories',
 			type: 'array',
-			//@ts-ignore
 			of: [
 				defineArrayMember({ type: 'reference', to: [{ type: 'category' }] }),
 			],

@@ -7,7 +7,6 @@ export default defineType({
 	of: [
 		defineArrayMember({
 			type: 'block',
-			//@ts-ignore
 			styles: [
 				{ title: 'Normal', value: 'normal' },
 				{ title: 'H1', value: 'h1' },
@@ -42,7 +41,6 @@ export default defineType({
 		defineArrayMember({
 			type: 'image',
 			options: { hotspot: true },
-			//@ts-ignore
 			fields: [
 				{
 					name: 'alt',
