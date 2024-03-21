@@ -6,12 +6,12 @@ import { Inputs } from '@/lib/types';
 import type SMTPTransport from 'nodemailer/lib/smtp-transport';
 
 const options: SMTPTransport.Options = {
-	host: process.env.EMAIL_HOST,
+	host: process.env.SES_EMAIL_HOST,
 	port: 587,
 	secure: false,
 	auth: {
-		user: process.env.EMAIL_USER,
-		pass: process.env.EMAIL_PASS,
+		user: process.env.SES_EMAIL_USER,
+		pass: process.env.SES_EMAIL_PASS,
 	},
 };
 
@@ -83,8 +83,8 @@ export async function send(data: Inputs) {
 
 	try {
 		const response = await transporter.sendMail({
-			from: process.env.EMAIL_FROM,
-			to: process.env.EMAIL_TO,
+			from: process.env.SES_EMAIL_FROM,
+			to: process.env.SES_EMAIL_TO,
 			subject: 'New message from victortavarez.dev',
 			html: `
 				<p><strong>Name:</strong> ${data.name}</p>

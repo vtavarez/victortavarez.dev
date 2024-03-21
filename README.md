@@ -1,3 +1,6 @@
+![Homepage 1](/public/preview/preview_one.jpg)
+![Homepage 2](/public/preview/preview_two.jpg)
+
 ## Features
 
 - Next.js 14
@@ -5,9 +8,12 @@
 - Scores 100% on a11y / Performance / SEO
 - Easy to customize
 - Nice project structure
+- Shadcn UI components
 - Tablet & mobile friendly
+- Fetches most recent GitHub repos.
+- Webhook routes for data revalidation.
 - Continuous deployment with [Vercel](https://vercel.com)
-- Contact form protected by Google Recaptcha v3
+- Contact form powered by Nodemailer, AWS SES and Google Recaptcha v3
 - Blog functionality powered by Sanity CMS
 
 ## Structure
@@ -73,37 +79,38 @@
 
 ## Prerequisites
 
-[Bun](https://yarnpkg.com/en/)
+[Bun](https://bun.sh)
 
-Please create a new file `.env.local` and put these env variables with your
-GitHub and Sanity tokens.
-
-> If you're building locally, you will have to create a new file `.env.local`
-> and put the same env variables
-
-### Sanity
+Create a new file `.env.local` and put these env variables with your Sanity CMS,
+GitHub, AWS SES, and Google ReCaptcha tokens.
 
 ```bash
+// Sanity
+SANITY_PROJECT_ID=xxxxxxxxxx
+SANITY_DATASET=xxxxxxxxxx
+
+// Github
 GITHUB_TOKEN=xxxxxxxxxx
-SANITY_ACCESS_TOKEN=xxxxxxxxxx
+
+// SES
+SES_EMAIL_HOST=xxxxxxxxxx
+SES_EMAIL_USER=xxxxxxxxxx
+SES_EMAIL_PASS=xxxxxxxxxx
+SES_EMAIL_FROM='"Hey, from youremailhere <hey@youremailhere.com>'
+SES_EMAIL_TO=xxxxxxxxxx
+
+// ReCaptcha v3
+RECAPTCHA_SITE_KEY=xxxxxxxxxx
+RECAPTCHA_SECRET_KEY=xxxxxxxxxx
 ```
 
-### Google ReCaptcha
-
-```bash
-SITE_RECAPTCHA_KEY=xxxxx
-
-SITE_RECAPTCHA_SECRET=xxxxx
-
-```
-
-When deploying on Vercel, you will have to set your private key(s) there as
-well.
+When deploying on Vercel, you will have to set your private and public keys
+key(s) there as well.
 
 ## Install dependencies
 
 ```bash
-bun
+bun install
 ```
 
 ## Start dev server
@@ -112,19 +119,12 @@ bun
 bun dev
 ```
 
-### Clear cache
-
-This removes the `.cache/` & `public/` folders
-
-```bash
-bun reset
-```
-
 ## Built with
 
-- Next.js
+- Next.js 14
 - Framer Motion
 - TailwindCSS
+- Shadcn
 - Sanity
 - And these useful of JavaScript libraries [package.json](package.json)
 
