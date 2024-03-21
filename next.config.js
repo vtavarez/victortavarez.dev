@@ -1,18 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async headers() {
-    return [
-      {
-        source: 'api.sanity.io/:path*',
-        headers: [
-          {
-            key: 'Access-Control-Allow-Origin',
-            value: '*',
-          },
-        ],
-      }
-    ]
-  },
   images: {
     remotePatterns: [
       {
@@ -21,7 +8,6 @@ const nextConfig = {
       }
     ]
   },
-  transpilePackages: ['three'],
   logging: {
     fetches: {
       fullUrl: true,
