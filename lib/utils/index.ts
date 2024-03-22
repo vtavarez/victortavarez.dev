@@ -117,7 +117,7 @@ export async function getPost(
 	const response = await client.fetch(
 		`*[slug.current == "${slug}"]{${postNodes}}`,
 		{},
-		{ cache: 'force-cache', next: { tags: ['post'] } },
+		{ cache: 'force-cache', next: { tags: ['posts'] } },
 	);
 
 	const result = postsResponseSchema.safeParse(response);
@@ -159,7 +159,7 @@ export async function getCaseStudy(
 	const response = await client.fetch(
 		`*[slug.current == "${slug}"]{${studyNodes}}`,
 		{},
-		{ cache: 'force-cache', next: { tags: ['study'] } },
+		{ cache: 'force-cache', next: { tags: ['studies'] } },
 	);
 
 	const result = caseStudiesResponseSchema.safeParse(response);

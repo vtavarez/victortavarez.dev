@@ -122,9 +122,9 @@ bun dev
 ## Built with
 
 - Next.js 14
-- Framer Motion
-- TailwindCSS
 - Shadcn
+- TailwindCSS
+- Framer Motion
 - Sanity
 - And these useful of JavaScript libraries [package.json](package.json)
 
