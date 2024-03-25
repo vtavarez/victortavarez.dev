@@ -14,11 +14,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 	return 'error' in study
 		? {
-				title: '404 Not Found - Case Studies - Victor Tavarez',
+				title: '404 Not Found | Case Studies | Victor Tavarez',
 				description: 'This post could not be found.',
 			}
 		: {
-				title: study.title + '- Case Studies - Victor Tavarez',
+				title: study.title + ' | Case Studies | Victor Tavarez',
 				description: study.excerpt,
 			};
 }

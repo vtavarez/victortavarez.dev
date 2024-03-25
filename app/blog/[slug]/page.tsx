@@ -14,11 +14,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 	return 'error' in post
 		? {
-				title: '404 Not Found - Victor Tavarez',
+				title: '404 Not Found | Victor Tavarez',
 				description: 'This post could not be found.',
 			}
 		: {
-				title: post.title + ' - Victor Tavarez',
+				title: post.title + ' | Victor Tavarez',
 				description: post.excerpt,
 			};
 }
