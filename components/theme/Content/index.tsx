@@ -44,13 +44,12 @@ export function Content({
 			</Heading>
 			<div className="min-h-[100lvh] bg-gradient-to-t from-background from-95% to-transparent">
 				<article className="mx-auto px-2 text-sm sm:max-w-[85%] xl:px-0 2xl:max-w-[65%]">
-					<div className="mx-auto flex w-fit flex-col gap-1">
+					<div className="flex w-fit flex-col gap-1">
 						{kickoffDate && (
 							<>
 								<div>{formatDate(kickoffDate)}</div>
 								<div>
-									Project duration:{' '}
-									<span className="text-xs lg:text-sm">{duration}</span>
+									Project duration: <span>{duration}</span>
 								</div>
 								<div>
 									Scope of work:{' '}
@@ -68,11 +67,12 @@ export function Content({
 						)}
 						{publishedAt && (
 							<>
-								<div className="mx-auto mb-3 flex flex-row gap-4">
-									<span>{formatDate(publishedAt)}</span>
-									<span>{timeToRead + ' min read'}</span>
+								<div>{formatDate(publishedAt)}</div>
+								<div>
+									Read Time: <span>{timeToRead} min</span>
 								</div>
-								<div className="flex flex-row justify-center gap-2">
+								<div>
+									Topics:{' '}
 									{categories.map((category, idx) => (
 										<span
 											key={idx}
@@ -86,7 +86,7 @@ export function Content({
 							</>
 						)}
 					</div>
-					<div className="py-8 xl:pb-24 xl:pt-14">
+					<div className="py-8 xl:pb-24">
 						<Body value={body} />
 					</div>
 				</article>

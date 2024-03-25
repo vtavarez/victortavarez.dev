@@ -12,17 +12,19 @@ Refractor.registerLanguage(jsx);
 
 export const Components: PortableTextComponents = {
 	block: {
-		normal: ({ children }) => <p className="mb-6 text-sm">{children}</p>,
-		h2: ({ children }) => (
-			<h2 className="my-4 text-lg font-semibold lg:my-6">{children}</h2>
-		),
-		h3: ({ children }) => (
-			<h3 className="my-4 text-lg font-semibold lg:my-6">{children}</h3>
-		),
+		normal: ({ children }) => <p className="mb-4">{children}</p>,
+		h2: ({ children }) => <h2 className="mb-4 font-medium">{children}</h2>,
+		h3: ({ children }) => <h3 className="mb-4 font-medium">{children}</h3>,
+		h4: ({ children }) => <h4 className="mb-4 font-medium">{children}</h4>,
 		blockquote: ({ children }) => (
-			<blockquote className="mx-auto my-8 border-l-4 border-primary pl-4 text-sm xl:max-w-[90%]">
+			<blockquote className="mx-auto mb-8 border-l-4 border-primary pl-4">
 				{children}
 			</blockquote>
+		),
+	},
+	list: {
+		bullet: ({ children }) => (
+			<ul className="mb-4 ml-6 list-disc">{children}</ul>
 		),
 	},
 	types: {
@@ -68,14 +70,14 @@ export const Components: PortableTextComponents = {
 	},
 	marks: {
 		code: ({ text }: { text: string }) => (
-			<code className="inline-block rounded-sm bg-gray-800/10 px-[5px] py-[3px] text-xs leading-none text-primary dark:bg-gray-200/15">
+			<code className="inline-block rounded-sm bg-gray-800/10 px-[5px] py-[3px] text-sm leading-none text-primary dark:bg-gray-200/15">
 				{text}
 			</code>
 		),
 		link: ({ value, children }) => {
 			return (
 				<a
-					className="font-medium text-primary underline"
+					className=" text-primary underline"
 					href={value.href}
 					target="_blank"
 					rel="noopener noreferrer"
