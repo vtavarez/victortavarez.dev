@@ -7,7 +7,7 @@ export function Blurb() {
 	return (
 		<div className="flex h-horizontal-content flex-col justify-center pt-14 lg:pt-20">
 			<ValueProp
-				className="min-h-20 md:min-h-28"
+				className="min-h-20"
 				onAnimationFinished={() => setShowAnimation(true)}
 			>
 				Thanks for visiting my corner of the web. Here you will find a selection

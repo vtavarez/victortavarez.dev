@@ -13,7 +13,7 @@ export function Posts({ items }: { items: PostType[] }) {
 			>
 				Below is a selection of my writing on topics I had found interesting.
 			</ValueProp>
-			<div className="inline-flex min-h-[294px] w-full flex-wrap justify-between xl:pt-12">
+			<div className="inline-flex min-h-[294px] w-full flex-wrap justify-between xl:pt-6">
 				{finishedAnimation &&
 					items.map((post: PostType, _idx: number) => (
 						<Post
