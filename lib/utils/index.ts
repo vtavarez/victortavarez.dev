@@ -103,7 +103,7 @@ export async function getPosts(
 
 	const result = postsResponseSchema.safeParse(response);
 
-	if ('error' in result) {
+	if (!result.success) {
 		console.error(result.error.issues);
 		return [];
 	}
@@ -122,7 +122,7 @@ export async function getPost(
 
 	const result = postsResponseSchema.safeParse(response);
 
-	if ('error' in result) {
+	if (!result.success) {
 		console.error(result.error.issues);
 		return {
 			error: `Error: ${result.error.issues}`,
@@ -145,7 +145,7 @@ export async function getCaseStudies(
 
 	const result = caseStudiesResponseSchema.safeParse(response);
 
-	if ('error' in result) {
+	if (!result.success) {
 		console.error(result.error.issues);
 		return [];
 	}
@@ -164,7 +164,7 @@ export async function getCaseStudy(
 
 	const result = caseStudiesResponseSchema.safeParse(response);
 
-	if ('error' in result) {
+	if (!result.success) {
 		console.error(result.error.issues);
 		return {
 			error: `Error: ${result.error.issues}`,
@@ -214,7 +214,7 @@ export async function getProjects(
 
 	const result = projectsResponseSchema.safeParse(await response.json());
 
-	if ('error' in result) {
+	if (!result.success) {
 		console.error(result.error.issues);
 		return [];
 	}
