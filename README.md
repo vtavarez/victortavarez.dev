@@ -100,6 +100,7 @@ SES_EMAIL_FROM='"Hey, from youremailhere <hey@youremailhere.com>'
 SES_EMAIL_TO=xxxxxxxxxx
 
 // ReCaptcha v3
+RECAPTCHA_URL=https://recaptchaenterprise.googleapis.com/v1/projects/YOUR_PROJECT_ID/assessments
 RECAPTCHA_SITE_KEY=xxxxxxxxxx
 RECAPTCHA_SECRET_KEY=xxxxxxxxxx
 ```

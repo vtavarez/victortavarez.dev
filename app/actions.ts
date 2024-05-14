@@ -18,7 +18,7 @@ const options: SMTPTransport.Options = {
 const transporter = createTransport(options);
 
 export async function verify(token: string) {
-	const url = `https://recaptchaenterprise.googleapis.com/v1/projects/victortavarez-dev/assessments?key=${process.env.RECAPTCHA_SECRET_KEY}`;
+	const url = `${process.env.RECAPTCHA_URL}?key=${process.env.RECAPTCHA_SECRET_KEY}`;
 	const request = {
 		event: {
 			token,
@@ -40,7 +40,7 @@ export async function verify(token: string) {
 
 		const validationResults = recaptchaSchema.safeParse(data);
 
-		if ('error' in validationResults) {
+		if (!validationResults.success) {
 			console.error(validationResults.error.issues);
 			return {
 				...data,
@@ -72,7 +72,7 @@ export async function verify(token: string) {
 export async function send(data: Inputs) {
 	const validationResults = contactSchema.safeParse(data);
 
-	if ('error' in validationResults) {
+	if (!validationResults.success) {
 		console.error(validationResults.error.issues);
 		return {
 			error: {
@@ -95,7 +95,7 @@ export async function send(data: Inputs) {
 
 		const validationResults = contactResponseSchema.safeParse(response);
 
-		if ('error' in validationResults) {
+		if (!validationResults.success) {
 			console.error(validationResults.error.issues);
 			return {
 				error: {
