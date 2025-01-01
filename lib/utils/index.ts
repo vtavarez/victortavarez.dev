@@ -17,13 +17,11 @@ import type {
 } from '@/lib/types';
 
 // Tailwind CSS Classnames Merging Utility
-
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
 
 // Date Formatting Utility
-
 const dateFormat = 'MMMM dd, yyyy';
 
 export function formatDate(date: Date | string) {
@@ -31,7 +29,6 @@ export function formatDate(date: Date | string) {
 }
 
 // Typewriter Animation
-
 export function* typeWriter(text: string) {
 	for (let char of text) {
 		yield char;
@@ -39,7 +36,6 @@ export function* typeWriter(text: string) {
 }
 
 // Fetch Helper Functions
-
 const postNodes = `
   'id':_id,
   title,
