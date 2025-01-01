@@ -2,7 +2,6 @@
 import { Children, createElement } from 'react';
 import { useTypingAnimation } from '@/lib/hooks';
 import { cn } from '@/lib/utils';
-import { on } from 'events';
 
 export function Typewriter({
 	children,
