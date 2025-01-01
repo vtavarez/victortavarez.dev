@@ -1,26 +1,24 @@
 import { z } from 'zod';
 import { type TypedObject } from 'sanity';
 
-export const contactSchema = z
-	.object({
-		name: z
-			.string({ required_error: 'Name is Required' })
-			.max(100, { message: 'Name can not exceeed 100 characters.' })
-			.regex(/^[a-zA-Z ]+$/, {
-				message: 'Name can only contain letters and spaces.',
-			}),
-		email: z
-			.string({ required_error: 'Email is Required' })
-			.email({ message: 'Invalid email' }),
-		message: z
-			.string({ required_error: 'Please include a brief message.' })
-			.min(10, { message: 'Message must be at least 10 characters long.' })
-			.max(500, { message: 'Message can not exceed 500 characters.' })
-			.regex(/^[a-zA-Z0-9\s\.,!?()-]+$/, {
-				message: 'Message can only contain commonly used characters.',
-			}),
-	})
-	.required();
+export const contactSchema = z.object({
+	name: z
+		.string({ required_error: 'Name is Required' })
+		.max(100, { message: 'Name can not exceed 100 characters.' })
+		.regex(/^[a-zA-Z ]+$/, {
+			message: 'Name can only contain letters and spaces.',
+		}),
+	email: z
+		.string({ required_error: 'Email is Required' })
+		.email({ message: 'Invalid email' }),
+	message: z
+		.string({ required_error: 'Please include a brief message.' })
+		.min(10, { message: 'Message must be at least 10 characters long.' })
+		.max(500, { message: 'Message can not exceed 500 characters.' })
+		.regex(/^[a-zA-Z0-9\s\.,!?()-]+$/, {
+			message: 'Message can only contain commonly used characters.',
+		}),
+});
 
 export const contactResponseSchema = z.object({
 	accepted: z.array(z.string()),
