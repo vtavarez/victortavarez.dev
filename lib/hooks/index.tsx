@@ -1,4 +1,4 @@
-import { useReducer, useEffect, useState } from 'react';
+import { useReducer, useEffect, useState, useMemo } from 'react';
 import { typeWriter } from '@/lib/utils';
 import type { InputsFocusState } from '@/lib/types';
 
@@ -23,12 +23,15 @@ export const useFocusedFields = (fields: InputsFocusState) => {
 };
 
 export function useTypingAnimation(node: React.ReactElement, cb?: () => void) {
+	const [fps, _] = useState(Math.floor(1000 / 30));
+	const animation = useMemo(
+		() => typeWriter(node.props.children),
+		[node.props.children],
+	);
 	const [sentence, setSentence] = useState<string>('');
 	const [caret, setCaret] = useState<boolean>(true);
 
 	useEffect(() => {
-		const animation = typeWriter(node.props.children);
-		const fps = Math.floor(1000 / 30);
 		const interval = setInterval(() => {
 			const { value, done } = animation.next();
 			if (done) {
